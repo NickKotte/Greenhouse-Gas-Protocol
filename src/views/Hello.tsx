@@ -4,7 +4,7 @@ import { notifications } from "@mantine/notifications";
 import { spotlight } from "@mantine/spotlight";
 import { useStore } from "@nanostores/react";
 import { $currUser } from "../global-state/user";
-import { supabaseClient } from "../supabase/supabaseClient";
+import supabase from '../supabase/supabaseClient';
 
 function App() {
   const user = useStore($currUser);
@@ -18,16 +18,16 @@ function App() {
             shadow="lg"
             p="md"
             style={{
-              cursor: "pointer",
+              cursor: 'pointer',
             }}
             onClick={() => {
-              window.location.replace("https://supabase.com/");
+              window.location.replace('https://supabase.com/');
             }}
           >
             <Group>
               <img
                 style={{
-                  width: "100px",
+                  width: '100px',
                 }}
                 src="https://seeklogo.com/images/S/supabase-logo-DCC676FFE2-seeklogo.com.png"
               />
@@ -41,7 +41,7 @@ function App() {
 
             <Button
               onClick={() => {
-                supabaseClient.auth.signOut();
+                supabase.auth.signOut();
               }}
             >
               logout
@@ -57,7 +57,7 @@ function App() {
           <Button
             onClick={() => {
               notifications.show({
-                message: "im a notif",
+                message: 'im a notif',
               });
             }}
           >
@@ -66,10 +66,10 @@ function App() {
           <Button
             onClick={() => {
               openTypedModal({
-                modal: "testName",
-                title: "test name modal",
+                modal: 'testName',
+                title: 'test name modal',
                 body: {
-                  modalBody: "ojla",
+                  modalBody: 'ojla',
                 },
               });
             }}

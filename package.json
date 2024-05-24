@@ -20,6 +20,8 @@
     "@nanostores/react": "^0.7.2",
     "@supabase/supabase-js": "^2.43.1",
     "@tabler/icons-react": "^2.34.0",
+    "@tanstack/react-query": "^5.37.1",
+    "framer-motion": "^11.2.6",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "nanostores": "^0.10.3",
@@ -47,8 +49,9 @@
   },
   "prettier": {
     "trailingComma": "all",
-    "tabWidth": 2,
     "semi": true,
-    "singleQuote": true
+    "singleQuote": true,
+    "tabWidth": 4,
+    "useTabs": true
   }
 }

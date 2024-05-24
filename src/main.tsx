@@ -1,26 +1,33 @@
-import { MantineProvider } from "@mantine/core";
-import { ModalsProvider } from "@mantine/modals";
-import { Notifications } from "@mantine/notifications";
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
-import { mantineModals } from "./mantine/modals/modals.tsx";
-import { mantineTheme } from "./mantine/theme.ts";
-import { router } from "./router/router.tsx";
+import { ColorSchemeScript, MantineProvider } from '@mantine/core';
+import { ModalsProvider } from '@mantine/modals';
+import { Notifications } from '@mantine/notifications';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { RouterProvider } from 'react-router-dom';
+import { mantineModals } from './mantine/modals/modals.tsx';
+import { mantineTheme } from './mantine/theme.ts';
+import { router } from './router/router.tsx';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-import "@mantine/core/styles.css";
-import "@mantine/notifications/styles.css";
-import "@mantine/spotlight/styles.css";
-import { CustomSpotlight } from "./mantine/spotlight.tsx";
+import '@mantine/core/styles.css';
+import '@mantine/notifications/styles.css';
+import '@mantine/spotlight/styles.css';
+import { CustomSpotlight } from './mantine/spotlight.tsx';
+import UtilityBar from '@/components/UtilityBar.tsx';
+const queryClient = new QueryClient();
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <MantineProvider theme={mantineTheme}>
-      <Notifications />
-      <CustomSpotlight />
-      <ModalsProvider modals={mantineModals}>
-        <RouterProvider router={router} />
-      </ModalsProvider>
-    </MantineProvider>
-  </React.StrictMode>
+ReactDOM.createRoot(document.getElementById('root')!).render(
+	<React.StrictMode>
+		<ColorSchemeScript defaultColorScheme="auto" />
+		<MantineProvider theme={mantineTheme} defaultColorScheme="auto">
+			<QueryClientProvider client={queryClient}>
+				<Notifications />
+				<CustomSpotlight />
+				<ModalsProvider modals={mantineModals}>
+					<UtilityBar />
+					<RouterProvider router={router} />
+				</ModalsProvider>
+			</QueryClientProvider>
+		</MantineProvider>
+	</React.StrictMode>,
 );

@@ -1,22 +1,22 @@
 import { notifications } from "@mantine/notifications";
-import { supabaseClient } from "./supabaseClient";
-import { redirect } from "react-router-dom";
-import { User } from "@supabase/supabase-js";
-import { useState, useEffect } from "react";
+import supabase from './supabaseClient';
+import { redirect } from 'react-router-dom';
+import { User } from '@supabase/supabase-js';
+import { useState, useEffect } from 'react';
 
 export async function protectedPathLoader() {
-  const user = await supabaseClient.auth.getUser();
+  const user = await supabase.auth.getUser();
   if (user.error) {
     notifications.show({
       title: user.error.name,
       message: user.error.message,
-      color: "red",
+      color: 'red',
     });
     return null;
   }
 
   if (!user.data.user) {
-    redirect("/auth");
+    redirect('/auth');
   }
   return null;
 }
@@ -27,18 +27,18 @@ export const useUser = () => {
 
   useEffect(() => {
     setLoading(true);
-    supabaseClient.auth.getUser().then((user) => {
+    supabase.auth.getUser().then((user) => {
       setUser(user.data?.user || undefined);
       setLoading(false);
     });
   }, []);
 
   useEffect(() => {
-    supabaseClient.auth.onAuthStateChange((event, session) => {
-      if (event === "SIGNED_IN") {
+    supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN') {
         setUser(session?.user);
       }
-      if (event === "SIGNED_OUT") {
+      if (event === 'SIGNED_OUT') {
         setUser(undefined);
       }
       setLoading(false);
