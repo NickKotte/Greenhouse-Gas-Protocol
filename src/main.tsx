@@ -4,7 +4,7 @@ import { Notifications } from '@mantine/notifications';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
-import { mantineModals } from './mantine/modals/modals.tsx';
+import mantineModals from '@/components/modals';
 import { mantineTheme } from './mantine/theme.ts';
 import { router } from './router/router.tsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';

@@ -30,6 +30,7 @@ export type Facility = {
 };
 
 export type AppState = {
+	companyName: string;
 	inventoryYears: InventoryYear[];
 	facilities: Facility[];
 };

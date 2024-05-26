@@ -38,8 +38,10 @@ const Bento = ({
 			<Text c="dimmed" fz="sm" mb="xs">
 				{description}
 			</Text>
-			<Box p="md">{children}</Box>
-			<Divider my="xs" />
+			<Box p="md" py="xs">
+				{children}
+			</Box>
+			<Divider my="md" />
 			{onClick && (
 				<Button
 					radius="md"

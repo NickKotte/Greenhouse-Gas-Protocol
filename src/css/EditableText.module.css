@@ -1,0 +1,9 @@
+.editableText {
+	cursor: pointer;
+	transition: background-color 0.2s;
+	padding: 1rem 1rem;
+	border-radius: 6px;
+	&:hover {
+		background-color: light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+	}
+}

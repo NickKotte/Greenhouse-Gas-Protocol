@@ -2,6 +2,7 @@ import type { AppState } from '@/types';
 import { map } from 'nanostores';
 
 export const $appState = map<AppState>({
+	companyName: 'Apple Co.',
 	inventoryYears: [
 		{
 			year: '2022',

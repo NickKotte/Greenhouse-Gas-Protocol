@@ -1,7 +1,7 @@
 import { ActionIcon, Box, Group, NumberFormatter, Text } from '@mantine/core';
 import type { Facility } from '@/types';
 import { IconPencil } from '@tabler/icons-react';
-
+import { modals } from '@mantine/modals';
 const FacilityRow = ({ facility }: { facility: Facility }) => {
 	return (
 		<Group key={facility.name} justify="space-between" mb="lg">
@@ -32,10 +32,19 @@ const FacilityRow = ({ facility }: { facility: Facility }) => {
 				</Group>
 			</Box>
 			<ActionIcon
-				aria-label="Edit facility"
+				aria-label={`Edit ${facility.name}`}
 				variant="subtle"
 				c="dimmed"
 				size="lg"
+				onClick={() => {
+					modals.openContextModal({
+						modal: 'EditFacility',
+						innerProps: { facility },
+						title: 'Edit Facility',
+						radius: 'md',
+						size: 'lg',
+					});
+				}}
 			>
 				<IconPencil size={20} />
 			</ActionIcon>
