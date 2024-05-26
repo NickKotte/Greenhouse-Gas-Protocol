@@ -1,4 +1,4 @@
-import { ColorSchemeScript, MantineProvider } from '@mantine/core';
+import { Box, ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { ModalsProvider } from '@mantine/modals';
 import { Notifications } from '@mantine/notifications';
 import React from 'react';
@@ -25,7 +25,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 				<CustomSpotlight />
 				<ModalsProvider modals={mantineModals}>
 					<UtilityBar />
-					<RouterProvider router={router} />
+					<Box w="100%" h="100%">
+						<RouterProvider router={router} />
+					</Box>
 				</ModalsProvider>
 			</QueryClientProvider>
 		</MantineProvider>

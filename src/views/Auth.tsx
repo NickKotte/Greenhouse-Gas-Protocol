@@ -3,15 +3,17 @@ import {
 	Button,
 	Center,
 	Container,
-	Group,
 	Paper,
 	PasswordInput,
 	SegmentedControl,
 	TextInput,
 	Transition,
 	Alert,
-	Loader,
 	Image,
+	Text,
+	Group,
+	Title,
+	useMantineColorScheme,
 } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import {
@@ -21,32 +23,37 @@ import {
 	IconUserPlus,
 	IconLogin,
 } from '@tabler/icons-react';
-import { useUser } from '../supabase/loader';
-import { Navigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLoginUser, useRegisterUser } from '@/api/auth';
 import { motion } from 'framer-motion';
+import { useStore } from '@nanostores/react';
+import { $currUser } from '@/stores/user';
 
 export function Authentication() {
 	const [activeSegment, setActiveSegment] = useState('login');
+	const user = useStore($currUser);
+	const { colorScheme } = useMantineColorScheme();
 	const navigate = useNavigate();
 	const loginForm = useForm({
 		initialValues: {
 			email: '',
 			password: '',
+		},
+	});
+	const registerForm = useForm({
+		initialValues: {
+			email: '',
+			password: '',
 			confirmPassword: '',
 		},
-
 		validate: {
 			email: (value) =>
 				/^\S+@\S+$/.test(value) ? null : 'Invalid email',
 			password: (value) =>
-				activeSegment === 'login'
-					? null
-					: value.length < 6
-						? 'Password must be at least 6 characters long'
-						: null,
+				value.length < 6
+					? 'Password must be at least 6 characters long'
+					: null,
 			confirmPassword: (value, values) =>
 				activeSegment === 'register' && value !== values.password
 					? 'Passwords do not match'
@@ -60,10 +67,10 @@ export function Authentication() {
 
 	const paperVariants = {
 		hidden: { opacity: 0, y: 50 },
-		visible: { 
-			opacity: 1, 
+		visible: {
+			opacity: 1,
 			y: 0,
-			transition: { delay: 0.3 }
+			transition: { delay: 0.3 },
 		},
 	};
 	const {
@@ -73,7 +80,7 @@ export function Authentication() {
 		reset: resetLogin,
 	} = useLoginUser({
 		onSuccess: () => {
-			navigate('/');
+			navigate('/appid');
 		},
 	});
 	const {
@@ -83,7 +90,7 @@ export function Authentication() {
 		reset: resetRegister,
 	} = useRegisterUser({
 		onSuccess: () => {
-			navigate('/');
+			navigate('/appid');
 		},
 	});
 
@@ -94,7 +101,6 @@ export function Authentication() {
 		password: string;
 		confirmPassword?: string;
 	}) => {
-		console.log(values);
 		if (activeSegment === 'login') {
 			login(values);
 		} else {
@@ -103,15 +109,14 @@ export function Authentication() {
 	};
 
 	useEffect(() => {
+		if (user) {
+			navigate('/appId');
+		}
 		resetLogin();
 		resetRegister();
-	}, [activeSegment, resetLogin, resetRegister]);
+	}, [activeSegment, navigate, resetLogin, resetRegister, user]);
+	const isLogin = activeSegment === 'login';
 
-	// Redirect if logged in
-	const { user } = useUser();
-	if (user) {
-		return <Navigate to="/" />;
-	}
 	return (
 		<Box h="100vh" w="100vw">
 			<Center h="100vh" w="100%">
@@ -122,16 +127,56 @@ export function Authentication() {
 						variants={groupVariants}
 					>
 						<Group
-							bg="primary"
-							style={{
-								display: 'flex',
-								alignItems: 'center',
-								padding: 20,
-							}}
+							align="center"
+							justify="flex-start"
+							wrap="nowrap"
 						>
-							<Image src={'/logo.png'} alt="logo" />
+							<Image
+								src={'/icon.png'}
+								alt="logo"
+								style={{ height: 100 }}
+							/>
+							<Box>
+								<Title
+									fw={400}
+									style={{
+										fontSize: '2.5rem',
+										lineHeight: 0.7,
+										color:
+											colorScheme === 'dark'
+												? 'var(--mantine-color-dark-1)'
+												: 'var(--mantine-color-dark-3)',
+									}}
+								>
+									GREENHOUSE
+								</Title>
+								<Title
+									fw={400}
+									style={{
+										fontSize: '2.5rem',
+										color:
+											colorScheme === 'dark'
+												? 'var(--mantine-color-dark-1)'
+												: 'var(--mantine-color-dark-3)',
+									}}
+								>
+									GAS PROTOCOL
+								</Title>
+							</Box>
 						</Group>
 					</motion.div>
+					<Text size="md" mt="md" variant="gradient" fw={400}>
+						{/* Igniting the Green Factory Revolution with Data-Driven */}
+						{/* Decisions "Empowering Greener Manufacturing, One */}
+						{/* Facility at a Time" "Measure, Manage, and Mitigate: Your */}
+						{/* Path to Cleaner Production"  */}
+						"Catalyzing Sustainable Manufacturing Through Smarter
+						Energy Insights"
+						{/* "Igniting */}
+						{/* the Green Factory Revolution with Data-Driven Decisions" */}
+						{/* "Transforming Energy Data into Sustainable Manufacturing */}
+						{/* Strategies" */}
+					</Text>
 					<motion.div
 						initial="hidden"
 						animate="visible"
@@ -144,10 +189,15 @@ export function Authentication() {
 							radius="lg"
 							style={{ transition: 'height 0.3s' }}
 						>
+							<Text align="center" pb="lg">
+								To get started, please create an account or
+								login.
+							</Text>
 							<SegmentedControl
 								fullWidth
 								value={activeSegment}
 								onChange={(value) => setActiveSegment(value)}
+								radius="lg"
 								data={[
 									{
 										label: (
@@ -169,67 +219,77 @@ export function Authentication() {
 									},
 								]}
 							/>
-							<form onSubmit={loginForm.onSubmit(onSubmit)}>
+							<form
+								onSubmit={
+									isLogin
+										? loginForm.onSubmit(onSubmit)
+										: registerForm.onSubmit(onSubmit)
+								}
+							>
 								<TextInput
 									mt="md"
-									label="Email"
 									placeholder="Email"
+									radius="lg"
 									required
 									leftSection={<IconMail />}
-									{...loginForm.getInputProps('email')}
+									{...(isLogin
+										? loginForm.getInputProps('email')
+										: registerForm.getInputProps('email'))}
 								/>
 								<PasswordInput
-									label="Password"
 									placeholder="Password"
 									required
+									radius="lg"
 									mt="md"
 									leftSection={<IconLock />}
-									{...loginForm.getInputProps('password')}
+									{...(isLogin
+										? loginForm.getInputProps('password')
+										: registerForm.getInputProps(
+												'password',
+											))}
 								/>
 								<Transition
 									mounted={activeSegment === 'register'}
 									transition="fade"
-									duration={300}
+									duration={400}
 									timingFunction="ease"
 								>
 									{(styles) => (
 										<PasswordInput
-											label="Confirm Password"
 											placeholder="Your password"
 											required
 											mt="md"
+											radius="lg"
 											leftSection={<IconLock />}
-											{...loginForm.getInputProps(
+											{...registerForm.getInputProps(
 												'confirmPassword',
 											)}
 											style={styles}
 										/>
 									)}
 								</Transition>
-
-								{isLoading && (
-									<Center mt="xl">
-										<Loader />
-									</Center>
-								)}
-
-								{error && (
-									<Alert
-										mt="md"
-										color="red"
-										onClose={() => {
-											resetLogin();
-											resetRegister();
-										}}
-										withCloseButton
-										icon={<IconAlertCircle />}
+								<Text size="sm" mt="md" align="center">
+									{activeSegment === 'login'
+										? "Don't have an account? "
+										: 'Already have an account? '}
+									<Text
+										span
+										variant="gradient"
+										fw={700}
+										style={{ cursor: 'pointer' }}
+										onClick={() =>
+											setActiveSegment(
+												activeSegment === 'login'
+													? 'register'
+													: 'login',
+											)
+										}
 									>
-										{error instanceof Error
-											? error.message
-											: 'An error occurred'}
-									</Alert>
-								)}
-
+										{activeSegment === 'login'
+											? 'Create one'
+											: 'Login'}
+									</Text>
+								</Text>
 								<Button
 									fullWidth
 									mt="xl"
@@ -243,6 +303,22 @@ export function Authentication() {
 										: 'Register'}
 								</Button>
 							</form>
+							{error && (
+								<Alert
+									mt="md"
+									color="red"
+									onClose={() => {
+										resetLogin();
+										resetRegister();
+									}}
+									withCloseButton
+									icon={<IconAlertCircle />}
+								>
+									{error instanceof Error
+										? error.message
+										: 'An error occurred'}
+								</Alert>
+							)}
 						</Paper>
 					</motion.div>
 				</Container>
