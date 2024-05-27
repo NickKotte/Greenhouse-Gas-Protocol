@@ -12,6 +12,7 @@ import {
 } from '@tabler/icons-react';
 import Settings from '@/views/Settings';
 import { Workbook } from '@/views/Workbook';
+import { StationaryCombustion } from '@/views/StationaryCombustion';
 
 export const routes: Record<string, Route> = {
 	company: {
@@ -32,6 +33,7 @@ export const routes: Record<string, Route> = {
 				label: 'Stationary Combustion',
 				path: 'stationary-combustion',
 				icon: IconBuildingFactory2,
+				element: StationaryCombustion,
 			},
 			{
 				label: 'Mobile Combustion',
