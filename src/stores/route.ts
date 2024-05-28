@@ -13,6 +13,8 @@ import {
 import Settings from '@/views/Settings';
 import { Workbook } from '@/views/Workbook';
 import { StationaryCombustion } from '@/views/StationaryCombustion';
+import { MobileCombustion } from '@/views/MobileCombustion';
+import { PurchasedElectricity } from '@/views/PurchasedElectricity';
 
 export const routes: Record<string, Route> = {
 	company: {
@@ -39,11 +41,13 @@ export const routes: Record<string, Route> = {
 				label: 'Mobile Combustion',
 				path: 'mobile-combustion',
 				icon: IconTruckDelivery,
+				element: MobileCombustion,
 			},
 			{
 				label: 'Purchased Electricity',
 				path: 'purchased-electricity',
 				icon: IconSitemap,
+				element: PurchasedElectricity,
 			},
 		],
 	},

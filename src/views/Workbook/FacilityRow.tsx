@@ -39,7 +39,7 @@ const FacilityRow = ({ facility }: { facility: Facility }) => {
 				onClick={() => {
 					modals.openContextModal({
 						modal: 'EditFacility',
-						innerProps: { facility },
+						innerProps: { facility, isEditing: true },
 						title: 'Edit Facility',
 						radius: 'md',
 						size: 'lg',

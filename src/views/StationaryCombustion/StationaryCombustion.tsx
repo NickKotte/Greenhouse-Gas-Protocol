@@ -1,47 +1,10 @@
-import {
-	Accordion,
-	Box,
-	Button,
-	Center,
-	Container,
-	Divider,
-	Grid,
-	Group,
-	List,
-	NumberFormatter,
-	Paper,
-	Text,
-	ThemeIcon,
-	Title,
-	rem,
-} from '@mantine/core';
-import { $appState } from '@/stores/app';
-import { useStore } from '@nanostores/react';
-import classes from '@/css/Stationary.module.css';
-import {
-	IconCircle,
-	IconMessageCircle2,
-	IconNotebook,
-	IconPlus,
-} from '@tabler/icons-react';
-import FuelSelector from './FuelSelector';
-import FuelAmountInput from './FuelAmountInput';
+import { Box, Button, List, ThemeIcon, Title, rem } from '@mantine/core';
+import { IconMessageCircle2, IconNotebook } from '@tabler/icons-react';
 import { modals } from '@mantine/modals';
-import AddEntrySC from '../../components/modals/AddEntrySC';
+import SCRow from './SCRow';
+import WorkbookTable from '@/components/WorkbookTable';
+import type { StationaryCombustionData } from '@/types';
 
-interface StationaryCombustionData {
-	facilityId: string;
-	year: number;
-	fuel: string;
-	amountOfFuel: number;
-	units: string;
-	co2Tonnes: number;
-	ch4Tonnes: number;
-	n2oTonnes: number;
-	co2eTonnes: number;
-	biofuelCo2Tonnes: number;
-	efKgCo2e: number;
-}
 const mockData: StationaryCombustionData[] = [
 	{
 		facilityId: 'Warehouse 1',
@@ -150,8 +113,6 @@ const mockData: StationaryCombustionData[] = [
 ];
 
 const StationaryCombustion = () => {
-	const { inventoryYears } = useStore($appState);
-
 	const groupedByYear = mockData.reduce(
 		(acc: { [key: number]: StationaryCombustionData[] }, curr) => {
 			const year = curr.year;
@@ -201,174 +162,18 @@ const StationaryCombustion = () => {
 				mb="md"
 				leftSection={<IconNotebook />}
 				onClick={() =>
-					modals.open({
+					modals.openContextModal({
+						modal: 'AddEntrySC',
+						innerProps: {},
+						title: 'Add a new entry',
 						radius: 'md',
-						children: (
-							<AddEntrySC
-								innerProps={{
-									facility: {
-										name: '',
-										streetAddress: '',
-										city: '',
-										state: '',
-										zip: '',
-										eGrid: '',
-										squareFootage: 0,
-									},
-								}}
-							/>
-						),
+						size: 'lg',
 					})
 				}
 			>
 				Add a new entry
 			</Button>
-			{!values.length && (
-				<Center>
-					<Text size="sm" c="dimmed">
-						No data to display. Start by hitting the add button.
-					</Text>
-				</Center>
-			)}
-			<Accordion multiple>
-				{values.map((entry, index) => (
-					<Paper p="lg" mb="md" radius="md" key={index}>
-						<Text size="xl" mb="md" fw={700}>
-							{entry[0].year}
-						</Text>
-						{entry.map((item) => (
-							<Accordion.Item
-								key={item.facilityId}
-								value={item.facilityId}
-								style={{
-									borderBottom: 'none',
-								}}
-							>
-								<Group
-									key={item.facilityId}
-									gap="0px"
-									my="xs"
-									align="stretch"
-									className={classes.container}
-								>
-									<Box flex={1} className={classes.row}>
-										<Grid grow className={classes.userData}>
-											<Grid.Col span={4}>
-												<Text size="md" fw={500}>
-													{item.facilityId}
-												</Text>
-											</Grid.Col>
-											<Grid.Col span={4}>
-												<FuelSelector />
-											</Grid.Col>
-											<Grid.Col span={4}>
-												<FuelAmountInput
-													amount={item.amountOfFuel}
-													units={item.units}
-												/>
-											</Grid.Col>
-										</Grid>
-										<Accordion.Panel>
-											<Divider my="xs" />
-											<Grid
-												className={classes.ghgEmissions}
-											>
-												<Grid.Col span={2}>
-													<Text c="dimmed" size="sm">
-														CO2
-													</Text>
-													<Text c="orange">
-														<NumberFormatter
-															value={
-																item.co2Tonnes
-															}
-															decimalScale={3}
-															suffix=" t"
-														/>
-													</Text>
-												</Grid.Col>
-												<Grid.Col span={2}>
-													<Text c="dimmed" size="sm">
-														CH4
-													</Text>
-													<Text c="orange">
-														<NumberFormatter
-															value={
-																item.ch4Tonnes
-															}
-															decimalScale={3}
-															suffix=" t"
-														/>
-													</Text>
-												</Grid.Col>
-												<Grid.Col span={2}>
-													<Text c="dimmed" size="sm">
-														N2O
-													</Text>
-													<Text c="orange">
-														<NumberFormatter
-															value={
-																item.n2oTonnes
-															}
-															decimalScale={3}
-															suffix=" t"
-														/>
-													</Text>
-												</Grid.Col>
-												<Grid.Col span={2}>
-													<Text c="dimmed" size="sm">
-														CO2e
-													</Text>
-													<Text c="orange">
-														<NumberFormatter
-															value={
-																item.co2eTonnes
-															}
-															decimalScale={3}
-															suffix=" t"
-														/>
-													</Text>
-												</Grid.Col>
-												<Grid.Col span={2}>
-													<Text c="dimmed" size="sm">
-														Biofuels
-													</Text>
-													<Text c="orange">
-														<NumberFormatter
-															value={
-																item.biofuelCo2Tonnes
-															}
-															decimalScale={3}
-															suffix=" t"
-														/>
-													</Text>
-												</Grid.Col>
-											</Grid>
-										</Accordion.Panel>
-									</Box>
-									<Accordion.Control w="fit-content">
-										<Box>
-											<Text size="sm" c="dimmed">
-												kgCO2e/unit
-											</Text>
-											<Text
-												variant="text"
-												c="orange"
-												size="lg"
-											>
-												<NumberFormatter
-													value={item.efKgCo2e}
-													decimalScale={3}
-												/>
-											</Text>
-										</Box>
-									</Accordion.Control>
-								</Group>
-							</Accordion.Item>
-						))}
-					</Paper>
-				))}
-			</Accordion>
+			<WorkbookTable values={values} RowComponent={SCRow} />
 		</Box>
 	);
 };

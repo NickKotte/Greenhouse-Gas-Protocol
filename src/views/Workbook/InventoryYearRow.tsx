@@ -23,7 +23,7 @@ const InventoryYearRow = ({ year }: { year: InventoryYear }) => {
 					modals.openContextModal({
 						modal: 'EditInventoryYear',
 						radius: 'md',
-						innerProps: { year },
+						innerProps: { year, isEditing: true },
 						title: `Edit ${year.year} Inventory Year`,
 						size: 'lg',
 					});

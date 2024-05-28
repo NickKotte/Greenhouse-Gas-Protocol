@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { ActionIcon, Box, Group, Select, Text } from '@mantine/core';
-import { IconPencil } from '@tabler/icons-react';
+import { ActionIcon, Box, Group, Select, Text, Tooltip } from '@mantine/core';
+import { IconGasStation, IconPencil } from '@tabler/icons-react';
 
 const fuelTypes = [
 	{
@@ -240,37 +240,97 @@ const fuelTypes = [
 		value: 'wood',
 	},
 ];
-export default function FuelSelector() {
+export default function FuelSelector({
+	fuelType,
+	editable = true,
+	required = false,
+	onDoneEditing = () => {},
+	setFuelType = () => {},
+}: {
+	/**
+	 * The fuel type
+	 */
+	fuelType: string | null;
+	/**
+	 * Whether the input is required
+	 * @default false
+	 */
+	required?: boolean;
+	/**
+	 * Whether the input is editable
+	 * @default true
+	 */
+	editable?: boolean;
+	/**
+	 * Callback function to be called when editable is false and the units are changed
+	 * @required editable = false
+	 */
+	setFuelType?: (fuelType: string) => void;
+	/**
+	 * Callback function to be called when editable is true and the user is done editing
+	 * @param {string} fuelType - The fuel type
+	 */
+	onDoneEditing?: (fuelType: string) => void;
+}) {
 	const [searchValue, setSearchValue] = useState('');
+	const [localValue, setLocalValue] = useState(fuelTypes[0].value);
 	const [editing, setEditing] = useState(false);
+	const handleChange = (value: string | null) => {
+		if (value === null) return;
+		if (editable) {
+			setLocalValue(value);
+		} else {
+			setFuelType(value);
+		}
+	};
+	const handleDoneEditing = () => {
+		if (!editable) return;
+		setEditing(false);
+		onDoneEditing?.(localValue);
+	};
 	return (
 		<>
-			{editing ? (
+			{editing || !editable ? (
 				<Select
+					value={editable ? localValue : fuelType}
+					onChange={handleChange}
 					searchable
 					searchValue={searchValue}
 					onSearchChange={setSearchValue}
 					data={fuelTypes}
-					autoFocus
-					onBlur={() => setEditing(false)}
+					autoFocus={editable}
+					onBlur={handleDoneEditing}
+					label="Fuel Type"
+					leftSection={<IconGasStation />}
+					required={required}
+					allowDeselect={false}
 				/>
 			) : (
-				<Group>
-					<Box>
-						<Text size="sm" c="dimmed">
-							Fuel Type
-						</Text>
-						<Text>{fuelTypes[0].label}</Text>
-					</Box>
-					<ActionIcon
-						onClick={() => setEditing(true)}
-						variant="subtle"
-						size="lg"
-						c="gray"
-					>
-						<IconPencil />
-					</ActionIcon>
-				</Group>
+				<Box>
+					<Text size="sm" c="dimmed">
+						Fuel Type
+					</Text>
+					<Group wrap="nowrap">
+						<IconGasStation style={{ color: 'gray' }} size={20} />
+						<Tooltip
+							label={searchValue || fuelTypes[0].label}
+							withArrow
+							position="bottom"
+						>
+							<Text truncate="end" w={200}>
+								{searchValue || fuelTypes[0].label}
+							</Text>
+						</Tooltip>
+						<ActionIcon
+							onClick={() => setEditing(true)}
+							variant="subtle"
+							size="lg"
+							c="gray"
+						>
+							<IconPencil />
+						</ActionIcon>
+					</Group>
+				</Box>
 			)}
 		</>
 	);

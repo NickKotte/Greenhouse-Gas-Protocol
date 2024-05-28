@@ -1,23 +1,17 @@
 import type { Facility } from '@/types';
-import {
-	Box,
-	Button,
-	Group,
-	TextInput,
-	NumberInput,
-	Divider,
-	Text,
-} from '@mantine/core';
-import { ContextModalProps, modals } from '@mantine/modals';
+import { Group, TextInput, NumberInput, Divider } from '@mantine/core';
+import { ContextModalProps } from '@mantine/modals';
 import { useState } from 'react';
-import { IconDeviceFloppy, IconRuler, IconTrash } from '@tabler/icons-react';
+import { IconRuler } from '@tabler/icons-react';
 import { $appState } from '@/stores/app';
 import { useStore } from '@nanostores/react';
+import EditWrapper from './EditWrapper';
 
 const EditFacility = ({
 	context,
 	innerProps,
-}: ContextModalProps<{ facility: Facility }>) => {
+	id,
+}: ContextModalProps<{ facility: Facility; isEditing?: boolean }>) => {
 	const { facilities } = useStore($appState);
 	const [nameField, setNameField] = useState(
 		innerProps.facility ? innerProps.facility.name : '',
@@ -40,20 +34,6 @@ const EditFacility = ({
 	const [squareFootageField, setSquareFootageField] = useState<
 		number | undefined
 	>(innerProps.facility ? innerProps.facility.squareFootage : undefined);
-	const openDeleteModal = () =>
-		modals.openConfirmModal({
-			title: 'Delete this entry',
-			radius: 'md',
-			children: (
-				<Text size="sm" p="lg">
-					Are you sure you want to delete this entry? This action is
-					destructive and may affect other parts of the workbook.
-				</Text>
-			),
-			labels: { confirm: 'Delete', cancel: "Don't delete it" },
-			confirmProps: { color: 'red' },
-			onConfirm: () => handleDelete(),
-		});
 
 	const handleDelete = () => {
 		//TODO: remove by ID once we have those
@@ -61,7 +41,7 @@ const EditFacility = ({
 			(facility) => facility.name !== innerProps.facility?.name,
 		);
 		$appState.setKey('facilities', newFacilities);
-		context.closeAll();
+		return true;
 	};
 
 	const handleSave = () => {
@@ -76,10 +56,16 @@ const EditFacility = ({
 			squareFootage: squareFootageField ?? 0,
 		};
 		$appState.setKey('facilities', [...facilities, newEntry]);
-		context.closeAll();
+		return true;
 	};
 	return (
-		<Box p="md">
+		<EditWrapper
+			context={context}
+			innerProps={innerProps}
+			onSave={handleSave}
+			onDelete={handleDelete}
+			id={id}
+		>
 			<TextInput
 				label="Name"
 				placeholder="Facility Name"
@@ -151,25 +137,7 @@ const EditFacility = ({
 				step={100}
 				leftSection={<IconRuler />}
 			/>
-			<Group justify="flex-end" mt="md">
-				<Button
-					color="red"
-					leftSection={<IconTrash />}
-					radius="md"
-					onClick={openDeleteModal}
-				>
-					Delete
-				</Button>
-				<Button
-					color="blue"
-					radius="md"
-					leftSection={<IconDeviceFloppy />}
-					onClick={handleSave}
-				>
-					Save
-				</Button>
-			</Group>
-		</Box>
+		</EditWrapper>
 	);
 };
 

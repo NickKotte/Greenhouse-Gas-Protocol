@@ -1,17 +1,19 @@
 import type { InventoryYear } from '@/types';
-import { Box, Button, Group, TextInput, Text } from '@mantine/core';
-import { ContextModalProps, modals } from '@mantine/modals';
+import { TextInput, Text } from '@mantine/core';
+import { ContextModalProps } from '@mantine/modals';
 import { useState } from 'react';
 import { YearPickerInput } from '@mantine/dates';
 import '@mantine/dates/styles.css';
-import { IconCalendar, IconDeviceFloppy, IconTrash } from '@tabler/icons-react';
+import { IconCalendar } from '@tabler/icons-react';
 import { $appState } from '@/stores/app';
 import { useStore } from '@nanostores/react';
+import EditWrapper from './EditWrapper';
 
 const EditInventoryYear = ({
 	context,
 	innerProps,
-}: ContextModalProps<{ year: InventoryYear }>) => {
+	id,
+}: ContextModalProps<{ year: InventoryYear; isEditing?: boolean }>) => {
 	const { inventoryYears } = useStore($appState);
 	const [error, setError] = useState('');
 	const [yearField, setYearField] = useState<Date | null>(
@@ -20,20 +22,6 @@ const EditInventoryYear = ({
 	const [descriptionField, setDescriptionField] = useState(
 		innerProps.year ? innerProps.year.description : '',
 	);
-	const openDeleteModal = () =>
-		modals.openConfirmModal({
-			title: 'Delete this entry',
-			radius: 'md',
-			children: (
-				<Text size="sm" p="lg">
-					Are you sure you want to delete this entry? This action is
-					destructive and may affect other parts of the workbook.
-				</Text>
-			),
-			labels: { confirm: 'Delete', cancel: "Don't delete it" },
-			confirmProps: { color: 'red' },
-			onConfirm: () => handleDelete(),
-		});
 
 	const handleDelete = () => {
 		//TODO: remove by ID once we have those
@@ -46,7 +34,7 @@ const EditInventoryYear = ({
 				inventoryYears.filter((year) => year.year !== yearFound.year),
 			);
 		}
-		context.closeAll();
+		return true;
 	};
 
 	const handleSave = () => {
@@ -56,17 +44,23 @@ const EditInventoryYear = ({
 		);
 		if (yearFound) {
 			setError('This year already exists in this workbook');
-			return;
+			return false;
 		}
 		const newEntry: InventoryYear = {
 			year: String(yearField?.getFullYear() ?? ''),
 			description: descriptionField,
 		};
 		$appState.setKey('inventoryYears', [...inventoryYears, newEntry]);
-		context.closeAll();
+		return true;
 	};
 	return (
-		<Box p="md">
+		<EditWrapper
+			context={context}
+			innerProps={innerProps}
+			onSave={handleSave}
+			onDelete={handleDelete}
+			id={id}
+		>
 			<YearPickerInput
 				value={yearField}
 				onChange={setYearField}
@@ -85,28 +79,10 @@ const EditInventoryYear = ({
 				onChange={(e) => setDescriptionField(e.target.value)}
 				mb="lg"
 			/>
-			<Group justify="flex-end" mt="md">
-				<Button
-					color="red"
-					leftSection={<IconTrash />}
-					radius="md"
-					onClick={openDeleteModal}
-				>
-					Delete
-				</Button>
-				<Button
-					color="blue"
-					radius="md"
-					leftSection={<IconDeviceFloppy />}
-					onClick={handleSave}
-				>
-					Save
-				</Button>
-			</Group>
 			<Text size="sm" c="red">
 				{error}
 			</Text>
-		</Box>
+		</EditWrapper>
 	);
 };
 
