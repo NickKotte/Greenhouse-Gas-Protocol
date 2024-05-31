@@ -1,14 +1,22 @@
 import { Grid, Text } from '@mantine/core';
-import type { StationaryCombustionData } from '@/types';
-import FuelAmountInput from '../../components/FuelAmountInput';
-import FuelSelector from '../../components/FuelSelector';
+import type {
+	RowComponentProps,
+	SelectorValue,
+	StationaryCombustionData,
+} from '@/types';
+import Selector from '@/components/Editables/Selector';
+import { IconFlame, IconGasStation } from '@tabler/icons-react';
+import calculateEmissionFactor from '@/util';
 
-const SCRow = ({ item }: { item: StationaryCombustionData }) => {
-	const handleFuelSelectorUpdate = (fuelType: string) => {
-		console.log(fuelType);
-	};
-	const handleFuelAmountUpdate = (amount: number, units: string) => {
-		console.log(amount, units);
+const SCRow = ({
+	item,
+	triggerAnimation = () => {},
+}: RowComponentProps<StationaryCombustionData>) => {
+	const handleUpdate = (value: SelectorValue) => {
+		triggerAnimation();
+		console.log(value);
+		const values = calculateEmissionFactor('Ethanol (100%)', 100, 'mmBtu');
+		console.log(values);
 	};
 	return (
 		<>
@@ -18,16 +26,23 @@ const SCRow = ({ item }: { item: StationaryCombustionData }) => {
 				</Text>
 			</Grid.Col>
 			<Grid.Col span={4}>
-				<FuelSelector
-					fuelType={item.fuel}
-					onDoneEditing={handleFuelSelectorUpdate}
+				<Selector
+					label="Fuel Type"
+					type="SC"
+					defaultDropdownValue={item.fuel}
+					onDoneEditing={handleUpdate}
+					Icon={IconGasStation}
 				/>
 			</Grid.Col>
 			<Grid.Col span={4}>
-				<FuelAmountInput
-					amount={item.amountOfFuel}
-					units={item.units}
-					onDoneEditing={handleFuelAmountUpdate}
+				<Selector
+					label="Amount of Fuel"
+					type="SC"
+					defaultNumberValue={item.amountOfFuel}
+					defaultDropdownValue={item.units}
+					onDoneEditing={handleUpdate}
+					Icon={IconFlame}
+					withNumerable
 				/>
 			</Grid.Col>
 		</>

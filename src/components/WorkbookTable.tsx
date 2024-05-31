@@ -2,13 +2,12 @@ import type {
 	MobileCombustionData,
 	StationaryCombustionData,
 	PurchasedElectricityData,
+	RowComponentProps,
 } from '@/types';
 import { Accordion, Center, Paper, Text } from '@mantine/core';
 import WorkbookRow from './WorkbookRow';
-
-interface RowComponentProps<T> {
-	item: T;
-}
+import classes from '@/css/Workbook.module.css';
+import { useState } from 'react';
 
 const WorkbookTable = <
 	T extends
@@ -22,6 +21,11 @@ const WorkbookTable = <
 	values: T[][];
 	RowComponent: React.ComponentType<RowComponentProps<T>>;
 }) => {
+	const [animatedRow, setAnimatedRow] = useState<string | null>(null);
+	const triggerAnimation = (id: string) => {
+		setAnimatedRow(id);
+		setTimeout(() => setAnimatedRow(null), 1000);
+	};
 	if (!RowComponent) {
 		return null;
 	}
@@ -42,8 +46,21 @@ const WorkbookTable = <
 						{row[0].year}
 					</Text>
 					{row.map((item, index) => (
-						<WorkbookRow key={index} item={item}>
-							<RowComponent item={item} />
+						<WorkbookRow
+							key={index}
+							item={item}
+							className={
+								animatedRow === item.facilityId
+									? classes['scale-up-down']
+									: ''
+							}
+						>
+							<RowComponent
+								item={item}
+								triggerAnimation={() =>
+									triggerAnimation(item.facilityId)
+								}
+							/>
 						</WorkbookRow>
 					))}
 				</Paper>

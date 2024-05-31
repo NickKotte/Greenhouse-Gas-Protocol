@@ -26,10 +26,13 @@ export const routes: Record<string, Route> = {
 				label: 'Create Report',
 			},
 			{
-				label: 'Workbook',
+				label: 'Workbook Data',
 				path: 'workbook',
 				icon: IconNotebook,
 				element: Workbook,
+			},
+			{
+				label: 'Scope 1',
 			},
 			{
 				label: 'Stationary Combustion',
@@ -42,6 +45,9 @@ export const routes: Record<string, Route> = {
 				path: 'mobile-combustion',
 				icon: IconTruckDelivery,
 				element: MobileCombustion,
+			},
+			{
+				label: 'Scope 2',
 			},
 			{
 				label: 'Purchased Electricity',

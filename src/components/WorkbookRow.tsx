@@ -7,7 +7,7 @@ import {
 	NumberFormatter,
 	Text,
 } from '@mantine/core';
-import classes from '@/css/Stationary.module.css';
+import classes from '@/css/Workbook.module.css';
 import type {
 	MobileCombustionData,
 	PurchasedElectricityData,
@@ -17,12 +17,14 @@ import type {
 const WorkbookRow = ({
 	children,
 	item,
+	className,
 }: {
 	children: React.ReactNode;
 	item:
 		| StationaryCombustionData
 		| MobileCombustionData
 		| PurchasedElectricityData;
+	className?: string;
 }) => {
 	return (
 		<Accordion.Item
@@ -38,7 +40,7 @@ const WorkbookRow = ({
 				align="stretch"
 				className={classes.container}
 			>
-				<Box flex={1} className={classes.row}>
+				<Box flex={1} className={`${classes.row} ${className}`}>
 					<Grid grow className={classes.userData}>
 						{children}
 					</Grid>

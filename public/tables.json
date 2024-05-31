@@ -1,0 +1,4199 @@
+{
+  "Table11": [
+    {
+      "Common Name": "Carbon dioxide",
+      "Formula": "CO2",
+      "AR4": 1,
+      "AR5": 1
+    },
+    {
+      "Common Name": "Methane",
+      "Formula": "CH4",
+      "AR4": 25,
+      "AR5": 28
+    },
+    {
+      "Common Name": "Nitrous oxide",
+      "Formula": "N2O",
+      "AR4": 298,
+      "AR5": 265
+    },
+    {
+      "Common Name": "Nitrogen trifluoride",
+      "Formula": "NF3",
+      "AR4": 17200,
+      "AR5": 16100
+    },
+    {
+      "Common Name": "Sulfur hexafluoride",
+      "Formula": "SF6",
+      "AR4": 22800,
+      "AR5": 23500
+    },
+    {
+      "Common Name": "Hydrofluorocarbons (HFCs)"
+    },
+    {
+      "Common Name": "HFC-23 (R-23)",
+      "Formula": "CHF3",
+      "Chemical Name": "trifluoromethane",
+      "AR4": 14800,
+      "AR5": 12400
+    },
+    {
+      "Common Name": "HFC-32 (R-32)",
+      "Formula": "CH2F2",
+      "Chemical Name": "difluoromethane",
+      "AR4": 675,
+      "AR5": 677
+    },
+    {
+      "Common Name": "HFC-41 (R-41)",
+      "Formula": "CH3F",
+      "Chemical Name": "fluoromethane",
+      "AR4": 92,
+      "AR5": 116
+    },
+    {
+      "Common Name": "HFC-125 (R-125)",
+      "Formula": "C2HF5",
+      "Chemical Name": "pentafluoroethane",
+      "AR4": 3500,
+      "AR5": 3170
+    },
+    {
+      "Common Name": "HFC-134 (R-134)",
+      "Formula": "C2H2F4",
+      "Chemical Name": "1,1,2,2-tetrafluoroethane",
+      "AR4": 1100,
+      "AR5": 1120
+    },
+    {
+      "Common Name": "HFC-134a (R-134a)",
+      "Formula": "C2H2F4",
+      "Chemical Name": "1,1,1,2-tetrafluoroethane",
+      "AR4": 1430,
+      "AR5": 1300
+    },
+    {
+      "Common Name": "HFC-143 (R-143)",
+      "Formula": "C2H3F3",
+      "Chemical Name": "1,1,2-trifluoroethane",
+      "AR4": 353,
+      "AR5": 328
+    },
+    {
+      "Common Name": "HFC-143a (R-143a)",
+      "Formula": "C2H3F3",
+      "Chemical Name": "1,1,1-trifluoroethane",
+      "AR4": 4470,
+      "AR5": 4800
+    },
+    {
+      "Common Name": "HFC-152 (R-152)",
+      "Formula": "C2H4F2",
+      "Chemical Name": "1,2-difluoroethane",
+      "AR4": 53,
+      "AR5": 16
+    },
+    {
+      "Common Name": "HFC-152a (R-152a)",
+      "Formula": "C2H4F2",
+      "Chemical Name": "1,1-difluoroethane",
+      "AR4": 124,
+      "AR5": 138
+    },
+    {
+      "Common Name": "HFC-161 (R-161)",
+      "Formula": "C2H5F",
+      "Chemical Name": "fluoroethane",
+      "AR4": 12,
+      "AR5": 4
+    },
+    {
+      "Common Name": "HFC-227ea (R-227ea)",
+      "Formula": "C3HF7",
+      "Chemical Name": "1,1,1,2,3,3,3-heptafluoropropane",
+      "AR4": 3220,
+      "AR5": 3350
+    },
+    {
+      "Common Name": "HFC-236cb (R-236cb)",
+      "Formula": "C3H2F6",
+      "Chemical Name": "1,1,1,2,2,3-hexafluoropropane",
+      "AR4": 1340,
+      "AR5": 1120
+    },
+    {
+      "Common Name": "HFC-236ea (R-236ea)",
+      "Formula": "C3H2F6",
+      "Chemical Name": "1,1,1,2,3,3-hexafluoropropane",
+      "AR4": 1370,
+      "AR5": 1330
+    },
+    {
+      "Common Name": "HFC-236fa (R-236fa)",
+      "Formula": "C3H2F6",
+      "Chemical Name": "1,1,1,3,3,3-hexafluoropropane",
+      "AR4": 9810,
+      "AR5": 8060
+    },
+    {
+      "Common Name": "HFC-245ca (R-245ca)",
+      "Formula": "C3H3F5",
+      "Chemical Name": "1,1,2,2,3-pentafluoropropane",
+      "AR4": 693,
+      "AR5": 716
+    },
+    {
+      "Common Name": "HFC-245fa (R-245fa)",
+      "Formula": "C3H3F5",
+      "Chemical Name": "1,1,1,3,3-pentafluoropropane",
+      "AR4": 1030,
+      "AR5": 858
+    },
+    {
+      "Common Name": "HFC-365mfc  ",
+      "Formula": "C4H5F5",
+      "Chemical Name": "1,1,1,3,3-pentafluorobutane",
+      "AR4": 794,
+      "AR5": 804
+    },
+    {
+      "Common Name": "HFC-43-10mee (R-4310)",
+      "Formula": "C5H2F10",
+      "Chemical Name": "1,1,1,2,3,4,4,5,5,5-decafluoropentane",
+      "AR4": 1640,
+      "AR5": 1650
+    },
+    {
+      "Common Name": "Perfluorocarbons (PFCs)"
+    },
+    {
+      "Common Name": "PFC-14 (Perfluoromethane)",
+      "Formula": "CF4",
+      "Chemical Name": "tetrafluoromethane",
+      "AR4": 7390,
+      "AR5": 6630
+    },
+    {
+      "Common Name": "PFC-116 (Perfluoroethane)  ",
+      "Formula": "C2F6",
+      "Chemical Name": "hexafluoroethane",
+      "AR4": 12200,
+      "AR5": 11100
+    },
+    {
+      "Common Name": "PFC-218 (Perfluoropropane)  ",
+      "Formula": "C3F8",
+      "Chemical Name": "octafluoropropane",
+      "AR4": 8830,
+      "AR5": 8900
+    },
+    {
+      "Common Name": "PFC-318 (Perfluorocyclobutane)",
+      "Formula": "c-C4F8",
+      "Chemical Name": "octafluorocyclobutane",
+      "AR4": 10300,
+      "AR5": 9540
+    },
+    {
+      "Common Name": "PFC-3-1-10 (Perfluorobutane)  ",
+      "Formula": "C4F10",
+      "Chemical Name": "decafluorobutane",
+      "AR4": 8860,
+      "AR5": 9200
+    },
+    {
+      "Common Name": "PFC-4-1-12 (Perfluoropentane)  ",
+      "Formula": "C5F12",
+      "Chemical Name": "dodecafluoropentane",
+      "AR4": 9160,
+      "AR5": 8550
+    },
+    {
+      "Common Name": "PFC-5-1-14 (Perfluorohexane)  ",
+      "Formula": "C6F14",
+      "Chemical Name": "tetradecafluorohexane",
+      "AR4": 9300,
+      "AR5": 7910
+    },
+    {
+      "Common Name": "PFC-9-1-18 (Perfluorodecalin)  ",
+      "Formula": "C10F18",
+      "AR4": ">7,500",
+      "AR5": 7190
+    },
+    {
+      "Common Name": "Unknown",
+      "Chemical Name": "Assumes 65% actual HCFC-123 GWP, 12% HFC-134a GWP, and 23% actual HCFC-22 GWP***",
+      "AR4": 637.95,
+      "AR5": 612.15
+    }
+  ],
+  "Table12": [
+    {
+      "Refrigerant Blend": "R-401A",
+      "Gas": "HFC",
+      "AR4": 16.12,
+      "AR5": 17.94
+    },
+    {
+      "Refrigerant Blend": "R-401B",
+      "Gas": "HFC",
+      "AR4": 14,
+      "AR5": 15
+    },
+    {
+      "Refrigerant Blend": "R-401C",
+      "Gas": "HFC",
+      "AR4": 18.6,
+      "AR5": 20.7
+    },
+    {
+      "Refrigerant Blend": "R-402A",
+      "Gas": "HFC",
+      "AR4": 2100,
+      "AR5": 1902
+    },
+    {
+      "Refrigerant Blend": "R-402B",
+      "Gas": "HFC",
+      "AR4": 1330,
+      "AR5": 1205
+    },
+    {
+      "Refrigerant Blend": "R-403A",
+      "Gas": "PFC",
+      "AR4": 1766,
+      "AR5": 1780
+    },
+    {
+      "Refrigerant Blend": "R-403B",
+      "Gas": "PFC",
+      "AR4": 3444,
+      "AR5": 3471
+    },
+    {
+      "Refrigerant Blend": "R-404A",
+      "Gas": "HFC",
+      "AR4": 3922,
+      "AR5": 3943
+    },
+    {
+      "Refrigerant Blend": "R-407A",
+      "Gas": "HFC",
+      "AR4": 2107,
+      "AR5": 1923
+    },
+    {
+      "Refrigerant Blend": "R-407B",
+      "Gas": "HFC",
+      "AR4": 2804,
+      "AR5": 2547
+    },
+    {
+      "Refrigerant Blend": "R-407C",
+      "Gas": "HFC",
+      "AR4": 1774,
+      "AR5": 1624
+    },
+    {
+      "Refrigerant Blend": "R-407D",
+      "Gas": "HFC",
+      "AR4": 1627,
+      "AR5": 1487
+    },
+    {
+      "Refrigerant Blend": "R-407E",
+      "Gas": "HFC",
+      "AR4": 1552,
+      "AR5": 1425
+    },
+    {
+      "Refrigerant Blend": "R-407F",
+      "Gas": "HFC",
+      "AR4": 1825,
+      "AR5": 1674
+    },
+    {
+      "Refrigerant Blend": "R-408A",
+      "Gas": "HFC",
+      "AR4": 2301,
+      "AR5": 2430
+    },
+    {
+      "Refrigerant Blend": "R-410A",
+      "Gas": "HFC",
+      "AR4": 2088,
+      "AR5": 1924
+    },
+    {
+      "Refrigerant Blend": "R-410B",
+      "Gas": "HFC",
+      "AR4": 2229,
+      "AR5": 2048
+    },
+    {
+      "Refrigerant Blend": "R-411A",
+      "Gas": "HFC",
+      "AR4": 14,
+      "AR5": 15
+    },
+    {
+      "Refrigerant Blend": "R-411B",
+      "Gas": "HFC",
+      "AR4": 3.72,
+      "AR5": 4.14
+    },
+    {
+      "Refrigerant Blend": "R-412A",
+      "Gas": "PFC",
+      "AR4": 442,
+      "AR5": 445
+    },
+    {
+      "Refrigerant Blend": "R-415A",
+      "Gas": "HFC",
+      "AR4": 22.32,
+      "AR5": 24.84
+    },
+    {
+      "Refrigerant Blend": "R-415B",
+      "Gas": "HFC",
+      "AR4": 93,
+      "AR5": 104
+    },
+    {
+      "Refrigerant Blend": "R-416A",
+      "Gas": "HFC",
+      "AR4": 843.7,
+      "AR5": 767
+    },
+    {
+      "Refrigerant Blend": "R-417A",
+      "Gas": "HFC",
+      "AR4": 2346,
+      "AR5": 2127
+    },
+    {
+      "Refrigerant Blend": "R-417B",
+      "Gas": "HFC",
+      "AR4": 3027,
+      "AR5": 2742
+    },
+    {
+      "Refrigerant Blend": "R-417C",
+      "Gas": "HFC",
+      "AR4": 1809,
+      "AR5": 1643
+    },
+    {
+      "Refrigerant Blend": "R-418A",
+      "Gas": "HFC",
+      "AR4": 3.1,
+      "AR5": 3.45
+    },
+    {
+      "Refrigerant Blend": "R-419A",
+      "Gas": "HFC",
+      "AR4": 2967,
+      "AR5": 2688
+    },
+    {
+      "Refrigerant Blend": "R-419B",
+      "Gas": "HFC",
+      "AR4": 2384,
+      "AR5": 2161
+    },
+    {
+      "Refrigerant Blend": "R-420A",
+      "Gas": "HFC",
+      "AR4": 1258,
+      "AR5": 1144
+    },
+    {
+      "Refrigerant Blend": "R-421A",
+      "Gas": "HFC",
+      "AR4": 2631,
+      "AR5": 2385
+    },
+    {
+      "Refrigerant Blend": "R-421B",
+      "Gas": "HFC",
+      "AR4": 3190,
+      "AR5": 2890
+    },
+    {
+      "Refrigerant Blend": "R-422A",
+      "Gas": "HFC",
+      "AR4": 3143,
+      "AR5": 2847
+    },
+    {
+      "Refrigerant Blend": "R-422B",
+      "Gas": "HFC",
+      "AR4": 2526,
+      "AR5": 2290
+    },
+    {
+      "Refrigerant Blend": "R-422C",
+      "Gas": "HFC",
+      "AR4": 3085,
+      "AR5": 2794
+    },
+    {
+      "Refrigerant Blend": "R-422D",
+      "Gas": "HFC",
+      "AR4": 2729,
+      "AR5": 2473
+    },
+    {
+      "Refrigerant Blend": "R-422E",
+      "Gas": "HFC",
+      "AR4": 2592,
+      "AR5": 2350
+    },
+    {
+      "Refrigerant Blend": "R-423A",
+      "Gas": "HFC",
+      "AR4": 2280,
+      "AR5": 2274
+    },
+    {
+      "Refrigerant Blend": "R-424A",
+      "Gas": "HFC",
+      "AR4": 2440,
+      "AR5": 2212
+    },
+    {
+      "Refrigerant Blend": "R-425A",
+      "Gas": "HFC",
+      "AR4": 1505,
+      "AR5": 1431
+    },
+    {
+      "Refrigerant Blend": "R-426A",
+      "Gas": "HFC",
+      "AR4": 1508,
+      "AR5": 1371
+    },
+    {
+      "Refrigerant Blend": "R-427A",
+      "Gas": "HFC",
+      "AR4": 2138,
+      "AR5": 2024
+    },
+    {
+      "Refrigerant Blend": "R-428A",
+      "Gas": "HFC",
+      "AR4": 3607,
+      "AR5": 3417
+    },
+    {
+      "Refrigerant Blend": "R-429A",
+      "Gas": "HFC",
+      "AR4": 12,
+      "AR5": 14
+    },
+    {
+      "Refrigerant Blend": "R-430A",
+      "Gas": "HFC",
+      "AR4": 94.24,
+      "AR5": 104.88
+    },
+    {
+      "Refrigerant Blend": "R-431A",
+      "Gas": "HFC",
+      "AR4": 36,
+      "AR5": 40
+    },
+    {
+      "Refrigerant Blend": "R-434A",
+      "Gas": "HFC",
+      "AR4": 3245,
+      "AR5": 3075
+    },
+    {
+      "Refrigerant Blend": "R-435A",
+      "Gas": "HFC",
+      "AR4": 25,
+      "AR5": 28
+    },
+    {
+      "Refrigerant Blend": "R-437A",
+      "Gas": "HFC",
+      "AR4": 1805,
+      "AR5": 1639
+    },
+    {
+      "Refrigerant Blend": "R-438A",
+      "Gas": "HFC",
+      "AR4": 2264,
+      "AR5": 2059
+    },
+    {
+      "Refrigerant Blend": "R-439A",
+      "Gas": "HFC",
+      "AR4": 1983,
+      "AR5": 1828
+    },
+    {
+      "Refrigerant Blend": "R-439A",
+      "Gas": "HFC",
+      "AR4": 1983,
+      "AR5": 1828
+    },
+    {
+      "Refrigerant Blend": "R-439A",
+      "Gas": "HFC",
+      "AR4": 1983,
+      "AR5": 1828
+    },
+    {
+      "Refrigerant Blend": "R-444A",
+      "Gas": "HFC",
+      "AR4": 87,
+      "AR5": 88
+    },
+    {
+      "Refrigerant Blend": "R-445A",
+      "Gas": "HFC",
+      "AR4": 128.7,
+      "AR5": 117
+    },
+    {
+      "Refrigerant Blend": "R-500",
+      "Gas": "HFC",
+      "AR4": 32,
+      "AR5": 36
+    },
+    {
+      "Refrigerant Blend": "R-503",
+      "Gas": "HFC",
+      "AR4": 5935,
+      "AR5": 4972
+    },
+    {
+      "Refrigerant Blend": "R-504",
+      "Gas": "HFC",
+      "AR4": 325,
+      "AR5": 326
+    },
+    {
+      "Refrigerant Blend": "R-507",
+      "Gas": "HFC",
+      "AR4": 3985,
+      "AR5": 3985
+    },
+    {
+      "Refrigerant Blend": "R-507A",
+      "Gas": "HFC",
+      "AR4": 3985,
+      "AR5": 3985
+    },
+    {
+      "Refrigerant Blend": "R-509",
+      "Gas": "PFC",
+      "AR4": 4945,
+      "AR5": 4984
+    },
+    {
+      "Refrigerant Blend": "R-509A",
+      "Gas": "PFC",
+      "AR4": 4945,
+      "AR5": 4984
+    },
+    {
+      "Refrigerant Blend": "R-512A",
+      "Gas": "HFC",
+      "AR4": 189.3,
+      "AR5": 196.1
+    }
+  ],
+  "EF_Stationary_Combustion": [
+    {
+      "Fuel Type": "Coal and Coke",
+      "Heat Content (HHV)": "mmBtu per short ton"
+    },
+    {
+      "Fuel Type": "Anthracite Coal",
+      "Heat Content (HHV)": 25.09,
+      "CO2 Factor (kg CO2 per mmBtu)": 103.69,
+      "CH4 Factor (g CH4 per mmBtu)": 11,
+      "N2O Factor (g N2O per mmBtu)": 1.6,
+      "AR4 (kgCO2e)": 104.4418,
+      "AR5 (kgCO2e)": 104.42200000000001,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Bituminous Coal",
+      "Heat Content (HHV)": 24.93,
+      "CO2 Factor (kg CO2 per mmBtu)": 93.28,
+      "CH4 Factor (g CH4 per mmBtu)": 11,
+      "N2O Factor (g N2O per mmBtu)": 1.6,
+      "AR4 (kgCO2e)": 94.0318,
+      "AR5 (kgCO2e)": 94.01200000000001,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Sub-bituminous Coal",
+      "Heat Content (HHV)": 17.25,
+      "CO2 Factor (kg CO2 per mmBtu)": 97.17,
+      "CH4 Factor (g CH4 per mmBtu)": 11,
+      "N2O Factor (g N2O per mmBtu)": 1.6,
+      "AR4 (kgCO2e)": 97.9218,
+      "AR5 (kgCO2e)": 97.90200000000002,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Lignite Coal",
+      "Heat Content (HHV)": 14.21,
+      "CO2 Factor (kg CO2 per mmBtu)": 97.72,
+      "CH4 Factor (g CH4 per mmBtu)": 11,
+      "N2O Factor (g N2O per mmBtu)": 1.6,
+      "AR4 (kgCO2e)": 98.4718,
+      "AR5 (kgCO2e)": 98.45200000000001,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Mixed (Commercial Sector)",
+      "Heat Content (HHV)": 21.39,
+      "CO2 Factor (kg CO2 per mmBtu)": 94.27,
+      "CH4 Factor (g CH4 per mmBtu)": 11,
+      "N2O Factor (g N2O per mmBtu)": 1.6,
+      "AR4 (kgCO2e)": 95.0218,
+      "AR5 (kgCO2e)": 95.00200000000001,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Mixed (Electric Power Sector)",
+      "Heat Content (HHV)": 19.73,
+      "CO2 Factor (kg CO2 per mmBtu)": 95.52,
+      "CH4 Factor (g CH4 per mmBtu)": 11,
+      "N2O Factor (g N2O per mmBtu)": 1.6,
+      "AR4 (kgCO2e)": 96.2718,
+      "AR5 (kgCO2e)": 96.25200000000001,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Mixed (Industrial Coking)",
+      "Heat Content (HHV)": 26.28,
+      "CO2 Factor (kg CO2 per mmBtu)": 93.9,
+      "CH4 Factor (g CH4 per mmBtu)": 11,
+      "N2O Factor (g N2O per mmBtu)": 1.6,
+      "AR4 (kgCO2e)": 94.65180000000001,
+      "AR5 (kgCO2e)": 94.63200000000002,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Mixed (Industrial Sector)",
+      "Heat Content (HHV)": 22.35,
+      "CO2 Factor (kg CO2 per mmBtu)": 94.67,
+      "CH4 Factor (g CH4 per mmBtu)": 11,
+      "N2O Factor (g N2O per mmBtu)": 1.6,
+      "AR4 (kgCO2e)": 95.4218,
+      "AR5 (kgCO2e)": 95.40200000000002,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Coal Coke",
+      "Heat Content (HHV)": 24.8,
+      "CO2 Factor (kg CO2 per mmBtu)": 113.67,
+      "CH4 Factor (g CH4 per mmBtu)": 11,
+      "N2O Factor (g N2O per mmBtu)": 1.6,
+      "AR4 (kgCO2e)": 114.4218,
+      "AR5 (kgCO2e)": 114.40200000000002,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Other Fuels - Solid"
+    },
+    {
+      "Fuel Type": "Municipal Solid Waste",
+      "Heat Content (HHV)": 9.95,
+      "CO2 Factor (kg CO2 per mmBtu)": 90.7,
+      "CH4 Factor (g CH4 per mmBtu)": 32,
+      "N2O Factor (g N2O per mmBtu)": 4.2,
+      "AR4 (kgCO2e)": 92.7516,
+      "AR5 (kgCO2e)": 92.709,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Petroleum Coke (Solid)",
+      "Heat Content (HHV)": 30,
+      "CO2 Factor (kg CO2 per mmBtu)": 102.41,
+      "CH4 Factor (g CH4 per mmBtu)": 32,
+      "N2O Factor (g N2O per mmBtu)": 4.2,
+      "AR4 (kgCO2e)": 104.46159999999999,
+      "AR5 (kgCO2e)": 104.419,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Plastics",
+      "Heat Content (HHV)": 38,
+      "CO2 Factor (kg CO2 per mmBtu)": 75,
+      "CH4 Factor (g CH4 per mmBtu)": 32,
+      "N2O Factor (g N2O per mmBtu)": 4.2,
+      "AR4 (kgCO2e)": 77.0516,
+      "AR5 (kgCO2e)": 77.009,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Tires",
+      "Heat Content (HHV)": 28,
+      "CO2 Factor (kg CO2 per mmBtu)": 85.97,
+      "CH4 Factor (g CH4 per mmBtu)": 32,
+      "N2O Factor (g N2O per mmBtu)": 4.2,
+      "AR4 (kgCO2e)": 88.02159999999999,
+      "AR5 (kgCO2e)": 87.979,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Biomass Fuels - Solid"
+    },
+    {
+      "Fuel Type": "Agricultural Byproducts",
+      "Heat Content (HHV)": 8.25,
+      "CH4 Factor (g CH4 per mmBtu)": 32,
+      "N2O Factor (g N2O per mmBtu)": 4.2,
+      "Biogenic CO2 Factor (kg Biogenic CO2 per mmBtu)": 118.17,
+      "AR4 (kgCO2e)": 120.2216,
+      "AR5 (kgCO2e)": 120.179,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Peat",
+      "Heat Content (HHV)": 8,
+      "CH4 Factor (g CH4 per mmBtu)": 32,
+      "N2O Factor (g N2O per mmBtu)": 4.2,
+      "Biogenic CO2 Factor (kg Biogenic CO2 per mmBtu)": 111.84,
+      "AR4 (kgCO2e)": 113.8916,
+      "AR5 (kgCO2e)": 113.849,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Solid Byproducts",
+      "Heat Content (HHV)": 10.39,
+      "CH4 Factor (g CH4 per mmBtu)": 32,
+      "N2O Factor (g N2O per mmBtu)": 4.2,
+      "Biogenic CO2 Factor (kg Biogenic CO2 per mmBtu)": 105.51,
+      "AR4 (kgCO2e)": 107.5616,
+      "AR5 (kgCO2e)": 107.519,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Wood and Wood Residuals",
+      "Heat Content (HHV)": 17.48,
+      "CH4 Factor (g CH4 per mmBtu)": 7.2,
+      "N2O Factor (g N2O per mmBtu)": 3.6,
+      "Biogenic CO2 Factor (kg Biogenic CO2 per mmBtu)": 93.8,
+      "AR4 (kgCO2e)": 95.0528,
+      "AR5 (kgCO2e)": 94.95559999999999,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Natural Gas -",
+      "Heat Content (HHV)": "mmBtu per scf"
+    },
+    {
+      "Fuel Type": "Natural Gas",
+      "Heat Content (HHV)": 0.001026,
+      "CO2 Factor (kg CO2 per mmBtu)": 53.06,
+      "CH4 Factor (g CH4 per mmBtu)": 1,
+      "N2O Factor (g N2O per mmBtu)": 0.1,
+      "AR4 (kgCO2e)": 53.1148,
+      "AR5 (kgCO2e)": 53.1145,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Other Fuels - Gaseous"
+    },
+    {
+      "Fuel Type": "Blast Furnace Gas",
+      "Heat Content (HHV)": 0.000092,
+      "CO2 Factor (kg CO2 per mmBtu)": 274.32,
+      "CH4 Factor (g CH4 per mmBtu)": 0.022000000000000002,
+      "N2O Factor (g N2O per mmBtu)": 0.1,
+      "AR4 (kgCO2e)": 274.35035,
+      "AR5 (kgCO2e)": 274.34711599999997,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Coke Oven Gas",
+      "Heat Content (HHV)": 0.000599,
+      "CO2 Factor (kg CO2 per mmBtu)": 46.85,
+      "CH4 Factor (g CH4 per mmBtu)": 0.48,
+      "N2O Factor (g N2O per mmBtu)": 0.1,
+      "AR4 (kgCO2e)": 46.8918,
+      "AR5 (kgCO2e)": 46.88994,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Fuel Gas",
+      "Heat Content (HHV)": 0.001388,
+      "CO2 Factor (kg CO2 per mmBtu)": 59,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 59.253800000000005,
+      "AR5 (kgCO2e)": 59.243,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Propane Gas",
+      "Heat Content (HHV)": 0.002516,
+      "CO2 Factor (kg CO2 per mmBtu)": 61.46,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 61.713800000000006,
+      "AR5 (kgCO2e)": 61.703,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Biomass Fuels - Gaseous"
+    },
+    {
+      "Fuel Type": "Landfill Gas",
+      "Heat Content (HHV)": 0.000485,
+      "CH4 Factor (g CH4 per mmBtu)": 3.2,
+      "N2O Factor (g N2O per mmBtu)": 0.63,
+      "Biogenic CO2 Factor (kg Biogenic CO2 per mmBtu)": 52.07,
+      "AR4 (kgCO2e)": 52.33774,
+      "AR5 (kgCO2e)": 52.32655,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Other Biomass Gases",
+      "Heat Content (HHV)": 0.000655,
+      "CH4 Factor (g CH4 per mmBtu)": 3.2,
+      "N2O Factor (g N2O per mmBtu)": 0.63,
+      "Biogenic CO2 Factor (kg Biogenic CO2 per mmBtu)": 52.07,
+      "AR4 (kgCO2e)": 52.33774,
+      "AR5 (kgCO2e)": 52.32655,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Petroleum Products",
+      "Heat Content (HHV)": "mmBtu per gallon"
+    },
+    {
+      "Fuel Type": "Asphalt and Road Oil",
+      "Heat Content (HHV)": 0.158,
+      "CO2 Factor (kg CO2 per mmBtu)": 75.36,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 75.6138,
+      "AR5 (kgCO2e)": 75.60300000000001,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Aviation Gasoline",
+      "Heat Content (HHV)": 0.12,
+      "CO2 Factor (kg CO2 per mmBtu)": 69.25,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 69.5038,
+      "AR5 (kgCO2e)": 69.49300000000001,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Butane",
+      "Heat Content (HHV)": 0.103,
+      "CO2 Factor (kg CO2 per mmBtu)": 64.77,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 65.0238,
+      "AR5 (kgCO2e)": 65.013,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Butylene",
+      "Heat Content (HHV)": 0.105,
+      "CO2 Factor (kg CO2 per mmBtu)": 68.72,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 68.9738,
+      "AR5 (kgCO2e)": 68.96300000000001,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Crude Oil",
+      "Heat Content (HHV)": 0.138,
+      "CO2 Factor (kg CO2 per mmBtu)": 74.54,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 74.7938,
+      "AR5 (kgCO2e)": 74.78300000000002,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Distillate Fuel Oil No. 1",
+      "Heat Content (HHV)": 0.139,
+      "CO2 Factor (kg CO2 per mmBtu)": 73.25,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 73.5038,
+      "AR5 (kgCO2e)": 73.49300000000001,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Distillate Fuel Oil No. 2",
+      "Heat Content (HHV)": 0.138,
+      "CO2 Factor (kg CO2 per mmBtu)": 73.96,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 74.21379999999999,
+      "AR5 (kgCO2e)": 74.203,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Distillate Fuel Oil No. 4",
+      "Heat Content (HHV)": 0.146,
+      "CO2 Factor (kg CO2 per mmBtu)": 75.04,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 75.2938,
+      "AR5 (kgCO2e)": 75.28300000000002,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Ethane",
+      "Heat Content (HHV)": 0.068,
+      "CO2 Factor (kg CO2 per mmBtu)": 59.6,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 59.85380000000001,
+      "AR5 (kgCO2e)": 59.843,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Ethylene",
+      "Heat Content (HHV)": 0.058,
+      "CO2 Factor (kg CO2 per mmBtu)": 65.96,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 66.21379999999999,
+      "AR5 (kgCO2e)": 66.203,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Heavy Gas Oils",
+      "Heat Content (HHV)": 0.148,
+      "CO2 Factor (kg CO2 per mmBtu)": 74.92,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 75.1738,
+      "AR5 (kgCO2e)": 75.16300000000001,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Isobutane",
+      "Heat Content (HHV)": 0.099,
+      "CO2 Factor (kg CO2 per mmBtu)": 64.94,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 65.1938,
+      "AR5 (kgCO2e)": 65.183,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Isobutylene",
+      "Heat Content (HHV)": 0.103,
+      "CO2 Factor (kg CO2 per mmBtu)": 68.86,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 69.1138,
+      "AR5 (kgCO2e)": 69.10300000000001,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Kerosene",
+      "Heat Content (HHV)": 0.135,
+      "CO2 Factor (kg CO2 per mmBtu)": 75.2,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 75.4538,
+      "AR5 (kgCO2e)": 75.44300000000001,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Kerosene-Type Jet Fuel",
+      "Heat Content (HHV)": 0.135,
+      "CO2 Factor (kg CO2 per mmBtu)": 72.22,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 72.4738,
+      "AR5 (kgCO2e)": 72.46300000000001,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Liquefied Petroleum Gases (LPG)",
+      "Heat Content (HHV)": 0.092,
+      "CO2 Factor (kg CO2 per mmBtu)": 61.71,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 61.963800000000006,
+      "AR5 (kgCO2e)": 61.953,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Lubricants",
+      "Heat Content (HHV)": 0.144,
+      "CO2 Factor (kg CO2 per mmBtu)": 74.27,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 74.5238,
+      "AR5 (kgCO2e)": 74.513,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Motor Gasoline",
+      "Heat Content (HHV)": 0.125,
+      "CO2 Factor (kg CO2 per mmBtu)": 70.22,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 70.4738,
+      "AR5 (kgCO2e)": 70.46300000000001,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Naphtha (<401 deg F)",
+      "Heat Content (HHV)": 0.125,
+      "CO2 Factor (kg CO2 per mmBtu)": 68.02,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 68.2738,
+      "AR5 (kgCO2e)": 68.263,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Natural Gasoline",
+      "Heat Content (HHV)": 0.11,
+      "CO2 Factor (kg CO2 per mmBtu)": 66.88,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 67.1338,
+      "AR5 (kgCO2e)": 67.123,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Other Oil (>401 deg F)",
+      "Heat Content (HHV)": 0.139,
+      "CO2 Factor (kg CO2 per mmBtu)": 76.22,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 76.4738,
+      "AR5 (kgCO2e)": 76.46300000000001,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Pentanes Plus",
+      "Heat Content (HHV)": 0.11,
+      "CO2 Factor (kg CO2 per mmBtu)": 70.02,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 70.2738,
+      "AR5 (kgCO2e)": 70.263,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Petrochemical Feedstocks",
+      "Heat Content (HHV)": 0.125,
+      "CO2 Factor (kg CO2 per mmBtu)": 71.02,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 71.2738,
+      "AR5 (kgCO2e)": 71.263,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Petroleum Coke",
+      "Heat Content (HHV)": 0.143,
+      "CO2 Factor (kg CO2 per mmBtu)": 102.41,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 102.6638,
+      "AR5 (kgCO2e)": 102.653,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Propane",
+      "Heat Content (HHV)": 0.091,
+      "CO2 Factor (kg CO2 per mmBtu)": 62.87,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 63.1238,
+      "AR5 (kgCO2e)": 63.113,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Propylene",
+      "Heat Content (HHV)": 0.091,
+      "CO2 Factor (kg CO2 per mmBtu)": 67.77,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 68.0238,
+      "AR5 (kgCO2e)": 68.013,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Residual Fuel Oil No. 5",
+      "Heat Content (HHV)": 0.14,
+      "CO2 Factor (kg CO2 per mmBtu)": 72.93,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 73.1838,
+      "AR5 (kgCO2e)": 73.17300000000002,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Residual Fuel Oil No. 6",
+      "Heat Content (HHV)": 0.15,
+      "CO2 Factor (kg CO2 per mmBtu)": 75.1,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 75.35379999999999,
+      "AR5 (kgCO2e)": 75.343,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Special Naphtha",
+      "Heat Content (HHV)": 0.125,
+      "CO2 Factor (kg CO2 per mmBtu)": 72.34,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 72.5938,
+      "AR5 (kgCO2e)": 72.58300000000001,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Unfinished Oils",
+      "Heat Content (HHV)": 0.139,
+      "CO2 Factor (kg CO2 per mmBtu)": 74.54,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 74.7938,
+      "AR5 (kgCO2e)": 74.78300000000002,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Used Oil",
+      "Heat Content (HHV)": 0.138,
+      "CO2 Factor (kg CO2 per mmBtu)": 74,
+      "CH4 Factor (g CH4 per mmBtu)": 3,
+      "N2O Factor (g N2O per mmBtu)": 0.6,
+      "AR4 (kgCO2e)": 74.2538,
+      "AR5 (kgCO2e)": 74.24300000000001,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Biomass Fuels - Liquid"
+    },
+    {
+      "Fuel Type": "Biodiesel (100%)",
+      "Heat Content (HHV)": 0.128,
+      "CH4 Factor (g CH4 per mmBtu)": 1.1,
+      "N2O Factor (g N2O per mmBtu)": 0.11,
+      "Biogenic CO2 Factor (kg Biogenic CO2 per mmBtu)": 73.84,
+      "AR4 (kgCO2e)": 73.90028000000001,
+      "AR5 (kgCO2e)": 73.89995,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Ethanol (100%)",
+      "Heat Content (HHV)": 0.084,
+      "CH4 Factor (g CH4 per mmBtu)": 1.1,
+      "N2O Factor (g N2O per mmBtu)": 0.11,
+      "Biogenic CO2 Factor (kg Biogenic CO2 per mmBtu)": 68.44,
+      "AR4 (kgCO2e)": 68.50028,
+      "AR5 (kgCO2e)": 68.49995,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Rendered Animal Fat",
+      "Heat Content (HHV)": 0.125,
+      "CH4 Factor (g CH4 per mmBtu)": 1.1,
+      "N2O Factor (g N2O per mmBtu)": 0.11,
+      "Biogenic CO2 Factor (kg Biogenic CO2 per mmBtu)": 71.06,
+      "AR4 (kgCO2e)": 71.12028000000001,
+      "AR5 (kgCO2e)": 71.11995,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Vegetable Oil",
+      "Heat Content (HHV)": 0.12,
+      "CH4 Factor (g CH4 per mmBtu)": 1.1,
+      "N2O Factor (g N2O per mmBtu)": 0.11,
+      "Biogenic CO2 Factor (kg Biogenic CO2 per mmBtu)": 81.55,
+      "AR4 (kgCO2e)": 81.61028,
+      "AR5 (kgCO2e)": 81.60995,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Biomass Fuels - \r\nKraft Pulping Liquor, by Wood Furnish"
+    },
+    {
+      "Fuel Type": "North American Softwood",
+      "CH4 Factor (g CH4 per mmBtu)": 1.9,
+      "N2O Factor (g N2O per mmBtu)": 0.42,
+      "Biogenic CO2 Factor (kg Biogenic CO2 per mmBtu)": 94.4,
+      "AR4 (kgCO2e)": 94.57266,
+      "AR5 (kgCO2e)": 94.56450000000001,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "North American Hardwood",
+      "CH4 Factor (g CH4 per mmBtu)": 1.9,
+      "N2O Factor (g N2O per mmBtu)": 0.42,
+      "Biogenic CO2 Factor (kg Biogenic CO2 per mmBtu)": 93.7,
+      "AR4 (kgCO2e)": 93.87266,
+      "AR5 (kgCO2e)": 93.8645,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Bagasse",
+      "CH4 Factor (g CH4 per mmBtu)": 1.9,
+      "N2O Factor (g N2O per mmBtu)": 0.42,
+      "Biogenic CO2 Factor (kg Biogenic CO2 per mmBtu)": 95.5,
+      "AR4 (kgCO2e)": 95.67266,
+      "AR5 (kgCO2e)": 95.6645,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Bamboo",
+      "CH4 Factor (g CH4 per mmBtu)": 1.9,
+      "N2O Factor (g N2O per mmBtu)": 0.42,
+      "Biogenic CO2 Factor (kg Biogenic CO2 per mmBtu)": 93.7,
+      "AR4 (kgCO2e)": 93.87266,
+      "AR5 (kgCO2e)": 93.8645,
+      "Units": "mmBtu"
+    },
+    {
+      "Fuel Type": "Straw",
+      "CH4 Factor (g CH4 per mmBtu)": 1.9,
+      "N2O Factor (g N2O per mmBtu)": 0.42,
+      "Biogenic CO2 Factor (kg Biogenic CO2 per mmBtu)": 95.1,
+      "AR4 (kgCO2e)": 95.27265999999999,
+      "AR5 (kgCO2e)": 95.2645,
+      "Units": "mmBtu"
+    }
+  ],
+  "Table17": [
+    {
+      "Common Name": "Substances controlled by the Montreal Protocol **"
+    },
+    {
+      "Common Name": "CFC-11",
+      "Formula": "CCl3F",
+      "AR4": 4750,
+      "AR5": 4660
+    },
+    {
+      "Common Name": "CFC-12",
+      "Formula": "CCl2F2",
+      "AR4": 10900,
+      "AR5": 10200
+    },
+    {
+      "Common Name": "CFC-13",
+      "Formula": "CClF3",
+      "AR4": 14400,
+      "AR5": 13900
+    },
+    {
+      "Common Name": "CFC-113",
+      "Formula": "CCl2FCClF2",
+      "AR4": 6130,
+      "AR5": 5820
+    },
+    {
+      "Common Name": "CFC-114",
+      "Formula": "CClF2CClF2",
+      "AR4": 10000,
+      "AR5": 8590
+    },
+    {
+      "Common Name": "CFC-115",
+      "Formula": "CClF2CF3",
+      "AR4": 7370,
+      "AR5": 7670
+    },
+    {
+      "Common Name": "Halon-1301",
+      "Formula": "CBrF3",
+      "AR4": 7140,
+      "AR5": 6290
+    },
+    {
+      "Common Name": "Halon-1211",
+      "Formula": "CBrClF2",
+      "AR4": 1890,
+      "AR5": 1750
+    },
+    {
+      "Common Name": "Halon-2402",
+      "Formula": "CBrF2CBrF2",
+      "AR4": 1640,
+      "AR5": 1470
+    },
+    {
+      "Common Name": "Carbon tetrachloride",
+      "Formula": "CCl4",
+      "AR4": 1400,
+      "AR5": 1730
+    },
+    {
+      "Common Name": "Methyl bromide",
+      "Formula": "CH3Br",
+      "AR4": 5,
+      "AR5": 2
+    },
+    {
+      "Common Name": "Methyl chloroform",
+      "Formula": "CH3CCl3",
+      "AR4": 146,
+      "AR5": 160
+    },
+    {
+      "Common Name": "HCFC-21",
+      "Formula": "CHCl2F",
+      "AR4": "--",
+      "AR5": 148
+    },
+    {
+      "Common Name": "R-22 (HCFC-22)",
+      "Formula": "CHClF2",
+      "AR4": 1810,
+      "AR5": 1760
+    },
+    {
+      "Common Name": "HCFC-123",
+      "Formula": "CHCl2CF3",
+      "AR4": 77,
+      "AR5": 79
+    },
+    {
+      "Common Name": "HCFC-124",
+      "Formula": "CHClFCF3",
+      "AR4": 609,
+      "AR5": 527
+    },
+    {
+      "Common Name": "HCFC-141b",
+      "Formula": "CH3CCl2F",
+      "AR4": 725,
+      "AR5": 782
+    },
+    {
+      "Common Name": "HCFC-142b",
+      "Formula": "CH3CClF2",
+      "AR4": 2310,
+      "AR5": 1980
+    },
+    {
+      "Common Name": "HCFC-225ca",
+      "Formula": "CHCl2CF2CF3",
+      "AR4": 122,
+      "AR5": 127
+    },
+    {
+      "Common Name": "HCFC-225cb",
+      "Formula": "CHClFCF2CClF2",
+      "AR4": 595,
+      "AR5": 525
+    },
+    {
+      "Common Name": "Fluorinated ethers"
+    },
+    {
+      "Common Name": "HFE-125",
+      "Formula": "CHF2OCF3",
+      "AR4": 14900,
+      "AR5": 12400
+    },
+    {
+      "Common Name": "HFE-134",
+      "Formula": "CHF2OCHF2",
+      "AR4": 6320,
+      "AR5": 5560
+    },
+    {
+      "Common Name": "HFE-143a",
+      "Formula": "CH3OCF3",
+      "AR4": 756,
+      "AR5": 523
+    },
+    {
+      "Common Name": "HCFE-235da2",
+      "Formula": "CHF2OCHClCF3",
+      "AR4": 350,
+      "AR5": 491
+    },
+    {
+      "Common Name": "HFE-245cb2",
+      "Formula": "CH3OCF2CF3",
+      "AR4": 708,
+      "AR5": 654
+    },
+    {
+      "Common Name": "HFE-245fa2",
+      "Formula": "CHF2OCH2CF3",
+      "AR4": 659,
+      "AR5": 812
+    },
+    {
+      "Common Name": "HFE-254cb2",
+      "Formula": "CH3OCF2CHF2",
+      "AR4": 359,
+      "AR5": 301
+    },
+    {
+      "Common Name": "HFE-347mcc3",
+      "Formula": "CH3OCF2CF2CF3",
+      "AR4": 575,
+      "AR5": 530
+    },
+    {
+      "Common Name": "HFE-347mmy",
+      "Formula": "(CF3)2CFOCH3",
+      "AR4": "--",
+      "AR5": 363
+    },
+    {
+      "Common Name": "HFE-347pcf2",
+      "Formula": "CHF2CF2OCH2CF3",
+      "AR4": 580,
+      "AR5": 889
+    },
+    {
+      "Common Name": "HFE-356pcc3",
+      "Formula": "CH3OCF2CF2CHF2",
+      "AR4": 110,
+      "AR5": 413
+    },
+    {
+      "Common Name": "HFE-356pcf3",
+      "Formula": "CHF2CF2CH2OCHF2",
+      "AR4": "--",
+      "AR5": 446
+    },
+    {
+      "Common Name": "HFE-374pc2",
+      "Formula": "CHF2CF2OCH2CH3",
+      "AR4": "--",
+      "AR5": 627
+    },
+    {
+      "Common Name": "HFE-449sl (HFE-7100)",
+      "Formula": "C4F9OCH3",
+      "AR4": 297,
+      "AR5": 421
+    },
+    {
+      "Common Name": "HFE-569sf2 (HFE-7200)",
+      "Formula": "C4F9OC2H5",
+      "AR4": 59,
+      "AR5": 57
+    },
+    {
+      "Common Name": "HFE-43-10pccc124 (H-Galden 1040x)",
+      "Formula": "CHF2OCF2OC2F4OCHF2",
+      "AR4": 1870,
+      "AR5": 2820
+    },
+    {
+      "Common Name": "HFE-236ca12 (HG-10)",
+      "Formula": "CHF2OCF2OCHF2",
+      "AR4": 2800,
+      "AR5": 5350
+    },
+    {
+      "Common Name": "HFE-338pcc13 (HG-01)",
+      "Formula": "CHF2OCF2CF2OCHF2",
+      "AR4": 1500,
+      "AR5": 2910
+    },
+    {
+      "Common Name": "Perfluoropolyethers"
+    },
+    {
+      "Common Name": "PFPMIE (perfluoropolymethylisopropyl ether)",
+      "Formula": "CF3OCF(CF3)CF2OCF2OCF3",
+      "AR4": 10300,
+      "AR5": 9710
+    },
+    {
+      "Common Name": "Hydrocarbons and other compounds - Direct Effects"
+    },
+    {
+      "Common Name": "Dimethylether",
+      "Formula": "CH3OCH3",
+      "AR4": 1
+    },
+    {
+      "Common Name": "Methylene chloride",
+      "Formula": "CH2Cl2",
+      "AR4": 8.7,
+      "AR5": 9
+    },
+    {
+      "Common Name": "Methyl chloride",
+      "Formula": "CH3Cl",
+      "AR4": 13,
+      "AR5": 12
+    },
+    {
+      "Common Name": "Trichloromethane (Chloroform)",
+      "Formula": "CHCl3",
+      "AR4": "--",
+      "AR5": 16
+    },
+    {
+      "Common Name": "Dibromomethane",
+      "Formula": "CH2Br2",
+      "AR4": "--"
+    },
+    {
+      "Common Name": "Bromodifluoromethane",
+      "Formula": "CHBrF2",
+      "AR4": "--"
+    },
+    {
+      "Common Name": "Trifluoroiodomethane",
+      "Formula": "CF3I",
+      "AR4": "--"
+    },
+    {
+      "Common Name": "1,1,1,3,3,3-hexafluoro-2-propanol",
+      "Formula": "(CF3)2CHOH",
+      "AR4": "--"
+    },
+    {
+      "Common Name": "2,2,2-trifluoroethanol",
+      "Formula": "(CF3)CH2OH",
+      "AR4": "--"
+    },
+    {
+      "Common Name": "2,2,3,3,3-pentafluoro-1-propanol",
+      "Formula": "CF3CF2CH2OH",
+      "AR4": "--"
+    },
+    {
+      "Common Name": "Trifluoromethyl sulphur pentafluoride",
+      "Formula": "SF5CF3",
+      "AR4": 17700,
+      "AR5": 17400
+    },
+    {
+      "Common Name": "Organic Compounds"
+    },
+    {
+      "Common Name": "Ethane ",
+      "Formula": "C2H6",
+      "AR4": 5.5
+    },
+    {
+      "Common Name": "Propane",
+      "Formula": "C3H8",
+      "AR4": 3.3
+    },
+    {
+      "Common Name": "Butane",
+      "Formula": "C4H10",
+      "AR4": 4
+    },
+    {
+      "Common Name": "Ethylene",
+      "Formula": "C2H4",
+      "AR4": 3.7
+    },
+    {
+      "Common Name": "Propylene",
+      "Formula": "C3H6",
+      "AR4": 1.8
+    },
+    {
+      "Common Name": "Toluene",
+      "Formula": "C7H8",
+      "AR4": 2.7
+    },
+    {
+      "Common Name": "Isoprene",
+      "Formula": "C5H8",
+      "AR4": 2.7
+    },
+    {
+      "Common Name": "Methanol",
+      "Formula": "CH3OH",
+      "AR4": 2.8
+    },
+    {
+      "Common Name": "Acetaldehyde",
+      "Formula": "CH3CHO",
+      "AR4": 1.3
+    },
+    {
+      "Common Name": "Acetone",
+      "Formula": "CH3COCH3",
+      "AR4": 0.5
+    }
+  ],
+  "Mobile_S1_EF": [
+    {},
+    {
+      "Mobile Fuel": "Electricity - Mobile - Electric Vehicle",
+      "CO2 Factor (kg unit)": 0,
+      "CH4 Factor (kg unit)": 0,
+      "N2O Factor (kg unit)": 0,
+      "AR4 (kgCO2e)": 0,
+      "AR5 (kgCO2e)": 0,
+      "Standardized unit": "kWh",
+      "MPG Units": "mile",
+      "kg CO4": 0,
+      "kg NO2": 0
+    },
+    {
+      "Mobile Fuel": "Motor Gasoline - Gasoline Passenger Cars",
+      "CO2 Factor (kg unit)": 8.78,
+      "CH4 Factor (kg unit)": 0.00038925,
+      "N2O Factor (kg unit)": 0.00008099999999999999,
+      "AR4 (kgCO2e)": 8.81386925,
+      "AR5 (kgCO2e)": 8.812363999999999,
+      "Standardized unit": "gal (US)",
+      "Default Average Fuel Efficiency (mpgmpge)": 22.5,
+      "MPG Units": "mile",
+      "kg CO4": 0.0000173,
+      "kg NO2": 0.0000036
+    },
+    {
+      "Mobile Fuel": "Motor Gasoline - Gasoline Light-duty Trucks (Vans, Pickup Trucks, SUVs)",
+      "CO2 Factor (kg unit)": 8.78,
+      "CH4 Factor (kg unit)": 0.00026406,
+      "N2O Factor (kg unit)": 0.00010692,
+      "AR4 (kgCO2e)": 8.818463659999999,
+      "AR5 (kgCO2e)": 8.81572748,
+      "Standardized unit": "gal (US)",
+      "Default Average Fuel Efficiency (mpgmpge)": 16.2,
+      "MPG Units": "mile",
+      "kg CO4": 0.0000163,
+      "kg NO2": 0.0000066
+    },
+    {
+      "Mobile Fuel": "Motor Gasoline - Gasoline Heavy-duty Vehicles",
+      "CO2 Factor (kg unit)": 8.78,
+      "CH4 Factor (kg unit)": 0.00029304000000000005,
+      "N2O Factor (kg unit)": 0.00011792000000000001,
+      "AR4 (kgCO2e)": 8.82246616,
+      "AR5 (kgCO2e)": 8.819453919999999,
+      "Standardized unit": "gal (US)",
+      "Default Average Fuel Efficiency (mpgmpge)": 8.8,
+      "MPG Units": "mile",
+      "kg CO4": 0.0000333,
+      "kg NO2": 0.0000134
+    },
+    {
+      "Mobile Fuel": "Diesel Fuel - Diesel Passenger Cars",
+      "CO2 Factor (kg unit)": 10.21,
+      "CH4 Factor (kg unit)": 0.000011249999999999999,
+      "N2O Factor (kg unit)": 0.000022499999999999998,
+      "AR4 (kgCO2e)": 10.216986250000001,
+      "AR5 (kgCO2e)": 10.216277500000002,
+      "Standardized unit": "gal (US)",
+      "Default Average Fuel Efficiency (mpgmpge)": 22.5,
+      "MPG Units": "mile",
+      "kg CO4": 5e-7,
+      "kg NO2": 0.000001
+    },
+    {
+      "Mobile Fuel": "Diesel Fuel - Diesel Light-duty Trucks",
+      "CO2 Factor (kg unit)": 10.21,
+      "CH4 Factor (kg unit)": 0.000016199999999999997,
+      "N2O Factor (kg unit)": 0.0000243,
+      "AR4 (kgCO2e)": 10.217646400000001,
+      "AR5 (kgCO2e)": 10.216893100000002,
+      "Standardized unit": "gal (US)",
+      "Default Average Fuel Efficiency (mpgmpge)": 16.2,
+      "MPG Units": "mile",
+      "kg CO4": 0.000001,
+      "kg NO2": 0.0000015
+    },
+    {
+      "Mobile Fuel": "Diesel Fuel - Diesel Medium- and Heavy-duty Vehicles",
+      "CO2 Factor (kg unit)": 10.21,
+      "CH4 Factor (kg unit)": 0.000044880000000000004,
+      "N2O Factor (kg unit)": 0.00004224,
+      "AR4 (kgCO2e)": 10.223709520000002,
+      "AR5 (kgCO2e)": 10.22245024,
+      "Standardized unit": "gal (US)",
+      "Default Average Fuel Efficiency (mpgmpge)": 8.8,
+      "MPG Units": "mile",
+      "kg CO4": 0.0000051,
+      "kg NO2": 0.0000048
+    },
+    {
+      "Mobile Fuel": "Biodiesel (100%) - Biodiesel Passenger Cars",
+      "CH4 Factor (kg unit)": 0.000011249999999999999,
+      "N2O Factor (kg unit)": 0.000022499999999999998,
+      "Biogenic CO2 (kg Biogenic CO2 per mmBtu)": 9.45,
+      "AR4 (kgCO2e)": 0.006986249999999999,
+      "AR5 (kgCO2e)": 0.006277499999999999,
+      "Standardized unit": "gal (US)",
+      "Default Average Fuel Efficiency (mpgmpge)": 22.5,
+      "MPG Units": "mile",
+      "kg CO4": 5e-7,
+      "kg NO2": 0.000001
+    },
+    {
+      "Mobile Fuel": "Biodiesel (100%) - Biodiesel Light-duty Vehicles",
+      "CH4 Factor (kg unit)": 0.000008099999999999999,
+      "N2O Factor (kg unit)": 0.000016199999999999997,
+      "Biogenic CO2 (kg Biogenic CO2 per mmBtu)": 9.45,
+      "AR4 (kgCO2e)": 0.005030099999999999,
+      "AR5 (kgCO2e)": 0.004519799999999999,
+      "Standardized unit": "gal (US)",
+      "Default Average Fuel Efficiency (mpgmpge)": 16.2,
+      "MPG Units": "mile",
+      "kg CO4": 5e-7,
+      "kg NO2": 0.000001
+    },
+    {
+      "Mobile Fuel": "Biodiesel (100%) - Biodiesel Medium- and Heavy-duty Vehicles",
+      "CH4 Factor (kg unit)": 0.000044000000000000006,
+      "N2O Factor (kg unit)": 0.000044000000000000006,
+      "Biogenic CO2 (kg Biogenic CO2 per mmBtu)": 9.45,
+      "AR4 (kgCO2e)": 0.014212000000000002,
+      "AR5 (kgCO2e)": 0.012892000000000002,
+      "Standardized unit": "gal (US)",
+      "Default Average Fuel Efficiency (mpgmpge)": 8.8,
+      "MPG Units": "mile",
+      "kg CO4": 0.000005,
+      "kg NO2": 0.000005
+    },
+    {
+      "Mobile Fuel": "Compressed Natural Gas - CNG Light-duty Vehicles",
+      "CO2 Factor (kg unit)": 0.4072394804912,
+      "CH4 Factor (kg unit)": 0.08931291427951199,
+      "N2O Factor (kg unit)": 0.0060592207788,
+      "AR4 (kgCO2e)": 4.4457101295614,
+      "AR5 (kgCO2e)": 4.513694586699536,
+      "Standardized unit": "scf",
+      "Default Average Fuel Efficiency (mpgmpge)": 16.2,
+      "MPG Units": "mile",
+      "kg CO4": 0.000737,
+      "kg NO2": 0.00005
+    },
+    {
+      "Mobile Fuel": "Compressed Natural Gas - CNG Medium- and Heavy-duty Vehicles",
+      "CO2 Factor (kg unit)": 0.4072394804912,
+      "CH4 Factor (kg unit)": 0.129418971419584,
+      "N2O Factor (kg unit)": 0.0115199999992,
+      "AR4 (kgCO2e)": 7.075673765742399,
+      "AR5 (kgCO2e)": 7.083770680027552,
+      "Standardized unit": "scf",
+      "Default Average Fuel Efficiency (mpgmpge)": 8.8,
+      "MPG Units": "mile",
+      "kg CO4": 0.001966,
+      "kg NO2": 0.000175
+    },
+    {
+      "Mobile Fuel": "Ethanol (100%) - Ethanol Light-duty Vehicles",
+      "CH4 Factor (kg unit)": 0.000891,
+      "N2O Factor (kg unit)": 0.0010854,
+      "Biogenic CO2 (kg Biogenic CO2 per mmBtu)": 5.75,
+      "AR4 (kgCO2e)": 0.3457242,
+      "AR5 (kgCO2e)": 0.31257900000000005,
+      "Standardized unit": "gal (US)",
+      "Default Average Fuel Efficiency (mpgmpge)": 16.2,
+      "MPG Units": "mile",
+      "kg CO4": 0.000055,
+      "kg NO2": 0.000067
+    },
+    {
+      "Mobile Fuel": "Ethanol (100%) - Ethanol Medium- and Heavy-duty Vehicles",
+      "CH4 Factor (kg unit)": 0.0017336000000000003,
+      "N2O Factor (kg unit)": 0.0015400000000000001,
+      "Biogenic CO2 (kg Biogenic CO2 per mmBtu)": 5.75,
+      "AR4 (kgCO2e)": 0.50226,
+      "AR5 (kgCO2e)": 0.4566408,
+      "Standardized unit": "gal (US)",
+      "Default Average Fuel Efficiency (mpgmpge)": 8.8,
+      "MPG Units": "mile",
+      "kg CO4": 0.00019700000000000002,
+      "kg NO2": 0.000175
+    },
+    {
+      "Mobile Fuel": "Motor Gasoline - Hybrid (Gasoline) Passenger Cars",
+      "CO2 Factor (kg unit)": 8.78,
+      "CH4 Factor (kg unit)": 0.0005390610973,
+      "N2O Factor (kg unit)": 0.00011217456359999999,
+      "AR4 (kgCO2e)": 8.826904547385299,
+      "AR5 (kgCO2e)": 8.8248199700784,
+      "Standardized unit": "gal (US)",
+      "Default Average Fuel Efficiency (mpgmpge)": 31.159601,
+      "MPG Units": "mile",
+      "kg CO4": 0.0000173,
+      "kg NO2": 0.0000036
+    },
+    {
+      "Mobile Fuel": "Motor Gasoline - Gasoline Agricultural Equipment",
+      "CO2 Factor (kg unit)": 8.78,
+      "CH4 Factor (kg unit)": 0.00126,
+      "N2O Factor (kg unit)": 0.00022,
+      "AR4 (kgCO2e)": 8.877059999999998,
+      "AR5 (kgCO2e)": 8.873579999999999,
+      "Standardized unit": "gal (US)",
+      "MPG Units": "gal (US)",
+      "kg CO4": 0.00126,
+      "kg NO2": 0.00022
+    },
+    {
+      "Mobile Fuel": "Diesel Fuel - Diesel Agricultural Equipment",
+      "CO2 Factor (kg unit)": 10.21,
+      "CH4 Factor (kg unit)": 0.0014399999999999999,
+      "N2O Factor (kg unit)": 0.00026000000000000003,
+      "AR4 (kgCO2e)": 10.32348,
+      "AR5 (kgCO2e)": 10.31922,
+      "Standardized unit": "gal (US)",
+      "MPG Units": "gal (US)",
+      "kg CO4": 0.0014399999999999999,
+      "kg NO2": 0.00026000000000000003
+    },
+    {
+      "Mobile Fuel": "Motor Gasoline - Gasoline Ships and Boats",
+      "CO2 Factor (kg unit)": 8.78,
+      "CH4 Factor (kg unit)": 0.00064,
+      "N2O Factor (kg unit)": 0.00022,
+      "AR4 (kgCO2e)": 8.861559999999999,
+      "AR5 (kgCO2e)": 8.856219999999999,
+      "Standardized unit": "gal (US)",
+      "MPG Units": "gal (US)",
+      "kg CO4": 0.00064,
+      "kg NO2": 0.00022
+    },
+    {
+      "Mobile Fuel": "Diesel Fuel - Diesel Ships and Boats",
+      "CO2 Factor (kg unit)": 10.21,
+      "CH4 Factor (kg unit)": 0.000059999999999999995,
+      "N2O Factor (kg unit)": 0.00045,
+      "AR4 (kgCO2e)": 10.345600000000001,
+      "AR5 (kgCO2e)": 10.33093,
+      "Standardized unit": "gal (US)",
+      "MPG Units": "gal (US)",
+      "kg CO4": 0.000059999999999999995,
+      "kg NO2": 0.00045
+    },
+    {
+      "Mobile Fuel": "Jet Fuel - Jet Fuel Aircraft",
+      "CO2 Factor (kg unit)": 9.75,
+      "CH4 Factor (kg unit)": 0,
+      "N2O Factor (kg unit)": 0.0003,
+      "AR4 (kgCO2e)": 9.8394,
+      "AR5 (kgCO2e)": 9.8295,
+      "Standardized unit": "gal (US)",
+      "MPG Units": "gal (US)",
+      "kg CO4": 0,
+      "kg NO2": 0.0003
+    },
+    {
+      "Mobile Fuel": "Aviation Gasoline - Aviation Gasoline Aircraft",
+      "CO2 Factor (kg unit)": 8.31,
+      "CH4 Factor (kg unit)": 0.0070599999999999994,
+      "N2O Factor (kg unit)": 0.00011,
+      "AR4 (kgCO2e)": 8.519280000000002,
+      "AR5 (kgCO2e)": 8.53683,
+      "Standardized unit": "gal (US)",
+      "MPG Units": "gal (US)",
+      "kg CO4": 0.0070599999999999994,
+      "kg NO2": 0.00011
+    },
+    {
+      "Mobile Fuel": "Motor Gasoline - Gasoline Motorcycles",
+      "CO2 Factor (kg unit)": 8.78,
+      "CH4 Factor (kg unit)": 0.0033599999999999997,
+      "N2O Factor (kg unit)": 0.000345,
+      "AR4 (kgCO2e)": 8.966809999999999,
+      "AR5 (kgCO2e)": 8.965504999999999,
+      "Standardized unit": "gal (US)",
+      "Default Average Fuel Efficiency (mpgmpge)": 50,
+      "MPG Units": "mile",
+      "kg CO4": 0.0000672,
+      "kg NO2": 0.0000069
+    },
+    {
+      "Mobile Fuel": "Motor Gasoline - Other Gasoline Non-Road Vehicles",
+      "CO2 Factor (kg unit)": 8.78,
+      "CH4 Factor (kg unit)": 0.0005,
+      "N2O Factor (kg unit)": 0.00022,
+      "AR4 (kgCO2e)": 8.858059999999998,
+      "AR5 (kgCO2e)": 8.852299999999998,
+      "Standardized unit": "gal (US)",
+      "MPG Units": "gal (US)",
+      "kg CO4": 0.0005,
+      "kg NO2": 0.00022
+    },
+    {
+      "Mobile Fuel": "Diesel Fuel - Other Diesel Non-Road Vehicles",
+      "CO2 Factor (kg unit)": 10.21,
+      "CH4 Factor (kg unit)": 0.00057,
+      "N2O Factor (kg unit)": 0.00026000000000000003,
+      "AR4 (kgCO2e)": 10.301730000000001,
+      "AR5 (kgCO2e)": 10.29486,
+      "Standardized unit": "gal (US)",
+      "MPG Units": "gal (US)",
+      "kg CO4": 0.00057,
+      "kg NO2": 0.00026000000000000003
+    },
+    {
+      "Mobile Fuel": "Biodiesel (100%) - Biodiesel Medium- and Heavy-duty Vehicles",
+      "CO2 Factor (kg unit)": 0,
+      "CH4 Factor (kg unit)": 0.000029500000000000006,
+      "N2O Factor (kg unit)": 0.000029500000000000006,
+      "Biogenic CO2 (kg Biogenic CO2 per mmBtu)": 9.45,
+      "AR4 (kgCO2e)": 0.009528500000000002,
+      "AR5 (kgCO2e)": 0.008643500000000002,
+      "Standardized unit": "gal (US)",
+      "Default Average Fuel Efficiency (mpgmpge)": 5.9,
+      "MPG Units": "mile",
+      "kg CO4": 0.000005,
+      "kg NO2": 0.000005
+    }
+  ],
+  "S3_Transport_EF": [
+    {
+      "Lookup name": "Passenger Car A",
+      "CO2 Factor (kg unit)": 0.343,
+      "CH4 Factor (g unit)": 0.019,
+      "N2O Factor (g unit)": 0.011,
+      "AR4 (kgCO2e)": 0.34675300000000003,
+      "AR5 (kgCO2e)": 0.346447,
+      "Units": "vehicle-mile"
+    },
+    {
+      "Lookup name": "Light-Duty Truck B",
+      "CO2 Factor (kg unit)": 0.472,
+      "CH4 Factor (g unit)": 0.019,
+      "N2O Factor (g unit)": 0.018,
+      "AR4 (kgCO2e)": 0.47783899999999996,
+      "AR5 (kgCO2e)": 0.47730199999999995,
+      "Units": "vehicle-mile"
+    },
+    {
+      "Lookup name": "Motorcycle",
+      "CO2 Factor (kg unit)": 0.189,
+      "CH4 Factor (g unit)": 0.07,
+      "N2O Factor (g unit)": 0.007,
+      "AR4 (kgCO2e)": 0.192836,
+      "AR5 (kgCO2e)": 0.192815,
+      "Units": "vehicle-mile"
+    },
+    {
+      "Lookup name": "Intercity Rail (i.e. Amtrak) C",
+      "CO2 Factor (kg unit)": 0.14,
+      "CH4 Factor (g unit)": 0.0087,
+      "N2O Factor (g unit)": 0.0031,
+      "AR4 (kgCO2e)": 0.14114130000000003,
+      "AR5 (kgCO2e)": 0.14106510000000003,
+      "Units": "passenger-mile"
+    },
+    {
+      "Lookup name": "Commuter Rail D",
+      "CO2 Factor (kg unit)": 0.161,
+      "CH4 Factor (g unit)": 0.0081,
+      "N2O Factor (g unit)": 0.0032,
+      "AR4 (kgCO2e)": 0.1621561,
+      "AR5 (kgCO2e)": 0.1620748,
+      "Units": "passenger-mile"
+    },
+    {
+      "Lookup name": "Transit Rail (i.e. Subway, Tram) E",
+      "CO2 Factor (kg unit)": 0.119,
+      "CH4 Factor (g unit)": 0.0025,
+      "N2O Factor (g unit)": 0.0017,
+      "AR4 (kgCO2e)": 0.11956909999999998,
+      "AR5 (kgCO2e)": 0.1195205,
+      "Units": "passenger-mile"
+    },
+    {
+      "Lookup name": "Bus",
+      "CO2 Factor (kg unit)": 0.056,
+      "CH4 Factor (g unit)": 0.0012917147824303154,
+      "N2O Factor (g unit)": 0.0008669226727720236,
+      "AR4 (kgCO2e)": 0.05629063582604683,
+      "AR5 (kgCO2e)": 0.056265902522192636,
+      "Units": "passenger-mile"
+    },
+    {
+      "Lookup name": "Air Travel - Short Haul (< 300 miles) ",
+      "CO2 Factor (kg unit)": 0.225,
+      "CH4 Factor (g unit)": 0.0039,
+      "N2O Factor (g unit)": 0.007175381428170656,
+      "AR4 (kgCO2e)": 0.22723576366559486,
+      "AR5 (kgCO2e)": 0.22701067607846523,
+      "Units": "passenger-mile"
+    },
+    {
+      "Lookup name": "Air Travel - Medium Haul (>= 300 miles, \r\n< 2300 miles) ",
+      "CO2 Factor (kg unit)": 0.136,
+      "CH4 Factor (g unit)": 0.0006,
+      "N2O Factor (g unit)": 0.0043,
+      "AR4 (kgCO2e)": 0.13729639999999999,
+      "AR5 (kgCO2e)": 0.1371563,
+      "Units": "passenger-mile"
+    },
+    {
+      "Lookup name": "Air Travel - Long Haul (>= 2300 miles) ",
+      "CO2 Factor (kg unit)": 0.166,
+      "CH4 Factor (g unit)": 0.0006,
+      "N2O Factor (g unit)": 0.0053,
+      "AR4 (kgCO2e)": 0.1675944,
+      "AR5 (kgCO2e)": 0.16742130000000002,
+      "Units": "passenger-mile"
+    },
+    {
+      "Lookup name": "Average Car - Diesel",
+      "CO2 Factor (kg unit)": 0.27603,
+      "CH4 Factor (g unit)": 0.00001,
+      "N2O Factor (g unit)": 0.00297,
+      "AR4 (kgCO2e)": 0.27691530999999997,
+      "AR5 (kgCO2e)": 0.27681733000000003,
+      "Units": "mile"
+    },
+    {
+      "Lookup name": "Average Car - Petrol",
+      "CO2 Factor (kg unit)": 0.28991,
+      "CH4 Factor (g unit)": 0.00051,
+      "N2O Factor (g unit)": 0.00061,
+      "AR4 (kgCO2e)": 0.29010453,
+      "AR5 (kgCO2e)": 0.29008593,
+      "Units": "mile"
+    },
+    {
+      "Lookup name": "Average Car - Hybrid",
+      "CO2 Factor (kg unit)": 0.18259,
+      "CH4 Factor (g unit)": 0.00026,
+      "N2O Factor (g unit)": 0.0017900000000000001,
+      "AR4 (kgCO2e)": 0.18312992,
+      "AR5 (kgCO2e)": 0.18307163,
+      "Units": "mile"
+    },
+    {
+      "Lookup name": "Average Car - CNG",
+      "CO2 Factor (kg unit)": 0.28324,
+      "CH4 Factor (g unit)": 0.00257,
+      "N2O Factor (g unit)": 0.00072,
+      "AR4 (kgCO2e)": 0.28351880999999995,
+      "AR5 (kgCO2e)": 0.28350275999999996,
+      "Units": "mile"
+    },
+    {
+      "Lookup name": "Average Car - LPG",
+      "CO2 Factor (kg unit)": 0.31947,
+      "CH4 Factor (g unit)": 0.00008,
+      "N2O Factor (g unit)": 0.00072,
+      "AR4 (kgCO2e)": 0.31968655999999995,
+      "AR5 (kgCO2e)": 0.31966303999999995,
+      "Units": "mile"
+    },
+    {
+      "Lookup name": "Average Car - Plug-in Hybrid Electric Vehicle",
+      "CO2 Factor (kg unit)": 0.18434,
+      "CH4 Factor (g unit)": 0.00053,
+      "N2O Factor (g unit)": 0.00072,
+      "Biofuel": "Yes",
+      "AR4 (kgCO2e)": 0.18456781,
+      "AR5 (kgCO2e)": 0.18454563999999998,
+      "Units": "mile"
+    },
+    {
+      "Lookup name": "Average Car - Battery Electric Vehicle",
+      "CO2 Factor (kg unit)": 0.09612,
+      "CH4 Factor (g unit)": 0.00024,
+      "N2O Factor (g unit)": 0.00052,
+      "Biofuel": "Yes",
+      "AR4 (kgCO2e)": 0.09628096,
+      "AR5 (kgCO2e)": 0.09626451999999999,
+      "Units": "mile"
+    },
+    {
+      "Lookup name": "Average Car - Unknown",
+      "CO2 Factor (kg unit)": 0.28297,
+      "CH4 Factor (g unit)": 0.00026,
+      "N2O Factor (g unit)": 0.0017900000000000001,
+      "AR4 (kgCO2e)": 0.28350992,
+      "AR5 (kgCO2e)": 0.28345163,
+      "Units": "mile"
+    },
+    {
+      "Lookup name": "Motorbike",
+      "CO2 Factor (kg unit)": 0.18208,
+      "CH4 Factor (g unit)": 0.00286,
+      "N2O Factor (g unit)": 0.00095,
+      "AR4 (kgCO2e)": 0.1824346,
+      "AR5 (kgCO2e)": 0.18241183,
+      "Units": "mile"
+    },
+    {
+      "Lookup name": "Taxi - regular",
+      "CO2 Factor (kg unit)": 0.14886,
+      "CH4 Factor (g unit)": 0.00000308,
+      "N2O Factor (g unit)": 0.00132,
+      "AR4 (kgCO2e)": 0.149253437,
+      "AR5 (kgCO2e)": 0.14920988624,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Local Bus",
+      "CO2 Factor (kg unit)": 0.10391,
+      "CH4 Factor (g unit)": 0.00003,
+      "N2O Factor (g unit)": 0.00077,
+      "AR4 (kgCO2e)": 0.10414021,
+      "AR5 (kgCO2e)": 0.10411489,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "National rail",
+      "CO2 Factor (kg unit)": 0.04077,
+      "CH4 Factor (g unit)": 0.00007,
+      "N2O Factor (g unit)": 0.00031,
+      "AR4 (kgCO2e)": 0.040864130000000005,
+      "AR5 (kgCO2e)": 0.040854110000000006,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "International rail",
+      "CO2 Factor (kg unit)": 0.00592,
+      "CH4 Factor (g unit)": 0.00002,
+      "N2O Factor (g unit)": 0.00003,
+      "AR4 (kgCO2e)": 0.005929439999999999,
+      "AR5 (kgCO2e)": 0.00592851,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Light rail and tram",
+      "CO2 Factor (kg unit)": 0.0348,
+      "CH4 Factor (g unit)": 0.00009,
+      "N2O Factor (g unit)": 0.00019,
+      "AR4 (kgCO2e)": 0.03485887,
+      "AR5 (kgCO2e)": 0.034852869999999994,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - Domestic, to/from UK - Average passenger",
+      "CO2 Factor (kg unit)": 0.13345,
+      "CH4 Factor (g unit)": 0.00012,
+      "N2O Factor (g unit)": 0.00126,
+      "AR4 (kgCO2e)": 0.13382848000000003,
+      "AR5 (kgCO2e)": 0.13378726000000002,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - Short-haul, to/from UK - Average passenger",
+      "CO2 Factor (kg unit)": 0.08291,
+      "CH4 Factor (g unit)": 0.00001,
+      "N2O Factor (g unit)": 0.00078,
+      "AR4 (kgCO2e)": 0.08314268999999999,
+      "AR5 (kgCO2e)": 0.08311698000000001,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - Short-haul, to/from UK - Economy class",
+      "CO2 Factor (kg unit)": 0.08155,
+      "CH4 Factor (g unit)": 0.00001,
+      "N2O Factor (g unit)": 0.00077,
+      "AR4 (kgCO2e)": 0.08177970999999999,
+      "AR5 (kgCO2e)": 0.08175433,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - Short-haul, to/from UK - Business class",
+      "CO2 Factor (kg unit)": 0.12233,
+      "CH4 Factor (g unit)": 0.00001,
+      "N2O Factor (g unit)": 0.00116,
+      "AR4 (kgCO2e)": 0.12267592999999999,
+      "AR5 (kgCO2e)": 0.12263768,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - Long-haul, to/from UK - Average passenger",
+      "CO2 Factor (kg unit)": 0.10244,
+      "CH4 Factor (g unit)": 0.00001,
+      "N2O Factor (g unit)": 0.00097,
+      "AR4 (kgCO2e)": 0.10272930999999999,
+      "AR5 (kgCO2e)": 0.10269733,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - Long-haul, to/from UK - Economy class",
+      "CO2 Factor (kg unit)": 0.07845,
+      "CH4 Factor (g unit)": 0.00001,
+      "N2O Factor (g unit)": 0.00074,
+      "AR4 (kgCO2e)": 0.07867077,
+      "AR5 (kgCO2e)": 0.07864638000000002,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - Long-haul, to/from UK - Premium economy class",
+      "CO2 Factor (kg unit)": 0.12553,
+      "CH4 Factor (g unit)": 0.00001,
+      "N2O Factor (g unit)": 0.00119,
+      "AR4 (kgCO2e)": 0.12588487,
+      "AR5 (kgCO2e)": 0.12584562999999999,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - Long-haul, to/from UK - Business class",
+      "CO2 Factor (kg unit)": 0.22752,
+      "CH4 Factor (g unit)": 0.00002,
+      "N2O Factor (g unit)": 0.00215,
+      "AR4 (kgCO2e)": 0.22816119999999998,
+      "AR5 (kgCO2e)": 0.22809031000000002,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - Long-haul, to/from UK - First class",
+      "CO2 Factor (kg unit)": 0.31382,
+      "CH4 Factor (g unit)": 0.00002,
+      "N2O Factor (g unit)": 0.00297,
+      "AR4 (kgCO2e)": 0.31470556,
+      "AR5 (kgCO2e)": 0.31460761,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - International, to/from non-UK - Average passenger",
+      "CO2 Factor (kg unit)": 0.09467,
+      "CH4 Factor (g unit)": 0.00001,
+      "N2O Factor (g unit)": 0.0009,
+      "AR4 (kgCO2e)": 0.09493845,
+      "AR5 (kgCO2e)": 0.09490878000000001,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - International, to/from non-UK - Economy class",
+      "CO2 Factor (kg unit)": 0.0725,
+      "CH4 Factor (g unit)": 0.000005,
+      "N2O Factor (g unit)": 0.00069,
+      "AR4 (kgCO2e)": 0.072705745,
+      "AR5 (kgCO2e)": 0.07268298999999999,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - International, to/from non-UK - Premium economy class",
+      "CO2 Factor (kg unit)": 0.116,
+      "CH4 Factor (g unit)": 0.00001,
+      "N2O Factor (g unit)": 0.0011,
+      "AR4 (kgCO2e)": 0.11632805,
+      "AR5 (kgCO2e)": 0.11629178000000001,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - International, to/from non-UK - Business class",
+      "CO2 Factor (kg unit)": 0.21025,
+      "CH4 Factor (g unit)": 0.00002,
+      "N2O Factor (g unit)": 0.00199,
+      "AR4 (kgCO2e)": 0.21084351999999998,
+      "AR5 (kgCO2e)": 0.21077791,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - International, to/from non-UK - First class",
+      "CO2 Factor (kg unit)": 0.29,
+      "CH4 Factor (g unit)": 0.00002,
+      "N2O Factor (g unit)": 0.00274,
+      "AR4 (kgCO2e)": 0.29081702,
+      "AR5 (kgCO2e)": 0.29072665999999997,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Ferry - Average (all passenger)",
+      "CO2 Factor (kg unit)": 0.111313,
+      "CH4 Factor (g unit)": 0.000033,
+      "N2O Factor (g unit)": 0.001517,
+      "AR4 (kgCO2e)": 0.11176589099999999,
+      "AR5 (kgCO2e)": 0.11171592899999999,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Medium- and Heavy-Duty Truck",
+      "CO2 Factor (kg unit)": 1.467,
+      "CH4 Factor (g unit)": 0.014,
+      "N2O Factor (g unit)": 0.01,
+      "AR4 (kgCO2e)": 1.4703300000000001,
+      "AR5 (kgCO2e)": 1.470042,
+      "Units": "vehicle-mile"
+    },
+    {
+      "Lookup name": "Passenger Car A1",
+      "CO2 Factor (kg unit)": 0.343,
+      "CH4 Factor (g unit)": 0.019,
+      "N2O Factor (g unit)": 0.011,
+      "AR4 (kgCO2e)": 0.34675300000000003,
+      "AR5 (kgCO2e)": 0.346447,
+      "Units": "vehicle-mile"
+    },
+    {
+      "Lookup name": "Light-Duty Truck B1",
+      "CO2 Factor (kg unit)": 0.472,
+      "CH4 Factor (g unit)": 0.019,
+      "N2O Factor (g unit)": 0.018,
+      "AR4 (kgCO2e)": 0.47783899999999996,
+      "AR5 (kgCO2e)": 0.47730199999999995,
+      "Units": "vehicle-mile"
+    },
+    {
+      "Lookup name": "Medium- and Heavy-Duty TruckC",
+      "CO2 Factor (kg unit)": 0.20233797801439316,
+      "CH4 Factor (g unit)": 0.00200384231754784,
+      "N2O Factor (g unit)": 0.0015129681927794096,
+      "AR4 (kgCO2e)": 0.20283893859378013,
+      "AR5 (kgCO2e)": 0.20279502217037101,
+      "Units": "ton-mile"
+    },
+    {
+      "Lookup name": "Rail",
+      "CO2 Factor (kg unit)": 0.023,
+      "CH4 Factor (g unit)": 0.0018,
+      "N2O Factor (g unit)": 0.0006,
+      "AR4 (kgCO2e)": 0.0232238,
+      "AR5 (kgCO2e)": 0.023209399999999998,
+      "Units": "ton-mile"
+    },
+    {
+      "Lookup name": "Waterborne Craft",
+      "CO2 Factor (kg unit)": 0.059,
+      "CH4 Factor (g unit)": 0.0005,
+      "N2O Factor (g unit)": 0.004,
+      "AR4 (kgCO2e)": 0.060204499999999994,
+      "AR5 (kgCO2e)": 0.060073999999999995,
+      "Units": "ton-mile"
+    },
+    {
+      "Lookup name": "Aircraft",
+      "CO2 Factor (kg unit)": 1.308,
+      "CH4 Factor (g unit)": 0,
+      "N2O Factor (g unit)": 0.0402,
+      "AR4 (kgCO2e)": 1.3199796000000001,
+      "AR5 (kgCO2e)": 1.318653,
+      "Units": "ton-mile"
+    },
+    {
+      "Lookup name": "Vans - Average (up to 3.5 tonnes) - Diesel",
+      "CO2 Factor (kg unit)": 0.40279,
+      "CH4 Factor (g unit)": 0.00001,
+      "N2O Factor (g unit)": 0.00296,
+      "AR4 (kgCO2e)": 0.40367232999999997,
+      "AR5 (kgCO2e)": 0.40357468,
+      "Units": "mile"
+    },
+    {
+      "Lookup name": "Vans - Average (up to 3.5 tonnes) - Petrol",
+      "CO2 Factor (kg unit)": 0.37898,
+      "CH4 Factor (g unit)": 0.00041,
+      "N2O Factor (g unit)": 0.00114,
+      "AR4 (kgCO2e)": 0.37932996999999996,
+      "AR5 (kgCO2e)": 0.37929358,
+      "Units": "mile"
+    },
+    {
+      "Lookup name": "Vans - Average (up to 3.5 tonnes) - CNG",
+      "CO2 Factor (kg unit)": 0.39542,
+      "CH4 Factor (g unit)": 0.00204,
+      "N2O Factor (g unit)": 0.00135,
+      "AR4 (kgCO2e)": 0.39587330000000004,
+      "AR5 (kgCO2e)": 0.39583487,
+      "Units": "mile"
+    },
+    {
+      "Lookup name": "Vans - Average (up to 3.5 tonnes) - LPG",
+      "CO2 Factor (kg unit)": 0.43704,
+      "CH4 Factor (g unit)": 0.00006,
+      "N2O Factor (g unit)": 0.00135,
+      "AR4 (kgCO2e)": 0.4374438,
+      "AR5 (kgCO2e)": 0.43739943,
+      "Units": "mile"
+    },
+    {
+      "Lookup name": "Vans - Average (up to 3.5 tonnes) - Unknown",
+      "CO2 Factor (kg unit)": 0.40201,
+      "CH4 Factor (g unit)": 0.00002,
+      "N2O Factor (g unit)": 0.0029,
+      "AR4 (kgCO2e)": 0.4028747,
+      "AR5 (kgCO2e)": 0.40277905999999997,
+      "Units": "mile"
+    },
+    {
+      "Lookup name": "Vans - Average (up to 3.5 tonnes) - Battery Electric Vehicle",
+      "CO2 Factor (kg unit)": 0.10034,
+      "CH4 Factor (g unit)": 0.00026,
+      "N2O Factor (g unit)": 0.00055,
+      "Biofuel": "Yes",
+      "AR4 (kgCO2e)": 0.1005104,
+      "AR5 (kgCO2e)": 0.10049303,
+      "Units": "mile"
+    },
+    {
+      "Lookup name": "HGV (all diesel) - tonne.km",
+      "CO2 Factor (kg unit)": 0.10797,
+      "CH4 Factor (g unit)": 0.00004,
+      "N2O Factor (g unit)": 0.0022,
+      "AR4 (kgCO2e)": 0.1086266,
+      "AR5 (kgCO2e)": 0.10855411999999999,
+      "Units": "tonne-km"
+    },
+    {
+      "Lookup name": "HGV (all diesel) - km",
+      "CO2 Factor (kg unit)": 0.85361,
+      "CH4 Factor (g unit)": 0.00017,
+      "N2O Factor (g unit)": 0.01277,
+      "AR4 (kgCO2e)": 0.8574197100000001,
+      "AR5 (kgCO2e)": 0.85699881,
+      "Units": "km"
+    },
+    {
+      "Lookup name": "HGV (all diesel) - miles",
+      "CO2 Factor (kg unit)": 1.37375,
+      "CH4 Factor (g unit)": 0.00027,
+      "N2O Factor (g unit)": 0.02055,
+      "AR4 (kgCO2e)": 1.37988065,
+      "AR5 (kgCO2e)": 1.37920331,
+      "Units": "mile"
+    },
+    {
+      "Lookup name": "HGV refrigerated (all diesel) - tonne.km",
+      "CO2 Factor (kg unit)": 0.1268468527200387,
+      "CH4 Factor (g unit)": 0.00004,
+      "N2O Factor (g unit)": 0.0022,
+      "AR4 (kgCO2e)": 0.1275034527200387,
+      "AR5 (kgCO2e)": 0.1274309727200387,
+      "Units": "tonne-km"
+    },
+    {
+      "Lookup name": "HGV refrigerated (all diesel) - km",
+      "CO2 Factor (kg unit)": 1.0028502542405506,
+      "CH4 Factor (g unit)": 0.00017,
+      "N2O Factor (g unit)": 0.01277,
+      "AR4 (kgCO2e)": 1.0066599642405505,
+      "AR5 (kgCO2e)": 1.0062390642405505,
+      "Units": "km"
+    },
+    {
+      "Lookup name": "HGV refrigerated (all diesel) - miles",
+      "CO2 Factor (kg unit)": 1.61393,
+      "CH4 Factor (g unit)": 0.00027,
+      "N2O Factor (g unit)": 0.02055,
+      "AR4 (kgCO2e)": 1.62006065,
+      "AR5 (kgCO2e)": 1.6193833100000001,
+      "Units": "mile"
+    },
+    {
+      "Lookup name": "Freight flights - Domestic, to/from UK",
+      "CO2 Factor (kg unit)": 2.61561,
+      "CH4 Factor (g unit)": 0.00234,
+      "N2O Factor (g unit)": 0.02475,
+      "AR4 (kgCO2e)": 2.6230440000000006,
+      "AR5 (kgCO2e)": 2.6222342700000003,
+      "Units": "tonne-km"
+    },
+    {
+      "Lookup name": "Freight flights - Short-haul, to/from UK",
+      "CO2 Factor (kg unit)": 1.24621,
+      "CH4 Factor (g unit)": 0.00009,
+      "N2O Factor (g unit)": 0.01179,
+      "AR4 (kgCO2e)": 1.2497256700000001,
+      "AR5 (kgCO2e)": 1.24933687,
+      "Units": "tonne-km"
+    },
+    {
+      "Lookup name": "Freight flights - Long-haul, to/from UK",
+      "CO2 Factor (kg unit)": 0.59268,
+      "CH4 Factor (g unit)": 0.00004,
+      "N2O Factor (g unit)": 0.00561,
+      "AR4 (kgCO2e)": 0.59435278,
+      "AR5 (kgCO2e)": 0.59416777,
+      "Units": "tonne-km"
+    },
+    {
+      "Lookup name": "Freight flights - International, to/from non-UK",
+      "CO2 Factor (kg unit)": 0.59268,
+      "CH4 Factor (g unit)": 0.00004,
+      "N2O Factor (g unit)": 0.00561,
+      "AR4 (kgCO2e)": 0.59435278,
+      "AR5 (kgCO2e)": 0.59416777,
+      "Units": "tonne-km"
+    },
+    {
+      "Lookup name": "Rail - Freight train",
+      "CO2 Factor (kg unit)": 0.03299,
+      "CH4 Factor (g unit)": 0.00003,
+      "N2O Factor (g unit)": 0.00031,
+      "AR4 (kgCO2e)": 0.03308313,
+      "AR5 (kgCO2e)": 0.033072990000000003,
+      "Units": "tonne-km"
+    },
+    {
+      "Lookup name": "Sea Tanker - Crude Tanker - Average",
+      "CO2 Factor (kg unit)": 0.00451,
+      "CH4 Factor (g unit)": 0.000001,
+      "N2O Factor (g unit)": 0.000061,
+      "AR4 (kgCO2e)": 0.004528203,
+      "AR5 (kgCO2e)": 0.004526193,
+      "Units": "tonne-km"
+    },
+    {
+      "Lookup name": "Sea Tanker - Products Tanker - Average",
+      "CO2 Factor (kg unit)": 0.00891,
+      "CH4 Factor (g unit)": 0.000003,
+      "N2O Factor (g unit)": 0.000121,
+      "AR4 (kgCO2e)": 0.008946133,
+      "AR5 (kgCO2e)": 0.008942148999999998,
+      "Units": "tonne-km"
+    },
+    {
+      "Lookup name": "Sea Tanker - Chemical Tanker - Average",
+      "CO2 Factor (kg unit)": 0.01018,
+      "CH4 Factor (g unit)": 0.000003,
+      "N2O Factor (g unit)": 0.000139,
+      "AR4 (kgCO2e)": 0.010221497,
+      "AR5 (kgCO2e)": 0.010216919,
+      "Units": "tonne-km"
+    },
+    {
+      "Lookup name": "Sea Tanker - LNG Tanker - Average",
+      "CO2 Factor (kg unit)": 0.01139,
+      "CH4 Factor (g unit)": 0.000003,
+      "N2O Factor (g unit)": 0.000155,
+      "AR4 (kgCO2e)": 0.011436265000000001,
+      "AR5 (kgCO2e)": 0.011431159,
+      "Units": "tonne-km"
+    },
+    {
+      "Lookup name": "Sea Tanker - LPG Tanker - Average",
+      "CO2 Factor (kg unit)": 0.01024,
+      "CH4 Factor (g unit)": 0.000003,
+      "N2O Factor (g unit)": 0.00014,
+      "AR4 (kgCO2e)": 0.010281795000000002,
+      "AR5 (kgCO2e)": 0.010277184,
+      "Units": "tonne-km"
+    },
+    {
+      "Lookup name": "Cargo Ship - Bulk Carrier - Average",
+      "CO2 Factor (kg unit)": 0.00349,
+      "CH4 Factor (g unit)": 0.000001,
+      "N2O Factor (g unit)": 0.000048,
+      "AR4 (kgCO2e)": 0.003504329,
+      "AR5 (kgCO2e)": 0.003502748,
+      "Units": "tonne-km"
+    },
+    {
+      "Lookup name": "Cargo Ship - General Cargo - Average",
+      "CO2 Factor (kg unit)": 0.01305,
+      "CH4 Factor (g unit)": 0.000004,
+      "N2O Factor (g unit)": 0.000178,
+      "AR4 (kgCO2e)": 0.013103144,
+      "AR5 (kgCO2e)": 0.013097282,
+      "Units": "tonne-km"
+    },
+    {
+      "Lookup name": "Cargo Ship - Container Ship - Average",
+      "CO2 Factor (kg unit)": 0.01592,
+      "CH4 Factor (g unit)": 0.000005,
+      "N2O Factor (g unit)": 0.000217,
+      "AR4 (kgCO2e)": 0.015984791,
+      "AR5 (kgCO2e)": 0.015977645,
+      "Units": "tonne-km"
+    },
+    {
+      "Lookup name": "Cargo Ship - Vehicle Transport - Average",
+      "CO2 Factor (kg unit)": 0.03805,
+      "CH4 Factor (g unit)": 0.000011,
+      "N2O Factor (g unit)": 0.000519,
+      "AR4 (kgCO2e)": 0.038204937,
+      "AR5 (kgCO2e)": 0.038187843,
+      "Units": "tonne-km"
+    },
+    {
+      "Lookup name": "Cargo Ship - RoRo-Ferry - Average",
+      "CO2 Factor (kg unit)": 0.05095,
+      "CH4 Factor (g unit)": 0.000015,
+      "N2O Factor (g unit)": 0.000694,
+      "AR4 (kgCO2e)": 0.051157187,
+      "AR5 (kgCO2e)": 0.051134330000000006,
+      "Units": "tonne-km"
+    },
+    {
+      "Lookup name": "Cargo Ship - Large RoPax Ferry - Average",
+      "CO2 Factor (kg unit)": 0.3715,
+      "CH4 Factor (g unit)": 0.000112,
+      "N2O Factor (g unit)": 0.005062,
+      "AR4 (kgCO2e)": 0.373011276,
+      "AR5 (kgCO2e)": 0.372844566,
+      "Units": "tonne-km"
+    },
+    {
+      "Lookup name": "Cargo Ship - Refrigerated Cargo -  All dwt",
+      "CO2 Factor (kg unit)": 0.0129,
+      "CH4 Factor (g unit)": 0.000004,
+      "N2O Factor (g unit)": 0.000176,
+      "AR4 (kgCO2e)": 0.012952548,
+      "AR5 (kgCO2e)": 0.012946752,
+      "Units": "tonne-km"
+    },
+    {
+      "Lookup name": "Air Travel - Domestic, to/from UK - Average passenger_RF",
+      "CO2 Factor (kg unit)": 0.25355,
+      "CH4 Factor (g unit)": 0.00012,
+      "N2O Factor (g unit)": 0.00126,
+      "AR4 (kgCO2e)": 0.25392847999999996,
+      "AR5 (kgCO2e)": 0.25388726,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - Short-haul, to/from UK - Average passenger_RF",
+      "CO2 Factor (kg unit)": 0.15753,
+      "CH4 Factor (g unit)": 0.00001,
+      "N2O Factor (g unit)": 0.00078,
+      "AR4 (kgCO2e)": 0.15776269,
+      "AR5 (kgCO2e)": 0.15773698,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - Short-haul, to/from UK - Economy class_RF",
+      "CO2 Factor (kg unit)": 0.15495,
+      "CH4 Factor (g unit)": 0.00001,
+      "N2O Factor (g unit)": 0.00077,
+      "AR4 (kgCO2e)": 0.15517971,
+      "AR5 (kgCO2e)": 0.15515433,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - Short-haul, to/from UK - Business class_RF",
+      "CO2 Factor (kg unit)": 0.23243,
+      "CH4 Factor (g unit)": 0.00001,
+      "N2O Factor (g unit)": 0.00116,
+      "AR4 (kgCO2e)": 0.23277593,
+      "AR5 (kgCO2e)": 0.23273768,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - Long-haul, to/from UK - Average passenger_RF",
+      "CO2 Factor (kg unit)": 0.19464,
+      "CH4 Factor (g unit)": 0.00001,
+      "N2O Factor (g unit)": 0.00097,
+      "AR4 (kgCO2e)": 0.19492931000000002,
+      "AR5 (kgCO2e)": 0.19489733,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - Long-haul, to/from UK - Economy class_RF",
+      "CO2 Factor (kg unit)": 0.14906,
+      "CH4 Factor (g unit)": 0.00001,
+      "N2O Factor (g unit)": 0.00074,
+      "AR4 (kgCO2e)": 0.14928077,
+      "AR5 (kgCO2e)": 0.14925638,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - Long-haul, to/from UK - Premium economy class_RF",
+      "CO2 Factor (kg unit)": 0.2385,
+      "CH4 Factor (g unit)": 0.00001,
+      "N2O Factor (g unit)": 0.00119,
+      "AR4 (kgCO2e)": 0.23885487,
+      "AR5 (kgCO2e)": 0.23881562999999997,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - Long-haul, to/from UK - Business class_RF",
+      "CO2 Factor (kg unit)": 0.43229,
+      "CH4 Factor (g unit)": 0.00002,
+      "N2O Factor (g unit)": 0.00215,
+      "AR4 (kgCO2e)": 0.4329312,
+      "AR5 (kgCO2e)": 0.43286030999999997,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - Long-haul, to/from UK - First class_RF",
+      "CO2 Factor (kg unit)": 0.59626,
+      "CH4 Factor (g unit)": 0.00002,
+      "N2O Factor (g unit)": 0.00297,
+      "AR4 (kgCO2e)": 0.59714556,
+      "AR5 (kgCO2e)": 0.5970476100000001,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - International, to/from non-UK - Average passenger_RF",
+      "CO2 Factor (kg unit)": 0.17987,
+      "CH4 Factor (g unit)": 0.00001,
+      "N2O Factor (g unit)": 0.0009,
+      "AR4 (kgCO2e)": 0.18013845,
+      "AR5 (kgCO2e)": 0.18010878,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - International, to/from non-UK - Economy class_RF",
+      "CO2 Factor (kg unit)": 0.13775,
+      "CH4 Factor (g unit)": 0.000005,
+      "N2O Factor (g unit)": 0.00069,
+      "AR4 (kgCO2e)": 0.137955745,
+      "AR5 (kgCO2e)": 0.13793299000000003,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - International, to/from non-UK - Premium economy class_RF",
+      "CO2 Factor (kg unit)": 0.2204,
+      "CH4 Factor (g unit)": 0.00001,
+      "N2O Factor (g unit)": 0.0011,
+      "AR4 (kgCO2e)": 0.22072805,
+      "AR5 (kgCO2e)": 0.22069178,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - International, to/from non-UK - Business class_RF",
+      "CO2 Factor (kg unit)": 0.39948,
+      "CH4 Factor (g unit)": 0.00002,
+      "N2O Factor (g unit)": 0.00199,
+      "AR4 (kgCO2e)": 0.40007352,
+      "AR5 (kgCO2e)": 0.40000790999999997,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Air Travel - International, to/from non-UK - First class_RF",
+      "CO2 Factor (kg unit)": 0.551,
+      "CH4 Factor (g unit)": 0.00002,
+      "N2O Factor (g unit)": 0.00274,
+      "AR4 (kgCO2e)": 0.55181702,
+      "AR5 (kgCO2e)": 0.55172666,
+      "Units": "passenger-km"
+    },
+    {
+      "Lookup name": "Freight flights - Domestic, to/from UK_RF",
+      "CO2 Factor (kg unit)": 4.96965,
+      "CH4 Factor (g unit)": 0.00234,
+      "N2O Factor (g unit)": 0.02475,
+      "AR4 (kgCO2e)": 4.977084,
+      "AR5 (kgCO2e)": 4.976274269999999,
+      "Units": "tonne-km"
+    },
+    {
+      "Lookup name": "Freight flights - Short-haul, to/from UK_RF",
+      "CO2 Factor (kg unit)": 2.3678,
+      "CH4 Factor (g unit)": 0.00009,
+      "N2O Factor (g unit)": 0.01179,
+      "AR4 (kgCO2e)": 2.37131567,
+      "AR5 (kgCO2e)": 2.37092687,
+      "Units": "tonne-km"
+    },
+    {
+      "Lookup name": "Freight flights - Long-haul, to/from UK_RF",
+      "CO2 Factor (kg unit)": 1.12609,
+      "CH4 Factor (g unit)": 0.00004,
+      "N2O Factor (g unit)": 0.00561,
+      "AR4 (kgCO2e)": 1.1277627799999999,
+      "AR5 (kgCO2e)": 1.12757777,
+      "Units": "tonne-km"
+    },
+    {
+      "Lookup name": "Freight flights - International, to/from non-UK_RF",
+      "CO2 Factor (kg unit)": 1.12609,
+      "CH4 Factor (g unit)": 0.00004,
+      "N2O Factor (g unit)": 0.00561,
+      "AR4 (kgCO2e)": 1.1277627799999999,
+      "AR5 (kgCO2e)": 1.12757777,
+      "Units": "tonne-km"
+    }
+  ],
+  "Table5": [
+    {
+      "Grid Region Location Based": "AKGD",
+      "CO2 Factor (kgkWh)": 0.47157050358495006,
+      "CH4 Factor (kgkWh)": 0.00003719457434000001,
+      "N2O Factor (kgkWh)": 0.00000498951607,
+      "AR4 (kgCO2e)": 0.47398724373231005,
+      "AR5 (kgCO2e)": 0.4739341734250201,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "AKMS",
+      "CO2 Factor (kgkWh)": 0.23817364241671002,
+      "CH4 Factor (kgkWh)": 0.000010886216880000001,
+      "N2O Factor (kgkWh)": 0.0000018143694800000002,
+      "AR4 (kgCO2e)": 0.23898647994375,
+      "AR5 (kgCO2e)": 0.23895926440155002,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "AZNM",
+      "CO2 Factor (kgkWh)": 0.46373242743135007,
+      "CH4 Factor (kgkWh)": 0.00003492661249,
+      "N2O Factor (kgkWh)": 0.00000498951607,
+      "AR4 (kgCO2e)": 0.46609246853246006,
+      "AR5 (kgCO2e)": 0.4660325943396201,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "CAMX",
+      "CO2 Factor (kgkWh)": 0.22522494103032,
+      "CH4 Factor (kgkWh)": 0.000015422140580000002,
+      "N2O Factor (kgkWh)": 0.0000018143694800000002,
+      "AR4 (kgCO2e)": 0.22615117664986,
+      "AR5 (kgCO2e)": 0.22613756887876002,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "ERCT",
+      "CO2 Factor (kgkWh)": 0.42259931054264005,
+      "CH4 Factor (kgkWh)": 0.000029937096420000004,
+      "N2O Factor (kgkWh)": 0.00000408233133,
+      "AR4 (kgCO2e)": 0.42456427268948005,
+      "AR5 (kgCO2e)": 0.42451936704485005,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "FRCC",
+      "CO2 Factor (kgkWh)": 0.42267642124554006,
+      "CH4 Factor (kgkWh)": 0.000029937096420000004,
+      "N2O Factor (kgkWh)": 0.00000408233133,
+      "AR4 (kgCO2e)": 0.42464138339238006,
+      "AR5 (kgCO2e)": 0.42459647774775006,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "HIMS",
+      "CO2 Factor (kgkWh)": 0.5038000558429301,
+      "CH4 Factor (kgkWh)": 0.000053523899660000004,
+      "N2O Factor (kgkWh)": 0.00000816466266,
+      "AR4 (kgCO2e)": 0.5075712228071101,
+      "AR5 (kgCO2e)": 0.5074623606383101,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "HIOA",
+      "CO2 Factor (kgkWh)": 0.7574734031349101,
+      "CH4 Factor (kgkWh)": 0.0000816466266,
+      "N2O Factor (kgkWh)": 0.00001224699399,
+      "AR4 (kgCO2e)": 0.7631641730089301,
+      "AR5 (kgCO2e)": 0.7630049620870601,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "MROE",
+      "CO2 Factor (kgkWh)": 0.7611352543379201,
+      "CH4 Factor (kgkWh)": 0.00007665711053000001,
+      "N2O Factor (kgkWh)": 0.000011339809250000001,
+      "AR4 (kgCO2e)": 0.76643094525767,
+      "AR5 (kgCO2e)": 0.7662867028840101,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "MROW",
+      "CO2 Factor (kgkWh)": 0.5623855927597601,
+      "CH4 Factor (kgkWh)": 0.00006259574706000001,
+      "N2O Factor (kgkWh)": 0.000009071847400000002,
+      "AR4 (kgCO2e)": 0.5666538969614601,
+      "AR5 (kgCO2e)": 0.5665423132384401,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "NEWE",
+      "CO2 Factor (kgkWh)": 0.23691673795944002,
+      "CH4 Factor (kgkWh)": 0.00003719457434000001,
+      "N2O Factor (kgkWh)": 0.00000498951607,
+      "AR4 (kgCO2e)": 0.23933347810680003,
+      "AR5 (kgCO2e)": 0.23928040779951004,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "NWPP",
+      "CO2 Factor (kgkWh)": 0.28986230734769003,
+      "CH4 Factor (kgkWh)": 0.000029029911680000003,
+      "N2O Factor (kgkWh)": 0.00000408233133,
+      "AR4 (kgCO2e)": 0.29180458987603003,
+      "AR5 (kgCO2e)": 0.29175696267718,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "NYCW",
+      "CO2 Factor (kgkWh)": 0.27052883976118003,
+      "CH4 Factor (kgkWh)": 0.00000997903214,
+      "N2O Factor (kgkWh)": 0.0000013607771100000001,
+      "AR4 (kgCO2e)": 0.27118382714346,
+      "AR5 (kgCO2e)": 0.27116885859525003,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "NYLI",
+      "CO2 Factor (kgkWh)": 0.53716268184117,
+      "CH4 Factor (kgkWh)": 0.00006304933943000002,
+      "N2O Factor (kgkWh)": 0.00000816466266,
+      "AR4 (kgCO2e)": 0.5411719847995999,
+      "AR5 (kgCO2e)": 0.54109169895011,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "NYUP",
+      "CO2 Factor (kgkWh)": 0.11480967195544,
+      "CH4 Factor (kgkWh)": 0.00000816466266,
+      "N2O Factor (kgkWh)": 9.071847400000001e-7,
+      "AR4 (kgCO2e)": 0.11528412957446,
+      "AR5 (kgCO2e)": 0.11527868646602,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "RFCE",
+      "CO2 Factor (kgkWh)": 0.32475671477942003,
+      "CH4 Factor (kgkWh)": 0.000027669134570000002,
+      "N2O Factor (kgkWh)": 0.0000036287389600000004,
+      "AR4 (kgCO2e)": 0.32652980735375003,
+      "AR5 (kgCO2e)": 0.32649306637178005,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "RFCM",
+      "CO2 Factor (kgkWh)": 0.5953672011672,
+      "CH4 Factor (kgkWh)": 0.000058513415730000006,
+      "N2O Factor (kgkWh)": 0.00000816466266,
+      "AR4 (kgCO2e)": 0.5992631060331299,
+      "AR5 (kgCO2e)": 0.59916921241254,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "RFCW",
+      "CO2 Factor (kgkWh)": 0.5289322482875201,
+      "CH4 Factor (kgkWh)": 0.00005307030729000001,
+      "N2O Factor (kgkWh)": 0.000007711070290000001,
+      "AR4 (kgCO2e)": 0.53255690491619,
+      "AR5 (kgCO2e)": 0.53246165051849,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "RMPA",
+      "CO2 Factor (kgkWh)": 0.5777020463175501,
+      "CH4 Factor (kgkWh)": 0.000055791861510000005,
+      "N2O Factor (kgkWh)": 0.00000816466266,
+      "AR4 (kgCO2e)": 0.58152991232798,
+      "AR5 (kgCO2e)": 0.5814278540447301,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "SPNO",
+      "CO2 Factor (kgkWh)": 0.52761274808319,
+      "CH4 Factor (kgkWh)": 0.000056245453880000005,
+      "N2O Factor (kgkWh)": 0.00000816466266,
+      "AR4 (kgCO2e)": 0.53145195390287,
+      "AR5 (kgCO2e)": 0.53135125639673,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "SPSO",
+      "CO2 Factor (kgkWh)": 0.5291526941793401,
+      "CH4 Factor (kgkWh)": 0.00004127690567,
+      "N2O Factor (kgkWh)": 0.00000589670081,
+      "AR4 (kgCO2e)": 0.53194183366247,
+      "AR5 (kgCO2e)": 0.5318710732527501,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "SRMV",
+      "CO2 Factor (kgkWh)": 0.38766045105865005,
+      "CH4 Factor (kgkWh)": 0.000024947580350000004,
+      "N2O Factor (kgkWh)": 0.0000036287389600000004,
+      "AR4 (kgCO2e)": 0.38936550477748005,
+      "AR5 (kgCO2e)": 0.38932059913285005,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "SRMW",
+      "CO2 Factor (kgkWh)": 0.7548457425355001,
+      "CH4 Factor (kgkWh)": 0.00008391458845,
+      "N2O Factor (kgkWh)": 0.00001224699399,
+      "AR4 (kgCO2e)": 0.7605932114557701,
+      "AR5 (kgCO2e)": 0.7604408044194502,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "SRSO",
+      "CO2 Factor (kgkWh)": 0.4662602977093601,
+      "CH4 Factor (kgkWh)": 0.00003674098197000001,
+      "N2O Factor (kgkWh)": 0.0000054431084400000006,
+      "AR4 (kgCO2e)": 0.4688008685737301,
+      "AR5 (kgCO2e)": 0.4687314689411201,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "SRTV",
+      "CO2 Factor (kgkWh)": 0.46789731257269007,
+      "CH4 Factor (kgkWh)": 0.000043998459890000005,
+      "N2O Factor (kgkWh)": 0.000006350293180000001,
+      "AR4 (kgCO2e)": 0.4708896614375801,
+      "AR5 (kgCO2e)": 0.4708120971423101,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "SRVC",
+      "CO2 Factor (kgkWh)": 0.33716790920736,
+      "CH4 Factor (kgkWh)": 0.000030390688790000004,
+      "N2O Factor (kgkWh)": 0.00000408233133,
+      "AR4 (kgCO2e)": 0.33914421116345,
+      "AR5 (kgCO2e)": 0.33910066629593,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "U.S.",
+      "CO2 Factor (kgkWh)": 0.42963452820134007,
+      "CH4 Factor (kgkWh)": 0.00003855535145000001,
+      "N2O Factor (kgkWh)": 0.0000054431084400000006,
+      "AR4 (kgCO2e)": 0.43222045830271005,
+      "AR5 (kgCO2e)": 0.43215650177854004,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "CA",
+      "CO2 Factor (kgkWh)": 0.13,
+      "CH4 Factor (kgkWh)": 0,
+      "N2O Factor (kgkWh)": 0,
+      "AR4 (kgCO2e)": 0.13,
+      "AR5 (kgCO2e)": 0.13,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "Newfoundland and Labrador",
+      "CO2 Factor (kgkWh)": 0.04,
+      "CH4 Factor (kgkWh)": 6e-7,
+      "N2O Factor (kgkWh)": 0.000001,
+      "AR4 (kgCO2e)": 0.040313,
+      "AR5 (kgCO2e)": 0.0402818,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "Prince Edward Island",
+      "CO2 Factor (kgkWh)": 0.014,
+      "CH4 Factor (kgkWh)": 5e-7,
+      "N2O Factor (kgkWh)": 2.0000000000000002e-7,
+      "AR4 (kgCO2e)": 0.0140721,
+      "AR5 (kgCO2e)": 0.014067,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "Nova Scotia",
+      "CO2 Factor (kgkWh)": 0.67,
+      "CH4 Factor (kgkWh)": 0.000029999999999999997,
+      "N2O Factor (kgkWh)": 0.00001,
+      "AR4 (kgCO2e)": 0.67373,
+      "AR5 (kgCO2e)": 0.67349,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "New Brunswick",
+      "CO2 Factor (kgkWh)": 0.31,
+      "CH4 Factor (kgkWh)": 0.00002,
+      "N2O Factor (kgkWh)": 0.000004,
+      "AR4 (kgCO2e)": 0.311692,
+      "AR5 (kgCO2e)": 0.31162,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "Quebec",
+      "CO2 Factor (kgkWh)": 0.0012,
+      "CH4 Factor (kgkWh)": 0,
+      "N2O Factor (kgkWh)": 1.0000000000000001e-7,
+      "AR4 (kgCO2e)": 0.0012297999999999999,
+      "AR5 (kgCO2e)": 0.0012265,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "Ontario",
+      "CO2 Factor (kgkWh)": 0.017,
+      "CH4 Factor (kgkWh)": 0,
+      "N2O Factor (kgkWh)": 0.000001,
+      "AR4 (kgCO2e)": 0.017298,
+      "AR5 (kgCO2e)": 0.017265000000000003,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "Manitoba",
+      "CO2 Factor (kgkWh)": 0.0019,
+      "CH4 Factor (kgkWh)": 1.0000000000000001e-7,
+      "N2O Factor (kgkWh)": 1.0000000000000001e-7,
+      "AR4 (kgCO2e)": 0.0019322999999999999,
+      "AR5 (kgCO2e)": 0.0019293000000000001,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "Saskatchewan",
+      "CO2 Factor (kgkWh)": 0.65,
+      "CH4 Factor (kgkWh)": 0.00005,
+      "N2O Factor (kgkWh)": 0.00002,
+      "AR4 (kgCO2e)": 0.65721,
+      "AR5 (kgCO2e)": 0.6567,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "Alberta",
+      "CO2 Factor (kgkWh)": 0.75,
+      "CH4 Factor (kgkWh)": 0.00004,
+      "N2O Factor (kgkWh)": 0.00001,
+      "AR4 (kgCO2e)": 0.75398,
+      "AR5 (kgCO2e)": 0.75377,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "British Columbia",
+      "CO2 Factor (kgkWh)": 0.009,
+      "CH4 Factor (kgkWh)": 0.000003,
+      "N2O Factor (kgkWh)": 7e-7,
+      "AR4 (kgCO2e)": 0.0092836,
+      "AR5 (kgCO2e)": 0.0092695,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "Yukon",
+      "CO2 Factor (kgkWh)": 0.048,
+      "CH4 Factor (kgkWh)": 0.000004,
+      "N2O Factor (kgkWh)": 0.00001,
+      "AR4 (kgCO2e)": 0.05108000000000001,
+      "AR5 (kgCO2e)": 0.050762,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "Northwest Territories and Nunavut",
+      "CO2 Factor (kgkWh)": 0.17,
+      "CH4 Factor (kgkWh)": 0.00001,
+      "N2O Factor (kgkWh)": 0.00002,
+      "AR4 (kgCO2e)": 0.17621,
+      "AR5 (kgCO2e)": 0.17558,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "New South Wales and ACT",
+      "CO2 Factor (kgkWh)": 0.81,
+      "CH4 Factor (kgkWh)": 0,
+      "N2O Factor (kgkWh)": 0,
+      "AR4 (kgCO2e)": 0.81,
+      "AR5 (kgCO2e)": 0.81,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "Victoria",
+      "CO2 Factor (kgkWh)": 1.02,
+      "CH4 Factor (kgkWh)": 0,
+      "N2O Factor (kgkWh)": 0,
+      "AR4 (kgCO2e)": 1.02,
+      "AR5 (kgCO2e)": 1.02,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "Queensland",
+      "CO2 Factor (kgkWh)": 0.81,
+      "CH4 Factor (kgkWh)": 0,
+      "N2O Factor (kgkWh)": 0,
+      "AR4 (kgCO2e)": 0.81,
+      "AR5 (kgCO2e)": 0.81,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "South Australia",
+      "CO2 Factor (kgkWh)": 0.44,
+      "CH4 Factor (kgkWh)": 0,
+      "N2O Factor (kgkWh)": 0,
+      "AR4 (kgCO2e)": 0.44,
+      "AR5 (kgCO2e)": 0.44,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "SWIS in Western Australia",
+      "CO2 Factor (kgkWh)": 0.69,
+      "CH4 Factor (kgkWh)": 0,
+      "N2O Factor (kgkWh)": 0,
+      "AR4 (kgCO2e)": 0.69,
+      "AR5 (kgCO2e)": 0.69,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "Tasmania",
+      "CO2 Factor (kgkWh)": 0.15,
+      "CH4 Factor (kgkWh)": 0,
+      "N2O Factor (kgkWh)": 0,
+      "AR4 (kgCO2e)": 0.15,
+      "AR5 (kgCO2e)": 0.15,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "Northern Territory",
+      "CO2 Factor (kgkWh)": 0.63,
+      "CH4 Factor (kgkWh)": 0,
+      "N2O Factor (kgkWh)": 0,
+      "AR4 (kgCO2e)": 0.63,
+      "AR5 (kgCO2e)": 0.63,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "North China Grid",
+      "CO2 Factor (kgkWh)": 0.968,
+      "CH4 Factor (kgkWh)": 0,
+      "N2O Factor (kgkWh)": 0,
+      "AR4 (kgCO2e)": 0.968,
+      "AR5 (kgCO2e)": 0.968,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "China Northeast Grid",
+      "CO2 Factor (kgkWh)": 1.1082,
+      "CH4 Factor (kgkWh)": 0,
+      "N2O Factor (kgkWh)": 0,
+      "AR4 (kgCO2e)": 1.1082,
+      "AR5 (kgCO2e)": 1.1082,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "East China Grid",
+      "CO2 Factor (kgkWh)": 0.8046,
+      "CH4 Factor (kgkWh)": 0,
+      "N2O Factor (kgkWh)": 0,
+      "AR4 (kgCO2e)": 0.8046,
+      "AR5 (kgCO2e)": 0.8046,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "Central China Grid",
+      "CO2 Factor (kgkWh)": 0.9014,
+      "CH4 Factor (kgkWh)": 0,
+      "N2O Factor (kgkWh)": 0,
+      "AR4 (kgCO2e)": 0.9014,
+      "AR5 (kgCO2e)": 0.9014,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "China Northwest Grid",
+      "CO2 Factor (kgkWh)": 0.9155,
+      "CH4 Factor (kgkWh)": 0,
+      "N2O Factor (kgkWh)": 0,
+      "AR4 (kgCO2e)": 0.9155,
+      "AR5 (kgCO2e)": 0.9155,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "China Southern Grid",
+      "CO2 Factor (kgkWh)": 0.8367,
+      "CH4 Factor (kgkWh)": 0,
+      "N2O Factor (kgkWh)": 0,
+      "AR4 (kgCO2e)": 0.8367,
+      "AR5 (kgCO2e)": 0.8367,
+      "Units": "kWh"
+    },
+    {
+      "Grid Region Location Based": "Hainan Province China Power Grid ",
+      "CO2 Factor (kgkWh)": 0,
+      "CH4 Factor (kgkWh)": 0,
+      "N2O Factor (kgkWh)": 0,
+      "AR4 (kgCO2e)": 0,
+      "AR5 (kgCO2e)": 0,
+      "Units": "kWh"
+    }
+  ],
+  "Table6": [
+    {
+      "eGrid Subregion Residual Mix Market Based": "AKGD",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.49090034243249997,
+      "AR4 (kgCO2e)": 0.49090034243249997,
+      "AR5 (kgCO2e)": 0.49090034243249997,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "AKMS",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.2282159291181,
+      "AR4 (kgCO2e)": 0.2282159291181,
+      "AR5 (kgCO2e)": 0.2282159291181,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "AZNM",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.47410835289510006,
+      "AR4 (kgCO2e)": 0.47410835289510006,
+      "AR5 (kgCO2e)": 0.47410835289510006,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "CAMX",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.2401408725254,
+      "AR4 (kgCO2e)": 0.2401408725254,
+      "AR5 (kgCO2e)": 0.2401408725254,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "ERCT",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.48545269806880004,
+      "AR4 (kgCO2e)": 0.48545269806880004,
+      "AR5 (kgCO2e)": 0.48545269806880004,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "FRCC",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.4613850869166,
+      "AR4 (kgCO2e)": 0.4613850869166,
+      "AR5 (kgCO2e)": 0.4613850869166,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "HIMS",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.5225474820874,
+      "AR4 (kgCO2e)": 0.5225474820874,
+      "AR5 (kgCO2e)": 0.5225474820874,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "HIOA",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.7542742161493,
+      "AR4 (kgCO2e)": 0.7542742161493,
+      "AR5 (kgCO2e)": 0.7542742161493,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "MROE",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.7569594829797001,
+      "AR4 (kgCO2e)": 0.7569594829797001,
+      "AR5 (kgCO2e)": 0.7569594829797001,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "MROW",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.5867489461372001,
+      "AR4 (kgCO2e)": 0.5867489461372001,
+      "AR5 (kgCO2e)": 0.5867489461372001,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "NEWE",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.25319072501030004,
+      "AR4 (kgCO2e)": 0.25319072501030004,
+      "AR5 (kgCO2e)": 0.25319072501030004,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "NWPP",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.3006364869123,
+      "AR4 (kgCO2e)": 0.3006364869123,
+      "AR5 (kgCO2e)": 0.3006364869123,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "NYCW",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.2883985647697,
+      "AR4 (kgCO2e)": 0.2883985647697,
+      "AR5 (kgCO2e)": 0.2883985647697,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "NYLI",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.5344769614184001,
+      "AR4 (kgCO2e)": 0.5344769614184001,
+      "AR5 (kgCO2e)": 0.5344769614184001,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "NYUP",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.133673671439,
+      "AR4 (kgCO2e)": 0.133673671439,
+      "AR5 (kgCO2e)": 0.133673671439,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "RFCE",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.3440316689502,
+      "AR4 (kgCO2e)": 0.3440316689502,
+      "AR5 (kgCO2e)": 0.3440316689502,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "RFCM",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.577332368536,
+      "AR4 (kgCO2e)": 0.577332368536,
+      "AR5 (kgCO2e)": 0.577332368536,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "RFCW",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.5642507645852001,
+      "AR4 (kgCO2e)": 0.5642507645852001,
+      "AR5 (kgCO2e)": 0.5642507645852001,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "RMPA",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.6256535637121,
+      "AR4 (kgCO2e)": 0.6256535637121,
+      "AR5 (kgCO2e)": 0.6256535637121,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "SPNO",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.6868613181199,
+      "AR4 (kgCO2e)": 0.6868613181199,
+      "AR5 (kgCO2e)": 0.6868613181199,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "SPSO",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.6417969161604001,
+      "AR4 (kgCO2e)": 0.6417969161604001,
+      "AR5 (kgCO2e)": 0.6417969161604001,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "SRMV",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.38108109373180005,
+      "AR4 (kgCO2e)": 0.38108109373180005,
+      "AR5 (kgCO2e)": 0.38108109373180005,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "SRMW",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.739174126152,
+      "AR4 (kgCO2e)": 0.739174126152,
+      "AR5 (kgCO2e)": 0.739174126152,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "SRSO",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.49653395966790004,
+      "AR4 (kgCO2e)": 0.49653395966790004,
+      "AR5 (kgCO2e)": 0.49653395966790004,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "SRTV",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.5379061197356001,
+      "AR4 (kgCO2e)": 0.5379061197356001,
+      "AR5 (kgCO2e)": 0.5379061197356001,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "SRVC",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.3661987280721,
+      "AR4 (kgCO2e)": 0.3661987280721,
+      "AR5 (kgCO2e)": 0.3661987280721,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "US Average",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.4603646221146717,
+      "AR4 (kgCO2e)": 0.4603646221146717,
+      "AR5 (kgCO2e)": 0.4603646221146717,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Newfoundland and Labrador",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.045064401959500004,
+      "AR4 (kgCO2e)": 0.045064401959500004,
+      "AR5 (kgCO2e)": 0.045064401959500004,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Quebec",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.045064401959500004,
+      "AR4 (kgCO2e)": 0.045064401959500004,
+      "AR5 (kgCO2e)": 0.045064401959500004,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Ontario",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.045064401959500004,
+      "AR4 (kgCO2e)": 0.045064401959500004,
+      "AR5 (kgCO2e)": 0.045064401959500004,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Manitoba",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.2399458278063,
+      "AR4 (kgCO2e)": 0.2399458278063,
+      "AR5 (kgCO2e)": 0.2399458278063,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Saskatchewan",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.2399458278063,
+      "AR4 (kgCO2e)": 0.2399458278063,
+      "AR5 (kgCO2e)": 0.2399458278063,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Alberta",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.3817932337527,
+      "AR4 (kgCO2e)": 0.3817932337527,
+      "AR5 (kgCO2e)": 0.3817932337527,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "British Columbia",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.3817932337527,
+      "AR4 (kgCO2e)": 0.3817932337527,
+      "AR5 (kgCO2e)": 0.3817932337527,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Austria",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.54587,
+      "AR4 (kgCO2e)": 0.54587,
+      "AR5 (kgCO2e)": 0.54587,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Belgium",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.18906,
+      "AR4 (kgCO2e)": 0.18906,
+      "AR5 (kgCO2e)": 0.18906,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Bulgaria",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.49543,
+      "AR4 (kgCO2e)": 0.49543,
+      "AR5 (kgCO2e)": 0.49543,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Croatia",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.56168,
+      "AR4 (kgCO2e)": 0.56168,
+      "AR5 (kgCO2e)": 0.56168,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Cyprus",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.7702100000000001,
+      "AR4 (kgCO2e)": 0.7702100000000001,
+      "AR5 (kgCO2e)": 0.7702100000000001,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Czech Republic",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.6123,
+      "AR4 (kgCO2e)": 0.6123,
+      "AR5 (kgCO2e)": 0.6123,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Denmark",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.50937,
+      "AR4 (kgCO2e)": 0.50937,
+      "AR5 (kgCO2e)": 0.50937,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Estonia",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 1.04329,
+      "AR4 (kgCO2e)": 1.04329,
+      "AR5 (kgCO2e)": 1.04329,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Finland",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.30163999999999996,
+      "AR4 (kgCO2e)": 0.30163999999999996,
+      "AR5 (kgCO2e)": 0.30163999999999996,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "France",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.053200000000000004,
+      "AR4 (kgCO2e)": 0.053200000000000004,
+      "AR5 (kgCO2e)": 0.053200000000000004,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Germany",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.7286900000000001,
+      "AR4 (kgCO2e)": 0.7286900000000001,
+      "AR5 (kgCO2e)": 0.7286900000000001,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "United Kingdom",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.38095999999999997,
+      "AR4 (kgCO2e)": 0.38095999999999997,
+      "AR5 (kgCO2e)": 0.38095999999999997,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Greece",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.6958300000000001,
+      "AR4 (kgCO2e)": 0.6958300000000001,
+      "AR5 (kgCO2e)": 0.6958300000000001,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Hungary",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.37898000000000004,
+      "AR4 (kgCO2e)": 0.37898000000000004,
+      "AR5 (kgCO2e)": 0.37898000000000004,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Iceland",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.48224,
+      "AR4 (kgCO2e)": 0.48224,
+      "AR5 (kgCO2e)": 0.48224,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Ireland",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.64035,
+      "AR4 (kgCO2e)": 0.64035,
+      "AR5 (kgCO2e)": 0.64035,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Italy",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.48723,
+      "AR4 (kgCO2e)": 0.48723,
+      "AR5 (kgCO2e)": 0.48723,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Latvia",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.32276,
+      "AR4 (kgCO2e)": 0.32276,
+      "AR5 (kgCO2e)": 0.32276,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Lithuania",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.38073,
+      "AR4 (kgCO2e)": 0.38073,
+      "AR5 (kgCO2e)": 0.38073,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Luxembourg",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.36121,
+      "AR4 (kgCO2e)": 0.36121,
+      "AR5 (kgCO2e)": 0.36121,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Malta",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.66892,
+      "AR4 (kgCO2e)": 0.66892,
+      "AR5 (kgCO2e)": 0.66892,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Netherlands",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.53339,
+      "AR4 (kgCO2e)": 0.53339,
+      "AR5 (kgCO2e)": 0.53339,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Norway",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.28049,
+      "AR4 (kgCO2e)": 0.28049,
+      "AR5 (kgCO2e)": 0.28049,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Poland",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.90462,
+      "AR4 (kgCO2e)": 0.90462,
+      "AR5 (kgCO2e)": 0.90462,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Portugal",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.31551999999999997,
+      "AR4 (kgCO2e)": 0.31551999999999997,
+      "AR5 (kgCO2e)": 0.31551999999999997,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Romania",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.40258999999999995,
+      "AR4 (kgCO2e)": 0.40258999999999995,
+      "AR5 (kgCO2e)": 0.40258999999999995,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Slovakia",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.19394999999999998,
+      "AR4 (kgCO2e)": 0.19394999999999998,
+      "AR5 (kgCO2e)": 0.19394999999999998,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Slovenia",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.5022300000000001,
+      "AR4 (kgCO2e)": 0.5022300000000001,
+      "AR5 (kgCO2e)": 0.5022300000000001,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Spain",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.45091000000000003,
+      "AR4 (kgCO2e)": 0.45091000000000003,
+      "AR5 (kgCO2e)": 0.45091000000000003,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Sweden",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.03742,
+      "AR4 (kgCO2e)": 0.03742,
+      "AR5 (kgCO2e)": 0.03742,
+      "Units2": "kWh"
+    },
+    {
+      "eGrid Subregion Residual Mix Market Based": "Switzerland",
+      "Units": "kWh",
+      "CO2 Factor (kgkWh)": 0.03484,
+      "AR4 (kgCO2e)": 0.03484,
+      "AR5 (kgCO2e)": 0.03484,
+      "Units2": "kWh"
+    }
+  ],
+  "Table8": [
+    {
+      "Name": "Steam and Heat",
+      "CO2 Factor (kgCO2e)": 66.33,
+      "CH4 Factor (kgCO2e)": 0.00125,
+      "N2O Factor (kgCO2e)": 0.000125,
+      "AR4 (kgCO2e)": 66.3985,
+      "AR5 (kgCO2e)": 66.398125,
+      "Units": "mmBtu"
+    }
+  ],
+  "Table7": [
+    {
+      "Lookup Name": "CO2 ",
+      "AR4 (kgCO2e)": 1,
+      "AR5 (kgCO2e)": 1
+    },
+    {
+      "Lookup Name": "CH4",
+      "AR4 (kgCO2e)": 25,
+      "AR5 (kgCO2e)": 28
+    },
+    {
+      "Lookup Name": "N2O",
+      "AR4 (kgCO2e)": 298,
+      "AR5 (kgCO2e)": 265
+    },
+    {
+      "Lookup Name": "HFC-23",
+      "AR4 (kgCO2e)": 14800,
+      "AR5 (kgCO2e)": 12400
+    },
+    {
+      "Lookup Name": "HFC-32",
+      "AR4 (kgCO2e)": 675,
+      "AR5 (kgCO2e)": 677
+    },
+    {
+      "Lookup Name": "HFC-41",
+      "AR4 (kgCO2e)": 92,
+      "AR5 (kgCO2e)": 116
+    },
+    {
+      "Lookup Name": "HFC-125",
+      "AR4 (kgCO2e)": 3500,
+      "AR5 (kgCO2e)": 3170
+    },
+    {
+      "Lookup Name": "HFC-134",
+      "AR4 (kgCO2e)": 1100,
+      "AR5 (kgCO2e)": 1120
+    },
+    {
+      "Lookup Name": "HFC-134a",
+      "AR4 (kgCO2e)": 1430,
+      "AR5 (kgCO2e)": 1300
+    },
+    {
+      "Lookup Name": "HFC-143",
+      "AR4 (kgCO2e)": 353,
+      "AR5 (kgCO2e)": 328
+    },
+    {
+      "Lookup Name": "HFC-143a",
+      "AR4 (kgCO2e)": 4470,
+      "AR5 (kgCO2e)": 4800
+    },
+    {
+      "Lookup Name": "HFC-152",
+      "AR4 (kgCO2e)": 53,
+      "AR5 (kgCO2e)": 16
+    },
+    {
+      "Lookup Name": "HFC-152a",
+      "AR4 (kgCO2e)": 124,
+      "AR5 (kgCO2e)": 138
+    },
+    {
+      "Lookup Name": "HFC-161",
+      "AR4 (kgCO2e)": 12,
+      "AR5 (kgCO2e)": 4
+    },
+    {
+      "Lookup Name": "HFC-227ea",
+      "AR4 (kgCO2e)": 3220,
+      "AR5 (kgCO2e)": 3350
+    },
+    {
+      "Lookup Name": "HFC-236cb",
+      "AR4 (kgCO2e)": 1340,
+      "AR5 (kgCO2e)": 1120
+    },
+    {
+      "Lookup Name": "HFC-236ea",
+      "AR4 (kgCO2e)": 1370,
+      "AR5 (kgCO2e)": 1330
+    },
+    {
+      "Lookup Name": "HFC-236fa",
+      "AR4 (kgCO2e)": 9810,
+      "AR5 (kgCO2e)": 8060
+    },
+    {
+      "Lookup Name": "HFC-245ca",
+      "AR4 (kgCO2e)": 693,
+      "AR5 (kgCO2e)": 716
+    },
+    {
+      "Lookup Name": "HFC-245fa",
+      "AR4 (kgCO2e)": 1030,
+      "AR5 (kgCO2e)": 858
+    },
+    {
+      "Lookup Name": "HFC-365mfc",
+      "AR4 (kgCO2e)": 794,
+      "AR5 (kgCO2e)": 804
+    },
+    {
+      "Lookup Name": "HFC-43-10mee",
+      "AR4 (kgCO2e)": 1640,
+      "AR5 (kgCO2e)": 1650
+    },
+    {
+      "Lookup Name": "SF6 ",
+      "AR4 (kgCO2e)": 22800,
+      "AR5 (kgCO2e)": 23500
+    },
+    {
+      "Lookup Name": "NF3",
+      "AR4 (kgCO2e)": 17200,
+      "AR5 (kgCO2e)": 16100
+    },
+    {
+      "Lookup Name": "CF4 ",
+      "AR4 (kgCO2e)": 7390,
+      "AR5 (kgCO2e)": 0
+    },
+    {
+      "Lookup Name": "C2F6 ",
+      "AR4 (kgCO2e)": 12200,
+      "AR5 (kgCO2e)": 0
+    },
+    {
+      "Lookup Name": "C3F8",
+      "AR4 (kgCO2e)": 8830,
+      "AR5 (kgCO2e)": 0
+    },
+    {
+      "Lookup Name": "c-C4F8",
+      "AR4 (kgCO2e)": 10300,
+      "AR5 (kgCO2e)": 0
+    },
+    {
+      "Lookup Name": "C4F10 ",
+      "AR4 (kgCO2e)": 8860,
+      "AR5 (kgCO2e)": 0
+    },
+    {
+      "Lookup Name": "C5F12",
+      "AR4 (kgCO2e)": 9160,
+      "AR5 (kgCO2e)": 0
+    },
+    {
+      "Lookup Name": "C6F14",
+      "AR4 (kgCO2e)": 9300,
+      "AR5 (kgCO2e)": 0
+    },
+    {
+      "Lookup Name": "C10F18",
+      "AR4 (kgCO2e)": 7500,
+      "AR5 (kgCO2e)": 0
+    },
+    {
+      "Lookup Name": "R-401A",
+      "AR4 (kgCO2e)": 16,
+      "AR5 (kgCO2e)": 17.94,
+      "Blend Composition": "53% HCFC-22 , 34% HCFC-124 , 13% HFC-152a"
+    },
+    {
+      "Lookup Name": "R-401B",
+      "AR4 (kgCO2e)": 14,
+      "AR5 (kgCO2e)": 15,
+      "Blend Composition": "61% HCFC-22 , 28% HCFC-124 , 11% HFC-152a"
+    },
+    {
+      "Lookup Name": "R-401C",
+      "AR4 (kgCO2e)": 19,
+      "AR5 (kgCO2e)": 20.7,
+      "Blend Composition": "33% HCFC-22 , 52% HCFC-124 , 15% HFC-152a"
+    },
+    {
+      "Lookup Name": "R-402A",
+      "AR4 (kgCO2e)": 2100,
+      "AR5 (kgCO2e)": 1902,
+      "Blend Composition": "38% HCFC-22 , 6% HFC-125 , 2% propane"
+    },
+    {
+      "Lookup Name": "R-402B",
+      "AR4 (kgCO2e)": 1330,
+      "AR5 (kgCO2e)": 1205,
+      "Blend Composition": "6% HCFC-22 , 38% HFC-125 , 2% propane"
+    },
+    {
+      "AR5 (kgCO2e)": 1780
+    },
+    {
+      "Lookup Name": "R-403B",
+      "AR4 (kgCO2e)": 3444,
+      "AR5 (kgCO2e)": 3471,
+      "Blend Composition": "56% HCFC-22 , 39% PFC-218 , 5% propane"
+    },
+    {
+      "Lookup Name": "R-404A",
+      "AR4 (kgCO2e)": 3922,
+      "AR5 (kgCO2e)": 3943,
+      "Blend Composition": "44% HFC-125 , 4% HFC-134a , 52% HFC 143a"
+    },
+    {
+      "Lookup Name": "R-407A",
+      "AR4 (kgCO2e)": 2107,
+      "AR5 (kgCO2e)": 1923,
+      "Blend Composition": "20% HFC-32 , 40% HFC-125 , 40% HFC-134a"
+    },
+    {
+      "Lookup Name": "R-407B",
+      "AR4 (kgCO2e)": 2804,
+      "AR5 (kgCO2e)": 2547,
+      "Blend Composition": "10% HFC-32 , 70% HFC-125 , 20% HFC-134a"
+    },
+    {
+      "Lookup Name": "R-407C",
+      "AR4 (kgCO2e)": 1774,
+      "AR5 (kgCO2e)": 1624,
+      "Blend Composition": "23% HFC-32 , 25% HFC-125 , 52% HFC-134a"
+    },
+    {
+      "Lookup Name": "R-407D",
+      "AR4 (kgCO2e)": 1627,
+      "AR5 (kgCO2e)": 1487,
+      "Blend Composition": "15% HFC-32 , 15% HFC-125 , 70% HFC-134a"
+    },
+    {
+      "Lookup Name": "R-407E",
+      "AR4 (kgCO2e)": 1552,
+      "AR5 (kgCO2e)": 1425,
+      "Blend Composition": "25% HFC-32 , 15% HFC-125 , 60% HFC-134a"
+    },
+    {
+      "Lookup Name": "R-408A",
+      "AR4 (kgCO2e)": 2301,
+      "AR5 (kgCO2e)": 2430,
+      "Blend Composition": "47% HCFC-22 , 7% HFC-125 , 46% HFC 143a"
+    },
+    {
+      "Lookup Name": "R-409A",
+      "AR4 (kgCO2e)": 0,
+      "AR5 (kgCO2e)": 0,
+      "Blend Composition": "60% HCFC-22 , 25% HCFC-124 , 15% HCFC-142b"
+    },
+    {
+      "Lookup Name": "R-410A",
+      "AR4 (kgCO2e)": 2088,
+      "AR5 (kgCO2e)": 1924,
+      "Blend Composition": "50% HFC-32 , 50% HFC-125"
+    },
+    {
+      "Lookup Name": "R-410B",
+      "AR4 (kgCO2e)": 2229,
+      "AR5 (kgCO2e)": 2048,
+      "Blend Composition": "45% HFC-32 , 55% HFC-125 "
+    },
+    {
+      "Lookup Name": "R-411A",
+      "AR4 (kgCO2e)": 14,
+      "AR5 (kgCO2e)": 15,
+      "Blend Composition": "87.5% HCFC-22 , 11 HFC-152a , 1.5% propylene"
+    },
+    {
+      "Lookup Name": "R-411B",
+      "AR4 (kgCO2e)": 4,
+      "AR5 (kgCO2e)": 4.14,
+      "Blend Composition": "94% HCFC-22 , 3% HFC-152a , 3% propylene"
+    },
+    {
+      "Lookup Name": "R-413A",
+      "AR4 (kgCO2e)": 2053,
+      "AR5 (kgCO2e)": 0,
+      "Blend Composition": "88% HFC-134a , 9% PFC-218 , 3% isobutane"
+    },
+    {
+      "Lookup Name": "R-414A",
+      "AR4 (kgCO2e)": 0,
+      "AR5 (kgCO2e)": 0,
+      "Blend Composition": "51% HCFC-22 , 28.5% HCFC-124 , 16.5% HCFC-142b"
+    },
+    {
+      "Lookup Name": "R-414B",
+      "AR4 (kgCO2e)": 0,
+      "AR5 (kgCO2e)": 0,
+      "Blend Composition": "5% HCFC-22 , 39% HCFC-124 , 9.5% HCFC-142b"
+    },
+    {
+      "Lookup Name": "R-417A",
+      "AR4 (kgCO2e)": 2346,
+      "AR5 (kgCO2e)": 2127,
+      "Blend Composition": "46.6% HFC-125 , 5% HFC-134a , 3.4% butane"
+    },
+    {
+      "Lookup Name": "R-422A",
+      "AR4 (kgCO2e)": 3143,
+      "AR5 (kgCO2e)": 2847,
+      "Blend Composition": "85.1% HFC-125 , 11.5% HFC-134a , 3.4% isobutane"
+    },
+    {
+      "Lookup Name": "R-422D",
+      "AR4 (kgCO2e)": 2729,
+      "AR5 (kgCO2e)": 2473,
+      "Blend Composition": "65.1% HFC-125 , 31.5% HFC-134a , 3.4% isobutane"
+    },
+    {
+      "Lookup Name": "R-423A",
+      "AR4 (kgCO2e)": 2280,
+      "AR5 (kgCO2e)": 2274,
+      "Blend Composition": "47.5% HFC-227ea , 52.5% HFC-134a ,  "
+    },
+    {
+      "Lookup Name": "R-424A",
+      "AR4 (kgCO2e)": 2440,
+      "AR5 (kgCO2e)": 2212,
+      "Blend Composition": "50.5% HFC-125, 47% HFC-134a, 2.5% butane/pentane"
+    },
+    {
+      "Lookup Name": "R-426A",
+      "AR4 (kgCO2e)": 1508,
+      "AR5 (kgCO2e)": 1371,
+      "Blend Composition": "5.1% HFC-125, 93% HFC-134a, 1.9% butane/pentane"
+    },
+    {
+      "Lookup Name": "R-428A",
+      "AR4 (kgCO2e)": 3607,
+      "AR5 (kgCO2e)": 3417,
+      "Blend Composition": "77.5% HFC-125 , 2% HFC-143a , 1.9% isobutane"
+    },
+    {
+      "Lookup Name": "R-434A",
+      "AR4 (kgCO2e)": 3245,
+      "AR5 (kgCO2e)": 3075,
+      "Blend Composition": "63.2% HFC-125, 16% HFC-134a, 18% HFC-143a, 2.8% isobutane"
+    },
+    {
+      "Lookup Name": "R-500",
+      "AR4 (kgCO2e)": 32,
+      "AR5 (kgCO2e)": 36,
+      "Blend Composition": "73.8% CFC-12 , 26.2% HFC-152a , 48.8% HCFC-22"
+    },
+    {
+      "Lookup Name": "R-502",
+      "AR4 (kgCO2e)": 0,
+      "AR5 (kgCO2e)": 0,
+      "Blend Composition": "48.8% HCFC-22 , 51.2% CFC-115 "
+    },
+    {
+      "Lookup Name": "R-504",
+      "AR4 (kgCO2e)": 325,
+      "AR5 (kgCO2e)": 326,
+      "Blend Composition": "48.2% HFC-32 , 51.8% CFC-115"
+    },
+    {
+      "Lookup Name": "R-507",
+      "AR4 (kgCO2e)": 3985,
+      "AR5 (kgCO2e)": 3985,
+      "Blend Composition": "5% HFC-125 , 5% HFC143a"
+    },
+    {
+      "Lookup Name": "R-508A",
+      "AR4 (kgCO2e)": 13214,
+      "AR5 (kgCO2e)": 0,
+      "Blend Composition": "39% HFC-23 , 61% PFC-116"
+    },
+    {
+      "Lookup Name": "R-508B",
+      "AR4 (kgCO2e)": 13396,
+      "AR5 (kgCO2e)": 0,
+      "Blend Composition": "46% HFC-23 , 54% PFC-116"
+    }
+  ]
+}

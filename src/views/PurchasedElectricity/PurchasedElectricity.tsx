@@ -7,7 +7,7 @@ import type { PurchasedElectricityData } from '@/types';
 
 const mockData: PurchasedElectricityData[] = [
 	{
-		year: 2,
+		year: 2020,
 		facilityId: 'Warehouse 1',
 		amountOfElectricityConsumption: 1580.664,
 		units: 'kWh',
@@ -21,7 +21,7 @@ const mockData: PurchasedElectricityData[] = [
 	},
 	{
 		year: 2020,
-		facilityId: 'Warehouse 1',
+		facilityId: 'Warehouse 2',
 		amountOfElectricityConsumption: 1580.664,
 		units: 'kWh',
 		calculationApproach: 'Purchased Electricity - Location Based',
@@ -34,7 +34,7 @@ const mockData: PurchasedElectricityData[] = [
 	},
 	{
 		year: 2021,
-		facilityId: 'Warehouse 1',
+		facilityId: 'Warehouse 3',
 		amountOfElectricityConsumption: 1580.664,
 		units: 'kWh',
 		calculationApproach: 'Purchased Electricity - Market Based',
@@ -47,7 +47,7 @@ const mockData: PurchasedElectricityData[] = [
 	},
 	{
 		year: 2022,
-		facilityId: 'Warehouse 1',
+		facilityId: 'Warehouse 4',
 		amountOfElectricityConsumption: 1580.664,
 		units: 'kWh',
 		calculationApproach: 'Purchased Electricity - Market Based',
@@ -60,7 +60,7 @@ const mockData: PurchasedElectricityData[] = [
 	},
 	{
 		year: 2023,
-		facilityId: 'Warehouse 1',
+		facilityId: 'Warehouse 5',
 		amountOfElectricityConsumption: 1580.664,
 		units: 'kWh',
 		calculationApproach: 'Purchased Electricity - Market Based',

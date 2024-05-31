@@ -9,7 +9,7 @@ const mockData: MobileCombustionData[] = [
 	{
 		year: 2021,
 		description: '10 delivery trucks',
-		facilityId: 'warehouse',
+		facilityId: 'warehouse 1',
 		activityType: 'Fuel Use',
 		fuelSource: 'Motor Gasoline',
 		vehicleType: 'Gasoline Passenger Cars',
@@ -23,9 +23,9 @@ const mockData: MobileCombustionData[] = [
 		efKgCo2e: 8.812,
 	},
 	{
-		year: 2018,
+		year: 2021,
 		description: 'sales cars, 5',
-		facilityId: 'warehouse',
+		facilityId: 'warehouse 2',
 		activityType: 'Fuel Use',
 		fuelSource: 'Ethanol (100%)',
 		vehicleType: 'Ethanol Light-duty Vehicles',
@@ -41,7 +41,7 @@ const mockData: MobileCombustionData[] = [
 	{
 		year: 2032,
 		description: '',
-		facilityId: 'warehouse',
+		facilityId: 'warehouse 3',
 		activityType: 'Distance Activity',
 		fuelSource: 'Motor Gasoline',
 		vehicleType: 'Gasoline Passenger Cars',

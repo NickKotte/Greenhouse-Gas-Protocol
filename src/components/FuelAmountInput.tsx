@@ -7,7 +7,8 @@ import {
 	Select,
 	Text,
 } from '@mantine/core';
-import { IconCheck, IconFlame, IconPencil } from '@tabler/icons-react';
+import { useClickOutside } from '@mantine/hooks';
+import { IconFlame, IconPencil } from '@tabler/icons-react';
 
 const fuelUnits = [
 	{ label: 'Btu', value: 'btu' },
@@ -70,7 +71,6 @@ export default function FuelAmountInput({
 		amount || 0,
 	);
 	const [editing, setEditing] = useState(false);
-	const ref = useRef<HTMLDivElement>(null);
 
 	const handleAmountChange = (value: string | number) => {
 		if (editable) {
@@ -93,6 +93,10 @@ export default function FuelAmountInput({
 		if (localAmount === undefined) return;
 		onDoneEditing?.(+localAmount, localUnit);
 	};
+
+	const ref = useClickOutside(() => {
+		if (editing) handleDoneEditing();
+	});
 
 	return (
 		<>
@@ -123,6 +127,7 @@ export default function FuelAmountInput({
 							value={editable ? localUnit : units}
 							onChange={handleUnitChange}
 							required={required}
+							comboboxProps={{ withinPortal: false }}
 							onKeyDown={(e) => {
 								if (e.key === 'Enter') {
 									handleDoneEditing();
@@ -130,11 +135,6 @@ export default function FuelAmountInput({
 							}}
 							allowDeselect={false}
 						/>
-						{editable ? (
-							<ActionIcon onClick={() => handleDoneEditing()}>
-								<IconCheck />
-							</ActionIcon>
-						) : null}
 					</Group>
 				</Box>
 			) : (

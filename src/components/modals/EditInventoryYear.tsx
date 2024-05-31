@@ -43,7 +43,7 @@ const EditInventoryYear = ({
 			(year) => year.year === String(yearField?.getFullYear() ?? ''),
 		);
 		if (yearFound) {
-			setError('This year already exists in this workbook');
+			setError('This year already exists in the workbook');
 			return false;
 		}
 		const newEntry: InventoryYear = {
@@ -73,7 +73,8 @@ const EditInventoryYear = ({
 				placeholder="Choose your inventory year"
 			/>
 			<TextInput
-				label="Description"
+				label="Notes"
+				placeholder="Notes about this inventory year i.e. new facility, partially opened, etc."
 				radius="md"
 				value={descriptionField}
 				onChange={(e) => setDescriptionField(e.target.value)}

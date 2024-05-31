@@ -1,4 +1,10 @@
-import { createTheme, darken, lighten, MantineTheme } from '@mantine/core';
+import {
+	createTheme,
+	darken,
+	lighten,
+	MantineTheme,
+	Select,
+} from '@mantine/core';
 
 export const mantineTheme = createTheme({
 	primaryColor: 'teal',
@@ -21,5 +27,6 @@ export const mantineTheme = createTheme({
 				};
 			},
 		},
+		
 	},
 });

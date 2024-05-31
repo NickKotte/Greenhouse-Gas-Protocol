@@ -1,18 +1,10 @@
-import { useState } from 'react';
-import {
-	ActionIcon,
-	Box,
-	Group,
-	Select,
-	Text,
-	Tooltip,
-	SelectProps,
-} from '@mantine/core';
-import { IconGasStation, IconPencil } from '@tabler/icons-react';
+import { type ComboboxItem } from '@mantine/core';
+import type { FuelLabel } from './types';
 
-const fuelTypes_SC = [
+export const fuelTypes_SC: ComboboxItem[] = [
 	{
 		label: 'Agricultural Byproducts',
+
 		value: 'agByprod',
 	},
 	{
@@ -248,7 +240,8 @@ const fuelTypes_SC = [
 		value: 'wood',
 	},
 ];
-const fuelTypes_MC = [
+
+export const fuelTypes_MC: { label: FuelLabel; value: string }[] = [
 	{ label: 'Motor Gasoline', value: 'motorGasoline' },
 	{ label: 'Diesel Fuel', value: 'dieselFuel' },
 	{ label: 'Biodiesel (100%)', value: 'biodiesel100' },
@@ -257,9 +250,14 @@ const fuelTypes_MC = [
 	{ label: 'Jet Fuel', value: 'jetFuel' },
 	{ label: 'Aviation Gasoline', value: 'aviationGasoline' },
 ];
-const vehicles = [
+
+export const vehicles: {
+	group: FuelLabel;
+	items: { label: string; value: string }[];
+}[] = [
 	{
 		group: 'Motor Gasoline',
+
 		items: [
 			{
 				label: 'Gasoline Passenger Cars',
@@ -319,7 +317,7 @@ const vehicles = [
 		],
 	},
 	{
-		group: 'Biodiesel',
+		group: 'Biodiesel (100%)',
 		items: [
 			{
 				label: 'Biodiesel Passenger Cars',
@@ -349,7 +347,7 @@ const vehicles = [
 		],
 	},
 	{
-		group: 'Ethanol',
+		group: 'Ethanol (100%)',
 		items: [
 			{
 				label: 'Ethanol Light-duty Vehicles',
@@ -375,114 +373,38 @@ const vehicles = [
 		],
 	},
 ];
-const options = {
-	SC_FUEL: [{ group: 'Stationary Combustion', items: fuelTypes_SC }],
-	MC_FUEL: [{ group: 'Mobile Combustion', items: fuelTypes_MC }],
+
+export const fuel_units: { label: string; value: string }[] = [
+	{ label: 'Gallons (US)', value: 'gal (US)' },
+	{ label: 'Liters', value: 'L' },
+	{ label: 'Barrels', value: 'bbl' },
+	{ label: 'Scf', value: 'scf' },
+	{ label: 'Ccf', value: 'ccf' },
+	{ label: 'M3', value: 'm3' },
+];
+
+export const cost_energy_units: { label: string; value: string }[] = [
+	{ label: 'Btu', value: 'btu' },
+	{ label: 'mmBtu', value: 'mmbtu' },
+	{ label: 'Therm', value: 'therm' },
+	{ label: 'kWh', value: 'kwh' },
+	{ label: 'MWh', value: 'mwh' },
+	{ label: 'MJ', value: 'mj' },
+	{ label: 'GJ', value: 'gj' },
+];
+
+export const dropdownOptions = {
+	MC: fuelTypes_MC,
+	SC: fuelTypes_SC,
 	VEHICLE: vehicles,
+	FUEL_UNITS: fuel_units,
+	ENERGY_UNITS: cost_energy_units,
 };
-export default function FuelSelector({
-	value,
-	editable = true,
-	required = false,
-	onDoneEditing = () => {},
-	setValue = () => {},
-	listName = 'SC_FUEL',
-	...selectProps
-}: {
-	/**
-	 * The fuel type
-	 */
-	value: string | null;
-	/**
-	 * Whether the input is required
-	 * @default false
-	 */
-	required?: boolean;
-	/**
-	 * Whether the input is editable
-	 * @default true
-	 */
-	editable?: boolean;
-	/**
-	 * Callback function to be called when editable is false and the units are changed
-	 * @required editable = false
-	 */
-	setValue?: (value: string) => void;
-	/**
-	 * Callback function to be called when editable is true and the user is done editing
-	 * @param {string} value - The fuel type
-	 */
-	onDoneEditing?: (value: string) => void;
-	listName: 'SC_FUEL' | 'MC_FUEL' | 'VEHICLE';
-} & Omit<SelectProps, 'value' | 'onChange' | 'data'>) {
-	const [searchValue, setSearchValue] = useState('');
-	const [localValue, setLocalValue] = useState(
-		options[listName][0].items[0].value,
-	);
-	const [editing, setEditing] = useState(false);
-	const handleChange = (value: string | null) => {
-		if (value === null) return;
-		if (editable) {
-			setLocalValue(value);
-		} else {
-			setValue(value);
-		}
-	};
-	const handleDoneEditing = () => {
-		if (!editable) return;
-		setEditing(false);
-		onDoneEditing?.(localValue);
-	};
-	return (
-		<>
-			{editing || !editable ? (
-				<Select
-					value={editable ? localValue : value}
-					onChange={handleChange}
-					searchable
-					searchValue={searchValue}
-					onSearchChange={setSearchValue}
-					data={options[listName]}
-					autoFocus={editable}
-					onBlur={handleDoneEditing}
-					label="Fuel Type"
-					leftSection={<IconGasStation />}
-					required={required}
-					allowDeselect={false}
-					nothingFoundMessage="No fuel types found"
-					{...selectProps}
-				/>
-			) : (
-				<Box>
-					<Text size="sm" c="dimmed">
-						Fuel Type
-					</Text>
-					<Group wrap="nowrap">
-						<IconGasStation style={{ color: 'gray' }} size={20} />
-						<Tooltip
-							label={
-								searchValue ||
-								options[listName][0].items[0].label
-							}
-							withArrow
-							position="bottom"
-						>
-							<Text truncate="end" w={200}>
-								{searchValue ||
-									options[listName][0].items[0].label}
-							</Text>
-						</Tooltip>
-						<ActionIcon
-							onClick={() => setEditing(true)}
-							variant="subtle"
-							size="lg"
-							c="gray"
-						>
-							<IconPencil />
-						</ActionIcon>
-					</Group>
-				</Box>
-			)}
-		</>
-	);
-}
+
+export const gasData = {
+	CO2: { AR4: 1, AR5: 1 },
+	CH4: { AR4: 25, AR5: 28 },
+	N2O: { AR4: 298, AR5: 265 },
+	NF3: { AR4: 17200, AR5: 16100 },
+	SF6: { AR4: 22800, AR5: 23500 },
+};

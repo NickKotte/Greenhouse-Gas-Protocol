@@ -79,3 +79,39 @@ export interface PurchasedElectricityData {
 	co2eTonnes: number;
 	efKgCo2ePerKwh: number;
 }
+
+export type FuelLabel =
+	| 'Motor Gasoline'
+	| 'Diesel Fuel'
+	| 'Biodiesel (100%)'
+	| 'Compressed Natural Gas'
+	| 'Ethanol (100%)'
+	| 'Jet Fuel'
+	| 'Aviation Gasoline';
+
+export type SelectorValue = {
+	dropdownValue: string;
+	numberValue: number;
+};
+
+export interface RowComponentProps<T> {
+	item: T;
+	triggerAnimation?: () => void;
+}
+
+export type Conversion = {
+	value: number;
+	units: string;
+};
+
+export interface StationaryCombustionTableProps {
+	'Fuel Type': string;
+	'Heat Content (HHV)'?: string | number;
+	'CO2 Factor (kg CO2 per mmBtu)'?: number;
+	'CH4 Factor (g CH4 per mmBtu)'?: number;
+	'N2O Factor (g N2O per mmBtu)'?: number;
+	'AR4 (kgCO2e)'?: number;
+	'AR5 (kgCO2e)'?: number;
+	Units?: string;
+	'Biogenic CO2 Factor (kg Biogenic CO2 per mmBtu)'?: number;
+}

@@ -1,14 +1,19 @@
 import { Grid, Text } from '@mantine/core';
-import type { PurchasedElectricityData } from '@/types';
-import FuelAmountInput from '../../components/FuelAmountInput';
-import FuelSelector from '../../components/FuelSelector';
+import type {
+	PurchasedElectricityData,
+	RowComponentProps,
+	SelectorValue,
+} from '@/types';
+import Selector from '@/components/Editables/Selector';
+import { IconPlugConnected } from '@tabler/icons-react';
 
-const PERow = ({ item }: { item: PurchasedElectricityData }) => {
-	const handleFuelSelectorUpdate = (fuelType: string) => {
-		console.log(fuelType);
-	};
-	const handleFuelAmountUpdate = (amount: number, units: string) => {
-		console.log(amount, units);
+const PERow = ({
+	item,
+	triggerAnimation = () => {},
+}: RowComponentProps<PurchasedElectricityData>) => {
+	const handleUpdate = (value: SelectorValue) => {
+		triggerAnimation();
+		console.log(value);
 	};
 	return (
 		<>
@@ -17,17 +22,15 @@ const PERow = ({ item }: { item: PurchasedElectricityData }) => {
 					{item.facilityId}
 				</Text>
 			</Grid.Col>
-			<Grid.Col span={4}>
-				<FuelSelector
-					fuelType={item.fuel}
-					onDoneEditing={handleFuelSelectorUpdate}
-				/>
-			</Grid.Col>
-			<Grid.Col span={4}>
-				<FuelAmountInput
-					amount={item.amountOfFuel}
-					units={item.units}
-					onDoneEditing={handleFuelAmountUpdate}
+			<Grid.Col span={8}>
+				<Selector
+					type="ENERGY_UNITS"
+					defaultDropdownValue={item.units}
+					defaultNumberValue={item.amountOfElectricityConsumption}
+					withNumerable
+					onDoneEditing={handleUpdate}
+					label="Electricity Consumption"
+					Icon={IconPlugConnected}
 				/>
 			</Grid.Col>
 		</>
