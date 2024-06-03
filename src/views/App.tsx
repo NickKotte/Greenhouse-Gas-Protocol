@@ -2,9 +2,7 @@ import { Container, Title, Text, Button } from '@mantine/core';
 import classes from '@/css/HeroImageRight.module.css';
 import { useNavigate } from 'react-router-dom';
 import { $currUser } from '@/stores/user';
-import { routes } from '@/stores/route';
 import { useStore } from '@nanostores/react';
-import { useCallback, useEffect } from 'react';
 
 export default function HeroImageRight() {
 	const navigate = useNavigate();

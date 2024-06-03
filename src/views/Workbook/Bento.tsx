@@ -47,7 +47,6 @@ const Bento = ({
 					radius="md"
 					onClick={onClick}
 					color="blue"
-					fullWidth
 					variant="filled"
 					leftSection={<IconPlus size={18} />}
 				>

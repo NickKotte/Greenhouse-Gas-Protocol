@@ -1,4 +1,4 @@
-import { atom, map } from 'nanostores';
+import { atom, deepMap } from 'nanostores';
 import { Route } from '@/types';
 import {
 	IconBuilding,
@@ -96,5 +96,5 @@ const path = window.location.pathname;
 const route =
 	Object.values(routes).find((r) => r.path === path.split('/')[1]) ||
 	routes.company;
-export const $routing = map<Route>(route);
+export const $routing = deepMap<Route>(route);
 export const $activeLink = atom();

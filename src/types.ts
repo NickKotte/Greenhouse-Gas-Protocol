@@ -80,6 +80,11 @@ export interface PurchasedElectricityData {
 	efKgCo2ePerKwh: number;
 }
 
+export type WorkbookItem =
+	| StationaryCombustionData
+	| MobileCombustionData
+	| PurchasedElectricityData;
+
 export type FuelLabel =
 	| 'Motor Gasoline'
 	| 'Diesel Fuel'
@@ -89,6 +94,8 @@ export type FuelLabel =
 	| 'Jet Fuel'
 	| 'Aviation Gasoline';
 
+export type ActivityType = 'fuel' | 'distance';
+
 export type SelectorValue = {
 	dropdownValue: string;
 	numberValue: number;
@@ -96,7 +103,6 @@ export type SelectorValue = {
 
 export interface RowComponentProps<T> {
 	item: T;
-	triggerAnimation?: () => void;
 }
 
 export type Conversion = {
@@ -115,3 +121,33 @@ export interface StationaryCombustionTableProps {
 	Units?: string;
 	'Biogenic CO2 Factor (kg Biogenic CO2 per mmBtu)'?: number;
 }
+
+export interface MobileCombustionTableProps {
+	'Mobile Fuel': string;
+	'CO2 Factor (kg unit)'?: number;
+	'CH4 Factor (kg unit)'?: number;
+	'N2O Factor (kg unit)'?: number;
+	'Biogenic CO2 (kg Biogenic CO2 per mmBtu)'?: number;
+	'AR4 (kgCO2e)'?: number;
+	'AR5 (kgCO2e)'?: number;
+	'Standardized unit': string;
+	'Default Average Fuel Efficiency (mpgmpge)'?: string | number;
+	'MPG Units'?: string;
+	'kg CO4'?: number;
+	'kg NO2'?: number;
+}
+
+export interface GridRegionLocationBasedProps {
+	'Grid Region Location Based'?: string;
+	'CO2 Factor (kgkWh)'?: number;
+	'CH4 Factor (kgkWh)'?: number;
+	'N2O Factor (kgkWh)'?: number;
+	'AR4 (kgCO2e)'?: number;
+	'AR5 (kgCO2e)'?: number;
+	Units?: string;
+}
+
+export type WorkbookType =
+	| 'StationaryCombustion'
+	| 'MobileCombustion'
+	| 'PurchasedElectricity';

@@ -1,4 +1,9 @@
-import type { InventoryYear, StationaryCombustionData } from '@/types';
+import type {
+	ActivityType,
+	InventoryYear,
+	MobileCombustionData,
+	PurchasedElectricityData,
+} from '@/types';
 import { Text, Divider, Group, Space } from '@mantine/core';
 import { ContextModalProps } from '@mantine/modals';
 import { useEffect, useState } from 'react';
@@ -12,9 +17,10 @@ import { $appState, workbook } from '@/stores/app';
 import { useStore } from '@nanostores/react';
 import EditWrapper from './EditWrapper';
 import { Selectable } from '../Editables/Selectable';
-import { fuelTypes_SC, cost_energy_units } from '@/constants';
+import { vehicles, cost_energy_units } from '@/constants';
 import { Numerable } from '../Editables/Numerable';
 import { calculate } from '@/util';
+import ActivitySelector from '@/views/MobileCombustion/ActivitySelector';
 import ModalCalculations from '../ModalCalculations';
 
 const EditInventoryYear = ({
@@ -25,7 +31,6 @@ const EditInventoryYear = ({
 	const { inventoryYears, facilities } = useStore($appState);
 	const [facility, setFacility] = useState<string>('');
 	const [inventoryYear, setInventoryYear] = useState<string>('');
-	const [fuelType, setFuelType] = useState<string>('');
 	const [amount, setAmount] = useState<number>(0);
 	const [units, setUnits] = useState<string>('');
 	const [calculations, setCalculations] = useState<Record<string, number>>(
@@ -38,7 +43,6 @@ const EditInventoryYear = ({
 		if (
 			!facility ||
 			!inventoryYear ||
-			!fuelType ||
 			!amount ||
 			!units ||
 			!Object.keys(calculations).length
@@ -47,27 +51,25 @@ const EditInventoryYear = ({
 			return false;
 		}
 		workbook.addItem({
-			facilityId: 'TODO ADD NEW' + new Date().toISOString(),
+			facilityId: facility,
 			year: Number(inventoryYear),
-			fuel: fuelType,
-			amountOfFuel: amount,
+			description: 'Voluptate labore veniam ad non pariatur.',
+			amountOfElectricityConsumption: amount,
 			units,
+			typeOfEmissionFactor: '',
+			calculationApproach: '',
 			co2Tonnes: calculations.CO2,
 			ch4Tonnes: calculations.CH4,
 			n2oTonnes: calculations.N2O,
 			co2eTonnes: calculations.CO2e,
-			efKgCo2e: calculations.EF,
+			efKgCo2ePerKwh: calculations.EF,
 			biofuelCo2Tonnes: calculations.BIO,
-		} as StationaryCombustionData);
+		} as PurchasedElectricityData);
 		return true;
 	};
 	useEffect(() => {
-		if (fuelType && amount && units) {
-			const result = calculate.StationaryCombustion(
-				fuelType,
-				amount,
-				units,
-			);
+		if (amount && units) {
+			const result = calculate.PurchasedElectricity(amount, units);
 			setCalculations({
 				CO2: result.CO2,
 				CH4: result.CH4,
@@ -77,7 +79,7 @@ const EditInventoryYear = ({
 				BIO: result.BIO,
 			});
 		}
-	}, [fuelType, amount, units]);
+	}, [amount, units]);
 	return (
 		<EditWrapper
 			context={context}
@@ -115,17 +117,7 @@ const EditInventoryYear = ({
 					withinPortal
 				/>
 			</Group>
-			<Divider my="md" label="Calculation Inputs" />
-			<Selectable
-				label="Fuel Type"
-				placeholder="Select Fuel Type"
-				value={fuelType}
-				required
-				setValue={setFuelType}
-				options={fuelTypes_SC}
-				withinPortal
-			/>
-			<Space h="md" />
+			<Divider my="lg" label="Calculation Inputs" />
 			<Group grow>
 				<Numerable
 					label="Amount"
@@ -154,6 +146,3 @@ const EditInventoryYear = ({
 };
 
 export default EditInventoryYear;
-
-
-

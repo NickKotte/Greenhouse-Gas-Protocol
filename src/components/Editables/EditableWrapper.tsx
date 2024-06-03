@@ -29,10 +29,7 @@ export default function Editable({
 	 * @param {number} amount - The amount of fuel
 	 * @param {string} units - The units of fuel
 	 */
-	onDoneEditing?: (value: {
-		dropdownValue: string;
-		numberValue: number;
-	}) => void;
+	onDoneEditing?: () => void;
 	/**
 	 * The children to render
 
@@ -47,7 +44,7 @@ export default function Editable({
 
 	const handleDoneEditing = () => {
 		setEditing(false);
-		onDoneEditing?.(displayValue);
+		onDoneEditing();
 	};
 
 	const ref = useClickOutside(() => {

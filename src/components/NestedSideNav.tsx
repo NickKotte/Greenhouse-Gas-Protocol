@@ -3,7 +3,7 @@ import { $routing, $activeLink } from '@/stores/route';
 import { Outlet } from 'react-router-dom';
 import { Box, Divider } from '@mantine/core';
 import classes from '@/css/DoubleNavbar.module.css';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
@@ -87,7 +87,7 @@ const NestedSideNav = () => {
 					</Box>
 				</motion.div>
 			)}
-			<Box m="20px">
+			<Box m="20px" flex={1}>
 				<Outlet />
 			</Box>
 		</main>

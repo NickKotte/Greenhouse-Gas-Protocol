@@ -1,5 +1,9 @@
-import { type ComboboxItem } from '@mantine/core';
-import type { FuelLabel } from './types';
+import { type ComboboxItem, type ComboboxItemGroup } from '@mantine/core';
+import type {
+	MobileCombustionData,
+	PurchasedElectricityData,
+	StationaryCombustionData,
+} from './types';
 
 export const fuelTypes_SC: ComboboxItem[] = [
 	{
@@ -241,7 +245,7 @@ export const fuelTypes_SC: ComboboxItem[] = [
 	},
 ];
 
-export const fuelTypes_MC: { label: FuelLabel; value: string }[] = [
+export const fuelTypes_MC: ComboboxItem[] = [
 	{ label: 'Motor Gasoline', value: 'motorGasoline' },
 	{ label: 'Diesel Fuel', value: 'dieselFuel' },
 	{ label: 'Biodiesel (100%)', value: 'biodiesel100' },
@@ -251,10 +255,7 @@ export const fuelTypes_MC: { label: FuelLabel; value: string }[] = [
 	{ label: 'Aviation Gasoline', value: 'aviationGasoline' },
 ];
 
-export const vehicles: {
-	group: FuelLabel;
-	items: { label: string; value: string }[];
-}[] = [
+export const vehicles: ComboboxItemGroup<ComboboxItem>[] = [
 	{
 		group: 'Motor Gasoline',
 
@@ -374,7 +375,7 @@ export const vehicles: {
 	},
 ];
 
-export const fuel_units: { label: string; value: string }[] = [
+export const fuel_units: ComboboxItem[] = [
 	{ label: 'Gallons (US)', value: 'gal (US)' },
 	{ label: 'Liters', value: 'L' },
 	{ label: 'Barrels', value: 'bbl' },
@@ -383,14 +384,20 @@ export const fuel_units: { label: string; value: string }[] = [
 	{ label: 'M3', value: 'm3' },
 ];
 
-export const cost_energy_units: { label: string; value: string }[] = [
-	{ label: 'Btu', value: 'btu' },
-	{ label: 'mmBtu', value: 'mmbtu' },
+export const cost_energy_units: ComboboxItem[] = [
+	{ label: 'Btu', value: 'Btu' },
+	{ label: 'mmBtu', value: 'mmBtu' },
 	{ label: 'Therm', value: 'therm' },
-	{ label: 'kWh', value: 'kwh' },
-	{ label: 'MWh', value: 'mwh' },
-	{ label: 'MJ', value: 'mj' },
-	{ label: 'GJ', value: 'gj' },
+	{ label: 'kWh', value: 'kWh' },
+	{ label: 'MWh', value: 'MWh' },
+	{ label: 'MJ', value: 'MJ' },
+	{ label: 'GJ', value: 'GJ' },
+];
+
+export const distance_units: ComboboxItem[] = [
+	{ label: 'Miles', value: 'mi' },
+	{ label: 'Kilometers', value: 'km' },
+	{ label: 'Nautical Miles', value: 'nm' },
 ];
 
 export const dropdownOptions = {
@@ -399,6 +406,7 @@ export const dropdownOptions = {
 	VEHICLE: vehicles,
 	FUEL_UNITS: fuel_units,
 	ENERGY_UNITS: cost_energy_units,
+	DISTANCE_UNITS: distance_units,
 };
 
 export const gasData = {
@@ -407,4 +415,234 @@ export const gasData = {
 	N2O: { AR4: 298, AR5: 265 },
 	NF3: { AR4: 17200, AR5: 16100 },
 	SF6: { AR4: 22800, AR5: 23500 },
+};
+
+export const mockData: {
+	PurchasedElectricity: PurchasedElectricityData[];
+	MobileCombustion: MobileCombustionData[];
+	StationaryCombustion: StationaryCombustionData[];
+} = {
+	PurchasedElectricity: [
+		{
+			year: 2020,
+			facilityId: 'Warehouse 1',
+			amountOfElectricityConsumption: 1580.664,
+			units: 'kWh',
+			calculationApproach: 'Heat/Steam',
+			typeOfEmissionFactor: 'Grid Average/Location Based',
+			co2Tonnes: 0.35775,
+			ch4Tonnes: 6.74181e-6,
+			n2oTonnes: 6.74181e-7,
+			co2eTonnes: 0.35811493,
+			efKgCo2ePerKwh: 66.398125,
+		},
+		{
+			year: 2020,
+			facilityId: 'Warehouse 2',
+			amountOfElectricityConsumption: 1580.664,
+			units: 'kWh',
+			calculationApproach: 'Purchased Electricity - Location Based',
+			typeOfEmissionFactor: 'Grid Average/Location Based',
+			co2Tonnes: 0,
+			ch4Tonnes: 0,
+			n2oTonnes: 0,
+			co2eTonnes: 0,
+			efKgCo2ePerKwh: 0,
+		},
+		{
+			year: 2021,
+			facilityId: 'Warehouse 3',
+			amountOfElectricityConsumption: 1580.664,
+			units: 'kWh',
+			calculationApproach: 'Purchased Electricity - Market Based',
+			typeOfEmissionFactor: 'Grid Average/Location Based',
+			co2Tonnes: 0,
+			ch4Tonnes: 0,
+			n2oTonnes: 0,
+			co2eTonnes: 0,
+			efKgCo2ePerKwh: 0,
+		},
+		{
+			year: 2022,
+			facilityId: 'Warehouse 4',
+			amountOfElectricityConsumption: 1580.664,
+			units: 'kWh',
+			calculationApproach: 'Purchased Electricity - Market Based',
+			typeOfEmissionFactor: 'Grid Average/Location Based',
+			co2Tonnes: 0,
+			ch4Tonnes: 0,
+			n2oTonnes: 0,
+			co2eTonnes: 0,
+			efKgCo2ePerKwh: 0,
+		},
+		{
+			year: 2023,
+			facilityId: 'Warehouse 5',
+			amountOfElectricityConsumption: 1580.664,
+			units: 'kWh',
+			calculationApproach: 'Purchased Electricity - Market Based',
+			typeOfEmissionFactor: 'Grid Average/Location Based',
+			co2Tonnes: 0,
+			ch4Tonnes: 0,
+			n2oTonnes: 0,
+			co2eTonnes: 0,
+			efKgCo2ePerKwh: 0,
+		},
+	],
+	MobileCombustion: [
+		{
+			year: 2022,
+			description: '10 delivery trucks',
+			facilityId: 'warehouse 1',
+			activityType: 'fuel',
+			fuelSource: 'gasoline_passenger_cars',
+			vehicleType: 'Gasoline Passenger Cars',
+			activityAmount: 100,
+			unitOfFuelAmount: 'scf',
+			co2Tonnes: 6.568,
+			ch4Tonnes: 0.000291,
+			n2oTonnes: 0.000061,
+			co2eTonnes: 6.592,
+			biofuelCo2Tonnes: 0.0,
+			efKgCo2e: 8.812,
+		},
+		{
+			year: 2022,
+			description: 'sales cars, 5',
+			facilityId: 'warehouse 2',
+			activityType: 'fuel',
+			fuelSource: 'ethanol_light_duty_vehicles',
+			vehicleType: 'Ethanol Light-duty Vehicles',
+			activityAmount: 10,
+			unitOfFuelAmount: 'gal (US)',
+			co2Tonnes: 0.0,
+			ch4Tonnes: 0.000009,
+			n2oTonnes: 0.000011,
+			co2eTonnes: 0.003,
+			biofuelCo2Tonnes: 0.058,
+			efKgCo2e: 0.313,
+		},
+		{
+			year: 2022,
+			description: '',
+			facilityId: 'warehouse 3',
+			activityType: 'distance',
+			fuelSource: 'gasoline_passenger_cars',
+			vehicleType: 'Gasoline Passenger Cars',
+			activityAmount: 2250,
+			unitOfFuelAmount: 'mile',
+			co2Tonnes: 0.878,
+			ch4Tonnes: 0.000039,
+			n2oTonnes: 0.000008,
+			co2eTonnes: 0.881,
+			biofuelCo2Tonnes: 0.0,
+			efKgCo2e: 8.812,
+		},
+	],
+	StationaryCombustion: [
+		{
+			facilityId: 'Warehouse 0',
+			year: 2022,
+			fuel: 'anthCoal',
+			amountOfFuel: 100,
+			units: 'mmBtu',
+			co2Tonnes: 6.477,
+			ch4Tonnes: 0.0003,
+			n2oTonnes: 0.00006,
+			co2eTonnes: 6.501,
+			biofuelCo2Tonnes: 0.0,
+			efKgCo2e: 65.013,
+		},
+		{
+			facilityId: 'Warehouse 1',
+			year: 2019,
+			fuel: 'anthCoal',
+			amountOfFuel: 100,
+			units: 'mmBtu',
+			co2Tonnes: 9.427,
+			ch4Tonnes: 0.0011,
+			n2oTonnes: 0.00016,
+			co2eTonnes: 9.5,
+			biofuelCo2Tonnes: 0.0,
+			efKgCo2e: 95.002,
+		},
+		{
+			facilityId: 'Warehouse 3',
+			year: 2022,
+			fuel: 'anthCoal',
+			amountOfFuel: 100,
+			units: 'mmBtu',
+			co2Tonnes: 9.772,
+			ch4Tonnes: 0.0011,
+			n2oTonnes: 0.00016,
+			co2eTonnes: 9.845,
+			biofuelCo2Tonnes: 0.0,
+			efKgCo2e: 98.452,
+		},
+		{
+			facilityId: 'Warehouse 4',
+			year: 2019,
+			fuel: 'anthCoal',
+			amountOfFuel: 100,
+			units: 'mmBtu',
+			co2Tonnes: 9.772,
+			ch4Tonnes: 0.0011,
+			n2oTonnes: 0.00016,
+			co2eTonnes: 9.845,
+			biofuelCo2Tonnes: 0.0,
+			efKgCo2e: 98.452,
+		},
+		{
+			facilityId: 'Warehouse 5',
+			year: 2019,
+			fuel: 'anthCoal',
+			amountOfFuel: 100,
+			units: 'mmBtu',
+			co2Tonnes: 9.772,
+			ch4Tonnes: 0.0011,
+			n2oTonnes: 0.00016,
+			co2eTonnes: 9.845,
+			biofuelCo2Tonnes: 0.0,
+			efKgCo2e: 98.452,
+		},
+		{
+			facilityId: 'Warehouse 6',
+			year: 2019,
+			fuel: 'anthCoal',
+			amountOfFuel: 100,
+			units: 'mmBtu',
+			co2Tonnes: 9.772,
+			ch4Tonnes: 0.0011,
+			n2oTonnes: 0.00016,
+			co2eTonnes: 9.845,
+			biofuelCo2Tonnes: 0.0,
+			efKgCo2e: 98.452,
+		},
+		{
+			facilityId: 'Warehouse 7',
+			year: 2019,
+			fuel: 'anthCoal',
+			amountOfFuel: 100,
+			units: 'mmBtu',
+			co2Tonnes: 10.369,
+			ch4Tonnes: 0.0011,
+			n2oTonnes: 0.00016,
+			co2eTonnes: 10.442,
+			biofuelCo2Tonnes: 0.0,
+			efKgCo2e: 104.422,
+		},
+		{
+			facilityId: 'Warehouse 8',
+			year: 2019,
+			fuel: 'anthCoal',
+			amountOfFuel: 0,
+			units: '',
+			co2Tonnes: 0,
+			ch4Tonnes: 0,
+			n2oTonnes: 0,
+			co2eTonnes: 0,
+			biofuelCo2Tonnes: 0,
+			efKgCo2e: 0,
+		},
+	],
 };

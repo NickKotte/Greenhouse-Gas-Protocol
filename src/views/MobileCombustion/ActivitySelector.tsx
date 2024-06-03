@@ -1,24 +1,31 @@
 import { Box, Group, Switch, Text, useMantineTheme } from '@mantine/core';
 
 import { IconFlame, IconChartLine } from '@tabler/icons-react';
-import { useState } from 'react';
 import { modals } from '@mantine/modals';
-const ActivitySelector = () => {
+import type { ActivityType } from '@/types';
+const ActivitySelector = ({
+	value,
+	onChange,
+	noWarning = false,
+}: {
+	value: ActivityType;
+	onChange: (value: ActivityType) => void;
+	noWarning?: boolean;
+}) => {
 	const theme = useMantineTheme();
-	const [value, setValue] = useState<'fuel' | 'distance'>('fuel');
 	const sunIcon = <IconFlame stroke={2.5} color={theme.colors.yellow[4]} />;
 	const moonIcon = (
 		<IconChartLine stroke={2.5} color={theme.colors.blue[6]} />
 	);
 	const openConfirmationChange = () => {
 		modals.openConfirmModal({
-			title: 'Change Activity Type',
+			title: `Switch to ${value === 'fuel' ? 'distance' : 'fuel usage'} calculations`,
 			radius: 'md',
 			centered: true,
 			children: (
 				<Text size="sm" p="lg">
-					Are you sure you want to change the activity type? This
-					action could change emission calculations.
+					This action will recalculate your emissions because the fuel
+					units will be switched.
 				</Text>
 			),
 			labels: {
@@ -30,7 +37,7 @@ const ActivitySelector = () => {
 		});
 	};
 	const handleChange = () => {
-		setValue(value === 'fuel' ? 'distance' : 'fuel');
+		onChange(value === 'fuel' ? 'distance' : 'fuel');
 	};
 	return (
 		<Box>
@@ -44,7 +51,9 @@ const ActivitySelector = () => {
 							cursor: 'pointer',
 						},
 					}}
-					onChange={openConfirmationChange}
+					onChange={
+						!noWarning ? openConfirmationChange : handleChange
+					}
 					checked={value === 'fuel'}
 					onLabel={sunIcon}
 					offLabel={moonIcon}

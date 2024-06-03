@@ -1,94 +1,16 @@
 import { Box, Button, List, ThemeIcon, Title, rem } from '@mantine/core';
 import { IconMessageCircle2, IconNotebook } from '@tabler/icons-react';
 import { modals } from '@mantine/modals';
-import PERow from './PERow';
 import WorkbookTable from '@/components/WorkbookTable';
-import type { PurchasedElectricityData } from '@/types';
-
-const mockData: PurchasedElectricityData[] = [
-	{
-		year: 2020,
-		facilityId: 'Warehouse 1',
-		amountOfElectricityConsumption: 1580.664,
-		units: 'kWh',
-		calculationApproach: 'Heat/Steam',
-		typeOfEmissionFactor: 'Grid Average/Location Based',
-		co2Tonnes: 0.35775,
-		ch4Tonnes: 6.74181e-6,
-		n2oTonnes: 6.74181e-7,
-		co2eTonnes: 0.35811493,
-		efKgCo2ePerKwh: 66.398125,
-	},
-	{
-		year: 2020,
-		facilityId: 'Warehouse 2',
-		amountOfElectricityConsumption: 1580.664,
-		units: 'kWh',
-		calculationApproach: 'Purchased Electricity - Location Based',
-		typeOfEmissionFactor: 'Grid Average/Location Based',
-		co2Tonnes: 0,
-		ch4Tonnes: 0,
-		n2oTonnes: 0,
-		co2eTonnes: 0,
-		efKgCo2ePerKwh: 0,
-	},
-	{
-		year: 2021,
-		facilityId: 'Warehouse 3',
-		amountOfElectricityConsumption: 1580.664,
-		units: 'kWh',
-		calculationApproach: 'Purchased Electricity - Market Based',
-		typeOfEmissionFactor: 'Grid Average/Location Based',
-		co2Tonnes: 0,
-		ch4Tonnes: 0,
-		n2oTonnes: 0,
-		co2eTonnes: 0,
-		efKgCo2ePerKwh: 0,
-	},
-	{
-		year: 2022,
-		facilityId: 'Warehouse 4',
-		amountOfElectricityConsumption: 1580.664,
-		units: 'kWh',
-		calculationApproach: 'Purchased Electricity - Market Based',
-		typeOfEmissionFactor: 'Grid Average/Location Based',
-		co2Tonnes: 0,
-		ch4Tonnes: 0,
-		n2oTonnes: 0,
-		co2eTonnes: 0,
-		efKgCo2ePerKwh: 0,
-	},
-	{
-		year: 2023,
-		facilityId: 'Warehouse 5',
-		amountOfElectricityConsumption: 1580.664,
-		units: 'kWh',
-		calculationApproach: 'Purchased Electricity - Market Based',
-		typeOfEmissionFactor: 'Grid Average/Location Based',
-		co2Tonnes: 0,
-		ch4Tonnes: 0,
-		n2oTonnes: 0,
-		co2eTonnes: 0,
-		efKgCo2ePerKwh: 0,
-	},
-];
 
 const StationaryCombustion = () => {
-	const groupedByYear = mockData.reduce(
-		(acc: { [key: number]: PurchasedElectricityData[] }, curr) => {
-			const year = curr.year;
-			if (!acc[year]) {
-				acc[year] = [];
-			}
-			acc[year].push(curr);
-			return acc;
-		},
-		{},
-	);
-	const values = Object.values(groupedByYear);
 	return (
 		<Box w="100%" h="100%" mb="xl">
-			<Title order={2}>Stationary Combustion</Title>
+			<Title order={1}>Purchased Electricity</Title>
+			<Title order={4}>
+				Electricity and other sources of energy purchased from your
+				local utility (that is not combusted on-site)
+			</Title>
 			<List
 				p="md"
 				my="md"
@@ -103,10 +25,10 @@ const StationaryCombustion = () => {
 				}
 			>
 				<List.Item>
-					This section allows you to calculate the greenhouse gas
-					emissions from stationary combustion at your facilities.
-					Please enter the following data for each fuel type consumed
-					at each facility.
+					Examples include electricity, steam, and chilled or hot
+					water. To generate this energy, utilities combust coal,
+					natural gas, and other fossil fuels, emitting carbon
+					dioxide, methane, and nitrous oxide in the process.
 				</List.Item>
 				<List.Item>
 					For each fuel type, you will need to enter the amount of
@@ -121,10 +43,11 @@ const StationaryCombustion = () => {
 			<Button
 				ml="md"
 				mb="md"
+				c="white"
 				leftSection={<IconNotebook />}
 				onClick={() =>
 					modals.openContextModal({
-						modal: 'AddEntrySC',
+						modal: 'AddEntryPE',
 						innerProps: {},
 						title: 'Add a new entry',
 						radius: 'md',
@@ -134,7 +57,7 @@ const StationaryCombustion = () => {
 			>
 				Add a new entry
 			</Button>
-			<WorkbookTable values={values} RowComponent={PERow} />
+			<WorkbookTable type="PurchasedElectricity" />
 		</Box>
 	);
 };

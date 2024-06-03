@@ -12,6 +12,7 @@ export function Selectable({
 	value,
 	setValue,
 	options,
+	withinPortal,
 	leftIcon: Icon,
 	...props
 }: SelectProps & {
@@ -19,19 +20,19 @@ export function Selectable({
 	setValue: (value: string) => void;
 	options: ComboboxData;
 	leftIcon?: Icon;
+	withinPortal?: boolean;
 }) {
-	const [localValue, setLocalValue] = useState<string | null>(value);
 	const [searchValue, setSearchValue] = useState<string>();
 
 	const { colorScheme } = useMantineColorScheme();
 	const isDark = colorScheme === 'dark';
 	const handleChange = (value: string | null, option: ComboboxItem) => {
-		setLocalValue(value);
-		setValue(option.label);
+		setValue(option.value);
 	};
+
 	return (
 		<Select
-			value={localValue}
+			value={value}
 			onChange={handleChange}
 			searchable
 			searchValue={searchValue}
@@ -43,7 +44,7 @@ export function Selectable({
 			aria-label={String(props.label) || 'Select an option'}
 			placeholder="Select an option"
 			comboboxProps={{
-				withinPortal: false,
+				withinPortal: withinPortal ?? false,
 				transitionProps: { transition: 'pop', duration: 200 },
 			}}
 			styles={(theme) => ({

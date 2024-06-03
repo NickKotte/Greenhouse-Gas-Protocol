@@ -1,64 +1,95 @@
-import { useState } from 'react';
 import { Selectable } from '@/components/Editables/Selectable';
 import EditableWrapper from './EditableWrapper';
 import { type Icon } from '@tabler/icons-react';
 import { dropdownOptions } from '@/constants';
-import type { SelectProps } from '@mantine/core';
+import type {
+	ComboboxItem,
+	ComboboxItemGroup,
+	SelectProps,
+} from '@mantine/core';
 import { Numerable } from './Numerable';
-import type { SelectorValue } from '@/types';
 
 const Selector = ({
 	type,
-	defaultNumberValue,
-	defaultDropdownValue,
-	onDoneEditing,
+	numberValue,
+	dropdownValue,
+	onNumberValueChange = () => {},
+	onDropdownValueChange = () => {},
 	label,
 	selectProps,
 	withNumerable,
 	Icon,
 }: {
 	type: keyof typeof dropdownOptions;
-	defaultDropdownValue: string;
-	defaultNumberValue?: number;
-	onDoneEditing: (value: SelectorValue) => void;
+	dropdownValue: string;
+	numberValue?: number;
+	onNumberValueChange?: (value: number) => void;
+	onDropdownValueChange?: (value: string) => void;
 	label: string;
 	selectProps?: Omit<SelectProps, 'value'>;
 	withNumerable?: boolean;
 	Icon: Icon;
 }) => {
 	const options = dropdownOptions[type];
+	type ComboboxItemType = ComboboxItem | ComboboxItemGroup;
 
-	// const label = options.find((item) => item.label === value)?.label || '';
-	const [selectableValue, setSelectableValue] =
-		useState(defaultDropdownValue);
-	const [numberInputValue, setNumberInputValue] = useState<number | string>(
-		defaultNumberValue ?? 0,
-	);
-	const formatDisplayValue = () => {
-		if (withNumerable) {
-			return `${numberInputValue} ${selectableValue}`;
-		}
-		return selectableValue;
+	const isComboboxItem = (item: ComboboxItemType): item is ComboboxItem => {
+		return 'label' in item && 'value' in item;
 	};
+
+	const isComboboxItemGroup = (
+		item: ComboboxItemType,
+	): item is ComboboxItemGroup => {
+		return (
+			'items' in item && Array.isArray((item as ComboboxItemGroup).items)
+		);
+	};
+
+	const findLabelByValue = (
+		options: ComboboxItemType[],
+		value: string,
+	): string | undefined => {
+		for (const option of options) {
+			if (isComboboxItem(option) && option.value === value) {
+				return option.label;
+			} else if (isComboboxItemGroup(option)) {
+				const foundItem = option.items.find(
+					(item) => (item as ComboboxItem).value === value,
+				) as ComboboxItem | undefined;
+				if (foundItem) {
+					return foundItem.label;
+				}
+			}
+		}
+		return undefined;
+	};
+
+	const formatDisplayValue = () => {
+		const dropdownLabel =
+			findLabelByValue(options, dropdownValue) || dropdownValue;
+		if (withNumerable) {
+			return `${numberValue} ${dropdownLabel}`;
+		}
+		return dropdownLabel;
+	};
+
 	return (
 		<EditableWrapper
 			displayValue={formatDisplayValue()}
-			onDoneEditing={onDoneEditing}
 			leftIcon={Icon}
 			label={label}
 		>
 			{withNumerable && (
 				<Numerable
-					value={numberInputValue}
-					options={options}
-					setValue={setNumberInputValue}
+					value={numberValue ?? 0}
+					setValue={onNumberValueChange}
 					leftIcon={Icon}
 					label={label}
 				/>
 			)}
 			<Selectable
-				value={selectableValue}
-				setValue={setSelectableValue}
+				value={dropdownValue}
+				setValue={onDropdownValueChange}
 				options={options}
 				leftIcon={!withNumerable ? Icon : undefined}
 				autoFocus={!withNumerable}

@@ -1,133 +1,16 @@
 import { Box, Button, List, ThemeIcon, Title, rem } from '@mantine/core';
 import { IconMessageCircle2, IconNotebook } from '@tabler/icons-react';
 import { modals } from '@mantine/modals';
-import SCRow from './SCRow';
 import WorkbookTable from '@/components/WorkbookTable';
-import type { StationaryCombustionData } from '@/types';
-
-const mockData: StationaryCombustionData[] = [
-	{
-		facilityId: 'Warehouse 1',
-		year: 2022,
-		fuel: 'Butane',
-		amountOfFuel: 100,
-		units: 'mmBtu',
-		co2Tonnes: 6.477,
-		ch4Tonnes: 0.0003,
-		n2oTonnes: 0.00006,
-		co2eTonnes: 6.501,
-		biofuelCo2Tonnes: 0.0,
-		efKgCo2e: 65.013,
-	},
-	{
-		facilityId: 'Warehouse 1',
-		year: 2019,
-		fuel: 'Mixed (Commercial Sector)',
-		amountOfFuel: 100,
-		units: 'mmBtu',
-		co2Tonnes: 9.427,
-		ch4Tonnes: 0.0011,
-		n2oTonnes: 0.00016,
-		co2eTonnes: 9.5,
-		biofuelCo2Tonnes: 0.0,
-		efKgCo2e: 95.002,
-	},
-	{
-		facilityId: 'Warehouse 3',
-		year: 2019,
-		fuel: 'Lignite Coal',
-		amountOfFuel: 100,
-		units: 'mmBtu',
-		co2Tonnes: 9.772,
-		ch4Tonnes: 0.0011,
-		n2oTonnes: 0.00016,
-		co2eTonnes: 9.845,
-		biofuelCo2Tonnes: 0.0,
-		efKgCo2e: 98.452,
-	},
-	{
-		facilityId: 'Warehouse 4',
-		year: 2019,
-		fuel: 'Lignite Coal',
-		amountOfFuel: 100,
-		units: 'mmBtu',
-		co2Tonnes: 9.772,
-		ch4Tonnes: 0.0011,
-		n2oTonnes: 0.00016,
-		co2eTonnes: 9.845,
-		biofuelCo2Tonnes: 0.0,
-		efKgCo2e: 98.452,
-	},
-	{
-		facilityId: 'Warehouse 5',
-		year: 2019,
-		fuel: 'Lignite Coal',
-		amountOfFuel: 100,
-		units: 'mmBtu',
-		co2Tonnes: 9.772,
-		ch4Tonnes: 0.0011,
-		n2oTonnes: 0.00016,
-		co2eTonnes: 9.845,
-		biofuelCo2Tonnes: 0.0,
-		efKgCo2e: 98.452,
-	},
-	{
-		facilityId: 'Warehouse 6',
-		year: 2019,
-		fuel: 'Lignite Coal',
-		amountOfFuel: 100,
-		units: 'mmBtu',
-		co2Tonnes: 9.772,
-		ch4Tonnes: 0.0011,
-		n2oTonnes: 0.00016,
-		co2eTonnes: 9.845,
-		biofuelCo2Tonnes: 0.0,
-		efKgCo2e: 98.452,
-	},
-	{
-		facilityId: 'Warehouse 7',
-		year: 2019,
-		fuel: 'Anthracite Coal',
-		amountOfFuel: 100,
-		units: 'mmBtu',
-		co2Tonnes: 10.369,
-		ch4Tonnes: 0.0011,
-		n2oTonnes: 0.00016,
-		co2eTonnes: 10.442,
-		biofuelCo2Tonnes: 0.0,
-		efKgCo2e: 104.422,
-	},
-	{
-		facilityId: 'Warehouse 8',
-		year: 2019,
-		fuel: '',
-		amountOfFuel: 0,
-		units: '',
-		co2Tonnes: 0,
-		ch4Tonnes: 0,
-		n2oTonnes: 0,
-		co2eTonnes: 0,
-		biofuelCo2Tonnes: 0,
-		efKgCo2e: 0,
-	},
-];
 
 const StationaryCombustion = () => {
-	const groupedByYear = mockData.reduce(
-		(acc: { [key: number]: StationaryCombustionData[] }, curr) => {
-			const year = curr.year;
-			if (!acc[year]) {
-				acc[year] = [];
-			}
-			acc[year].push(curr);
-			return acc;
-		},
-		{},
-	);
-	const values = Object.values(groupedByYear);
 	return (
 		<Box w="100%" h="100%" mb="xl">
-			<Title order={2}>Stationary Combustion</Title>
+			<Title order={1}>Stationary Combustion</Title>
+			<Title order={4}>
+				Includes fuel consumption at a facility to produce electricity,
+				steam, heat, or power.
+			</Title>
 			<List
 				p="md"
 				my="md"
@@ -161,6 +44,8 @@ const StationaryCombustion = () => {
 				ml="md"
 				mb="md"
 				leftSection={<IconNotebook />}
+				c="white"
+				fw="normal"
 				onClick={() =>
 					modals.openContextModal({
 						modal: 'AddEntrySC',
@@ -173,7 +58,7 @@ const StationaryCombustion = () => {
 			>
 				Add a new entry
 			</Button>
-			<WorkbookTable values={values} RowComponent={SCRow} />
+			<WorkbookTable type="StationaryCombustion" />
 		</Box>
 	);
 };

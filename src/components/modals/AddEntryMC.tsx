@@ -1,5 +1,9 @@
-import type { InventoryYear, StationaryCombustionData } from '@/types';
-import { Text, Divider, Group, Space } from '@mantine/core';
+import type {
+	ActivityType,
+	InventoryYear,
+	MobileCombustionData,
+} from '@/types';
+import { Text, Divider, Group, Space, TextInput } from '@mantine/core';
 import { ContextModalProps } from '@mantine/modals';
 import { useEffect, useState } from 'react';
 import '@mantine/dates/styles.css';
@@ -12,9 +16,10 @@ import { $appState, workbook } from '@/stores/app';
 import { useStore } from '@nanostores/react';
 import EditWrapper from './EditWrapper';
 import { Selectable } from '../Editables/Selectable';
-import { fuelTypes_SC, cost_energy_units } from '@/constants';
+import { vehicles, fuel_units, distance_units } from '@/constants';
 import { Numerable } from '../Editables/Numerable';
 import { calculate } from '@/util';
+import ActivitySelector from '@/views/MobileCombustion/ActivitySelector';
 import ModalCalculations from '../ModalCalculations';
 
 const EditInventoryYear = ({
@@ -25,6 +30,8 @@ const EditInventoryYear = ({
 	const { inventoryYears, facilities } = useStore($appState);
 	const [facility, setFacility] = useState<string>('');
 	const [inventoryYear, setInventoryYear] = useState<string>('');
+	const [description, setDescription] = useState<string>('');
+	const [activityType, setActivityType] = useState<ActivityType>('fuel');
 	const [fuelType, setFuelType] = useState<string>('');
 	const [amount, setAmount] = useState<number>(0);
 	const [units, setUnits] = useState<string>('');
@@ -47,23 +54,27 @@ const EditInventoryYear = ({
 			return false;
 		}
 		workbook.addItem({
-			facilityId: 'TODO ADD NEW' + new Date().toISOString(),
+			facilityId: facility,
 			year: Number(inventoryYear),
-			fuel: fuelType,
-			amountOfFuel: amount,
-			units,
+			description,
+			activityType,
+			fuelSource: fuelType,
+			vehicleType: '',
+			activityAmount: amount,
+			unitOfFuelAmount: units,
 			co2Tonnes: calculations.CO2,
 			ch4Tonnes: calculations.CH4,
 			n2oTonnes: calculations.N2O,
 			co2eTonnes: calculations.CO2e,
 			efKgCo2e: calculations.EF,
 			biofuelCo2Tonnes: calculations.BIO,
-		} as StationaryCombustionData);
+		} as MobileCombustionData);
 		return true;
 	};
 	useEffect(() => {
 		if (fuelType && amount && units) {
-			const result = calculate.StationaryCombustion(
+			const result = calculate.MobileCombustion(
+				activityType,
 				fuelType,
 				amount,
 				units,
@@ -77,7 +88,7 @@ const EditInventoryYear = ({
 				BIO: result.BIO,
 			});
 		}
-	}, [fuelType, amount, units]);
+	}, [fuelType, amount, units, activityType]);
 	return (
 		<EditWrapper
 			context={context}
@@ -85,6 +96,7 @@ const EditInventoryYear = ({
 			onSave={handleSave}
 			id={id}
 		>
+			<Divider my="md" label="Record Details" />
 			<Group grow>
 				<Selectable
 					value={facility}
@@ -115,14 +127,38 @@ const EditInventoryYear = ({
 					withinPortal
 				/>
 			</Group>
-			<Divider my="md" label="Calculation Inputs" />
+			<TextInput
+				mt="sm"
+				label="Description"
+				placeholder="Description"
+				value={description}
+				onChange={(e) => setDescription(e.target.value)}
+			/>
+			<Divider my="md" mt="xl" label="Calculation Inputs" />
+			<ActivitySelector
+				value={activityType}
+				onChange={(value) => {
+					console.log(units);
+					setActivityType(value as ActivityType);
+					setUnits(
+						value === 'fuel'
+							? fuel_units[0].value
+							: distance_units[0].value,
+					);
+				}}
+				noWarning
+			/>
+			<Text size="sm" c="dimmed" my="sm">
+				● Activity type can either be in the form of fuel used or
+				distance traveled.
+			</Text>
 			<Selectable
 				label="Fuel Type"
 				placeholder="Select Fuel Type"
 				value={fuelType}
 				required
 				setValue={setFuelType}
-				options={fuelTypes_SC}
+				options={vehicles}
 				withinPortal
 			/>
 			<Space h="md" />
@@ -136,12 +172,18 @@ const EditInventoryYear = ({
 					leftIcon={IconFlame}
 				/>
 				<Selectable
-					label="Units"
-					placeholder="Select Units"
+					label={
+						activityType === 'fuel'
+							? 'Fuel Units'
+							: 'Distance Units'
+					}
+					placeholder={`Select Units for ${activityType}`}
 					required
 					value={units}
 					setValue={setUnits}
-					options={cost_energy_units}
+					options={
+						activityType === 'fuel' ? fuel_units : distance_units
+					}
 					withinPortal
 				/>
 			</Group>
@@ -154,6 +196,3 @@ const EditInventoryYear = ({
 };
 
 export default EditInventoryYear;
-
-
-

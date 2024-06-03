@@ -1,77 +1,17 @@
 import { Box, Button, List, ThemeIcon, Title, rem } from '@mantine/core';
 import { IconMessageCircle2, IconNotebook } from '@tabler/icons-react';
 import { modals } from '@mantine/modals';
-import MCRow from './MCRow';
 import WorkbookTable from '@/components/WorkbookTable';
-import type { MobileCombustionData } from '@/types';
-
-const mockData: MobileCombustionData[] = [
-	{
-		year: 2021,
-		description: '10 delivery trucks',
-		facilityId: 'warehouse 1',
-		activityType: 'Fuel Use',
-		fuelSource: 'Motor Gasoline',
-		vehicleType: 'Gasoline Passenger Cars',
-		activityAmount: 100,
-		unitOfFuelAmount: 'scf',
-		co2Tonnes: 6.568,
-		ch4Tonnes: 0.000291,
-		n2oTonnes: 0.000061,
-		co2eTonnes: 6.592,
-		biofuelCo2Tonnes: 0.0,
-		efKgCo2e: 8.812,
-	},
-	{
-		year: 2021,
-		description: 'sales cars, 5',
-		facilityId: 'warehouse 2',
-		activityType: 'Fuel Use',
-		fuelSource: 'Ethanol (100%)',
-		vehicleType: 'Ethanol Light-duty Vehicles',
-		activityAmount: 10,
-		unitOfFuelAmount: 'gal (US)',
-		co2Tonnes: 0.0,
-		ch4Tonnes: 0.000009,
-		n2oTonnes: 0.000011,
-		co2eTonnes: 0.003,
-		biofuelCo2Tonnes: 0.058,
-		efKgCo2e: 0.313,
-	},
-	{
-		year: 2032,
-		description: '',
-		facilityId: 'warehouse 3',
-		activityType: 'Distance Activity',
-		fuelSource: 'Motor Gasoline',
-		vehicleType: 'Gasoline Passenger Cars',
-		activityAmount: 2250,
-		unitOfFuelAmount: 'mile',
-		co2Tonnes: 0.878,
-		ch4Tonnes: 0.000039,
-		n2oTonnes: 0.000008,
-		co2eTonnes: 0.881,
-		biofuelCo2Tonnes: 0.0,
-		efKgCo2e: 8.812,
-	},
-];
 
 const MobileCombustion = () => {
-	const groupedByYear = mockData.reduce(
-		(acc: { [key: number]: MobileCombustionData[] }, curr) => {
-			const year = curr.year;
-			if (!acc[year]) {
-				acc[year] = [];
-			}
-			acc[year].push(curr);
-			return acc;
-		},
-		{},
-	);
-	const values = Object.values(groupedByYear);
 	return (
 		<Box w="100%" h="100%" mb="xl">
-			<Title order={2}>Stationary Combustion</Title>
+			<Title order={1}>Mobile Combustion</Title>
+			<Title order={4}>
+				Includes fuel consumption by vehicles that are owned or leased
+				by the company. This does not count employee travel (train,
+				plane, or auto).
+			</Title>
 			<List
 				p="md"
 				my="md"
@@ -87,9 +27,8 @@ const MobileCombustion = () => {
 			>
 				<List.Item>
 					This section allows you to calculate the greenhouse gas
-					emissions from stationary combustion at your facilities.
-					Please enter the following data for each fuel type consumed
-					at each facility.
+					emissions from your vehicles. Please enter the following
+					data for each fuel type consumed for each facility.
 				</List.Item>
 				<List.Item>
 					For each fuel type, you will need to enter the amount of
@@ -104,10 +43,11 @@ const MobileCombustion = () => {
 			<Button
 				ml="md"
 				mb="md"
+				c="white"
 				leftSection={<IconNotebook />}
 				onClick={() =>
 					modals.openContextModal({
-						modal: 'AddEntrySC',
+						modal: 'AddEntryMC',
 						innerProps: {},
 						title: 'Add a new entry',
 						radius: 'md',
@@ -117,7 +57,7 @@ const MobileCombustion = () => {
 			>
 				Add a new entry
 			</Button>
-			<WorkbookTable values={values} RowComponent={MCRow} />
+			<WorkbookTable type="MobileCombustion" />
 		</Box>
 	);
 };

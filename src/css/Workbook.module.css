@@ -12,20 +12,68 @@
 /* styles.css */
 @keyframes scaleUpDown {
   100% {
-    transform: scale(1);
+    margin-left: 0;
+    border-radius: var(--mantine-radius-md) 0 0 var(--mantine-radius-md);
   }
   0% {
-    transform: scale(1);
+    margin-left: 0;
+  
   }
-  60% {
-    transform: scale(1.02);
-	background-color: var(--mantine-color-teal-5);
-  border-radius: 100px;
+  40% {
+    margin-left: var(--mantine-spacing-lg);
+    border-radius: var(--mantine-radius-lg) 0 0 var(--mantine-radius-lg);
+  }
+  70% {
+    margin-left: var(--mantine-spacing-lg);
+  }
+  80% {
+    margin-left: var(--mantine-spacing-xl);
+    border-radius: var(--mantine-radius-lg) 0 0 var(--mantine-radius-lg);
+
   }
 }
 
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-50%);
+    opacity: 0.8;
+  }
+  60% {
+    transform: translateX(5%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(-15px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+.slide-in-from-left {
+	animation: slideInFromLeft 0.5s ease-in-out;
+}
+
+.slide-in-from-right {
+	animation: slideInFromRight 0.5s ease-in-out;
+}
+
 .scale-up-down {
-  animation: scaleUpDown 0.6s ease-in-out;
+  animation: scaleUpDown 1s ease-in-out;
 }
 
 .row {
@@ -34,8 +82,14 @@
 }
 
 .container {
-	border-radius: var(--mantine-radius-md);
-	background-color: light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-9));
+  border-radius: var(--mantine-radius-lg);
+  background-color: var(--mantine-color-teal-5);
+}
+
+.control {
+  background-color: light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-9));
+  border-radius: 0 var(--mantine-radius-md) var(--mantine-radius-md) 0;
+  margin-left: 100px;
 }
 
 .userData {

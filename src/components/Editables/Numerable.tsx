@@ -8,20 +8,19 @@ export function Numerable({
 	leftIcon: Icon,
 	...props
 }: NumberInputProps & {
-	value: number | string;
-	setValue: (value: number | string) => void;
-	options: ComboboxData;
+	value: number;
+	setValue: (value: number) => void;
 	leftIcon?: Icon;
 }) {
-	const [localValue, setLocalValue] = useState<number | string>(value);
-	const handleChange = (value: number | string) => {
+	const [localValue, setLocalValue] = useState<number>(value);
+	const handleChange = (value: number) => {
 		setLocalValue(value);
 		setValue(value);
 	};
 	return (
 		<NumberInput
 			value={localValue}
-			onChange={handleChange}
+			onChange={(value) => handleChange(Number(value))}
 			leftSection={Icon ? <Icon /> : null}
 			aria-label={String(props.label) || 'Enter a number'}
 			placeholder="Enter a number"
