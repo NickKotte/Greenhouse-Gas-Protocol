@@ -51,7 +51,7 @@ const WorkbookTable = ({ type }: { type: WorkbookType }) => {
 	};
 
 	const handleAddOpenRow = (values: string[]) => {
-		const filteredValues = values.filter((value) => value !== '');
+		const filteredValues = values.filter((value) => value !== '').sort();
 		setOpenRows(filteredValues);
 		rowRefs.current[values[values.length - 1]]?.scrollIntoView({
 			behavior: 'smooth',

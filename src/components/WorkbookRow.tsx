@@ -31,7 +31,7 @@ export const Number = ({ value, label }: { value: number; label: string }) => {
 				{label}
 			</Text>
 			<Tooltip label={`${value} tonnes`}>
-				<Text c="darkorange">{formatNumber(value)} t</Text>
+				<Text c="orange">{formatNumber(value)} t</Text>
 			</Tooltip>
 		</>
 	);

@@ -55,6 +55,14 @@ export const routes: Record<string, Route> = {
 				icon: IconSitemap,
 				element: PurchasedElectricity,
 			},
+			{
+				label: 'Results',
+			},
+			{
+				label: 'Purchased Electricity',
+				path: 'purchased-electricity',
+				icon: IconSitemap,
+			},
 		],
 	},
 	facilities: {

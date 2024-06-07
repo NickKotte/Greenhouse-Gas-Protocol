@@ -1,10 +1,5 @@
-import type {
-	ActivityType,
-	InventoryYear,
-	MobileCombustionData,
-	PurchasedElectricityData,
-} from '@/types';
-import { Text, Divider, Group, Space } from '@mantine/core';
+import type { InventoryYear, PurchasedElectricityData } from '@/types';
+import { Text, Divider, Group } from '@mantine/core';
 import { ContextModalProps } from '@mantine/modals';
 import { useEffect, useState } from 'react';
 import '@mantine/dates/styles.css';
@@ -17,10 +12,9 @@ import { $appState, workbook } from '@/stores/app';
 import { useStore } from '@nanostores/react';
 import EditWrapper from './EditWrapper';
 import { Selectable } from '../Editables/Selectable';
-import { vehicles, cost_energy_units } from '@/constants';
+import { cost_energy_units } from '@/constants';
 import { Numerable } from '../Editables/Numerable';
 import { calculate } from '@/util';
-import ActivitySelector from '@/views/MobileCombustion/ActivitySelector';
 import ModalCalculations from '../ModalCalculations';
 
 const EditInventoryYear = ({
@@ -56,8 +50,6 @@ const EditInventoryYear = ({
 			description: 'Voluptate labore veniam ad non pariatur.',
 			amountOfElectricityConsumption: amount,
 			units,
-			typeOfEmissionFactor: '',
-			calculationApproach: '',
 			co2Tonnes: calculations.CO2,
 			ch4Tonnes: calculations.CH4,
 			n2oTonnes: calculations.N2O,

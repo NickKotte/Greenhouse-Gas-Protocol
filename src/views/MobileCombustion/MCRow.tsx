@@ -15,7 +15,7 @@ import { fuel_units, distance_units } from '@/constants';
 const MBRow = ({ item }: RowComponentProps<MobileCombustionData>) => {
 	const handleUpdate = ({
 		activity = item.activityType as ActivityType,
-		units = item.unitOfFuelAmount,
+		units = item.units,
 		fuel = item.fuelSource,
 		activityAmount = item.activityAmount,
 	}: {
@@ -37,7 +37,7 @@ const MBRow = ({ item }: RowComponentProps<MobileCombustionData>) => {
 				activityType: activity,
 				fuelSource: fuel,
 				activityAmount: activityAmount,
-				unitOfFuelAmount: units,
+				units: units,
 				co2Tonnes: values.CO2,
 				ch4Tonnes: values.CH4,
 				n2oTonnes: values.N2O,
@@ -122,7 +122,7 @@ const MBRow = ({ item }: RowComponentProps<MobileCombustionData>) => {
 					onNumberValueChange={(value) => {
 						handleUpdate({ activityAmount: value });
 					}}
-					dropdownValue={item.unitOfFuelAmount}
+					dropdownValue={item.units}
 					onDropdownValueChange={(value) => {
 						handleUpdate({ units: value });
 					}}

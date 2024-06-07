@@ -55,9 +55,8 @@ export interface MobileCombustionData {
 	facilityId: string;
 	activityType: string;
 	fuelSource: string;
-	vehicleType: string;
 	activityAmount: number;
-	unitOfFuelAmount: string;
+	units: string;
 	co2Tonnes: number;
 	ch4Tonnes: number;
 	n2oTonnes: number;
@@ -71,8 +70,6 @@ export interface PurchasedElectricityData {
 	facilityId: string;
 	amountOfElectricityConsumption: number;
 	units: string;
-	calculationApproach: string;
-	typeOfEmissionFactor: string;
 	co2Tonnes: number;
 	ch4Tonnes: number;
 	n2oTonnes: number;
