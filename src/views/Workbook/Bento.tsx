@@ -26,7 +26,7 @@ const Bento = ({
 	badgeText?: string;
 }) => {
 	return (
-		<Paper p="lg" mt="md" radius="md" shadow="sm">
+		<Paper p="lg" pb="md" mt="md" radius="md" shadow="sm">
 			<Group justify="space-between">
 				<Group align="center">
 					<Icon size={34} />
@@ -44,6 +44,7 @@ const Bento = ({
 			<Divider my="md" />
 			{onClick && (
 				<Button
+					style={{ float: 'right' }}
 					radius="md"
 					onClick={onClick}
 					color="blue"

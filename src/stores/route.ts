@@ -9,12 +9,14 @@ import {
 	IconSettings,
 	IconTruckDelivery,
 	IconBuildingWarehouse,
+	IconUsers,
 } from '@tabler/icons-react';
 import Settings from '@/views/Settings';
 import { Workbook } from '@/views/Workbook';
 import { StationaryCombustion } from '@/views/StationaryCombustion';
 import { MobileCombustion } from '@/views/MobileCombustion';
 import { PurchasedElectricity } from '@/views/PurchasedElectricity';
+import UserManagement from '@/views/Administration/UserManagement';
 
 export const routes: Record<string, Route> = {
 	company: {
@@ -83,6 +85,8 @@ export const routes: Record<string, Route> = {
 			{
 				label: 'User Management',
 				path: 'user-management',
+				icon: IconUsers,
+				element: UserManagement,
 			},
 			{
 				label: 'Roles & Permissions',
