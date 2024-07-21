@@ -7,7 +7,14 @@ import { useStore } from '@nanostores/react';
 export default function HeroImageRight() {
 	const navigate = useNavigate();
 	const user = useStore($currUser);
-
+	const ownedWorkbookId = user?.app_metadata?.owned_workbook_id;
+	const handleNavigate = () => {
+		if (ownedWorkbookId) {
+			navigate(`/${ownedWorkbookId}`);
+		} else {
+			navigate('/login');
+		}
+	};
 	return (
 		<div className={classes.root}>
 			<Container size="lg">
@@ -37,7 +44,7 @@ export default function HeroImageRight() {
 						size="xl"
 						className={classes.control}
 						mt={40}
-						onClick={() => navigate('/login')}
+						onClick={handleNavigate}
 					>
 						{user ? 'Open my workbook' : 'Get Started'}
 					</Button>

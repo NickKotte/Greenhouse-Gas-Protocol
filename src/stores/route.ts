@@ -10,6 +10,7 @@ import {
 	IconTruckDelivery,
 	IconBuildingWarehouse,
 	IconUsers,
+	IconFileAnalytics,
 } from '@tabler/icons-react';
 import Settings from '@/views/Settings';
 import { Workbook } from '@/views/Workbook';
@@ -61,9 +62,9 @@ export const routes: Record<string, Route> = {
 				label: 'Results',
 			},
 			{
-				label: 'Purchased Electricity',
-				path: 'purchased-electricity',
-				icon: IconSitemap,
+				label: 'View Report',
+				path: 'results',
+				icon: IconFileAnalytics,
 			},
 		],
 	},

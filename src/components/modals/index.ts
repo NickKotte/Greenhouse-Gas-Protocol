@@ -3,6 +3,7 @@ import EditInventoryYear from './EditInventoryYear';
 import AddEntrySC from './AddEntrySC';
 import AddEntryPE from './AddEntryPE';
 import AddEntryMC from './AddEntryMC';
+import ShareWorkbook from './ShareWorkbook';
 
 export default {
 	EditFacility,
@@ -10,4 +11,5 @@ export default {
 	AddEntrySC,
 	AddEntryPE,
 	AddEntryMC,
+	ShareWorkbook,
 };

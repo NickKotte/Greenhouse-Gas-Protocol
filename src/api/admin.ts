@@ -109,3 +109,64 @@ export const useDeleteUsers = ({
 		onError,
 	});
 };
+
+const addUserToWorkbook = async (email: string, workbookId: string) => {
+	const { data, error } = await supabase.rpc('invite_user_to_workbook', {
+		p_invited_user_email: email,
+		p_workbook_id: workbookId,
+	});
+	if (error) throw new Error(error.message);
+	return data;
+};
+
+export const useAddUserToWorkbook = ({
+	onSuccess,
+	onError,
+}: {
+	onSuccess?: () => void;
+	onError?: (error: Error) => void;
+}) => {
+	return useMutation({
+		mutationFn: ({
+			email,
+			workbookId,
+		}: {
+			userId: string;
+			email: string;
+			workbookId: string;
+		}) => addUserToWorkbook(email, workbookId),
+		onSuccess,
+		onError,
+	});
+};
+
+const removeUserFromWorkbook = async (email: string, workbookId: string) => {
+	const { data, error } = await supabase.rpc('remove_user_from_workbook', {
+		p_removed_user_email: email,
+		p_workbook_id: workbookId,
+	});
+	if (error) throw new Error(error.message);
+	return data;
+};
+
+export const useRemoveUserFromWorkbook = ({
+	onSuccess,
+	onError,
+}: {
+	onSuccess?: () => void;
+	onError?: (error: Error) => void;
+}) => {
+	return useMutation({
+		mutationFn: ({
+			email,
+			workbookId,
+		}: {
+			userId: string;
+			email: string;
+			workbookId: string;
+		}) => removeUserFromWorkbook(email, workbookId),
+		onSuccess,
+		onError,
+	});
+};
+

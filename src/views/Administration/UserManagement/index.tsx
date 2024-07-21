@@ -20,13 +20,7 @@ import {
 } from '@mantine/core';
 import { useMemo, useState } from 'react';
 import { notifications } from '@mantine/notifications';
-import {
-	IconTrash,
-	IconRefresh,
-	IconUserShield,
-	IconUserDown,
-	IconUserX,
-} from '@tabler/icons-react';
+import { IconRefresh, IconUserX } from '@tabler/icons-react';
 import { modals } from '@mantine/modals';
 import { useStore } from '@nanostores/react';
 import { $currUser } from '@/stores/user';

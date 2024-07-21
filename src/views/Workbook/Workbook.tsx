@@ -7,9 +7,13 @@ import InventoryYearRow from './InventoryYearRow';
 import FacilityRow from './FacilityRow';
 import { EditableText } from '@/components/EditableText';
 import { modals } from '@mantine/modals';
+import { $currUser } from '@/stores/user';
 
 const Workbook = () => {
 	const { inventoryYears, facilities, companyName } = useStore($appState);
+	const user = useStore($currUser);
+
+	console.log(user);
 	return (
 		<Box w="100%" h="100%">
 			<EditableText

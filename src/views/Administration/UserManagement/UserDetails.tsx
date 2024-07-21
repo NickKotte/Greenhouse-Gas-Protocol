@@ -23,15 +23,25 @@ import {
 	IconBook,
 	IconUserCheck,
 	IconInfoCircle,
+	IconAddressBook,
 } from '@tabler/icons-react';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import { modals } from '@mantine/modals';
+import { useNavigate } from 'react-router-dom';
+import type { UserWorkbooksType } from '@/types';
+import { useRemoveUserFromWorkbook } from '../../../api/admin';
 
 dayjs.extend(relativeTime);
 
 const UserRoleManagement: React.FC<{ userId: string }> = ({ userId }) => {
 	const { data, isLoading, error, refetch } = useGetUserDetails(userId);
-
+	const navigate = useNavigate();
+	const { mutate: removeUserFromWorkbook } = useRemoveUserFromWorkbook({
+		onSuccess: () => {
+			refetch();
+		},
+	});
 	if (isLoading)
 		return (
 			<Box h="100%">
@@ -59,14 +69,18 @@ const UserRoleManagement: React.FC<{ userId: string }> = ({ userId }) => {
 	};
 
 	const user = data?.[0];
-	const workbooks = user.workbooks.filter((wb) => wb);
-	const roles = user.roles.filter((role) => role);
+	if (!user) return <Text>User not found</Text>;
+	const workbooks = user?.workbooks?.filter((wb) => wb);
+	const roles = user?.roles?.filter((role) => role);
+	const ownedWorkbook = workbooks?.find((wb) => wb.owner_id === user.user_id);
 	return (
 		<ScrollArea h="100%">
 			<Box p="md">
-				<Title order={2} mb="md">
-					Overview
-				</Title>
+				<Center w="100%">
+					<Title order={2} mb="md">
+						Overview
+					</Title>
+				</Center>
 				<Group gap="xs" mb="md">
 					{roles.map((role, index) => (
 						<Badge key={index} variant="gradient" size="lg">
@@ -109,11 +123,70 @@ const UserRoleManagement: React.FC<{ userId: string }> = ({ userId }) => {
 					</Title>
 					<Group gap="xs">
 						{workbooks.length > 0 ? (
-							workbooks.map((workbook, index) => (
-								<Badge key={index} color="green">
-									{workbook}
-								</Badge>
-							))
+							<>
+								{workbooks.map(
+									(
+										workbook: UserWorkbooksType,
+										index: number,
+									) => (
+										<Button
+											variant={
+												workbook.owner_id ===
+												user.user_id
+													? 'gradient'
+													: 'filled'
+											}
+											size="xs"
+											key={index}
+											color="green"
+											radius="lg"
+											leftSection={
+												workbook.owner_id ===
+													user.user_id && (
+													<IconUserCheck />
+												)
+											}
+											onClick={() => {
+												navigate(
+													`/${workbook.workbook_id}/company`,
+												);
+												// removeUserFromWorkbook({
+												// 	userId: user.user_id,
+												// 	email: user.email,
+												// 	workbookId:
+												// 		workbook.workbook_id,
+												// });
+											}}
+										>
+											{workbook.workbook_name}
+										</Button>
+									),
+								)}
+								<Tooltip
+									label="Share a workbook with this user"
+									withArrow
+								>
+									<Button
+										variant="subtle"
+										size="xs"
+										onClick={() =>
+											modals.openContextModal({
+												modal: 'ShareWorkbook',
+												innerProps: {
+													workbookId:
+														ownedWorkbook?.workbook_id,
+												},
+												radius: 'md',
+												size: 'lg',
+												withCloseButton: false,
+											})
+										}
+									>
+										<IconAddressBook />
+										Add
+									</Button>
+								</Tooltip>
+							</>
 						) : (
 							<Text>No workbooks</Text>
 						)}

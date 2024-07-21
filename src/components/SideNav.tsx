@@ -9,9 +9,10 @@ import {
 import classes from '@/css/DoubleNavbar.module.css';
 import { $routing, $activeLink } from '@/stores/route';
 import { routes } from '@/stores/route';
-import { $initialized } from '@/stores/user';
+import { $initialized, $currUser } from '@/stores/user';
 import { useStore } from '@nanostores/react';
 import { useNavigate } from 'react-router-dom';
+import supabaseClient from '@/supabase/supabaseClient';
 
 const routesOrdered = [
 	{ ...routes.company },
@@ -24,6 +25,9 @@ export default function DoubleNavbar() {
 	const windowPath = window.location.pathname;
 	const route = useStore($routing);
 	const appInitialized = useStore($initialized);
+	const user = useStore($currUser);
+	const ownedWorkbookId = user?.app_metadata?.owned_workbook_id;
+	const roles = user?.app_metadata?.roles;
 	const navigate = useNavigate();
 	const [activeRoute, setActive] = useState(
 		routesOrdered.findIndex((r) => route.label === r.label),
@@ -60,7 +64,6 @@ export default function DoubleNavbar() {
 	useEffect(() => {
 		if (!appInitialized) return;
 		const [, appId, main, sub] = windowPath.split('/');
-		const validAppId = appId.startsWith('app'); // TODO: add actual validation
 		const validMainRoute = routesOrdered.find((r) => r.path === main);
 		const mainroute = validMainRoute || route;
 		const validSubRoute = mainroute?.links?.find(
@@ -68,8 +71,18 @@ export default function DoubleNavbar() {
 		);
 		const subroute =
 			validSubRoute || mainroute?.links?.find((link) => !!link.path);
+		console.log(
+			'appId',
+			appId,
+			'mainroute.path',
+			mainroute.path,
+			'subroute?.path',
+			subroute?.path,
+		);
 		const newPath =
-			`/app/${mainroute.path}` + (subroute ? `/${subroute.path}` : '');
+			`/${appId}/${mainroute.path}` +
+			(subroute ? `/${subroute.path}` : '');
+		console.log('newPath: ', newPath);
 		if (windowPath !== newPath) {
 			navigate(newPath);
 		}
@@ -79,6 +92,36 @@ export default function DoubleNavbar() {
 		$routing.set(mainroute);
 		$activeLink.set(subroute?.label || mainroute?.label || null);
 	}, [appInitialized, navigate, route, route.links, route.path, windowPath]);
+
+	useEffect(() => {
+		let validAppId = false;
+		// const [, appId] = windowPath.split('/');
+		// console.log('appId: ', appId);
+		// if (appId === ownedWorkbookId) {
+		// 	validAppId = true;
+		// 	console.log('owned');
+		// } else if (roles?.includes('admin')) {
+		// 	validAppId = true;
+		// 	console.log('admin');
+		// } else if (user?.id && appId) {
+		// 	supabaseClient //TODO: turn this into a custom hook tanstack query and cache based off workbook id
+		// 		.from('user_workbook')
+		// 		.select('user_id')
+		// 		.eq('user_id', user.id)
+		// 		.eq('workbook_id', appId)
+		// 		.then(({ data }) => {
+		// 			if (data && data.length > 0) {
+		// 				console.log('user in workbook');
+		// 				validAppId = true;
+		// 			}
+		// 		});
+		// }
+		// if (!validAppId) {
+		// 	console.log('in second: ', windowPath);
+		// 	navigate('/');
+		// 	return;
+		// }
+	}, [ownedWorkbookId, user?.id]);
 
 	const navButtons = routesOrdered.map((link, index) => (
 		<Tooltip

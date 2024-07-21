@@ -80,7 +80,7 @@ export function Authentication() {
 		reset: resetLogin,
 	} = useLoginUser({
 		onSuccess: () => {
-			navigate('/appid');
+			navigate('/');
 		},
 	});
 	const {
@@ -90,7 +90,7 @@ export function Authentication() {
 		reset: resetRegister,
 	} = useRegisterUser({
 		onSuccess: () => {
-			navigate('/appid');
+			navigate('/');
 		},
 	});
 
@@ -110,7 +110,7 @@ export function Authentication() {
 
 	useEffect(() => {
 		if (user) {
-			navigate('/appId');
+			navigate('/');
 		}
 		resetLogin();
 		resetRegister();

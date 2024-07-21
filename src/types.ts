@@ -1,5 +1,12 @@
 import type { Icon } from '@tabler/icons-react';
 
+export type UserWorkbooksType = {
+	workbook_id: string;
+	workbook_name: string;
+	owner_id: string;
+	owner_email: string;
+};
+
 export type RouteLink = {
 	label: string;
 	path?: string;

@@ -56,7 +56,7 @@ export default function UtilityBar() {
 							leftSection={<IconSettings />}
 							aria-label="Settings"
 							onClick={() => {
-								window.location.href = '/appid/settings';
+								window.location.href = `/${currUser?.app_metadata?.owned_workbook_id}/settings`;
 							}}
 						>
 							Settings

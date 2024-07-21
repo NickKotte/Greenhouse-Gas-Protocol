@@ -13,7 +13,6 @@ const PromoteAdminButton = ({
 	id: string | undefined;
 	email: string | undefined;
 }) => {
-	console.log(id, email);
 	const queryClient = useQueryClient();
 
 	const { mutate: removeAdminRole, isPending: isRemovingAdminRole } =
