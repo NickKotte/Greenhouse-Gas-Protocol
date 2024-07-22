@@ -2,37 +2,14 @@ import type { AppState, WorkbookItem } from '@/types';
 import { atom, deepMap } from 'nanostores';
 
 export const $appState = deepMap<AppState>({
-	companyName: 'Apple Co.',
-	inventoryYears: [
-		{
-			year: '2022',
-			description: 'New factory, partially closed due to covid',
-		},
-		{
-			year: '2023',
-			description: 'New factory, partially closed due to covid',
-		},
-	],
-	facilities: [
-		{
-			name: 'Main',
-			streetAddress: '123 Main St',
-			city: 'New York',
-			state: 'NY',
-			zip: '10002',
-			eGrid: 'RFCW',
-			squareFootage: 10000,
-		},
-		{
-			name: 'Storage',
-			streetAddress: '456 Storage St',
-			city: 'New York',
-			state: 'NY',
-			zip: '10002',
-			eGrid: 'MROW',
-			squareFootage: 10000,
-		},
-	],
+	workbook: {
+		name: '',
+		created_at: '',
+		owner_id: '',
+		workbook_id: '',
+	},
+	inventoryYears: [],
+	facilities: [],
 });
 
 export const $animatedRow = atom<string | null>(null);

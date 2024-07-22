@@ -1,4 +1,5 @@
 import type { Icon } from '@tabler/icons-react';
+import type { Database } from './supabase/supabase';
 
 export type UserWorkbooksType = {
 	workbook_id: string;
@@ -21,25 +22,17 @@ export type Route = {
 	element?: React.ComponentType;
 };
 
-export type InventoryYear = {
-	year: string;
-	description: string;
-};
+export type Workbook = Database['public']['Tables']['workbook']['Row'];
+export type Facility = Database['public']['Tables']['facilities']['Row'];
+export type InventoryYear =
+	Database['public']['Tables']['inventory_years']['Row'];
 
-export type Facility = {
-	name: string;
-	streetAddress: string;
-	city: string;
-	state: string;
-	zip: string;
-	eGrid: string;
-	squareFootage: number;
-};
+export type MutationOperation = 'add' | 'update' | 'delete';
 
 export type AppState = {
-	companyName: string;
 	inventoryYears: InventoryYear[];
 	facilities: Facility[];
+	workbook: Workbook;
 };
 
 export interface StationaryCombustionData {

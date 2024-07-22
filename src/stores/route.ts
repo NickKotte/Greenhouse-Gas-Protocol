@@ -18,6 +18,7 @@ import { StationaryCombustion } from '@/views/StationaryCombustion';
 import { MobileCombustion } from '@/views/MobileCombustion';
 import { PurchasedElectricity } from '@/views/PurchasedElectricity';
 import UserManagement from '@/views/Administration/UserManagement';
+import { Results } from '@/views/Results';
 
 export const routes: Record<string, Route> = {
 	company: {
@@ -64,6 +65,7 @@ export const routes: Record<string, Route> = {
 			{
 				label: 'View Report',
 				path: 'results',
+				element: Results,
 				icon: IconFileAnalytics,
 			},
 		],

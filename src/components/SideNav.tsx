@@ -10,9 +10,10 @@ import classes from '@/css/DoubleNavbar.module.css';
 import { $routing, $activeLink } from '@/stores/route';
 import { routes } from '@/stores/route';
 import { $initialized, $currUser } from '@/stores/user';
+import { $appState } from '@/stores/app';
 import { useStore } from '@nanostores/react';
-import { useNavigate } from 'react-router-dom';
-import supabaseClient from '@/supabase/supabaseClient';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useWorkbookData } from '@/api/workbook';
 
 const routesOrdered = [
 	{ ...routes.company },
@@ -22,6 +23,8 @@ const routesOrdered = [
 ];
 
 export default function DoubleNavbar() {
+	const { appId } = useParams();
+	useWorkbookData(appId || '');
 	const windowPath = window.location.pathname;
 	const route = useStore($routing);
 	const appInitialized = useStore($initialized);
@@ -63,7 +66,7 @@ export default function DoubleNavbar() {
 
 	useEffect(() => {
 		if (!appInitialized) return;
-		const [, appId, main, sub] = windowPath.split('/');
+		const [, , main, sub] = windowPath.split('/');
 		const validMainRoute = routesOrdered.find((r) => r.path === main);
 		const mainroute = validMainRoute || route;
 		const validSubRoute = mainroute?.links?.find(
@@ -71,18 +74,9 @@ export default function DoubleNavbar() {
 		);
 		const subroute =
 			validSubRoute || mainroute?.links?.find((link) => !!link.path);
-		console.log(
-			'appId',
-			appId,
-			'mainroute.path',
-			mainroute.path,
-			'subroute?.path',
-			subroute?.path,
-		);
 		const newPath =
 			`/${appId}/${mainroute.path}` +
 			(subroute ? `/${subroute.path}` : '');
-		console.log('newPath: ', newPath);
 		if (windowPath !== newPath) {
 			navigate(newPath);
 		}
@@ -92,6 +86,11 @@ export default function DoubleNavbar() {
 		$routing.set(mainroute);
 		$activeLink.set(subroute?.label || mainroute?.label || null);
 	}, [appInitialized, navigate, route, route.links, route.path, windowPath]);
+
+	useEffect(() => {
+		if (!appId) return;
+		$appState.setKey('workbook.workbook_id', appId);
+	}, [appId]);
 
 	useEffect(() => {
 		let validAppId = false;

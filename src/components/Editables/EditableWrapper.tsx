@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ActionIcon, Box, Group, Text, Tooltip } from '@mantine/core';
 import { useClickOutside } from '@mantine/hooks';
-import { IconPencil, type Icon } from '@tabler/icons-react';
+import { IconPencil, type Icon, IconCheck } from '@tabler/icons-react';
 
 export default function Editable({
 	displayValue = '',
@@ -55,7 +55,12 @@ export default function Editable({
 		<>
 			{editing || !editable ? (
 				<Box pb="md" pr="sm" ref={ref}>
-					<Group wrap="nowrap">{children}</Group>
+					<Group wrap="nowrap">
+						{children}
+						<ActionIcon onClick={handleDoneEditing} mt="lg">
+							<IconCheck />
+						</ActionIcon>
+					</Group>
 				</Box>
 			) : (
 				<Box>

@@ -2,27 +2,56 @@ import { Box, Group, Text } from '@mantine/core';
 import { $appState } from '@/stores/app';
 import { useStore } from '@nanostores/react';
 import Bento from './Bento';
-import { IconBuildingWarehouse, IconCalendarStats } from '@tabler/icons-react';
+import {
+	IconBuildingWarehouse,
+	IconCalendarStats,
+	IconNotebook,
+} from '@tabler/icons-react';
 import InventoryYearRow from './InventoryYearRow';
 import FacilityRow from './FacilityRow';
-import { EditableText } from '@/components/EditableText';
 import { modals } from '@mantine/modals';
-import { $currUser } from '@/stores/user';
+import { EditableText } from '@/components/Editables/EditableText';
+import { useParams } from 'react-router-dom';
+import { notifications } from '@mantine/notifications';
+import { useUpdateWorkbookName } from '@/api/workbook';
+import type { Workbook } from '@/types';
+import { useNotifyWithUndo } from '@/util/useNotifyWithUndo';
 
 const Workbook = () => {
-	const { inventoryYears, facilities, companyName } = useStore($appState);
-	const user = useStore($currUser);
+	const { inventoryYears, facilities, workbook } = useStore($appState);
+	const { name: companyName } = workbook;
+	const { appId } = useParams();
+	const notify = useNotifyWithUndo();
+	const { mutate: updateWorkbookName } = useUpdateWorkbookName({
+		onSuccess: (data: Workbook) => {
+			const newName = data.name;
+			$appState.setKey('workbook.name', newName);
+			notify(companyName, newName, () => {
+				updateWorkbookName({
+					name: companyName,
+					workbookId: appId || '',
+				});
+			});
+		},
+		onError: (error) => {
+			notifications.show({
+				title: 'Error',
+				message: error.message,
+			});
+		},
+	});
 
-	console.log(user);
+	if (!appId) return null;
+
 	return (
 		<Box w="100%" h="100%">
 			<EditableText
 				value={companyName}
-				onDone={(value) => {
-					$appState.setKey('companyName', value);
+				onDoneEditing={(value) => {
+					updateWorkbookName({ name: value, workbookId: appId });
 				}}
-				textProps={{ size: '25px', fw: 700 }}
-				size="xl"
+				label="Workbook Name"
+				Icon={IconNotebook}
 			/>
 			<Group gap="md" grow align="start">
 				<Bento
