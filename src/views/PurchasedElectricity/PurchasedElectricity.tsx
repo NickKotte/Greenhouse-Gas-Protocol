@@ -2,8 +2,18 @@ import { Box, Button, List, ThemeIcon, Title, rem } from '@mantine/core';
 import { IconMessageCircle2, IconNotebook } from '@tabler/icons-react';
 import { modals } from '@mantine/modals';
 import WorkbookTable from '@/components/WorkbookTable';
+import { useGetPurchasedElectricity } from '@/api/workbook/purchasedElectricity.api';
+import { useEffect } from 'react';
 
-const StationaryCombustion = () => {
+const PurchasedElectricity = () => {
+	const {
+		data: purchasedElectricityData,
+		isFetching,
+		refetch,
+	} = useGetPurchasedElectricity();
+	useEffect(() => {
+		refetch();
+	}, [refetch]);
 	return (
 		<Box w="100%" h="100%" mb="xl">
 			<Title order={1}>Purchased Electricity</Title>
@@ -57,9 +67,13 @@ const StationaryCombustion = () => {
 			>
 				Add a new entry
 			</Button>
-			<WorkbookTable type="PurchasedElectricity" />
+			<WorkbookTable
+				type="PurchasedElectricity"
+				items={purchasedElectricityData || []}
+				loading={isFetching}
+			/>
 		</Box>
 	);
 };
 
-export default StationaryCombustion;
+export default PurchasedElectricity;

@@ -1,8 +1,9 @@
 import type {
-	MobileCombustionData,
-	StationaryCombustionData,
-	PurchasedElectricityData,
 	WorkbookType,
+	MobileCombustion,
+	PurchasedElectricity,
+	StationaryCombustion,
+	WorkbookItem,
 } from '@/types';
 import {
 	Accordion,
@@ -12,6 +13,7 @@ import {
 	Group,
 	Text,
 	Space,
+	Loader,
 } from '@mantine/core';
 import WorkbookRow from './WorkbookRow';
 import classes from '@/css/Workbook.module.css';
@@ -21,31 +23,34 @@ import PERow from '@/views/PurchasedElectricity/PERow';
 import SCRow from '@/views/StationaryCombustion/SCRow';
 import MCRow from '@/views/MobileCombustion/MCRow';
 import { useEffect, useState } from 'react';
-import { mockData } from '@/constants';
 import { useRef } from 'react';
 import WorkbookDivider from './WorkbookDivider';
 
-const WorkbookTable = ({ type }: { type: WorkbookType }) => {
+const WorkbookTable = ({
+	type,
+	items,
+	loading,
+}: {
+	type: WorkbookType;
+	items: WorkbookItem[];
+	loading: boolean;
+}) => {
 	const [openRows, setOpenRows] = useState<string[]>([]);
 	const rowRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 	const animatedRow = useStore($animatedRow);
 	const values = useStore(workbook.items) as
-		| PurchasedElectricityData[][]
-		| StationaryCombustionData[][]
-		| MobileCombustionData[][];
+		| PurchasedElectricity[][]
+		| StationaryCombustion[][]
+		| MobileCombustion[][];
 
 	const toggleExpandAll = (year: number, expanded: boolean) => {
 		const rowsOfYear = values
 			.flat()
 			.filter((row) => row.year === year)
-			.map((row) => row.facilityId);
+			.map((row) => row.id);
 		setOpenRows(
 			expanded
-				? [
-						...openRows.filter(
-							(facilityId) => !rowsOfYear.includes(facilityId),
-						),
-					]
+				? [...openRows.filter((id) => !rowsOfYear.includes(id))]
 				: [...openRows, ...rowsOfYear],
 		);
 	};
@@ -60,8 +65,8 @@ const WorkbookTable = ({ type }: { type: WorkbookType }) => {
 	};
 
 	useEffect(() => {
+		workbook.setItems(items);
 		// clear everytime type changes just in case
-		workbook.setItems(mockData[type]);
 		return () => {
 			workbook.setItems([]);
 		};
@@ -90,9 +95,9 @@ const WorkbookTable = ({ type }: { type: WorkbookType }) => {
 	if (!WorkbookRow) {
 		return null;
 	}
-	if (values.length === 0) {
+	if (values?.length === 0) {
 		return (
-			<Center>
+			<Center pt={100}>
 				<Text size="sm" c="dimmed">
 					No data to display. Start by hitting the add button.
 				</Text>
@@ -114,53 +119,64 @@ const WorkbookTable = ({ type }: { type: WorkbookType }) => {
 				value={[...openRows, animatedRow ?? '']}
 				onChange={handleAddOpenRow}
 			>
-				{values.map((row, index) => (
-					<Box mb="md" key={index}>
-						<WorkbookDivider
-							year={row[0].year}
-							expandSection={toggleExpandAll}
-						/>
-						<Group wrap="nowrap">
-							<Divider orientation="vertical" size="md" my="sm" />
-							<Box style={{ flex: 1 }}>
-								{row.map((item, rowIndex) => (
-									<WorkbookRow
-										key={rowIndex}
-										index={rowIndex + index}
-										ref={(el) =>
-											(rowRefs.current[item.facilityId] =
-												el)
-										}
-										item={item}
-										className={`${animatedRow === item.facilityId ? classes['scale-up-down'] : ''}`}
-									>
-										{type === 'PurchasedElectricity' && (
-											<PERow
-												item={
-													item as PurchasedElectricityData
-												}
-											/>
-										)}
-										{type === 'StationaryCombustion' && (
-											<SCRow
-												item={
-													item as StationaryCombustionData
-												}
-											/>
-										)}
-										{type === 'MobileCombustion' && (
-											<MCRow
-												item={
-													item as MobileCombustionData
-												}
-											/>
-										)}
-									</WorkbookRow>
-								))}
-							</Box>
-						</Group>
-					</Box>
-				))}
+				{loading ? (
+					<Center pt={100}>
+						<Loader size="xl" type="bars" />
+					</Center>
+				) : (
+					values?.map((row, index) => (
+						<Box mb="md" key={index}>
+							<WorkbookDivider
+								year={row[0].year}
+								expandSection={toggleExpandAll}
+							/>
+							<Group wrap="nowrap">
+								<Divider
+									orientation="vertical"
+									size="md"
+									my="sm"
+								/>
+								<Box style={{ flex: 1 }}>
+									{row.map((item, rowIndex) => (
+										<WorkbookRow
+											key={rowIndex}
+											index={rowIndex + index}
+											ref={(el) =>
+												(rowRefs.current[item.id] = el)
+											}
+											item={item}
+											className={`${animatedRow === item.id ? classes['scale-up-down'] : ''}`}
+										>
+											{type ===
+												'PurchasedElectricity' && (
+												<PERow
+													item={
+														item as PurchasedElectricity
+													}
+												/>
+											)}
+											{type ===
+												'StationaryCombustion' && (
+												<SCRow
+													item={
+														item as StationaryCombustion
+													}
+												/>
+											)}
+											{type === 'MobileCombustion' && (
+												<MCRow
+													item={
+														item as MobileCombustion
+													}
+												/>
+											)}
+										</WorkbookRow>
+									))}
+								</Box>
+							</Group>
+						</Box>
+					))
+				)}
 			</Accordion>
 			<Space h={100} />
 		</Box>

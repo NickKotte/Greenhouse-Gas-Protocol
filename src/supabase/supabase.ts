@@ -62,6 +62,7 @@ export type Database = {
           egrid_subregion: string | null
           id: string
           name: string
+          note: string | null
           square_footage: number | null
           state: string | null
           street: string | null
@@ -74,6 +75,7 @@ export type Database = {
           egrid_subregion?: string | null
           id?: string
           name: string
+          note?: string | null
           square_footage?: number | null
           state?: string | null
           street?: string | null
@@ -86,6 +88,7 @@ export type Database = {
           egrid_subregion?: string | null
           id?: string
           name?: string
+          note?: string | null
           square_footage?: number | null
           state?: string | null
           street?: string | null
@@ -137,7 +140,7 @@ export type Database = {
       mobile_combustion: {
         Row: {
           activity_type: string | null
-          facility_id: string | null
+          facility_id: string
           fuel_amount: number | null
           fuel_type: string | null
           fuel_units: string | null
@@ -149,7 +152,7 @@ export type Database = {
         }
         Insert: {
           activity_type?: string | null
-          facility_id?: string | null
+          facility_id: string
           fuel_amount?: number | null
           fuel_type?: string | null
           fuel_units?: string | null
@@ -161,7 +164,7 @@ export type Database = {
         }
         Update: {
           activity_type?: string | null
-          facility_id?: string | null
+          facility_id?: string
           fuel_amount?: number | null
           fuel_type?: string | null
           fuel_units?: string | null
@@ -180,13 +183,6 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "mobile_combustion_results_id_fkey"
-            columns: ["results_id"]
-            isOneToOne: false
-            referencedRelation: "results"
-            referencedColumns: ["id"]
-          },
-          {
             foreignKeyName: "mobile_combustion_workbook_id_fkey"
             columns: ["workbook_id"]
             isOneToOne: false
@@ -199,7 +195,7 @@ export type Database = {
         Row: {
           electricity_amount: number | null
           electricity_units: string | null
-          facility_id: string | null
+          facility_id: string
           id: string
           note: string | null
           results_id: string
@@ -209,7 +205,7 @@ export type Database = {
         Insert: {
           electricity_amount?: number | null
           electricity_units?: string | null
-          facility_id?: string | null
+          facility_id: string
           id?: string
           note?: string | null
           results_id: string
@@ -219,7 +215,7 @@ export type Database = {
         Update: {
           electricity_amount?: number | null
           electricity_units?: string | null
-          facility_id?: string | null
+          facility_id?: string
           id?: string
           note?: string | null
           results_id?: string
@@ -235,13 +231,6 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "purchased_electricity_results_id_fkey"
-            columns: ["results_id"]
-            isOneToOne: false
-            referencedRelation: "results"
-            referencedColumns: ["id"]
-          },
-          {
             foreignKeyName: "purchased_electricity_workbook_id_fkey"
             columns: ["workbook_id"]
             isOneToOne: false
@@ -252,30 +241,33 @@ export type Database = {
       }
       results: {
         Row: {
-          ch4: number | null
-          co2: number | null
-          co2e: number | null
+          bio: number
+          ch4: number
+          co2: number
+          co2e: number
+          ef: number
           id: string
-          kgco2e: number | null
-          n2o: number | null
+          n2o: number
           workbook_id: string
         }
         Insert: {
-          ch4?: number | null
-          co2?: number | null
-          co2e?: number | null
+          bio: number
+          ch4: number
+          co2: number
+          co2e: number
+          ef: number
           id?: string
-          kgco2e?: number | null
-          n2o?: number | null
+          n2o: number
           workbook_id: string
         }
         Update: {
-          ch4?: number | null
-          co2?: number | null
-          co2e?: number | null
+          bio?: number
+          ch4?: number
+          co2?: number
+          co2e?: number
+          ef?: number
           id?: string
-          kgco2e?: number | null
-          n2o?: number | null
+          n2o?: number
           workbook_id?: string
         }
         Relationships: [
@@ -290,7 +282,7 @@ export type Database = {
       }
       stationary_combustion: {
         Row: {
-          facility_id: string | null
+          facility_id: string
           fuel_amount: number | null
           fuel_type: string | null
           fuel_units: string | null
@@ -301,7 +293,7 @@ export type Database = {
           year: number
         }
         Insert: {
-          facility_id?: string | null
+          facility_id: string
           fuel_amount?: number | null
           fuel_type?: string | null
           fuel_units?: string | null
@@ -312,7 +304,7 @@ export type Database = {
           year: number
         }
         Update: {
-          facility_id?: string | null
+          facility_id?: string
           fuel_amount?: number | null
           fuel_type?: string | null
           fuel_units?: string | null
@@ -328,13 +320,6 @@ export type Database = {
             columns: ["facility_id"]
             isOneToOne: false
             referencedRelation: "facilities"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "stationary_combustion_results_id_fkey"
-            columns: ["results_id"]
-            isOneToOne: false
-            referencedRelation: "results"
             referencedColumns: ["id"]
           },
           {
@@ -413,6 +398,18 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      add_emission_data: {
+        Args: {
+          p_table_name: string
+          p_workbook_id: string
+          p_facility_id: string
+          p_year: number
+          p_note: string
+          p_data: Json
+          p_results: Json
+        }
+        Returns: string
+      }
       add_workbook_to_user_metadata: {
         Args: {
           user_id: string

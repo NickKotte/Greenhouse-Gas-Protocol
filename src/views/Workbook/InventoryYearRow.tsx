@@ -11,7 +11,7 @@ const InventoryYearRow = ({ year }: { year: InventoryYear }) => {
 					{year.year}
 				</Text>
 				<Text c="dimmed" ml="lg">
-					{year.description}
+					{year.note}
 				</Text>
 			</Box>
 			<ActionIcon

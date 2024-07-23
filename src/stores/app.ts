@@ -30,7 +30,7 @@ const setWorkbookItems = (items: WorkbookItem[]) => {
 const updateItem = (item: Partial<WorkbookItem>) => {
 	const workbookItems = $workbookItems.get();
 	const flatItems = workbookItems.flat();
-	const oldItem = flatItems.find((i) => i.facilityId === item.facilityId);
+	const oldItem = flatItems.find((i) => i.id === item.id);
 
 	if (
 		oldItem &&
@@ -41,30 +41,37 @@ const updateItem = (item: Partial<WorkbookItem>) => {
 		return;
 	}
 
-	$animatedRow.set(item.facilityId || null);
+	$animatedRow.set(item.id || null);
 	setTimeout(() => $animatedRow.set(null), 1000);
 
 	const newItems = flatItems.map((i) =>
-		i.facilityId === item.facilityId ? { ...i, ...item } : i,
+		i.id === item.id ? { ...i, ...item } : i,
 	);
 
 	setWorkbookItems(newItems);
 };
 const addItem = (item: WorkbookItem) => {
 	const year = item.year;
+	let yearFound = false;
 	const newItems = $workbookItems.get().map((row) => {
 		if (row.some((i) => i.year === year)) {
+			yearFound = true;
 			return [...row, item];
 		}
 		return row;
 	});
+
+	if (!yearFound) {
+		newItems.push([item]);
+	}
+
 	setWorkbookItems(newItems.flat());
-	$animatedRow.set(item.facilityId);
+	$animatedRow.set(item.id);
 };
 const removeItem = (item: Partial<WorkbookItem>) => {
 	const newItems = $workbookItems
 		.get()
-		.map((row) => row.filter((i) => i.facilityId !== item.facilityId))
+		.map((row) => row.filter((i) => i.id !== item.id))
 		.filter((row) => row.length > 0);
 	setWorkbookItems(newItems.flat());
 };

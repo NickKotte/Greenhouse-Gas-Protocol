@@ -8,21 +8,23 @@ import {
 	IconCalendarStats,
 	IconFlame,
 } from '@tabler/icons-react';
-import { $appState, workbook } from '@/stores/app';
-import { useStore } from '@nanostores/react';
+import { workbook } from '@/stores/app';
 import EditWrapper from './EditWrapper';
 import { Selectable } from '../Editables/Selectable';
 import { fuelTypes_SC, cost_energy_units } from '@/constants';
 import { Numerable } from '../Editables/Numerable';
 import { calculate } from '@/util';
 import ModalCalculations from '../ModalCalculations';
+import { useGetInventoryYears } from '@/api/workbook/inventoryYear.api';
+import { useGetFacilities } from '@/api/workbook/facilities.api';
+import { useUpdateStationaryCombustion } from '@/api/workbook/stationaryCombution.api';
+import { notifications } from '@mantine/notifications';
 
 const EditInventoryYear = ({
 	context,
 	innerProps,
 	id,
 }: ContextModalProps<{ year: InventoryYear; isEditing?: boolean }>) => {
-	const { inventoryYears, facilities } = useStore($appState);
 	const [facility, setFacility] = useState<string>('');
 	const [inventoryYear, setInventoryYear] = useState<string>('');
 	const [fuelType, setFuelType] = useState<string>('');
@@ -31,10 +33,29 @@ const EditInventoryYear = ({
 	const [calculations, setCalculations] = useState<Record<string, number>>(
 		{},
 	);
-	const [error, setError] = useState('');
+	const { data: inventoryYears, isLoading: inventoryYearsLoading } =
+		useGetInventoryYears();
+	const { data: facilities, isLoading: facilitiesLoading } =
+		useGetFacilities();
+
+	const { mutate: updateStationaryCombustion } =
+		useUpdateStationaryCombustion({
+			onSuccess: () => {
+				notifications.show({
+					title: 'Success',
+					message: 'Stationary Combustion data updated successfully',
+				});
+			},
+			onError: (err) => {
+				notifications.show({
+					title: 'Error',
+					message: err.message,
+					color: 'red',
+				});
+			},
+		});
 
 	const handleSave = () => {
-		console.log(inventoryYear);
 		if (
 			!facility ||
 			!inventoryYear ||
@@ -43,22 +64,31 @@ const EditInventoryYear = ({
 			!units ||
 			!Object.keys(calculations).length
 		) {
-			setError('Please fill out all fields');
+			notifications.show({
+				title: 'Error',
+				message: 'Please fill out all fields',
+				color: 'red',
+			});
 			return false;
 		}
-		workbook.addItem({
-			facilityId: 'TODO ADD NEW' + new Date().toISOString(),
-			year: Number(inventoryYear),
-			fuel: fuelType,
-			amountOfFuel: amount,
-			units,
-			co2Tonnes: calculations.CO2,
-			ch4Tonnes: calculations.CH4,
-			n2oTonnes: calculations.N2O,
-			co2eTonnes: calculations.CO2e,
-			efKgCo2e: calculations.EF,
-			biofuelCo2Tonnes: calculations.BIO,
-		} as StationaryCombustionData);
+		updateStationaryCombustion({
+			operation: 'add',
+			stationaryCombustion: {
+				facility_id: facility,
+				year: Number(inventoryYear),
+				fuel_type: fuelType,
+				fuel_amount: amount,
+				fuel_units: units,
+			},
+			results: {
+				co2: calculations.CO2,
+				ch4: calculations.CH4,
+				n2o: calculations.N2O,
+				co2e: calculations.CO2e,
+				ef: calculations.EF,
+				bio: calculations.BIO,
+			},
+		});
 		return true;
 	};
 	useEffect(() => {
@@ -91,8 +121,9 @@ const EditInventoryYear = ({
 					setValue={setFacility}
 					label="Facility"
 					placeholder="Select a Facility"
-					options={facilities.map((facility) => ({
-						value: facility.name,
+					loading={facilitiesLoading}
+					options={facilities?.map((facility) => ({
+						value: facility.id,
 						label: facility.name,
 					}))}
 					required
@@ -104,8 +135,9 @@ const EditInventoryYear = ({
 					value={inventoryYear}
 					setValue={setInventoryYear}
 					label="Inventory Year"
+					loading={inventoryYearsLoading}
 					placeholder="Select Inventory Year"
-					options={inventoryYears.map((year) => ({
+					options={inventoryYears?.map((year) => ({
 						value: year.year.toString(),
 						label: year.year.toString(),
 					}))}
@@ -146,9 +178,6 @@ const EditInventoryYear = ({
 				/>
 			</Group>
 			<ModalCalculations calculations={calculations} />
-			<Text size="sm" c="red">
-				{error}
-			</Text>
 		</EditWrapper>
 	);
 };

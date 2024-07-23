@@ -14,13 +14,15 @@ export function Selectable({
 	options,
 	withinPortal,
 	leftIcon: Icon,
+	loading,
 	...props
 }: SelectProps & {
 	value: string;
 	setValue: (value: string) => void;
-	options: ComboboxData;
+	options?: ComboboxData;
 	leftIcon?: Icon;
 	withinPortal?: boolean;
+	loading?: boolean;
 }) {
 	const [searchValue, setSearchValue] = useState<string>();
 
@@ -37,10 +39,10 @@ export function Selectable({
 			searchable
 			searchValue={searchValue}
 			onSearchChange={setSearchValue}
-			data={options}
+			data={options ?? []}
 			leftSection={Icon ? <Icon /> : null}
 			allowDeselect={false}
-			nothingFoundMessage="No options found"
+			nothingFoundMessage={loading ? 'Loading...' : 'No options found'}
 			aria-label={String(props.label) || 'Select an option'}
 			placeholder="Select an option"
 			comboboxProps={{

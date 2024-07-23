@@ -11,16 +11,17 @@ import InventoryYearRow from './InventoryYearRow';
 import FacilityRow from './FacilityRow';
 import { modals } from '@mantine/modals';
 import { EditableText } from '@/components/Editables/EditableText';
-import { useParams } from 'react-router-dom';
 import { notifications } from '@mantine/notifications';
 import { useUpdateWorkbookName } from '@/api/workbook';
 import type { Workbook } from '@/types';
 import { useNotifyWithUndo } from '@/util/useNotifyWithUndo';
+import { useGetInventoryYears } from '@/api/workbook/inventoryYear.api';
+import { useGetFacilities } from '@/api/workbook/facilities.api';
 
 const Workbook = () => {
-	const { inventoryYears, facilities, workbook } = useStore($appState);
+	const { workbook } = useStore($appState);
 	const { name: companyName } = workbook;
-	const { appId } = useParams();
+
 	const notify = useNotifyWithUndo();
 	const { mutate: updateWorkbookName } = useUpdateWorkbookName({
 		onSuccess: (data: Workbook) => {
@@ -29,7 +30,7 @@ const Workbook = () => {
 			notify(companyName, newName, () => {
 				updateWorkbookName({
 					name: companyName,
-					workbookId: appId || '',
+					workbookId: workbook.workbook_id,
 				});
 			});
 		},
@@ -40,25 +41,40 @@ const Workbook = () => {
 			});
 		},
 	});
+	const {
+		data: inventoryYears,
+		isFetching: inventoryYearsLoading,
+		error: inventoryYearsError,
+	} = useGetInventoryYears();
+	const {
+		data: facilities,
+		isFetching: facilitiesLoading,
+		error: facilitiesError,
+	} = useGetFacilities();
 
-	if (!appId) return null;
+	if (!workbook.workbook_id) return null;
 
 	return (
 		<Box w="100%" h="100%">
 			<EditableText
 				value={companyName}
 				onDoneEditing={(value) => {
-					updateWorkbookName({ name: value, workbookId: appId });
+					updateWorkbookName({
+						name: value,
+						workbookId: workbook.workbook_id,
+					});
 				}}
 				label="Workbook Name"
 				Icon={IconNotebook}
 			/>
 			<Group gap="md" grow align="start">
 				<Bento
+					loading={inventoryYearsLoading}
+					error={inventoryYearsError}
 					header="Inventory Years"
 					description="These are the years in which energy was bought or used"
 					icon={IconCalendarStats}
-					badgeText={`${inventoryYears.length} years`}
+					badgeText={`${inventoryYears?.length} years`}
 					onClick={() => {
 						modals.openContextModal({
 							modal: 'EditInventoryYear',
@@ -69,8 +85,8 @@ const Workbook = () => {
 						});
 					}}
 				>
-					{inventoryYears.length > 0 ? (
-						inventoryYears.map((year) => (
+					{inventoryYears?.length ? (
+						inventoryYears?.map((year) => (
 							<InventoryYearRow year={year} key={year.year} />
 						))
 					) : (
@@ -78,10 +94,12 @@ const Workbook = () => {
 					)}
 				</Bento>
 				<Bento
+					loading={facilitiesLoading}
+					error={facilitiesError}
 					header="Facilities"
 					description="These are the facilities which will be used for calculations"
 					icon={IconBuildingWarehouse}
-					badgeText={`${facilities.length} facilities`}
+					badgeText={`${facilities?.length} facilities`}
 					onClick={() => {
 						modals.openContextModal({
 							modal: 'EditFacility',
@@ -92,8 +110,8 @@ const Workbook = () => {
 						});
 					}}
 				>
-					{facilities.length > 0 ? (
-						facilities.map((facility) => (
+					{facilities?.length ? (
+						facilities?.map((facility) => (
 							<FacilityRow
 								facility={facility}
 								key={facility.name}

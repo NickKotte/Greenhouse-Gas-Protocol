@@ -8,21 +8,27 @@ import {
 	IconCalendarStats,
 	IconFlame,
 } from '@tabler/icons-react';
-import { $appState, workbook } from '@/stores/app';
-import { useStore } from '@nanostores/react';
+import { workbook } from '@/stores/app';
 import EditWrapper from './EditWrapper';
 import { Selectable } from '../Editables/Selectable';
 import { cost_energy_units } from '@/constants';
 import { Numerable } from '../Editables/Numerable';
 import { calculate } from '@/util';
 import ModalCalculations from '../ModalCalculations';
+import { useGetFacilities } from '@/api/workbook/facilities.api';
+import { useGetInventoryYears } from '@/api/workbook/inventoryYear.api';
+import { useUpdatePurchasedElectricity } from '@/api/workbook/purchasedElectricity.api';
+import { notifications } from '@mantine/notifications';
 
 const EditInventoryYear = ({
 	context,
 	innerProps,
 	id,
 }: ContextModalProps<{ year: InventoryYear; isEditing?: boolean }>) => {
-	const { inventoryYears, facilities } = useStore($appState);
+	const { data: inventoryYears, isFetching: inventoryYearsLoading } =
+		useGetInventoryYears();
+	const { data: facilities, isFetching: facilitiesLoading } =
+		useGetFacilities();
 	const [facility, setFacility] = useState<string>('');
 	const [inventoryYear, setInventoryYear] = useState<string>('');
 	const [amount, setAmount] = useState<number>(0);
@@ -31,9 +37,24 @@ const EditInventoryYear = ({
 		{},
 	);
 	const [error, setError] = useState('');
+	const { mutate: updatePurchasedElectricity } =
+		useUpdatePurchasedElectricity({
+			onSuccess: () => {
+				notifications.show({
+					title: 'Success',
+					message: 'Stationary Combustion data updated successfully',
+				});
+			},
+			onError: (err) => {
+				notifications.show({
+					title: 'Error',
+					message: err.message,
+					color: 'red',
+				});
+			},
+		});
 
 	const handleSave = () => {
-		console.log(inventoryYear);
 		if (
 			!facility ||
 			!inventoryYear ||
@@ -44,19 +65,23 @@ const EditInventoryYear = ({
 			setError('Please fill out all fields');
 			return false;
 		}
-		workbook.addItem({
-			facilityId: facility,
-			year: Number(inventoryYear),
-			description: 'Voluptate labore veniam ad non pariatur.',
-			amountOfElectricityConsumption: amount,
-			units,
-			co2Tonnes: calculations.CO2,
-			ch4Tonnes: calculations.CH4,
-			n2oTonnes: calculations.N2O,
-			co2eTonnes: calculations.CO2e,
-			efKgCo2ePerKwh: calculations.EF,
-			biofuelCo2Tonnes: calculations.BIO,
-		} as PurchasedElectricityData);
+		updatePurchasedElectricity({
+			operation: 'add',
+			purchasedElectricity: {
+				facility_id: facility,
+				year: Number(inventoryYear),
+				electricity_amount: amount,
+				electricity_units: units,
+			},
+			results: {
+				co2: calculations.CO2,
+				ch4: calculations.CH4,
+				n2o: calculations.N2O,
+				co2e: calculations.CO2e,
+				ef: calculations.EF,
+				bio: calculations.BIO,
+			},
+		});
 		return true;
 	};
 	useEffect(() => {
@@ -84,9 +109,10 @@ const EditInventoryYear = ({
 					value={facility}
 					setValue={setFacility}
 					label="Facility"
+					loading={facilitiesLoading}
 					placeholder="Select a Facility"
-					options={facilities.map((facility) => ({
-						value: facility.name,
+					options={facilities?.map((facility) => ({
+						value: facility.id,
 						label: facility.name,
 					}))}
 					required
@@ -98,8 +124,9 @@ const EditInventoryYear = ({
 					value={inventoryYear}
 					setValue={setInventoryYear}
 					label="Inventory Year"
+					loading={inventoryYearsLoading}
 					placeholder="Select Inventory Year"
-					options={inventoryYears.map((year) => ({
+					options={inventoryYears?.map((year) => ({
 						value: year.year.toString(),
 						label: year.year.toString(),
 					}))}

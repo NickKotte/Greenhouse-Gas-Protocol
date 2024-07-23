@@ -2,8 +2,18 @@ import { Box, Button, List, ThemeIcon, Title, rem } from '@mantine/core';
 import { IconMessageCircle2, IconNotebook } from '@tabler/icons-react';
 import { modals } from '@mantine/modals';
 import WorkbookTable from '@/components/WorkbookTable';
+import { useGetStationaryCombustion } from '@/api/workbook/stationaryCombution.api';
+import { useEffect } from 'react';
 
 const StationaryCombustion = () => {
+	const {
+		data: stationaryCombustionData,
+		isFetching,
+		refetch,
+	} = useGetStationaryCombustion();
+	useEffect(() => {
+		refetch();
+	}, [refetch]);
 	return (
 		<Box w="100%" h="100%" mb="xl">
 			<Title order={1}>Stationary Combustion</Title>
@@ -58,7 +68,11 @@ const StationaryCombustion = () => {
 			>
 				Add a new entry
 			</Button>
-			<WorkbookTable type="StationaryCombustion" />
+			<WorkbookTable
+				type="StationaryCombustion"
+				loading={isFetching}
+				items={stationaryCombustionData || []}
+			/>
 		</Box>
 	);
 };

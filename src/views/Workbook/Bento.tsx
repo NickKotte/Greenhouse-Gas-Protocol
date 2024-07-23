@@ -7,6 +7,7 @@ import {
 	Group,
 	Button,
 	Badge,
+	LoadingOverlay,
 } from '@mantine/core';
 import { IconPlus, type Icon } from '@tabler/icons-react';
 
@@ -17,16 +18,25 @@ const Bento = ({
 	icon: Icon,
 	onClick,
 	badgeText,
+	loading,
+	error,
 }: {
 	header: string;
 	description: string;
 	children: React.ReactNode;
+	loading?: boolean;
 	icon: Icon;
 	onClick: () => void;
 	badgeText?: string;
+	error?: Error | null;
 }) => {
 	return (
-		<Paper p="lg" pb="md" mt="md" radius="md" shadow="sm">
+		<Paper p="lg" pb="md" mt="md" radius="md" shadow="sm" pos="relative">
+			<LoadingOverlay
+				visible={loading}
+				overlayProps={{ radius: 'md', blur: 2 }}
+				loaderProps={{ type: 'dots' }}
+			/>
 			<Group justify="space-between">
 				<Group align="center">
 					<Icon size={34} />
@@ -41,6 +51,11 @@ const Bento = ({
 			<Box p="md" py="xs">
 				{children}
 			</Box>
+			{error && (
+				<Box p="md" py="xs">
+					<Text c="red">{error.message}</Text>
+				</Box>
+			)}
 			<Divider my="md" />
 			{onClick && (
 				<Button

@@ -1,49 +1,98 @@
-import { Grid, Text, Tooltip } from '@mantine/core';
+import { Flex, Grid, Text, Tooltip } from '@mantine/core';
 import type {
 	ActivityType,
-	MobileCombustionData,
+	MobileCombustion,
 	RowComponentProps,
 } from '@/types';
 import ActivitySelector from './ActivitySelector';
 import Selector from '@/components/Editables/Selector';
-import { IconFlame, IconGasStation } from '@tabler/icons-react';
+import {
+	IconFlame,
+	IconGasStation,
+} from '@tabler/icons-react';
 import { calculate } from '@/util';
 import { workbook } from '@/stores/app';
 import { notifications } from '@mantine/notifications';
 import { fuel_units, distance_units } from '@/constants';
+import WorkbookRowMenu from '@/components/WorkbookRowMenu';
+import { useUpdateMobileCombustion } from '@/api/workbook/mobileCombustion.api';
 
-const MBRow = ({ item }: RowComponentProps<MobileCombustionData>) => {
+const MBRow = ({ item }: RowComponentProps<MobileCombustion>) => {
+	const { mutate: updateMobileCombustion } =
+		useUpdateMobileCombustion({
+			onSuccess: () => {
+				notifications.show({
+					title: 'Success',
+					message: 'Mobile Combustion data updated successfully',
+				});
+			},
+			onError: (err) => {
+				notifications.show({
+					title: 'Error',
+					message: err.message,
+					color: 'red',
+				});
+			},
+		});
+
 	const handleUpdate = ({
-		activity = item.activityType as ActivityType,
-		units = item.units,
-		fuel = item.fuelSource,
-		activityAmount = item.activityAmount,
+		fuel = item.fuel_type || '',
+		amountOfFuel = item.fuel_amount || 0,
+		units = item.fuel_units || '',
+		activityType = item.activity_type as ActivityType,
+		description = item.note || '',
 	}: {
-		activity?: ActivityType;
-		units?: string;
 		fuel?: string;
-		activityAmount?: number;
+		amountOfFuel?: number;
+		units?: string;
+		activityType?: ActivityType;
+		description?: string;
 	}) => {
-		console.log(activity, units, fuel, activityAmount);
 		try {
-			const values = calculate.MobileCombustion(
-				activity,
+			const updateValues = calculate.MobileCombustion(
+				activityType,
 				fuel,
-				activityAmount,
+				amountOfFuel,
 				units,
 			);
+			updateMobileCombustion({
+				operation: 'update',
+				mobileCombustion: {
+					...item,
+					fuel_type: fuel,
+					fuel_amount: amountOfFuel,
+					fuel_units: units,
+					activity_type: activityType,
+					note: description,
+				},
+				results: {
+					id: item.results_id,
+					workbook_id: item.workbook_id,
+					co2: updateValues.CO2,
+					ch4: updateValues.CH4,
+					n2o: updateValues.N2O,
+					co2e: updateValues.CO2e,
+					ef: updateValues.EF,
+					bio: updateValues.BIO,
+				},
+			});
 			workbook.updateItem({
-				facilityId: item.facilityId,
-				activityType: activity,
-				fuelSource: fuel,
-				activityAmount: activityAmount,
-				units: units,
-				co2Tonnes: values.CO2,
-				ch4Tonnes: values.CH4,
-				n2oTonnes: values.N2O,
-				co2eTonnes: values.CO2e,
-				efKgCo2ePerKwh: values.EF,
-				biofuelCo2Tonnes: values.BIO,
+				...item,
+				fuel_type: fuel,
+				fuel_amount: amountOfFuel,
+				fuel_units: units,
+				activity_type: activityType,
+				note: description,
+				results: {
+					id: item.results_id,
+					workbook_id: item.workbook_id,
+					co2: updateValues.CO2,
+					ch4: updateValues.CH4,
+					n2o: updateValues.N2O,
+					co2e: updateValues.CO2e,
+					ef: updateValues.EF,
+					bio: updateValues.BIO,
+				},
 			});
 		} catch (error: unknown) {
 			const errorMessage =
@@ -56,40 +105,53 @@ const MBRow = ({ item }: RowComponentProps<MobileCombustionData>) => {
 			});
 		}
 	};
+	const handleDelete = () => {
+		updateMobileCombustion({
+			operation: 'delete',
+			mobileCombustion: item,
+			results: {
+				id: item.results_id,
+				workbook_id: item.workbook_id,
+			},
+		});
+	};
 
 	return (
 		<>
 			<Grid.Col span={2}>
-				<Text size="md" fw={500} lineClamp={3}>
-					{item.facilityId}
-					{item.description && (
-						<Tooltip
-							multiline
-							maw={220}
-							withArrow
-							label={item.description}
-						>
-							<Text
-								c="dimmed"
-								size="sm"
-								span
-								style={{
-									whiteSpace: 'normal',
-									wordWrap: 'break-word',
-								}}
+				<Flex gap="xs">
+					<WorkbookRowMenu deleteAction={handleDelete} />
+					<Text size="md" fw={500} lineClamp={3}>
+						{item.facility?.name}
+						{item.facility?.note && (
+							<Tooltip
+								multiline
+								maw={220}
+								withArrow
+								label={item.facility?.note}
 							>
-								- {item.description}
-							</Text>
-						</Tooltip>
-					)}
-				</Text>
+								<Text
+									c="dimmed"
+									size="sm"
+									span
+									style={{
+										whiteSpace: 'normal',
+										wordWrap: 'break-word',
+									}}
+								>
+									- {item.facility?.note}
+								</Text>
+							</Tooltip>
+						)}
+					</Text>
+				</Flex>
 			</Grid.Col>
 			<Grid.Col span={2}>
 				<ActivitySelector
-					value={item.activityType as ActivityType}
+					value={item.activity_type as ActivityType}
 					onChange={(value) => {
 						handleUpdate({
-							activity: value as ActivityType,
+							activityType: value as ActivityType,
 							// switch units over
 							units:
 								value === 'fuel'
@@ -103,7 +165,7 @@ const MBRow = ({ item }: RowComponentProps<MobileCombustionData>) => {
 				<Selector
 					Icon={IconGasStation}
 					type="VEHICLE"
-					dropdownValue={item.fuelSource}
+					dropdownValue={item.fuel_type || ''}
 					onDropdownValueChange={(value) => {
 						handleUpdate({ fuel: value });
 					}}
@@ -114,15 +176,15 @@ const MBRow = ({ item }: RowComponentProps<MobileCombustionData>) => {
 				<Selector
 					Icon={IconFlame}
 					type={
-						item.activityType === 'fuel'
+						item.activity_type === 'fuel'
 							? 'FUEL_UNITS'
 							: 'DISTANCE_UNITS'
 					}
-					numberValue={item.activityAmount}
+					numberValue={item.fuel_amount || 0}
 					onNumberValueChange={(value) => {
-						handleUpdate({ activityAmount: value });
+						handleUpdate({ amountOfFuel: value });
 					}}
-					dropdownValue={item.units}
+					dropdownValue={item.fuel_units || ''}
 					onDropdownValueChange={(value) => {
 						handleUpdate({ units: value });
 					}}

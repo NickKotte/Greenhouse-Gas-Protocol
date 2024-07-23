@@ -24,8 +24,33 @@ export type Route = {
 
 export type Workbook = Database['public']['Tables']['workbook']['Row'];
 export type Facility = Database['public']['Tables']['facilities']['Row'];
+
+type BaseTable<T extends keyof Database['public']['Tables']> =
+	Database['public']['Tables'][T]['Row'];
+type WithResultsAndFacility<T> = T & {
+	results?: Results;
+	facility?: Facility;
+};
 export type InventoryYear =
 	Database['public']['Tables']['inventory_years']['Row'];
+export type StationaryCombustion = WithResultsAndFacility<
+	BaseTable<'stationary_combustion'>
+>;
+export type MobileCombustion = WithResultsAndFacility<
+	BaseTable<'mobile_combustion'>
+>;
+export type PurchasedElectricity = WithResultsAndFacility<
+	BaseTable<'purchased_electricity'>
+>;
+export type Results = BaseTable<'results'>;
+
+export type WorkbookItem =
+	| StationaryCombustion
+	| MobileCombustion
+	| PurchasedElectricity;
+
+export type AddEmissionArgType =
+	Database['public']['Functions']['add_emission_data']['Args'];
 
 export type MutationOperation = 'add' | 'update' | 'delete';
 
@@ -76,12 +101,6 @@ export interface PurchasedElectricityData {
 	co2eTonnes: number;
 	efKgCo2ePerKwh: number;
 }
-
-export type WorkbookItem =
-	| StationaryCombustionData
-	| MobileCombustionData
-	| PurchasedElectricityData;
-
 export type FuelLabel =
 	| 'Motor Gasoline'
 	| 'Diesel Fuel'

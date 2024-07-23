@@ -9,14 +9,14 @@ import {
 } from '@mantine/core';
 import classes from '@/css/Workbook.module.css';
 import type {
-	MobileCombustionData,
-	PurchasedElectricityData,
-	StationaryCombustionData,
+	MobileCombustion,
+	PurchasedElectricity,
+	StationaryCombustion,
 } from '@/types';
 import { forwardRef, useEffect, useState } from 'react';
 
-export const Number = ({ value, label }: { value: number; label: string }) => {
-	const formatNumber = (value: number) => {
+export const Number = ({ value, label }: { value?: number; label: string }) => {
+	const formatNumber = (value?: number) => {
 		if (value === 0 || !value) {
 			return '0';
 		} else if (value < 1) {
@@ -41,15 +41,13 @@ const WorkbookRow = forwardRef<
 	HTMLDivElement,
 	{
 		children: React.ReactNode;
-		item:
-			| StationaryCombustionData
-			| MobileCombustionData
-			| PurchasedElectricityData;
+		item: StationaryCombustion | MobileCombustion | PurchasedElectricity;
 		className?: string;
 		index: number;
 	}
 >(({ children, item, className, index }, ref) => {
 	const [show, setShow] = useState(false);
+	const { results } = item;
 	useEffect(() => {
 		setTimeout(() => {
 			setShow(true);
@@ -57,8 +55,8 @@ const WorkbookRow = forwardRef<
 	}, [index]);
 	return (
 		<Accordion.Item
-			key={item.facilityId}
-			value={item.facilityId}
+			key={item.id}
+			value={item.id}
 			style={{
 				borderBottom: 'none',
 			}}
@@ -81,21 +79,21 @@ const WorkbookRow = forwardRef<
 						<Divider my="xs" />
 						<Grid className={classes.ghgEmissions}>
 							<Grid.Col span={2}>
-								<Number value={item.co2Tonnes} label="CO2" />
+								<Number value={results?.co2} label="CO2" />
 							</Grid.Col>
 							<Grid.Col span={2}>
-								<Number value={item.ch4Tonnes} label="CH4" />
+								<Number value={results?.ch4} label="CH4" />
 							</Grid.Col>
 							<Grid.Col span={2}>
-								<Number value={item.n2oTonnes} label="N2O" />
+								<Number value={results?.n2o} label="N2O" />
 							</Grid.Col>
 							<Grid.Col span={2}>
-								<Number value={item.co2eTonnes} label="CO2e" />
+								<Number value={results?.co2e} label="CO2e" />
 							</Grid.Col>
 							<Grid.Col span={2}>
 								{'biofuelCo2Tonnes' in item && (
 									<Number
-										value={item.biofuelCo2Tonnes}
+										value={results?.bio}
 										label="Biofuels"
 									/>
 								)}
@@ -106,11 +104,7 @@ const WorkbookRow = forwardRef<
 				<Accordion.Control w="fit-content">
 					<Box>
 						<Number
-							value={
-								'efKgCo2e' in item
-									? item.efKgCo2e
-									: item.efKgCo2ePerKwh
-							}
+							value={results?.ef}
 							label={
 								'efKgCo2e' in item
 									? 'kgCO2e/unit'

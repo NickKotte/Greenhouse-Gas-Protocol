@@ -2,8 +2,18 @@ import { Box, Button, List, ThemeIcon, Title, rem } from '@mantine/core';
 import { IconMessageCircle2, IconNotebook } from '@tabler/icons-react';
 import { modals } from '@mantine/modals';
 import WorkbookTable from '@/components/WorkbookTable';
+import { useGetMobileCombustion } from '@/api/workbook/mobileCombustion.api';
+import { useEffect } from 'react';
 
 const MobileCombustion = () => {
+	const {
+		data: mobileCombustionData,
+		isFetching,
+		refetch,
+	} = useGetMobileCombustion();
+	useEffect(() => {
+		refetch();
+	}, [refetch]);
 	return (
 		<Box w="100%" h="100%" mb="xl">
 			<Title order={1}>Mobile Combustion</Title>
@@ -57,7 +67,11 @@ const MobileCombustion = () => {
 			>
 				Add a new entry
 			</Button>
-			<WorkbookTable type="MobileCombustion" />
+			<WorkbookTable
+				type="MobileCombustion"
+				items={mobileCombustionData || []}
+				loading={isFetching}
+			/>
 		</Box>
 	);
 };

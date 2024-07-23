@@ -5,53 +5,86 @@ import { useState } from 'react';
 import { YearPickerInput } from '@mantine/dates';
 import '@mantine/dates/styles.css';
 import { IconCalendar } from '@tabler/icons-react';
-import { $appState } from '@/stores/app';
-import { useStore } from '@nanostores/react';
 import EditWrapper from './EditWrapper';
+import {
+	useGetInventoryYears,
+	useUpdateInventoryYear,
+} from '@/api/workbook/inventoryYear.api';
+import { notifications } from '@mantine/notifications';
 
 const EditInventoryYear = ({
 	context,
 	innerProps,
 	id,
 }: ContextModalProps<{ year: InventoryYear; isEditing?: boolean }>) => {
-	const { inventoryYears } = useStore($appState);
-	const [error, setError] = useState('');
 	const [yearField, setYearField] = useState<Date | null>(
 		innerProps.year ? new Date(Number(innerProps.year.year), 0) : null,
 	);
 	const [descriptionField, setDescriptionField] = useState(
-		innerProps.year ? innerProps.year.description : '',
+		innerProps.year ? innerProps.year.note : '',
 	);
+	const { data: inventoryYears } = useGetInventoryYears();
+	const { mutate: updateInventoryYear } = useUpdateInventoryYear({
+		onSuccess: () => {
+			context.closeModal(id);
+			notifications.show({
+				title: 'Success',
+				message: <Text>Updated inventory years list</Text>,
+			});
+		},
+		onError: (error) => {
+			notifications.show({
+				title: 'Error',
+				message: <Text>{error.message}</Text>,
+				color: 'red',
+			});
+		},
+	});
 
 	const handleDelete = () => {
-		//TODO: remove by ID once we have those
-		const yearFound = inventoryYears.find(
-			(year) => year.year === String(yearField?.getFullYear() ?? ''),
-		);
-		if (yearFound) {
-			$appState.setKey(
-				'inventoryYears',
-				inventoryYears.filter((year) => year.year !== yearFound.year),
-			);
+		if (innerProps.year?.id) {
+			updateInventoryYear({
+				operation: 'delete',
+				inventoryYear: {
+					id: innerProps.year.id,
+				},
+			});
 		}
 		return true;
 	};
 
 	const handleSave = () => {
-		//TODO: allow for editing vs creating new one
-		const yearFound = inventoryYears.find(
-			(year) => year.year === String(yearField?.getFullYear() ?? ''),
+		const yearFound = inventoryYears?.find(
+			(year) => year.year === yearField?.getFullYear(),
 		);
-		if (yearFound) {
-			setError('This year already exists in the workbook');
+		if (yearFound && yearFound.id !== innerProps.year?.id) {
+			notifications.show({
+				title: 'Oops!',
+				message: <Text>This year already exists in the workbook</Text>,
+				color: 'red',
+			});
 			return false;
 		}
-		const newEntry: InventoryYear = {
-			year: String(yearField?.getFullYear() ?? ''),
-			description: descriptionField,
-		};
-		$appState.setKey('inventoryYears', [...inventoryYears, newEntry]);
-		return true;
+		if (innerProps.year?.id) {
+			updateInventoryYear({
+				operation: 'update',
+				inventoryYear: {
+					id: innerProps.year.id,
+					year: yearField?.getFullYear(),
+					note: descriptionField,
+				},
+			});
+		} else {
+			updateInventoryYear({
+				operation: 'add',
+				inventoryYear: {
+					year: yearField?.getFullYear(),
+					note: descriptionField,
+				},
+			});
+		}
+
+		return false;
 	};
 	return (
 		<EditWrapper
@@ -76,13 +109,10 @@ const EditInventoryYear = ({
 				label="Notes"
 				placeholder="Notes about this inventory year i.e. new facility, partially opened, etc."
 				radius="md"
-				value={descriptionField}
+				value={descriptionField ?? ''}
 				onChange={(e) => setDescriptionField(e.target.value)}
 				mb="lg"
 			/>
-			<Text size="sm" c="red">
-				{error}
-			</Text>
 		</EditWrapper>
 	);
 };

@@ -1,16 +1,35 @@
-import { Grid, Text } from '@mantine/core';
-import type { RowComponentProps, StationaryCombustionData } from '@/types';
+import { Flex, Grid, Text } from '@mantine/core';
+import type { RowComponentProps, StationaryCombustion } from '@/types';
 import Selector from '@/components/Editables/Selector';
 import { IconFlame, IconGasStation } from '@tabler/icons-react';
 import { workbook } from '@/stores/app';
 import { calculate } from '@/util';
 import { notifications } from '@mantine/notifications';
+import WorkbookRowMenu from '@/components/WorkbookRowMenu';
+import { useUpdateStationaryCombustion } from '@/api/workbook/stationaryCombution.api';
 
-const SCRow = ({ item }: RowComponentProps<StationaryCombustionData>) => {
+const SCRow = ({ item }: RowComponentProps<StationaryCombustion>) => {
+	const { mutate: updateStationaryCombustion } =
+		useUpdateStationaryCombustion({
+			onSuccess: () => {
+				notifications.show({
+					title: 'Success',
+					message: 'Stationary Combustion data updated successfully',
+				});
+			},
+			onError: (err) => {
+				notifications.show({
+					title: 'Error',
+					message: err.message,
+					color: 'red',
+				});
+			},
+		});
+
 	const handleUpdate = ({
-		fuel = item.fuel,
-		amountOfFuel = item.amountOfFuel,
-		units = item.units,
+		fuel = item.fuel_type || '',
+		amountOfFuel = item.fuel_amount || 0,
+		units = item.fuel_units || '',
 	}: {
 		fuel?: string;
 		amountOfFuel?: number;
@@ -22,17 +41,40 @@ const SCRow = ({ item }: RowComponentProps<StationaryCombustionData>) => {
 				amountOfFuel,
 				units,
 			);
+			updateStationaryCombustion({
+				operation: 'update',
+				stationaryCombustion: {
+					...item,
+					fuel_type: fuel,
+					fuel_amount: amountOfFuel,
+					fuel_units: units,
+				},
+				results: {
+					id: item.results_id,
+					workbook_id: item.workbook_id,
+					co2: updateValues.CO2,
+					ch4: updateValues.CH4,
+					n2o: updateValues.N2O,
+					co2e: updateValues.CO2e,
+					ef: updateValues.EF,
+					bio: updateValues.BIO,
+				},
+			});
 			workbook.updateItem({
-				facilityId: item.facilityId,
-				fuel,
-				amountOfFuel,
-				units,
-				co2Tonnes: updateValues.CO2,
-				ch4Tonnes: updateValues.CH4,
-				n2oTonnes: updateValues.N2O,
-				co2eTonnes: updateValues.CO2e,
-				efKgCo2e: updateValues.EF,
-				biofuelCo2Tonnes: updateValues.BIO,
+				...item,
+				fuel_type: fuel,
+				fuel_amount: amountOfFuel,
+				fuel_units: units,
+				results: {
+					id: item.results_id,
+					workbook_id: item.workbook_id,
+					co2: updateValues.CO2,
+					ch4: updateValues.CH4,
+					n2o: updateValues.N2O,
+					co2e: updateValues.CO2e,
+					ef: updateValues.EF,
+					bio: updateValues.BIO,
+				},
 			});
 		} catch (error: unknown) {
 			const errorMessage =
@@ -45,18 +87,32 @@ const SCRow = ({ item }: RowComponentProps<StationaryCombustionData>) => {
 			});
 		}
 	};
+
+	const handleDelete = () => {
+		updateStationaryCombustion({
+			operation: 'delete',
+			stationaryCombustion: item,
+			results: {
+				id: item.results_id,
+				workbook_id: item.workbook_id,
+			},
+		});
+	};
 	return (
 		<>
 			<Grid.Col span={4}>
-				<Text size="md" fw={500}>
-					{item.facilityId}
-				</Text>
+				<Flex gap="xs">
+					<WorkbookRowMenu deleteAction={handleDelete} />
+					<Text size="md" fw={500}>
+						{item.facility?.name}
+					</Text>
+				</Flex>
 			</Grid.Col>
 			<Grid.Col span={4}>
 				<Selector
 					label="Fuel Type"
 					type="SC"
-					dropdownValue={item.fuel}
+					dropdownValue={item.fuel_type || ''}
 					onDropdownValueChange={(value) =>
 						handleUpdate({ fuel: value })
 					}
@@ -67,8 +123,8 @@ const SCRow = ({ item }: RowComponentProps<StationaryCombustionData>) => {
 				<Selector
 					label="Amount of Fuel"
 					type="ENERGY_UNITS"
-					numberValue={item.amountOfFuel}
-					dropdownValue={item.units}
+					numberValue={item.fuel_amount || 0}
+					dropdownValue={item.fuel_units || ''}
 					onNumberValueChange={(value) =>
 						handleUpdate({ amountOfFuel: value })
 					}
