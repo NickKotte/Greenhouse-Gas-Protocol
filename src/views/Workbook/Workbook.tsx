@@ -17,11 +17,12 @@ import type { Workbook } from '@/types';
 import { useNotifyWithUndo } from '@/util/useNotifyWithUndo';
 import { useGetInventoryYears } from '@/api/workbook/inventoryYear.api';
 import { useGetFacilities } from '@/api/workbook/facilities.api';
+import { useQueryClient } from '@tanstack/react-query';
 
 const Workbook = () => {
 	const { workbook } = useStore($appState);
 	const { name: companyName } = workbook;
-
+	const queryClient = useQueryClient();
 	const notify = useNotifyWithUndo();
 	const { mutate: updateWorkbookName } = useUpdateWorkbookName({
 		onSuccess: (data: Workbook) => {
@@ -32,6 +33,9 @@ const Workbook = () => {
 					name: companyName,
 					workbookId: workbook.workbook_id,
 				});
+			});
+			queryClient.invalidateQueries({
+				queryKey: ['workbooks'],
 			});
 		},
 		onError: (error) => {

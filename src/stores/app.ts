@@ -25,7 +25,10 @@ const setWorkbookItems = (items: WorkbookItem[]) => {
 			acc[year].push(curr);
 			return acc;
 		}, {}) || [];
-	$workbookItems.set(Object.values(groupByYear));
+	const sortedItems = Object.keys(groupByYear)
+		.sort((a, b) => Number(b) - Number(a))
+		.map((year) => groupByYear[Number(year)]);
+	$workbookItems.set(sortedItems);
 };
 const updateItem = (item: Partial<WorkbookItem>) => {
 	const workbookItems = $workbookItems.get();

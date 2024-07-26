@@ -22,7 +22,7 @@ import { Results } from '@/views/Results';
 
 export const routes: Record<string, Route> = {
 	company: {
-		label: 'My Company',
+		label: 'GREENHOUSE GAS PROTOCOL',
 		icon: IconBuilding,
 		path: 'company',
 		links: [
@@ -70,39 +70,11 @@ export const routes: Record<string, Route> = {
 			},
 		],
 	},
-	facilities: {
-		label: 'Facilities',
-		icon: IconBuildingWarehouse,
-		path: 'facilities',
-		links: [
-			{ label: 'Locations', path: 'locations' },
-			{ label: 'Maintenance', path: 'maintenance' },
-			{ label: 'Equipment', path: 'equipment' },
-		],
-	},
 	administration: {
 		label: 'Administration',
 		icon: IconDeviceDesktopAnalytics,
 		path: 'administration',
-		links: [
-			{
-				label: 'User Management',
-				path: 'user-management',
-				icon: IconUsers,
-				element: UserManagement,
-			},
-			{
-				label: 'Roles & Permissions',
-				path: 'roles-permissions',
-			},
-			{ label: 'Audit Logs', path: 'audit-logs' },
-		],
-	},
-	settings: {
-		label: 'Settings',
-		icon: IconSettings,
-		path: 'settings',
-		element: Settings,
+		element: UserManagement,
 		links: [],
 	},
 };

@@ -9,6 +9,7 @@ export default function HeroImageRight() {
 	const user = useStore($currUser);
 	const ownedWorkbookId = user?.app_metadata?.owned_workbook_id;
 	const handleNavigate = () => {
+		console.log(ownedWorkbookId);
 		if (ownedWorkbookId) {
 			navigate(`/${ownedWorkbookId}`);
 		} else {

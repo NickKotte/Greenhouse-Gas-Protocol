@@ -14,6 +14,7 @@ import {
 	Divider,
 	ScrollArea,
 	Tooltip,
+	Menu,
 } from '@mantine/core';
 import {
 	IconUser,
@@ -24,6 +25,9 @@ import {
 	IconUserCheck,
 	IconInfoCircle,
 	IconAddressBook,
+	IconExternalLink,
+	IconCodeMinus,
+	IconChevronRight,
 } from '@tabler/icons-react';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
@@ -69,6 +73,7 @@ const UserRoleManagement: React.FC<{ userId: string }> = ({ userId }) => {
 	};
 
 	const user = data?.[0];
+	console.log(user);
 	if (!user) return <Text>User not found</Text>;
 	const workbooks = user?.workbooks?.filter((wb) => wb);
 	const roles = user?.roles?.filter((role) => role);
@@ -124,44 +129,91 @@ const UserRoleManagement: React.FC<{ userId: string }> = ({ userId }) => {
 					<Group gap="xs">
 						{workbooks.length > 0 ? (
 							<>
-								{workbooks.map(
-									(
-										workbook: UserWorkbooksType,
-										index: number,
-									) => (
-										<Button
-											variant={
-												workbook.owner_id ===
-												user.user_id
-													? 'gradient'
-													: 'filled'
-											}
-											size="xs"
-											key={index}
-											color="green"
-											radius="lg"
-											leftSection={
-												workbook.owner_id ===
-													user.user_id && (
-													<IconUserCheck />
-												)
-											}
-											onClick={() => {
-												navigate(
-													`/${workbook.workbook_id}/company`,
-												);
-												// removeUserFromWorkbook({
-												// 	userId: user.user_id,
-												// 	email: user.email,
-												// 	workbookId:
-												// 		workbook.workbook_id,
-												// });
-											}}
-										>
-											{workbook.workbook_name}
-										</Button>
-									),
-								)}
+								<Button
+									variant="gradient"
+									color="green"
+									size="xs"
+									radius="lg"
+									leftSection={<IconUserCheck />}
+									rightSection={<IconChevronRight />}
+									onClick={() => {
+										navigate(
+											`/${ownedWorkbook?.workbook_id}/company`,
+										);
+									}}
+								>
+									Owned Workbook
+								</Button>
+								{workbooks
+									.filter(
+										(wb) =>
+											wb.workbook_id !==
+											ownedWorkbook?.workbook_id,
+									)
+									.map(
+										(
+											workbook: UserWorkbooksType,
+											index: number,
+										) => (
+											<Menu>
+												<Menu.Target>
+													<Button
+														variant={
+															workbook.owner_id ===
+															user.user_id
+																? 'gradient'
+																: 'filled'
+														}
+														size="xs"
+														key={index}
+														color="green"
+														radius="lg"
+														leftSection={
+															workbook.owner_id ===
+																user.user_id && (
+																<IconUserCheck />
+															)
+														}
+													>
+														{workbook.workbook_name}
+													</Button>
+												</Menu.Target>
+												<Menu.Dropdown>
+													<Menu.Item
+														color="green"
+														leftSection={
+															<IconExternalLink />
+														}
+														onClick={() => {
+															navigate(
+																`/${workbook.workbook_id}/company`,
+															);
+														}}
+													>
+														Go to
+													</Menu.Item>
+													<Menu.Item
+														color="red"
+														leftSection={
+															<IconCodeMinus />
+														}
+														onClick={() => {
+															removeUserFromWorkbook(
+																{
+																	userId: user.user_id,
+																	email: user.email,
+																	workbookId:
+																		workbook.workbook_id,
+																},
+															);
+														}}
+													>
+														Revoke access from user
+													</Menu.Item>
+												</Menu.Dropdown>
+											</Menu>
+										),
+									)}
 								<Tooltip
 									label="Share a workbook with this user"
 									withArrow

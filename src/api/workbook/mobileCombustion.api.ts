@@ -6,7 +6,7 @@ import { $appState, workbook } from '@/stores/app';
 import { useStore } from '@nanostores/react';
 import { updateResults } from './results.api';
 
-const getMobileCombustion = async (
+export const getMobileCombustion = async (
 	workbookId: string,
 ): Promise<MobileCombustion[]> => {
 	if (!workbookId) throw new Error('Workbook ID is required');

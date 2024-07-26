@@ -6,7 +6,7 @@ import { $appState, workbook } from '@/stores/app';
 import { useStore } from '@nanostores/react';
 import { updateResults } from './results.api';
 
-const getPurchasedElectricity = async (
+export const getPurchasedElectricity = async (
 	workbookId: string,
 ): Promise<PurchasedElectricity[]> => {
 	if (!workbookId) throw new Error('Workbook ID is required');

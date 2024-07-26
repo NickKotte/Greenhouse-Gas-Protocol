@@ -15,12 +15,7 @@ import { useStore } from '@nanostores/react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useWorkbookData } from '@/api/workbook';
 
-const routesOrdered = [
-	{ ...routes.company },
-	{ ...routes.facilities },
-	{ ...routes.administration },
-	{ ...routes.settings },
-];
+const routesOrdered = [{ ...routes.company }, { ...routes.administration }];
 
 export default function DoubleNavbar() {
 	const { appId } = useParams();
@@ -31,6 +26,8 @@ export default function DoubleNavbar() {
 	const user = useStore($currUser);
 	const ownedWorkbookId = user?.app_metadata?.owned_workbook_id;
 	const roles = user?.app_metadata?.roles;
+	const isAdmin = roles?.includes('admin');
+	console.log(user?.app_metadata);
 	const navigate = useNavigate();
 	const [activeRoute, setActive] = useState(
 		routesOrdered.findIndex((r) => route.label === r.label),
@@ -145,20 +142,11 @@ export default function DoubleNavbar() {
 		</Tooltip>
 	));
 
-	return (
+	return isAdmin ? (
 		<nav className={classes.navbar}>
-			<Image
-				src="/icon.png"
-				alt="logo"
-				style={{
-					margin: '40% 0',
-					width: '50%',
-					objectFit: 'contain',
-				}}
-			/>
 			<div
 				ref={setRootRef}
-				style={{ position: 'relative', marginTop: '58px' }}
+				style={{ position: 'relative', marginTop: '73px' }}
 			>
 				<FloatingIndicator
 					target={controlsRefs[activeRoute]}
@@ -168,5 +156,7 @@ export default function DoubleNavbar() {
 				{navButtons}
 			</div>
 		</nav>
+	) : (
+		<div ref={setRootRef}></div>
 	);
 }

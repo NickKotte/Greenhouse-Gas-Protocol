@@ -27,6 +27,14 @@ export const mantineTheme = createTheme({
 				};
 			},
 		},
-		
+		Progress: {
+			styles: (theme: MantineTheme) => {
+				return {
+					root: {
+						backgroundColor: theme.colors.blue[6],
+					},
+				};
+			},
+		},
 	},
 });

@@ -1,8 +1,13 @@
+import type { EmissionResults } from '@/types';
 import { Grid, Title, RingProgress, Text } from '@mantine/core';
 
-export const YearViewHeader = () => {
+export const YearViewHeader = ({
+	emissions,
+}: {
+	emissions: EmissionResults;
+}) => {
 	return (
-		<Grid gutter="xl" w="100%">
+		<Grid gutter="xl">
 			<Grid.Col
 				span={3}
 				style={{

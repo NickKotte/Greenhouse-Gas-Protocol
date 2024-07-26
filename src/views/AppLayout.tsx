@@ -1,5 +1,5 @@
 import SideNav from '@/components/SideNav';
-import { Box, Title } from '@mantine/core';
+import { Box, Title, Image, Flex } from '@mantine/core';
 import { $routing } from '@/stores/route';
 import { useStore } from '@nanostores/react';
 import NestedSideNav from '@/components/NestedSideNav';
@@ -14,9 +14,9 @@ const Layout = () => {
 				display: 'flex',
 				flexWrap: 'nowrap',
 				height: '100%',
+				flexDirection: 'column',
 			}}
 		>
-			<SideNav />
 			<Box
 				style={{
 					width: '100%',
@@ -24,10 +24,24 @@ const Layout = () => {
 					flexDirection: 'column',
 				}}
 			>
-				<Title order={4} className={classes.title}>
-					{routeInfo.label}
-				</Title>
-				<NestedSideNav />
+				<Flex justify="flex-start" align="center">
+					<Image
+						src="/icon.png"
+						alt="logo"
+						style={{
+							margin: '',
+							width: '30px',
+							objectFit: 'contain',
+							marginLeft: '10px',
+						}}
+					/>
+					<Title order={4} className={classes.title}>
+						{routeInfo.label}
+					</Title>
+				</Flex>
+				<Flex wrap="nowrap">
+					<SideNav /> <NestedSideNav />
+				</Flex>
 			</Box>
 		</div>
 	);

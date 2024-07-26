@@ -25,6 +25,52 @@ export type Route = {
 export type Workbook = Database['public']['Tables']['workbook']['Row'];
 export type Facility = Database['public']['Tables']['facilities']['Row'];
 
+export interface EmissionResults {
+	co2: number;
+	co2e: number;
+	ch4: number;
+	bio: number;
+	n2o: number;
+	ef: number;
+	total: number;
+}
+
+export interface Scope1Results {
+	total: number;
+	stationaryResults: EmissionResults;
+	combustionResults: EmissionResults;
+}
+
+export interface Scope2Results {
+	total: number;
+	electricityResults: EmissionResults;
+}
+
+export interface YearlyEmissions {
+	year: number;
+	emissions: EmissionResults;
+	scope1: Scope1Results;
+	scope2: Scope2Results;
+}
+export interface FacilityEmissions {
+	facility_name: string;
+	results: {
+		co2: number;
+		co2e: number;
+		ch4: number;
+		bio: number;
+		n2o: number;
+		ef: number;
+		total: number;
+	};
+	total_emissions: number;
+
+	yearly_emissions: YearlyEmissions[];
+}
+export interface AggregatedEmissions {
+	[facilityId: string]: FacilityEmissions;
+}
+
 type BaseTable<T extends keyof Database['public']['Tables']> =
 	Database['public']['Tables'][T]['Row'];
 type WithResultsAndFacility<T> = T & {

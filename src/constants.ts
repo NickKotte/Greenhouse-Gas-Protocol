@@ -5,6 +5,15 @@ import type {
 	StationaryCombustionData,
 } from './types';
 
+export const emissionsColors: Record<string, string> = {
+	co2: 'red',
+	ch4: 'blue',
+	n2o: 'orange',
+	co2e: 'purple',
+	bio: 'green',
+	ef: 'yellow',
+};
+
 export const fuelTypes_SC: ComboboxItem[] = [
 	{
 		label: 'Agricultural Byproducts',

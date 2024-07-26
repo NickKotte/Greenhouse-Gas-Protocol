@@ -46,7 +46,11 @@ const PromoteAdminButton = ({
 					<Text c="red" span>
 						{email}
 					</Text>
-					?
+					<Text size="sm" c="dimmed" mt="sm">
+						Note: the user will still have certain UI elements until
+						their next login -- but they will not be able to utilize
+						them.
+					</Text>
 				</Text>
 			),
 			labels: { confirm: 'Remove', cancel: 'Cancel' },
