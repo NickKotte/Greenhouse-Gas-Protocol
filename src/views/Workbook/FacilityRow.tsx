@@ -10,21 +10,21 @@ const FacilityRow = ({ facility }: { facility: Facility }) => {
 					<Text fz="md" fw={700}>
 						{facility.name}
 					</Text>
-					<Text c="dimmed" size="xs">
+					{/* <Text c="dimmed" size="xs">
 						eGRID{' '}
 						<Text c="teal" span size="md">
 							{facility.eGrid}
 						</Text>
-					</Text>
+					</Text> */}
 				</Group>
 				<Group justify="space-between">
 					<Text c="dimmed">
-						{facility.streetAddress} {facility.city},{' '}
-						{facility.state} {facility.zip}
+						{facility.street} {facility.city}, {facility.state}{' '}
+						{facility.zip}
 					</Text>
 					<Text>
 						<NumberFormatter
-							value={facility.squareFootage}
+							value={facility.square_footage || 0}
 							suffix=" sqft"
 							thousandSeparator=","
 						/>

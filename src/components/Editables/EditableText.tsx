@@ -1,6 +1,6 @@
-import { ActionIcon, TextInput } from '@mantine/core';
+import { TextInput } from '@mantine/core';
 import EditableWrapper from './EditableWrapper';
-import { IconCheck, type Icon } from '@tabler/icons-react';
+import { type Icon } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
 
 export const EditableText = ({

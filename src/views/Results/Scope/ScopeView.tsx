@@ -1,12 +1,4 @@
-import {
-	Center,
-	Flex,
-	Paper,
-	RingProgress,
-	Text,
-	Title,
-	Tooltip,
-} from '@mantine/core';
+import { Center, Flex, Paper, Title, Tooltip } from '@mantine/core';
 import classes from '@/css/Results.module.css';
 
 const ScopeBento = ({

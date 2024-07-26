@@ -1,8 +1,4 @@
-import type {
-	ActivityType,
-	InventoryYear,
-	MobileCombustionData,
-} from '@/types';
+import type { ActivityType, InventoryYear } from '@/types';
 import { Text, Divider, Group, Space, TextInput } from '@mantine/core';
 import { ContextModalProps } from '@mantine/modals';
 import { useEffect, useState } from 'react';
@@ -12,7 +8,6 @@ import {
 	IconCalendarStats,
 	IconFlame,
 } from '@tabler/icons-react';
-import { workbook } from '@/stores/app';
 import EditWrapper from './EditWrapper';
 import { Selectable } from '../Editables/Selectable';
 import { vehicles, fuel_units, distance_units } from '@/constants';

@@ -13,7 +13,7 @@ import { modals } from '@mantine/modals';
 import { EditableText } from '@/components/Editables/EditableText';
 import { notifications } from '@mantine/notifications';
 import { useUpdateWorkbookName } from '@/api/workbook';
-import type { Workbook } from '@/types';
+import type { Workbook as WorkbookType } from '@/types';
 import { useNotifyWithUndo } from '@/util/useNotifyWithUndo';
 import { useGetInventoryYears } from '@/api/workbook/inventoryYear.api';
 import { useGetFacilities } from '@/api/workbook/facilities.api';
@@ -25,7 +25,7 @@ const Workbook = () => {
 	const queryClient = useQueryClient();
 	const notify = useNotifyWithUndo();
 	const { mutate: updateWorkbookName } = useUpdateWorkbookName({
-		onSuccess: (data: Workbook) => {
+		onSuccess: (data: WorkbookType) => {
 			const newName = data.name;
 			$appState.setKey('workbook.name', newName);
 			notify(companyName, newName, () => {

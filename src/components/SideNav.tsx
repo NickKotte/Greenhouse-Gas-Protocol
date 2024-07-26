@@ -1,11 +1,5 @@
 import { useState, type SetStateAction, useEffect, useCallback } from 'react';
-import {
-	UnstyledButton,
-	Tooltip,
-	rem,
-	Image,
-	FloatingIndicator,
-} from '@mantine/core';
+import { UnstyledButton, Tooltip, rem, FloatingIndicator } from '@mantine/core';
 import classes from '@/css/DoubleNavbar.module.css';
 import { $routing, $activeLink } from '@/stores/route';
 import { routes } from '@/stores/route';
@@ -90,7 +84,7 @@ export default function DoubleNavbar() {
 	}, [appId]);
 
 	useEffect(() => {
-		let validAppId = false;
+		// let validAppId = false;
 		// const [, appId] = windowPath.split('/');
 		// console.log('appId: ', appId);
 		// if (appId === ownedWorkbookId) {

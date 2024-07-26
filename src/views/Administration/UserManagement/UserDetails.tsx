@@ -73,9 +73,8 @@ const UserRoleManagement: React.FC<{ userId: string }> = ({ userId }) => {
 	};
 
 	const user = data?.[0];
-	console.log(user);
 	if (!user) return <Text>User not found</Text>;
-	const workbooks = user?.workbooks?.filter((wb) => wb);
+	const workbooks = user?.workbooks as Array<UserWorkbooksType>;
 	const roles = user?.roles?.filter((role) => role);
 	const ownedWorkbook = workbooks?.find((wb) => wb.owner_id === user.user_id);
 	return (

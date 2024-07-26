@@ -30,7 +30,7 @@ import { motion } from 'framer-motion';
 import { useStore } from '@nanostores/react';
 import { $currUser } from '@/stores/user';
 
-export function Authentication() {
+export default function Authentication() {
 	const [activeSegment, setActiveSegment] = useState('login');
 	const user = useStore($currUser);
 	const { colorScheme } = useMantineColorScheme();
@@ -189,7 +189,7 @@ export function Authentication() {
 							radius="lg"
 							style={{ transition: 'height 0.3s' }}
 						>
-							<Text align="center" pb="lg">
+							<Text pb="lg">
 								To get started, please create an account or
 								login.
 							</Text>
@@ -268,7 +268,7 @@ export function Authentication() {
 										/>
 									)}
 								</Transition>
-								<Text size="sm" mt="md" align="center">
+								<Text size="sm" mt="md">
 									{activeSegment === 'login'
 										? "Don't have an account? "
 										: 'Already have an account? '}

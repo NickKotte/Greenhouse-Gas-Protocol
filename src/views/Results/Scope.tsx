@@ -1,4 +1,3 @@
-import { Number } from '@/components/WorkbookRow';
 import type { Scope1Results, Scope2Results } from '@/types';
 import {
 	Stack,
@@ -6,7 +5,6 @@ import {
 	Text,
 	Flex,
 	type FlexProps,
-	Box,
 	Divider,
 } from '@mantine/core';
 

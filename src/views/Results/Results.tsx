@@ -1,10 +1,6 @@
 import {
-	Text,
-	RingProgress,
 	Stack,
 	Title,
-	Group,
-	Grid,
 	Accordion,
 	Progress,
 	Box,
@@ -15,30 +11,14 @@ import YearOverview from './YearOverview';
 import { useGetAllCombustionData } from '@/api/workbook/results.api';
 import React, { useEffect, useMemo, useState } from 'react';
 import Facility from './Facility';
-import type { AggregatedEmissions, EmissionResults } from '@/types';
+import type {
+	AggregatedEmissions,
+	MobileCombustion,
+	PurchasedElectricity,
+	StationaryCombustion,
+} from '@/types';
 import FacilityBody from './FacilityBody';
-const initializeEmissionResults = (): EmissionResults => ({
-	co2: 0,
-	co2e: 0,
-	ch4: 0,
-	bio: 0,
-	n2o: 0,
-	ef: 0,
-	total: 0,
-});
 
-const calculateTotal = (results: EmissionResults): number =>
-	results.co2 + results.co2e + results.ch4 + results.bio + results.n2o;
-
-const addEmissions = (target: EmissionResults, source: any) => {
-	target.co2 += source.co2 || 0;
-	target.co2e += source.co2e || 0;
-	target.ch4 += source.ch4 || 0;
-	target.bio += source.bio || 0;
-	target.n2o += source.n2o || 0;
-	target.ef += source.ef || 0;
-	target.total = calculateTotal(target);
-};
 const Results = () => {
 	const [stationary, mobile, purchased] = useGetAllCombustionData();
 	const [aggregatedEmissions, setAggregatedEmissions] =
@@ -122,17 +102,17 @@ const Results = () => {
 
 			addEmissions(yearlyEmission.emissions, item.results);
 
-			if (stationary.data.includes(item)) {
+			if (stationary.data.includes(item as StationaryCombustion)) {
 				addEmissions(
 					yearlyEmission.scope1.stationaryResults,
 					item.results,
 				);
-			} else if (mobile.data.includes(item)) {
+			} else if (mobile.data.includes(item as MobileCombustion)) {
 				addEmissions(
 					yearlyEmission.scope1.combustionResults,
 					item.results,
 				);
-			} else if (purchased.data.includes(item)) {
+			} else if (purchased.data.includes(item as PurchasedElectricity)) {
 				addEmissions(
 					yearlyEmission.scope2.electricityResults,
 					item.results,
@@ -229,6 +209,7 @@ const Results = () => {
 						<YearOverview
 							emissions={year.emissions}
 							year={year.year}
+							key={year.year}
 						/>
 					))}
 				<Title order={2} mt="xl">
@@ -238,7 +219,10 @@ const Results = () => {
 					{aggregatedEmissions &&
 						Object.entries(aggregatedEmissions).map(
 							([facilityId, emissions]) => (
-								<Accordion.Item value={facilityId}>
+								<Accordion.Item
+									value={facilityId}
+									key={facilityId}
+								>
 									<Accordion.Control>
 										<Facility
 											key={facilityId}

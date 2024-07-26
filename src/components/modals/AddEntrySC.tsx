@@ -1,5 +1,5 @@
-import type { InventoryYear, StationaryCombustionData } from '@/types';
-import { Text, Divider, Group, Space } from '@mantine/core';
+import type { InventoryYear } from '@/types';
+import { Divider, Group, Space } from '@mantine/core';
 import { ContextModalProps } from '@mantine/modals';
 import { useEffect, useState } from 'react';
 import '@mantine/dates/styles.css';
@@ -8,7 +8,6 @@ import {
 	IconCalendarStats,
 	IconFlame,
 } from '@tabler/icons-react';
-import { workbook } from '@/stores/app';
 import EditWrapper from './EditWrapper';
 import { Selectable } from '../Editables/Selectable';
 import { fuelTypes_SC, cost_energy_units } from '@/constants';
@@ -183,6 +182,3 @@ const EditInventoryYear = ({
 };
 
 export default EditInventoryYear;
-
-
-

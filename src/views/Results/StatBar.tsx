@@ -1,5 +1,5 @@
-import type { EmissionResults, FacilityEmissions } from '@/types';
-import { Flex, Group, Progress, Text, Title, Tooltip } from '@mantine/core';
+import type { EmissionResults } from '@/types';
+import { Group, Progress, Text, Tooltip } from '@mantine/core';
 import classes from '@/css/Results.module.css';
 import { emissionsColors } from '@/constants';
 

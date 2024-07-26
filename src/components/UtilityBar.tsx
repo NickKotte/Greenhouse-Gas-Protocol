@@ -1,20 +1,16 @@
 import {
 	ActionIcon,
-	ButtonGroup,
 	Flex,
 	Menu,
 	Select,
 	useMantineColorScheme,
-	type ComboboxItem,
 	Tooltip,
-	Center,
 } from '@mantine/core';
 import {
 	IconLogout,
 	IconMoon,
 	IconSun,
 	IconUser,
-	IconSettings,
 	IconNotebook,
 	IconBrandAsana,
 } from '@tabler/icons-react';
@@ -35,9 +31,9 @@ export default function UtilityBar() {
 	const { colorScheme, toggleColorScheme } = useMantineColorScheme({
 		keepTransitions: true,
 	});
-	const hasAccessToWorkbook = workbooks?.some(
-		(wb) => wb.workbook?.workbook_id === workbook?.workbook_id,
-	);
+	// const hasAccessToWorkbook = workbooks?.some(
+	// 	(wb) => wb.workbook?.workbook_id === workbook?.workbook_id,
+	// );
 	const handleWorkbookChange = (newWorkbookId: string | null) => {
 		const currentPath = window.location.pathname;
 		const [, , ...rest] = currentPath.split('/');

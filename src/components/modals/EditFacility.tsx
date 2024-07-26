@@ -21,6 +21,7 @@ const EditFacility = ({
 			});
 		},
 		onError: (error) => {
+			console.log(error);
 			notifications.show({
 				title: 'Error',
 				message: 'Facility could not be updated',

@@ -1,13 +1,11 @@
-import { Grid, Title, RingProgress, Text, Accordion } from '@mantine/core';
-import { YearViewHeader } from './YearViewHeader';
-import YearViewBody from './YearViewBody';
-import type { EmissionResults, FacilityEmissions } from '@/types';
+import { Grid, Title, RingProgress, Text } from '@mantine/core';
+import type { EmissionResults } from '@/types';
 
 const YearOverview = ({
 	emissions,
 	year,
 }: {
-	emissions: FacilityEmissions;
+	emissions: EmissionResults;
 	year: number;
 }) => {
 	if (!emissions) return null;

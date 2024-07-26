@@ -1,4 +1,4 @@
-import { NumberInputProps, ComboboxData, NumberInput } from '@mantine/core';
+import { NumberInputProps, NumberInput } from '@mantine/core';
 import { type Icon } from '@tabler/icons-react';
 import { useState } from 'react';
 

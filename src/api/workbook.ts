@@ -1,11 +1,6 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
 import supabase from '@/supabase/supabaseClient';
-import {
-	Workbook,
-	type InventoryYear,
-	type Facility,
-	type MutationOperation,
-} from '@/types';
+import { Workbook } from '@/types';
 import { $appState } from '@/stores/app';
 
 const fetchWorkbookData = async (appId: string): Promise<Workbook> => {

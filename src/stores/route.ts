@@ -6,19 +6,36 @@ import {
 	IconDeviceDesktopAnalytics,
 	IconNotebook,
 	IconSitemap,
-	IconSettings,
 	IconTruckDelivery,
-	IconBuildingWarehouse,
-	IconUsers,
 	IconFileAnalytics,
 } from '@tabler/icons-react';
-import Settings from '@/views/Settings';
-import { Workbook } from '@/views/Workbook';
-import { StationaryCombustion } from '@/views/StationaryCombustion';
-import { MobileCombustion } from '@/views/MobileCombustion';
-import { PurchasedElectricity } from '@/views/PurchasedElectricity';
-import UserManagement from '@/views/Administration/UserManagement';
-import { Results } from '@/views/Results';
+import { lazy } from 'react';
+const Workbook = lazy(() =>
+	import('@/views/Workbook').then((module) => ({
+		default: module.Workbook,
+	})),
+);
+const StationaryCombustion = lazy(() =>
+	import('@/views/StationaryCombustion').then((module) => ({
+		default: module.StationaryCombustion,
+	})),
+);
+const MobileCombustion = lazy(() =>
+	import('@/views/MobileCombustion').then((module) => ({
+		default: module.MobileCombustion,
+	})),
+);
+const PurchasedElectricity = lazy(() =>
+	import('@/views/PurchasedElectricity').then((module) => ({
+		default: module.PurchasedElectricity,
+	})),
+);
+const UserManagement = lazy(
+	() => import('@/views/Administration/UserManagement'),
+);
+const Results = lazy(() =>
+	import('@/views/Results').then((module) => ({ default: module.Results })),
+);
 
 export const routes: Record<string, Route> = {
 	company: {

@@ -1,5 +1,5 @@
 import type { FacilityEmissions } from '@/types';
-import { Divider, Flex, Paper, Space, Stack, Text, Title } from '@mantine/core';
+import { Flex, Paper, Space, Stack, Text, Title } from '@mantine/core';
 import StatBar from './StatBar';
 import Scope from './Scope';
 

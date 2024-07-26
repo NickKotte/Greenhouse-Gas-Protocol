@@ -9,13 +9,10 @@ const GlobalError = ({
 }) => {
 	return (
 		<Container>
-			<Title order={1} align="center" mt="xl">
+			<Title order={1} mt="xl">
 				Something went wrong
 			</Title>
-			<Text align="center">
-				{' '}
-				Please contact support if the problem persists.
-			</Text>
+			<Text> Please contact support if the problem persists.</Text>
 			<Alert
 				title="An unexpected error occurred"
 				color="red"

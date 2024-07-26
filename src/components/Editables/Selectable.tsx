@@ -28,7 +28,7 @@ export function Selectable({
 
 	const { colorScheme } = useMantineColorScheme();
 	const isDark = colorScheme === 'dark';
-	const handleChange = (value: string | null, option: ComboboxItem) => {
+	const handleChange = (_: string | null, option: ComboboxItem) => {
 		setValue(option.value);
 	};
 

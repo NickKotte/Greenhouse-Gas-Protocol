@@ -1,15 +1,6 @@
-import {
-	Accordion,
-	Box,
-	Center,
-	Flex,
-	Paper,
-	Stack,
-	Text,
-} from '@mantine/core';
+import { Accordion, Box, Center, Flex, Stack, Text } from '@mantine/core';
 import ScopeBento from './Scope/ScopeView';
 import ScopeStat from './Scope/ScopeStat';
-import ScopeSection from './Scope/ScopeSection';
 import { useState } from 'react';
 import { IconBuildingFactory, IconFileAnalytics } from '@tabler/icons-react';
 

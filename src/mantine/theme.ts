@@ -1,10 +1,4 @@
-import {
-	createTheme,
-	darken,
-	lighten,
-	MantineTheme,
-	Select,
-} from '@mantine/core';
+import { createTheme, darken, lighten, MantineTheme } from '@mantine/core';
 
 export const mantineTheme = createTheme({
 	primaryColor: 'teal',
@@ -14,7 +8,7 @@ export const mantineTheme = createTheme({
 	fontFamily: 'Roboto, sans-serif',
 	components: {
 		Paper: {
-			styles: (theme: MantineTheme) => {
+			styles: (_: MantineTheme) => {
 				return {
 					root: {
 						backgroundColor:

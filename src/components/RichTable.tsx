@@ -305,6 +305,3 @@ export default function RichTable({
 		</Box>
 	);
 }
-function useGetUsers(): { refetch: any } {
-	throw new Error('Function not implemented.');
-}

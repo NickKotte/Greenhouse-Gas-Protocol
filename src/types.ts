@@ -7,19 +7,19 @@ export type UserWorkbooksType = {
 	owner_id: string;
 	owner_email: string;
 };
-
+export type RouteElement = React.LazyExoticComponent<React.ComponentType>;
 export type RouteLink = {
 	label: string;
 	path?: string;
 	icon?: Icon;
-	element?: React.ComponentType;
+	element?: RouteElement;
 };
 export type Route = {
 	label: string;
 	icon: Icon;
 	path: string;
 	links: RouteLink[];
-	element?: React.ComponentType;
+	element?: React.LazyExoticComponent<() => JSX.Element>;
 };
 
 export type Workbook = Database['public']['Tables']['workbook']['Row'];
