@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { Button, Text } from '@mantine/core';
 import { modals } from '@mantine/modals';
 import { IconUserShield } from '@tabler/icons-react';

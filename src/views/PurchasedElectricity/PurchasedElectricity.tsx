@@ -16,7 +16,7 @@ const PurchasedElectricity = () => {
 	}, [refetch]);
 	return (
 		<Box w="100%" h="100%" mb="xl">
-			<Title order={1}>Purchased Electricity</Title>
+			<Title order={2}>Purchased Electricity</Title>
 			<Title order={4}>
 				Electricity and other sources of energy purchased from your
 				local utility (that is not combusted on-site)

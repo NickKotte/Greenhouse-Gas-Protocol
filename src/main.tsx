@@ -13,7 +13,6 @@ import '@mantine/core/styles.css';
 import '@mantine/notifications/styles.css';
 import '@mantine/spotlight/styles.css';
 import { CustomSpotlight } from './mantine/spotlight.tsx';
-import UtilityBar from '@/components/UtilityBar.tsx';
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -24,7 +23,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 				<Notifications />
 				<CustomSpotlight />
 				<ModalsProvider modals={mantineModals}>
-					<UtilityBar />
 					<Box w="100%" h="100%">
 						<RouterProvider router={router} />
 					</Box>

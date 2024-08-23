@@ -183,6 +183,13 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
+            foreignKeyName: "mobile_combustion_results_id_fkey"
+            columns: ["results_id"]
+            isOneToOne: false
+            referencedRelation: "results"
+            referencedColumns: ["id"]
+          },
+          {
             foreignKeyName: "mobile_combustion_workbook_id_fkey"
             columns: ["workbook_id"]
             isOneToOne: false
@@ -228,6 +235,13 @@ export type Database = {
             columns: ["facility_id"]
             isOneToOne: false
             referencedRelation: "facilities"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "purchased_electricity_results_id_fkey"
+            columns: ["results_id"]
+            isOneToOne: false
+            referencedRelation: "results"
             referencedColumns: ["id"]
           },
           {
@@ -323,6 +337,13 @@ export type Database = {
             referencedColumns: ["id"]
           },
           {
+            foreignKeyName: "stationary_combustion_results_id_fkey"
+            columns: ["results_id"]
+            isOneToOne: false
+            referencedRelation: "results"
+            referencedColumns: ["id"]
+          },
+          {
             foreignKeyName: "stationary_combustion_workbook_id_fkey"
             columns: ["workbook_id"]
             isOneToOne: false
@@ -367,18 +388,21 @@ export type Database = {
       workbook: {
         Row: {
           created_at: string
+          naics_code: string | null
           name: string
           owner_id: string
           workbook_id: string
         }
         Insert: {
           created_at?: string
+          naics_code?: string | null
           name: string
           owner_id: string
           workbook_id?: string
         }
         Update: {
           created_at?: string
+          naics_code?: string | null
           name?: string
           owner_id?: string
           workbook_id?: string
@@ -589,6 +613,7 @@ export type Database = {
           owner_id: string | null
           path_tokens: string[] | null
           updated_at: string | null
+          user_metadata: Json | null
           version: string | null
         }
         Insert: {
@@ -602,6 +627,7 @@ export type Database = {
           owner_id?: string | null
           path_tokens?: string[] | null
           updated_at?: string | null
+          user_metadata?: Json | null
           version?: string | null
         }
         Update: {
@@ -615,6 +641,7 @@ export type Database = {
           owner_id?: string | null
           path_tokens?: string[] | null
           updated_at?: string | null
+          user_metadata?: Json | null
           version?: string | null
         }
         Relationships: [
@@ -636,6 +663,7 @@ export type Database = {
           key: string
           owner_id: string | null
           upload_signature: string
+          user_metadata: Json | null
           version: string
         }
         Insert: {
@@ -646,6 +674,7 @@ export type Database = {
           key: string
           owner_id?: string | null
           upload_signature: string
+          user_metadata?: Json | null
           version: string
         }
         Update: {
@@ -656,6 +685,7 @@ export type Database = {
           key?: string
           owner_id?: string | null
           upload_signature?: string
+          user_metadata?: Json | null
           version?: string
         }
         Relationships: [

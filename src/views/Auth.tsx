@@ -22,6 +22,7 @@ import {
 	IconAlertCircle,
 	IconUserPlus,
 	IconLogin,
+	IconBuildingSkyscraper,
 } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -29,12 +30,24 @@ import { useLoginUser, useRegisterUser } from '@/api/auth';
 import { motion } from 'framer-motion';
 import { useStore } from '@nanostores/react';
 import { $currUser } from '@/stores/user';
+import NaicsSelector from '@/components/NaicsSelector';
+import { useUpdateWorkbookName } from '@/api/workbook';
 
 export default function Authentication() {
 	const [activeSegment, setActiveSegment] = useState('login');
 	const user = useStore($currUser);
 	const { colorScheme } = useMantineColorScheme();
 	const navigate = useNavigate();
+	const { mutate: updateWorkbook } = useUpdateWorkbookName({
+		onSuccess: (data) => {
+			const workbookId = data?.workbook_id;
+			if (workbookId) {
+				navigate(`/${workbookId}`);
+			} else {
+				navigate('/');
+			}
+		},
+	});
 	const loginForm = useForm({
 		initialValues: {
 			email: '',
@@ -46,6 +59,8 @@ export default function Authentication() {
 			email: '',
 			password: '',
 			confirmPassword: '',
+			companyName: '',
+			naicsCode: '',
 		},
 		validate: {
 			email: (value) =>
@@ -89,8 +104,14 @@ export default function Authentication() {
 		error: registerError,
 		reset: resetRegister,
 	} = useRegisterUser({
-		onSuccess: () => {
-			navigate('/');
+		onSuccess: (data) => {
+			const workbookId = data?.user?.app_metadata?.owned_workbook_id;
+			const form = registerForm.values;
+			updateWorkbook({
+				workbookId,
+				name: form.companyName,
+				naics_code: form.naicsCode,
+			});
 		},
 	});
 
@@ -229,6 +250,7 @@ export default function Authentication() {
 								<TextInput
 									mt="md"
 									placeholder="Email"
+									type="email"
 									radius="lg"
 									required
 									leftSection={<IconMail />}
@@ -239,6 +261,7 @@ export default function Authentication() {
 								<PasswordInput
 									placeholder="Password"
 									required
+									type="password"
 									radius="lg"
 									mt="md"
 									leftSection={<IconLock />}
@@ -255,17 +278,36 @@ export default function Authentication() {
 									timingFunction="ease"
 								>
 									{(styles) => (
-										<PasswordInput
-											placeholder="Your password"
-											required
-											mt="md"
-											radius="lg"
-											leftSection={<IconLock />}
-											{...registerForm.getInputProps(
-												'confirmPassword',
-											)}
-											style={styles}
-										/>
+										<Box style={styles}>
+											<PasswordInput
+												placeholder="Confirm Password"
+												type="password"
+												required
+												mt="md"
+												radius="lg"
+												leftSection={<IconLock />}
+												{...registerForm.getInputProps(
+													'confirmPassword',
+												)}
+											/>
+											<TextInput
+												placeholder="Company Name"
+												required
+												mt="md"
+												radius="lg"
+												{...registerForm.getInputProps(
+													'companyName',
+												)}
+												leftSection={
+													<IconBuildingSkyscraper />
+												}
+											/>
+											<NaicsSelector
+												{...registerForm.getInputProps(
+													'naicsCode',
+												)}
+											/>
+										</Box>
 									)}
 								</Transition>
 								<Text size="sm" mt="md">

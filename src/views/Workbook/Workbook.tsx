@@ -1,10 +1,11 @@
-import { Box, Group, Text } from '@mantine/core';
+import { Box, Group, List, rem, Text, ThemeIcon, Title } from '@mantine/core';
 import { $appState } from '@/stores/app';
 import { useStore } from '@nanostores/react';
 import Bento from './Bento';
 import {
 	IconBuildingWarehouse,
 	IconCalendarStats,
+	IconMessageCircle2,
 	IconNotebook,
 } from '@tabler/icons-react';
 import InventoryYearRow from './InventoryYearRow';
@@ -18,20 +19,22 @@ import { useNotifyWithUndo } from '@/util/useNotifyWithUndo';
 import { useGetInventoryYears } from '@/api/workbook/inventoryYear.api';
 import { useGetFacilities } from '@/api/workbook/facilities.api';
 import { useQueryClient } from '@tanstack/react-query';
+import NaicsSelector from '@/components/NaicsSelector';
 
 const Workbook = () => {
 	const { workbook } = useStore($appState);
-	const { name: companyName } = workbook;
+	const { name: companyName, naics_code: naicsCode } = workbook;
 	const queryClient = useQueryClient();
 	const notify = useNotifyWithUndo();
 	const { mutate: updateWorkbookName } = useUpdateWorkbookName({
 		onSuccess: (data: WorkbookType) => {
 			const newName = data.name;
-			$appState.setKey('workbook.name', newName);
+			$appState.setKey('workbook', data);
 			notify(companyName, newName, () => {
 				updateWorkbookName({
 					name: companyName,
 					workbookId: workbook.workbook_id,
+					naics_code: naicsCode || undefined,
 				});
 			});
 			queryClient.invalidateQueries({
@@ -60,17 +63,54 @@ const Workbook = () => {
 
 	return (
 		<Box w="100%" h="100%">
-			<EditableText
-				value={companyName}
-				onDoneEditing={(value) => {
-					updateWorkbookName({
-						name: value,
-						workbookId: workbook.workbook_id,
-					});
-				}}
-				label="Workbook Name"
-				Icon={IconNotebook}
-			/>
+			<Title order={2}>Workbook Data</Title>
+			<List
+				p="md"
+				mb="md"
+				spacing="sm"
+				center
+				icon={
+					<ThemeIcon color="teal" radius="xl" size={24}>
+						<IconMessageCircle2
+							style={{ width: rem(16), height: rem(16) }}
+						/>
+					</ThemeIcon>
+				}
+			>
+				<List.Item>
+					Welcome to the CleanENERGY Greener Factory Toolkit! To get
+					started, please provide the following information. This data
+					will be used in later steps to perform calculations and
+					generate reports.
+				</List.Item>
+				<List.Item>
+					Don't forget to enter the name for your workbook. This will
+					help you identify it later.
+				</List.Item>
+			</List>
+			<Group gap="md" grow align="start" pl="lg">
+				<EditableText
+					value={companyName}
+					onDoneEditing={(value) => {
+						updateWorkbookName({
+							name: value,
+							workbookId: workbook.workbook_id,
+						});
+					}}
+					label="Workbook Name"
+					Icon={IconNotebook}
+				/>
+				<NaicsSelector
+					value={naicsCode}
+					onChange={(value) => {
+						updateWorkbookName({
+							naics_code: value,
+							workbookId: workbook.workbook_id,
+							name: companyName,
+						});
+					}}
+				/>
+			</Group>
 			<Group gap="md" grow align="start">
 				<Bento
 					loading={inventoryYearsLoading}

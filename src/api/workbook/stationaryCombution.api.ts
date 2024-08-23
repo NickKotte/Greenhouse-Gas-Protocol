@@ -15,8 +15,8 @@ export const getStationaryCombustion = async (
 		.select('*, results:results_id(*), facility:facility_id(name)')
 		.eq('workbook_id', workbookId);
 	if (error) throw error;
-	workbook.setItems(data as any);
-	return data as any;
+	workbook.setItems(data as unknown as StationaryCombustion[]);
+	return data as unknown as StationaryCombustion[];
 };
 
 export const useGetStationaryCombustion = () => {
@@ -108,7 +108,7 @@ const updateStationaryCombustion = async ({
 	}
 	const { data, error } = await req;
 	if (error) throw error;
-	return data as any;
+	return data as unknown as StationaryCombustion | null;
 };
 
 export const useUpdateStationaryCombustion = ({

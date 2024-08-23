@@ -47,17 +47,10 @@ export default function UtilityBar() {
 		const currentPath = window.location.pathname;
 		const workbookId = currentPath.split('/')[1];
 		setValue(workbookId);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [workbooks, window.location.pathname]);
 	return (
-		<Flex
-			gap={10}
-			style={{
-				marginRight: 20,
-				marginTop: 15,
-				position: 'absolute',
-				right: 0,
-			}}
-		>
+		<Flex gap={10} style={{}}>
 			{workbooks?.length && workbooks?.length > 1 && (
 				<Tooltip label="You've been invited to other workbooks">
 					<Select

@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createBrowserRouter } from 'react-router-dom';
 import { routes } from '@/stores/route';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -11,7 +12,6 @@ const Authentication = lazy(() => import('../views/Auth'));
 const NotFound = lazy(() => import('../views/NotFound'));
 const Layout = lazy(() => import('../views/AppLayout'));
 
-// eslint-disable-next-line react-refresh/only-export-components
 const ErrorBoundaryLayout = () => (
 	<ErrorBoundary FallbackComponent={GlobalError}>
 		<Outlet />

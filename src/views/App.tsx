@@ -3,6 +3,7 @@ import classes from '@/css/HeroImageRight.module.css';
 import { useNavigate } from 'react-router-dom';
 import { $currUser } from '@/stores/user';
 import { useStore } from '@nanostores/react';
+import { useEffect } from 'react';
 
 export default function HeroImageRight() {
 	const navigate = useNavigate();
@@ -16,6 +17,11 @@ export default function HeroImageRight() {
 			navigate('/login');
 		}
 	};
+	useEffect(() => {
+		if (user?.app_metadata?.owned_workbook_id) {
+			navigate(`/${user.app_metadata.owned_workbook_id}`);
+		}
+	}, [user, navigate]);
 	return (
 		<div className={classes.root}>
 			<Container size="lg">

@@ -19,6 +19,7 @@ import type {
 } from '@/types';
 import FacilityBody from './FacilityBody';
 
+// eslint-disable-next-line react-refresh/only-export-components
 const Results = () => {
 	const [stationary, mobile, purchased] = useGetAllCombustionData();
 	const [aggregatedEmissions, setAggregatedEmissions] =

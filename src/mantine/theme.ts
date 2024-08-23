@@ -8,7 +8,7 @@ export const mantineTheme = createTheme({
 	fontFamily: 'Roboto, sans-serif',
 	components: {
 		Paper: {
-			styles: (_: MantineTheme) => {
+			styles: () => {
 				return {
 					root: {
 						backgroundColor:

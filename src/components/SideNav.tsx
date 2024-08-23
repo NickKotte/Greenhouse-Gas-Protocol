@@ -76,7 +76,15 @@ export default function DoubleNavbar() {
 		// set the nested sidebar
 		$routing.set(mainroute);
 		$activeLink.set(subroute?.label || mainroute?.label || null);
-	}, [appInitialized, navigate, route, route.links, route.path, windowPath]);
+	}, [
+		appInitialized,
+		navigate,
+		route,
+		route.links,
+		route.path,
+		windowPath,
+		appId,
+	]);
 
 	useEffect(() => {
 		if (!appId) return;

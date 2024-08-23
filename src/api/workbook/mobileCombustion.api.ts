@@ -15,8 +15,8 @@ export const getMobileCombustion = async (
 		.select('*, results:results_id(*), facility:facility_id(name)')
 		.eq('workbook_id', workbookId);
 	if (error) throw error;
-	workbook.setItems(data as any);
-	return data as any;
+	workbook.setItems(data as unknown as MobileCombustion[]);
+	return data as unknown as MobileCombustion[];
 };
 
 export const useGetMobileCombustion = () => {
@@ -110,7 +110,7 @@ const updateMobileCombustion = async ({
 	}
 	const { data, error } = await req;
 	if (error) throw error;
-	return data as any;
+	return data as unknown as MobileCombustion | null;
 };
 
 export const useUpdateMobileCombustion = ({

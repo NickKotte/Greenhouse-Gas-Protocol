@@ -223,6 +223,7 @@ export default function RichTable({
 				</Table.Tr>
 			);
 		});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [sortedData, selection, headers]);
 
 	if (data.length === 0) {

@@ -1,6 +1,7 @@
 import { type ComboboxItem, type ComboboxItemGroup } from '@mantine/core';
 import type {
 	MobileCombustionData,
+	NaicsCode,
 	PurchasedElectricityData,
 	StationaryCombustionData,
 } from './types';
@@ -642,3 +643,30 @@ export const mockData: {
 		},
 	],
 };
+
+export const naicsCodes: NaicsCode[] = [
+	{ label: 'Food Manufacturing', code: 311 },
+	{ label: 'Beverage and Tobacco Product Manufacturing', code: 312 },
+	{ label: 'Textile Mills', code: 313 },
+	{ label: 'Textile Product Mills', code: 314 },
+	{ label: 'Apparel Manufacturing', code: 315 },
+	{ label: 'Leather and Allied Product Manufacturing', code: 316 },
+	{ label: 'Wood Product Manufacturing', code: 321 },
+	{ label: 'Paper Manufacturing', code: 322 },
+	{ label: 'Printing and Related Support Activities', code: 323 },
+	{ label: 'Petroleum and Coal Products Manufacturing', code: 324 },
+	{ label: 'Chemical Manufacturing', code: 325 },
+	{ label: 'Plastics and Rubber Products Manufacturing', code: 326 },
+	{ label: 'Nonmetallic Mineral Product Manufacturing', code: 327 },
+	{ label: 'Primary Metal Manufacturing', code: 331 },
+	{ label: 'Fabricated Metal Product Manufacturing', code: 332 },
+	{ label: 'Machinery Manufacturing', code: 333 },
+	{ label: 'Computer and Electronic Product Manufacturing', code: 334 },
+	{
+		label: 'Electrical Equipment, Appliance, and Component Manufacturing',
+		code: 335,
+	},
+	{ label: 'Transportation Equipment Manufacturing', code: 336 },
+	{ label: 'Furniture and Related Product Manufacturing', code: 337 },
+	{ label: 'Miscellaneous Manufacturing', code: 339 },
+];

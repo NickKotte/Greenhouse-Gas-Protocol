@@ -15,8 +15,8 @@ export const getPurchasedElectricity = async (
 		.select('*, results:results_id(*), facility:facility_id(name)')
 		.eq('workbook_id', workbookId);
 	if (error) throw error;
-	workbook.setItems(data as any);
-	return data as any;
+	workbook.setItems(data as unknown as PurchasedElectricity[]);
+	return data as unknown as PurchasedElectricity[];
 };
 
 export const useGetPurchasedElectricity = () => {
@@ -106,7 +106,7 @@ const updatePurchasedElectricity = async ({
 	}
 	const { data, error } = await req;
 	if (error) throw error;
-	return data as any;
+	return data as unknown as PurchasedElectricity | null;
 };
 
 export const useUpdatePurchasedElectricity = ({

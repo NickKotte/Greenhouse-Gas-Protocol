@@ -213,3 +213,8 @@ export type WorkbookType =
 	| 'StationaryCombustion'
 	| 'MobileCombustion'
 	| 'PurchasedElectricity';
+
+export type NaicsCode = {
+	label: string;
+	code: number;
+};

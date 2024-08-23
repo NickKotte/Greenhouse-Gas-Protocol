@@ -16,7 +16,7 @@ const StationaryCombustion = () => {
 	}, [refetch]);
 	return (
 		<Box w="100%" h="100%" mb="xl">
-			<Title order={1}>Stationary Combustion</Title>
+			<Title order={2}>Stationary Combustion</Title>
 			<Title order={4}>
 				Includes fuel consumption at a facility to produce electricity,
 				steam, heat, or power.

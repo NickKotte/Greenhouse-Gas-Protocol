@@ -1,5 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import supabase from '@/supabase/supabaseClient';
+import type { AuthResponse } from '@supabase/supabase-js';
 
 const loginUser = async ({
 	email,
@@ -50,7 +51,7 @@ export const useRegisterUser = ({
 	onSuccess,
 	onError,
 }: {
-	onSuccess?: () => void;
+	onSuccess?: (data: AuthResponse['data']) => void;
 	onError?: (error: Error) => void;
 }) => {
 	return useMutation({

@@ -7,6 +7,7 @@ export const $appState = deepMap<AppState>({
 		created_at: '',
 		owner_id: '',
 		workbook_id: '',
+		naics_code: '',
 	},
 	inventoryYears: [],
 	facilities: [],

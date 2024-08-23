@@ -70,6 +70,7 @@ const WorkbookTable = ({
 		return () => {
 			workbook.setItems([]);
 		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [type]);
 	useEffect(() => {
 		if (animatedRow && rowRefs.current[animatedRow]) {

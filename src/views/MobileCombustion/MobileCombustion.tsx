@@ -16,7 +16,7 @@ const MobileCombustion = () => {
 	}, [refetch]);
 	return (
 		<Box w="100%" h="100%" mb="xl">
-			<Title order={1}>Mobile Combustion</Title>
+			<Title order={2}>Mobile Combustion</Title>
 			<Title order={4}>
 				Includes fuel consumption by vehicles that are owned or leased
 				by the company. This does not count employee travel (train,

@@ -27,10 +27,13 @@ export const useWorkbookData = (appId: string) => {
 const updateWorkbookName = async (
 	name: string,
 	workbookId: string,
+	naics_code?: string,
 ): Promise<Workbook> => {
+	const updateData: Partial<Workbook> = { name };
+	if (naics_code) updateData.naics_code = naics_code;
 	const { data, error } = await supabase
 		.from('workbook')
-		.update({ name })
+		.update(updateData)
 		.eq('workbook_id', workbookId)
 		.select('*')
 		.single();
@@ -45,9 +48,13 @@ export const useUpdateWorkbookName = ({
 	onSuccess?: (data: Workbook) => void;
 	onError?: (error: Error) => void;
 }) => {
-	return useMutation<Workbook, Error, { name: string; workbookId: string }>({
-		mutationFn: ({ name, workbookId }) =>
-			updateWorkbookName(name, workbookId),
+	return useMutation<
+		Workbook,
+		Error,
+		{ name: string; workbookId: string; naics_code?: string }
+	>({
+		mutationFn: ({ name, workbookId, naics_code }) =>
+			updateWorkbookName(name, workbookId, naics_code),
 		onSuccess,
 		onError,
 	});
