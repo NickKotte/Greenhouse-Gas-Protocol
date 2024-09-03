@@ -10,7 +10,7 @@ const InventoryYearRow = ({ year }: { year: InventoryYear }) => {
 				<Text fz="md" fw={700}>
 					{year.year}
 				</Text>
-				<Text c="dimmed" ml="lg">
+				<Text c="dimmed" ml="sm" fz="sm">
 					{year.note}
 				</Text>
 			</Box>

@@ -170,3 +170,17 @@ export const useRemoveUserFromWorkbook = ({
 	});
 };
 
+const getWorkbookUsers = async (workbookId: string) => {
+	const { data, error } = await supabase.rpc('list_workbook_users', {
+		p_workbook_id: workbookId,
+	});
+	if (error) throw new Error(error.message);
+	return data;
+};
+
+export const useGetWorkbookUsers = (workbookId: string) => {
+	return useQuery({
+		queryKey: ['workbook-users', workbookId],
+		queryFn: () => getWorkbookUsers(workbookId),
+	});
+};

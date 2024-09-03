@@ -2,6 +2,7 @@ import type { EmissionResults } from '@/types';
 import { Group, Progress, Text, Tooltip } from '@mantine/core';
 import classes from '@/css/Results.module.css';
 import { emissionsColors } from '@/constants';
+import { formatTonnesColored } from '@/util';
 
 const StatBar = ({
 	emissions,
@@ -23,12 +24,10 @@ const StatBar = ({
 
 	const formatLabel = (key: string, value: number) => {
 		return (
-			<Text>
+			<Text fw="bold">
+				{formatTonnesColored(value, 8)}{' '}
 				<Text span>
-					{key} (tonnes): {value.toFixed(2)}
-				</Text>{' '}
-				<Text span fw="bold" c={emissionsColors[key]}>
-					{formatValue(value)}
+					{key} ({formatValue(value)})
 				</Text>
 			</Text>
 		);
@@ -64,7 +63,7 @@ const StatBar = ({
 			<Progress.Root
 				size={size || 30}
 				w={400}
-				radius="md"
+				// radius="md"
 				classNames={{ label: classes.progressLabel }}
 				style={{ flex: 1 }}
 			>

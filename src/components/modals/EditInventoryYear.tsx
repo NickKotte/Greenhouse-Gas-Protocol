@@ -1,5 +1,5 @@
 import type { InventoryYear } from '@/types';
-import { TextInput, Text } from '@mantine/core';
+import { Text, Textarea } from '@mantine/core';
 import { ContextModalProps } from '@mantine/modals';
 import { useState } from 'react';
 import { YearPickerInput } from '@mantine/dates';
@@ -105,13 +105,13 @@ const EditInventoryYear = ({
 				leftSection={<IconCalendar />}
 				placeholder="Choose your inventory year"
 			/>
-			<TextInput
-				label="Notes"
-				placeholder="Notes about this inventory year i.e. new facility, partially opened, etc."
+			<Textarea
+				label="Note"
+				placeholder="Note"
 				radius="md"
 				value={descriptionField ?? ''}
 				onChange={(e) => setDescriptionField(e.target.value)}
-				mb="lg"
+				my="md"
 			/>
 		</EditWrapper>
 	);

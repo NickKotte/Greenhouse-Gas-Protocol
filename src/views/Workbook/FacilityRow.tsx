@@ -1,4 +1,11 @@
-import { ActionIcon, Box, Group, NumberFormatter, Text } from '@mantine/core';
+import {
+	ActionIcon,
+	Box,
+	Group,
+	NumberFormatter,
+	Stack,
+	Text,
+} from '@mantine/core';
 import type { Facility } from '@/types';
 import { IconPencil } from '@tabler/icons-react';
 import { modals } from '@mantine/modals';
@@ -17,19 +24,22 @@ const FacilityRow = ({ facility }: { facility: Facility }) => {
 						</Text>
 					</Text> */}
 				</Group>
-				<Group justify="space-between">
-					<Text c="dimmed">
+				<Stack justify="flex-start" gap={0} pl="sm">
+					<Text c="dimmed" fz="sm">
+						{facility.note}
+					</Text>
+					<Text c="dimmed" fz="sm">
 						{facility.street} {facility.city}, {facility.state}{' '}
 						{facility.zip}
 					</Text>
-					<Text>
+					<Text c="dimmed" fz="sm">
 						<NumberFormatter
 							value={facility.square_footage || 0}
 							suffix=" sqft"
 							thousandSeparator=","
 						/>
 					</Text>
-				</Group>
+				</Stack>
 			</Box>
 			<ActionIcon
 				aria-label={`Edit ${facility.name}`}

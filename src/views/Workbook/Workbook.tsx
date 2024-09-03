@@ -1,4 +1,16 @@
-import { Box, Group, List, rem, Text, ThemeIcon, Title } from '@mantine/core';
+import {
+	Avatar,
+	Box,
+	Divider,
+	Flex,
+	Group,
+	List,
+	rem,
+	Stack,
+	Text,
+	ThemeIcon,
+	Title,
+} from '@mantine/core';
 import { $appState } from '@/stores/app';
 import { useStore } from '@nanostores/react';
 import Bento from './Bento';
@@ -13,33 +25,90 @@ import FacilityRow from './FacilityRow';
 import { modals } from '@mantine/modals';
 import { EditableText } from '@/components/Editables/EditableText';
 import { notifications } from '@mantine/notifications';
-import { useUpdateWorkbookName } from '@/api/workbook';
+import {
+	useUpdateWorkbookNaicsCode,
+	useUpdateWorkbookName,
+} from '@/api/workbook';
 import type { Workbook as WorkbookType } from '@/types';
 import { useNotifyWithUndo } from '@/util/useNotifyWithUndo';
 import { useGetInventoryYears } from '@/api/workbook/inventoryYear.api';
 import { useGetFacilities } from '@/api/workbook/facilities.api';
 import { useQueryClient } from '@tanstack/react-query';
-import NaicsSelector from '@/components/NaicsSelector';
+import { EditableNaics } from '@/components/Editables/EditableNaics';
+import { stringToColor } from '@/util';
 
 const Workbook = () => {
 	const { workbook } = useStore($appState);
 	const { name: companyName, naics_code: naicsCode } = workbook;
 	const queryClient = useQueryClient();
-	const notify = useNotifyWithUndo();
+	const notifyWithUndo = useNotifyWithUndo();
 	const { mutate: updateWorkbookName } = useUpdateWorkbookName({
 		onSuccess: (data: WorkbookType) => {
 			const newName = data.name;
 			$appState.setKey('workbook', data);
-			notify(companyName, newName, () => {
-				updateWorkbookName({
-					name: companyName,
-					workbookId: workbook.workbook_id,
-					naics_code: naicsCode || undefined,
-				});
-			});
+			notifyWithUndo(
+				companyName,
+				newName,
+				() => {
+					updateWorkbookName({
+						name: companyName,
+						workbookId: workbook.workbook_id,
+					});
+				},
+				{
+					id: 'workbook-name-update',
+					title: 'Workbook Name Updated',
+					color: 'blue',
+				},
+				(value) => (
+					<Text span>
+						Workbook name updated to{' '}
+						<Text span c="blue">
+							{value}
+						</Text>
+					</Text>
+				),
+			);
 			queryClient.invalidateQueries({
 				queryKey: ['workbooks'],
 			});
+		},
+		onError: (error) => {
+			notifications.show({
+				title: 'Error',
+				message: error.message,
+			});
+		},
+	});
+	const { mutate: updateWorkbookNaicsCode } = useUpdateWorkbookNaicsCode({
+		onSuccess: (data: WorkbookType) => {
+			$appState.setKey('workbook', data);
+			queryClient.invalidateQueries({
+				queryKey: ['workbooks'],
+			});
+			notifyWithUndo(
+				naicsCode || '',
+				data.naics_code || '',
+				() => {
+					updateWorkbookNaicsCode({
+						naicsCode: naicsCode || '',
+						workbookId: workbook.workbook_id,
+					});
+				},
+				{
+					id: 'workbook-naics-code-update',
+					title: 'Workbook NAICS Code Updated',
+					color: 'blue',
+				},
+				(value) => (
+					<Text span>
+						Workbook NAICS code updated to{' '}
+						<Text span c="blue">
+							{value}
+						</Text>
+					</Text>
+				),
+			);
 		},
 		onError: (error) => {
 			notifications.show({
@@ -63,7 +132,12 @@ const Workbook = () => {
 
 	return (
 		<Box w="100%" h="100%">
-			<Title order={2}>Workbook Data</Title>
+			<Flex gap="md" align="center">
+				<Avatar color={stringToColor(workbook.name)} size="lg">
+					{workbook?.name?.slice(0, 2)?.toUpperCase()}
+				</Avatar>
+				<Title order={2}>Workbook Data</Title>
+			</Flex>
 			<List
 				p="md"
 				mb="md"
@@ -88,7 +162,8 @@ const Workbook = () => {
 					help you identify it later.
 				</List.Item>
 			</List>
-			<Group gap="md" grow align="start" pl="lg">
+			<Divider my="md" />
+			<Stack gap="xs" pl="lg">
 				<EditableText
 					value={companyName}
 					onDoneEditing={(value) => {
@@ -100,17 +175,16 @@ const Workbook = () => {
 					label="Workbook Name"
 					Icon={IconNotebook}
 				/>
-				<NaicsSelector
-					value={naicsCode}
-					onChange={(value) => {
-						updateWorkbookName({
-							naics_code: value,
+				<EditableNaics
+					value={naicsCode || ''}
+					onDoneEditing={(value) => {
+						updateWorkbookNaicsCode({
+							naicsCode: value,
 							workbookId: workbook.workbook_id,
-							name: companyName,
 						});
 					}}
 				/>
-			</Group>
+			</Stack>
 			<Group gap="md" grow align="start">
 				<Bento
 					loading={inventoryYearsLoading}

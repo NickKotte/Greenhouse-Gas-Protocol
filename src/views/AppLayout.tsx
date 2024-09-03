@@ -5,11 +5,12 @@ import { useStore } from '@nanostores/react';
 import NestedSideNav from '@/components/NestedSideNav';
 import classes from '@/css/DoubleNavbar.module.css';
 import { ProtectedPath } from '../components/ProtectedPath';
+import { useNavigate } from 'react-router-dom';
 import UtilityBar from '@/components/UtilityBar';
 
 const Layout = () => {
 	const routeInfo = useStore($routing);
-
+	const navigate = useNavigate();
 	return (
 		<ProtectedPath redirectUrl="/login">
 			<div
@@ -35,7 +36,10 @@ const Layout = () => {
 						align="center"
 						className={classes.title}
 					>
-						<Flex>
+						<Flex
+							style={{ cursor: 'pointer' }}
+							onClick={() => navigate('/')}
+						>
 							<Image
 								src="/icon.png"
 								alt="logo"

@@ -21,7 +21,6 @@ export default function DoubleNavbar() {
 	const ownedWorkbookId = user?.app_metadata?.owned_workbook_id;
 	const roles = user?.app_metadata?.roles;
 	const isAdmin = roles?.includes('admin');
-	console.log(user?.app_metadata);
 	const navigate = useNavigate();
 	const [activeRoute, setActive] = useState(
 		routesOrdered.findIndex((r) => route.label === r.label),

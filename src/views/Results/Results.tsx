@@ -6,6 +6,8 @@ import {
 	Box,
 	Collapse,
 	Space,
+	Divider,
+	Flex,
 } from '@mantine/core';
 import YearOverview from './YearOverview';
 import { useGetAllCombustionData } from '@/api/workbook/results.api';
@@ -18,6 +20,7 @@ import type {
 	StationaryCombustion,
 } from '@/types';
 import FacilityBody from './FacilityBody';
+import ColorLegend from './ColorLegend';
 
 // eslint-disable-next-line react-refresh/only-export-components
 const Results = () => {
@@ -71,6 +74,7 @@ const Results = () => {
 			if (!emissions[item.facility_id]) {
 				emissions[item.facility_id] = {
 					facility_name: item.facility?.name || 'error',
+					facility_id: item.facility_id,
 					results: initializeEmissionResults(),
 					total_emissions: 0,
 					yearly_emissions: [],
@@ -204,19 +208,32 @@ const Results = () => {
 				/>
 			</Collapse>
 			<Stack justify="flex-start" align="center" h="100%" w="100%">
-				<Title order={1}>Results</Title>
-				{totalEmissionsByYear &&
-					totalEmissionsByYear.map((year) => (
-						<YearOverview
-							emissions={year.emissions}
-							year={year.year}
-							key={year.year}
-						/>
-					))}
-				<Title order={2} mt="xl">
-					Facilities
-				</Title>
-				<Accordion radius="xl" w="100%">
+				<Box ta="center">
+					<Title order={2}>Report</Title>
+					<Title order={4} c="dimmed">
+						Your yearly emissions
+					</Title>
+				</Box>
+				<ColorLegend />
+				<Flex gap="xl" wrap="wrap" w="100%" justify="center">
+					{totalEmissionsByYear &&
+						totalEmissionsByYear.map((year) => (
+							<YearOverview
+								emissions={year.emissions}
+								year={year.year}
+								key={year.year}
+							/>
+						))}
+				</Flex>
+				<Divider my="xl" w="80%" />
+				<Box ta="center">
+					<Title order={2}>Emission Breakdown</Title>
+					<Title order={4} c="dimmed">
+						Your emissions by facility
+					</Title>
+				</Box>
+				<ColorLegend />
+				<Accordion radius="xl" w="100%" multiple>
 					{aggregatedEmissions &&
 						Object.entries(aggregatedEmissions).map(
 							([facilityId, emissions]) => (
@@ -242,5 +259,6 @@ const Results = () => {
 		</Box>
 	);
 };
+const MemoizedResults = React.memo(Results);
 
-export default React.memo(Results);
+export default MemoizedResults;

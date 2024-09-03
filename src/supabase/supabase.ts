@@ -504,6 +504,15 @@ export type Database = {
         }
         Returns: boolean
       }
+      list_workbook_users: {
+        Args: {
+          p_workbook_id: string
+        }
+        Returns: {
+          user_id: string
+          email: string
+        }[]
+      }
       remove_admin_role_rpc: {
         Args: {
           target_user_id: string

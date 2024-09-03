@@ -1,5 +1,11 @@
 import type { Facility } from '@/types';
-import { Group, TextInput, NumberInput, Divider } from '@mantine/core';
+import {
+	Group,
+	TextInput,
+	NumberInput,
+	Divider,
+	Textarea,
+} from '@mantine/core';
 import { ContextModalProps } from '@mantine/modals';
 import { useState } from 'react';
 import { IconRuler } from '@tabler/icons-react';
@@ -50,6 +56,9 @@ const EditFacility = ({
 	const [squareFootageField, setSquareFootageField] = useState(
 		innerProps.facility ? innerProps.facility.square_footage : 0,
 	);
+	const [noteField, setNoteField] = useState(
+		innerProps.facility ? innerProps.facility.note : '',
+	);
 
 	const handleDelete = () => {
 		if (innerProps.facility?.id) {
@@ -76,6 +85,7 @@ const EditFacility = ({
 					zip: zipField,
 					egrid_subregion: eGridField,
 					square_footage: squareFootageField,
+					note: noteField,
 				},
 			});
 		} else {
@@ -89,6 +99,7 @@ const EditFacility = ({
 					zip: zipField,
 					egrid_subregion: eGridField,
 					square_footage: squareFootageField,
+					note: noteField,
 				},
 			});
 		}
@@ -109,6 +120,14 @@ const EditFacility = ({
 				value={nameField}
 				onChange={(e) => setNameField(e.target.value)}
 				required
+				mb="sm"
+			/>
+			<Textarea
+				label="Note"
+				placeholder="Note"
+				radius="md"
+				value={noteField ?? ''}
+				onChange={(e) => setNoteField(e.target.value)}
 				mb="sm"
 			/>
 			<Divider my="sm" />

@@ -6,3 +6,4 @@ export const calculate = {
 	MobileCombustion,
 	PurchasedElectricity,
 };
+export { formatTonnesColored, stringToColor } from './helpers';

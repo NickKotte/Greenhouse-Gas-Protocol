@@ -3,13 +3,13 @@ import {
 	Flex,
 	Menu,
 	Select,
-	useMantineColorScheme,
+	// useMantineColorScheme,
 	Tooltip,
 } from '@mantine/core';
 import {
 	IconLogout,
-	IconMoon,
-	IconSun,
+	// IconMoon,
+	// IconSun,
 	IconUser,
 	IconNotebook,
 	IconBrandAsana,
@@ -21,6 +21,7 @@ import { useStore } from '@nanostores/react';
 import { useGetWorkbooks } from '@/api/workbook/sharedWorkbooks.api';
 import { useEffect, useState } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
+import { modals } from '@mantine/modals';
 
 export default function UtilityBar() {
 	const queryClient = useQueryClient();
@@ -28,9 +29,9 @@ export default function UtilityBar() {
 	const { workbook } = useStore($appState);
 	const [value, setValue] = useState<string | null>(null);
 	const { data: workbooks } = useGetWorkbooks();
-	const { colorScheme, toggleColorScheme } = useMantineColorScheme({
-		keepTransitions: true,
-	});
+	// const { colorScheme, toggleColorScheme } = useMantineColorScheme({
+	// 	keepTransitions: true,
+	// });
 	// const hasAccessToWorkbook = workbooks?.some(
 	// 	(wb) => wb.workbook?.workbook_id === workbook?.workbook_id,
 	// );
@@ -54,6 +55,7 @@ export default function UtilityBar() {
 			{workbooks?.length && workbooks?.length > 1 && (
 				<Tooltip label="You've been invited to other workbooks">
 					<Select
+						allowDeselect={false}
 						placeholder="Select a workbook"
 						data={workbooks?.map((workbook) => ({
 							label: workbook.workbook?.name || '',
@@ -78,8 +80,8 @@ export default function UtilityBar() {
 						</ActionIcon>
 					</Menu.Target>
 					<Menu.Dropdown>
-						<Menu.Label>Settings</Menu.Label>
-						<Menu.Item
+						{/* <Menu.Label>Settings</Menu.Label> */}
+						{/* <Menu.Item
 							aria-label="Dark Mode"
 							onClick={() => toggleColorScheme()}
 							rightSection={
@@ -93,13 +95,21 @@ export default function UtilityBar() {
 							{colorScheme === 'dark'
 								? 'Light Mode'
 								: 'Dark Mode'}
-						</Menu.Item>
+						</Menu.Item> */}
 						<Menu.Label>Account</Menu.Label>
 						<Menu.Item
 							leftSection={<IconBrandAsana />}
 							aria-label="Settings"
 							onClick={() => {
-								window.location.href = `/${currUser?.app_metadata?.owned_workbook_id}/settings`;
+								modals.openContextModal({
+									modal: 'ShareWorkbook',
+									innerProps: {
+										workbookId: workbook?.workbook_id,
+									},
+									radius: 'md',
+									size: 'lg',
+									withCloseButton: false,
+								});
 							}}
 						>
 							Collaborate

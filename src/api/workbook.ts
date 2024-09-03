@@ -59,6 +59,36 @@ export const useUpdateWorkbookName = ({
 		onError,
 	});
 };
+// naics code
+
+const updateWorkbookNaicsCode = async (
+	naicsCode: string,
+	workbookId: string,
+): Promise<Workbook> => {
+	const { data, error } = await supabase
+		.from('workbook')
+		.update({ naics_code: naicsCode })
+		.eq('workbook_id', workbookId)
+		.select('*')
+		.single();
+	if (error) throw error;
+	return data;
+};
+
+export const useUpdateWorkbookNaicsCode = ({
+	onSuccess,
+	onError,
+}: {
+	onSuccess?: (data: Workbook) => void;
+	onError?: (error: Error) => void;
+}) => {
+	return useMutation<Workbook, Error, { naicsCode: string; workbookId: string }>({
+		mutationFn: ({ naicsCode, workbookId }) =>
+			updateWorkbookNaicsCode(naicsCode, workbookId),
+		onSuccess,
+		onError,
+	});
+};
 
 // Inventory Years
 

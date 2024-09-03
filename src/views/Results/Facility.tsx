@@ -1,26 +1,45 @@
-import { Flex, Group, Title, Text } from '@mantine/core';
+import { Flex, Group, Title, Text, Stack } from '@mantine/core';
 import StatBar from './StatBar';
 import type { FacilityEmissions } from '@/types';
 import { IconBuildingFactory2 } from '@tabler/icons-react';
+import { useGetFacilities } from '@/api/workbook/facilities.api';
+import { formatTonnesColored } from '@/util';
 
 const Facility = ({ facility }: { facility: FacilityEmissions }) => {
+	const { data: facilities } = useGetFacilities();
+	// Gets the emissions in Mega Tons per Square Foot
+	const computeSquareFootageEmissions = () => {
+		const foundFacility = facilities?.find(
+			(f) => f.id === facility.facility_id,
+		);
+		const squareFootage = foundFacility?.square_footage || 0;
+		const emissions = facility.total_emissions;
+		console.log(emissions / squareFootage);
+		return (emissions / squareFootage).toFixed(2);
+	};
+
 	return (
 		<Flex gap="sm" justify="space-between" p="md" wrap="wrap">
-			<Group flex="1">
-				<IconBuildingFactory2 size={32} stroke={2.3} />
-				<Title pl="sm" order={2}>
-					{facility.facility_name}
-				</Title>
+			<Stack flex="1" gap="xs">
+				<Group>
+					<IconBuildingFactory2 size={32} stroke={2.3} />
+					<Title pl="sm" order={2}>
+						{facility.facility_name}
+					</Title>
+				</Group>
 				<Title order={3}>
 					<Text span>
-						produced{' '}
-						<Text span c="orange" fw="bold">
-							{facility.total_emissions.toFixed(2)} T
-						</Text>{' '}
+						Produced {formatTonnesColored(facility.total_emissions)}{' '}
 						of emmissions
 					</Text>
 				</Title>
-			</Group>
+				<Text c="dimmed">
+					Estimated emissions per square foot:{' '}
+					<Text span c="orange" fw="bold">
+						{computeSquareFootageEmissions()} MT/SqFt
+					</Text>
+				</Text>
+			</Stack>
 
 			<StatBar emissions={facility.results} />
 		</Flex>

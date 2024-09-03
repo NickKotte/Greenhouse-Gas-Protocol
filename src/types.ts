@@ -64,7 +64,7 @@ export interface FacilityEmissions {
 		total: number;
 	};
 	total_emissions: number;
-
+	facility_id: string;
 	yearly_emissions: YearlyEmissions[];
 }
 export interface AggregatedEmissions {

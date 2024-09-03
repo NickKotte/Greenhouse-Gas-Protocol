@@ -1,4 +1,5 @@
 import type { Scope1Results, Scope2Results } from '@/types';
+import { formatTonnesColored } from '@/util';
 import {
 	Stack,
 	Title,
@@ -29,37 +30,33 @@ const Scope = ({
 	emissions: Scope1Results | Scope2Results;
 } & FlexProps) => {
 	return (
-		<Flex wrap="wrap" gap="md" {...props}>
+		<Flex gap="md" {...props}>
 			<Flex gap="md">
 				<Stack flex="1">
 					<Title c="blue" order={3}>
 						{title}
 					</Title>
-					<Text>{emissions.total.toFixed(2)} T</Text>
+					{formatTonnesColored(emissions.total)}
 				</Stack>
 				<Divider orientation="vertical" />
 				{isScope1Results(emissions) && emissions.stationaryResults && (
 					<Stack justify="space-between">
 						<Title order={4}>On-site</Title>
-						<Text>
-							{emissions.stationaryResults.total.toFixed(2)} T
-						</Text>
+						{formatTonnesColored(emissions.stationaryResults.total)}
 					</Stack>
 				)}
 				{isScope1Results(emissions) && emissions.combustionResults && (
 					<Stack justify="space-between">
 						<Title order={4}>Mobile</Title>
-						<Text>
-							{emissions.combustionResults.total.toFixed(2)} T
-						</Text>
+						{formatTonnesColored(emissions.combustionResults.total)}
 					</Stack>
 				)}
 				{isScope2Results(emissions) && emissions.electricityResults && (
 					<Stack justify="space-between">
 						<Title order={4}>Electricity</Title>
-						<Text>
-							{emissions.electricityResults.total.toFixed(2)} T
-						</Text>
+						{formatTonnesColored(
+							emissions.electricityResults.total,
+						)}
 					</Stack>
 				)}
 			</Flex>
