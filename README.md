@@ -1,47 +1,55 @@
-# React, mantine, supabase template
 
-Opinionated and ready to go tempalte, for when you need to bootstrap an app in a minute.
+# CleanEnergy Manufacturing Emissions Calculator
 
-This example offers an opinionated starter preset for making web apps using a simple sensible technology stack.
+Welcome to the CleanEnergy Manufacturing Emissions Calculator, a powerful and user-friendly tool designed to help companies evaluate their emissions and gain valuable insights. This project is spec'd for Catalyst's CleanEnergy Manufacturing toolkit, aimed at promoting sustainable practices in the manufacturing industry.
 
-## Features
+## 🌟 Features
 
-Template comes with out of the box configured:
+- **Comprehensive Emissions Calculation**: Calculate emissions based on facility location, square footage, fuel types, and more.
+- **Detailed Reporting**: Generate detailed metric reports for Stationary & Mobile Combustion + Purchased Electricity emissions.
+- **Industry Benchmarking**: Compare your emissions to similar companies based on NAICS code and nearby vicinity.
+- **RBAC**: Role-based access control for secure data management.
+- **Admin Dashboard**: Manage users, workbooks, and emissions data.
+- **User-Friendly Interface**: Modern, intuitive interface designed for a clean user experience
+- **Fast and Efficient**: Optimized for quick calculations and seamless navigation
 
-- [Client side router](https://reactrouter.com/en/main)
-- [Mantine theming](https://mantine.dev/theming/mantine-provider/)
-- [Supabase database](https://supabase.com/database)
-- [Supabase auth](https://supabase.com/auth) with ready made login and register forms
-- [Automatic type gen](https://supabase.com/docs/reference/javascript/typescript-support)
-- [Spotlight, modals, forms and notifications from mantine](https://mantine.dev)
-- [Nanostores - Global state](https://github.com/nanostores/nanostores)
+## 🚀 Technology Stack
 
-## Technology
+This project leverages the newest technologies to deliver a robust and efficient solution:
 
-Preset uses the `yarn create vite` template using vite with `typescript + SWC`.
+- **TypeScript**: Ensuring type safety and improving code quality
+- **React**: Building responsive and modular user interfaces
+- **Supabase**: 
+  - PostgreSQL database for efficient data storage and retrieval
+  - Authentication system for secure user management
+- **Nanostores**: Lightweight and powerful global state management
 
-Big part of this template is the [Mantine](https://mantine.dev/) component library. I know there are many options, but after trying a lot of them, I found that Mantine suits me the most.
+## 🎨 Design and User Experience
 
-I use [Nanostores](https://github.com/nanostores/nanostores) for global state (think, better Redux). It gives me everything I need 99% of the time. It has a nice syntax and nice React integration.
+Strong emphasis on creating a clean and intuitive user interface. The application features:
 
-## Autotyping with upabase
+- Modern UI components
+- Responsive design for various screen sizes
+- Intuitive navigation and data input forms
+- Clear and visually appealing presentation of emissions data
 
-Create fully type safe endpoints by running `yarn typegen`.
+## 🔒 Security and Performance
 
-### setup
+- Secure authentication powered by Supabase
+- Optimized database queries for fast data retrieval
+- Efficient state management with Nanostores
 
-`npx supabase login` to login to your project
-`npx supabase link` link your supabase project
+## 🤝 Try It Out!
 
-### usage
+You are more than welcome to create a free account and experience the CleanEnergy Manufacturing Emissions Calculator
 
-`yarn typegen`
+## 📝 License
 
-## Prettier
+Copyright (c) 2024 Nicklas S Kotte. All rights reserved.
 
-Is installed as a dev dependency and `.vscode` recommends installing it as an editor plugin.  
-Format on save is enabled for a reason. Dont write ugly code.  
+This project is made available for viewing purposes only. Any use, reproduction, 
+or distribution of the code without explicit permission is strictly prohibited.
 
-## Supabase credentials are stored in .env
+---
 
-App will error if no supabase keys are present. Obtain them at `https://supabase.com/dashboard/{YOUR_PROJECT}/settings/general`
+Built with ❤️ for a sustainable future in manufacturing.
