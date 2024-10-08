@@ -88,7 +88,14 @@ const WorkbookRow = forwardRef<
 								<Number value={results?.n2o} label="N2O" />
 							</Grid.Col>
 							<Grid.Col span={2}>
-								<Number value={results?.co2e} label="CO2e" />
+								<Number
+									value={results?.ef}
+									label={`EF (${
+										'efKgCo2e' in item
+											? 'kgCO2e/unit'
+											: 'kgCO2e/kWh'
+									})`}
+								/>
 							</Grid.Col>
 							<Grid.Col span={2}>
 								{'biofuelCo2Tonnes' in item && (
@@ -103,14 +110,7 @@ const WorkbookRow = forwardRef<
 				</Box>
 				<Accordion.Control w="fit-content">
 					<Box>
-						<Number
-							value={results?.ef}
-							label={
-								'efKgCo2e' in item
-									? 'kgCO2e/unit'
-									: 'kgCO2e/kWh'
-							}
-						/>
+						<Number value={results?.co2e} label="CO2e" />
 					</Box>
 				</Accordion.Control>
 			</Group>
