@@ -41,9 +41,13 @@ const MobileCombustion = () => {
 					data for each fuel type consumed for each facility.
 				</List.Item>
 				<List.Item>
-					For each fuel type, you will need to enter the amount of
-					fuel consumed in the units of your choice (e.g. mmBtu for
-					butane).
+					For each fuel type, you will need to enter the amount of{' '}
+					<span style={{ fontWeight: 'bold' }}>fuel consumed</span> or
+					the{' '}
+					<span style={{ fontWeight: 'bold' }}>
+						distance traveled
+					</span>{' '}
+					in the units of your choice.
 				</List.Item>
 				<List.Item>
 					To the right of each entry is the calculated EF (Emission

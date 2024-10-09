@@ -189,7 +189,11 @@ const MBRow = ({ item }: RowComponentProps<MobileCombustion>) => {
 						handleUpdate({ units: value });
 					}}
 					withNumerable
-					label="Fuel Amount"
+					label={
+						item.activity_type === 'fuel'
+							? 'Fuel Amount'
+							: 'Distance'
+					}
 				/>
 			</Grid.Col>
 		</>
