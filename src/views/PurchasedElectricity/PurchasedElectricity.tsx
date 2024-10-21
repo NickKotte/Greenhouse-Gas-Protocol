@@ -46,8 +46,8 @@ const PurchasedElectricity = () => {
 					butane).
 				</List.Item>
 				<List.Item>
-					To the right of each entry is the calculated EF (Emission
-					Factor) of the fuel usage.
+					To the right of each entry is the calculated CO2e (carbon
+					dioxide equivalent) of the fuel usage.
 				</List.Item>
 			</List>
 			<Button
