@@ -71,7 +71,17 @@ export default function calculateScope2EmissionFactor(
 					(emissionFactor / conversionFactor) *
 					(amount / types[type].factor);
 			} else if (activityType === 'distance') {
-				result[type] = emissionFactor * (amount / types[type].factor);
+				const fuelEfficiency =
+					Number(EF?.['Default Average Fuel Efficiency (mpgmpge)']) ||
+					1;
+				const convertedAmount =
+					units.toLowerCase() === 'km'
+						? (amount / fuelEfficiency) * 1.60934
+						: units.toLowerCase() === 'nm'
+							? (amount / fuelEfficiency) * 0.868976
+							: amount / fuelEfficiency;
+				result[type] =
+					(emissionFactor * convertedAmount) / types[type].factor;
 			}
 		}
 		result.EF = (EF?.['AR5 (kgCO2e)'] as number) ?? 0;
