@@ -24,10 +24,14 @@ const StatBar = ({
 
 	const formatLabel = (key: string, value: number) => {
 		return (
-			<Text fw="bold">
-				{formatTonnesColored(value, 8)}{' '}
-				<Text span>
-					{key} ({formatValue(value)})
+			<Text>
+				{formatTonnesColored(value, 8)} -
+				<Text span fw="bold" c={emissionsColors[key] || 'green'}>
+					{key}
+				</Text>
+				-{' '}
+				<Text span fs="xs">
+					({formatValue(value)})
 				</Text>
 			</Text>
 		);
