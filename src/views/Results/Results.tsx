@@ -8,10 +8,11 @@ import {
 	Space,
 	Divider,
 	Flex,
+	Button,
 } from '@mantine/core';
 import YearOverview from './YearOverview';
 import { useGetAllCombustionData } from '@/api/workbook/results.api';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState, useRef } from 'react';
 import Facility from './Facility';
 import type {
 	AggregatedEmissions,
@@ -21,6 +22,8 @@ import type {
 } from '@/types';
 import FacilityBody from './FacilityBody';
 import ColorLegend from './ColorLegend';
+import { IconDownload } from '@tabler/icons-react';
+import { toPng } from 'html-to-image';
 
 // eslint-disable-next-line react-refresh/only-export-components
 const Results = () => {
@@ -196,6 +199,61 @@ const Results = () => {
 		return sortedTotalsByYear;
 	}, [emissions]);
 	const totalEmissionsByYear = getTotalEmissionsByYear;
+
+	const reportRef = useRef<HTMLDivElement>(null);
+
+	const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
+
+	const [openedAccordionItems, setOpenedAccordionItems] = useState<string[]>(
+		[],
+	);
+
+	const handleDownload = async () => {
+		if (!emissions || !totalEmissionsByYear || !reportRef.current) return;
+		const oldOpenedAccordionItems = openedAccordionItems;
+
+		setIsGeneratingPdf(true);
+		try {
+			// Open all accordion items
+			const facilityIds = Object.keys(emissions);
+			setOpenedAccordionItems(facilityIds);
+
+			// Add temporary styles to prevent text wrapping
+			const style = document.createElement('style');
+			style.innerHTML = `
+				* {
+					white-space: nowrap !important;
+					text-overflow: initial !important;
+				}
+			`;
+			document.head.appendChild(style);
+
+			// Wait for accordion animation to complete
+			await new Promise((resolve) => setTimeout(resolve, 1000));
+
+			const dataUrl = await toPng(reportRef.current, {
+				quality: 1.0,
+				pixelRatio: 2,
+			});
+
+			// Create download link
+			const link = document.createElement('a');
+			link.download = 'emissions-report.png';
+			link.href = dataUrl;
+			link.click();
+
+			// Clean up temporary styles
+			document.head.removeChild(style);
+
+			// Close all accordion items
+			setOpenedAccordionItems(oldOpenedAccordionItems);
+		} catch (error) {
+			console.error('Error generating image:', error);
+		} finally {
+			setIsGeneratingPdf(false);
+		}
+	};
+
 	return (
 		<Box>
 			<Collapse in={isLoading} transitionDuration={1000}>
@@ -207,55 +265,84 @@ const Results = () => {
 					autoContrast
 				/>
 			</Collapse>
-			<Stack justify="flex-start" align="center" h="100%" w="100%">
-				<Box ta="center">
-					<Title order={2}>Report</Title>
-					<Title order={4} c="dimmed">
-						Your yearly emissions
-					</Title>
-				</Box>
-				<ColorLegend />
-				<Flex gap="xl" wrap="wrap" w="100%" justify="center">
-					{totalEmissionsByYear &&
-						totalEmissionsByYear.map((year) => (
-							<YearOverview
-								emissions={year.emissions}
-								year={year.year}
-								key={year.year}
-							/>
-						))}
-				</Flex>
-				<Divider my="xl" w="80%" />
-				<Box ta="center">
-					<Title order={2}>Emission Breakdown</Title>
-					<Title order={4} c="dimmed">
-						Your emissions by facility
-					</Title>
-				</Box>
-				<ColorLegend />
-				<Accordion radius="xl" w="100%" multiple>
-					{aggregatedEmissions &&
-						Object.entries(aggregatedEmissions).map(
-							([facilityId, emissions]) => (
-								<Accordion.Item
-									value={facilityId}
-									key={facilityId}
-								>
-									<Accordion.Control>
-										<Facility
-											key={facilityId}
-											facility={emissions}
-										/>
-									</Accordion.Control>
-									<Accordion.Panel>
-										<FacilityBody facility={emissions} />
-									</Accordion.Panel>
-								</Accordion.Item>
-							),
-						)}
-				</Accordion>
-				<Space h="23vh" />
-			</Stack>
+
+			<Box style={{ display: 'flex', justifyContent: 'flex-end' }}>
+				<Button
+					leftSection={<IconDownload size={16} />}
+					onClick={handleDownload}
+					disabled={isLoading || !emissions || isGeneratingPdf}
+					loading={isGeneratingPdf}
+					mb="md"
+				>
+					Download Report
+				</Button>
+			</Box>
+
+			<div ref={reportRef}>
+				<Stack
+					justify="flex-start"
+					align="center"
+					h="100%"
+					w="auto"
+					bg="dark.7"
+				>
+					<Box ta="center" pt="lg">
+						<Title order={2}>Report</Title>
+						<Title order={4} c="dimmed">
+							Your yearly emissions
+						</Title>
+					</Box>
+					<ColorLegend />
+					<Flex gap="xl" wrap="wrap" w="100%" justify="center">
+						{totalEmissionsByYear &&
+							totalEmissionsByYear.map((year) => (
+								<YearOverview
+									emissions={year.emissions}
+									year={year.year}
+									key={year.year}
+								/>
+							))}
+					</Flex>
+					<Divider my="xl" w="80%" />
+					<Box ta="center">
+						<Title order={2}>Emission Breakdown</Title>
+						<Title order={4} c="dimmed">
+							Your emissions by facility
+						</Title>
+					</Box>
+					<ColorLegend />
+					<Accordion
+						radius="xl"
+						w="100%"
+						multiple
+						value={openedAccordionItems}
+						onChange={setOpenedAccordionItems}
+					>
+						{aggregatedEmissions &&
+							Object.entries(aggregatedEmissions).map(
+								([facilityId, emissions]) => (
+									<Accordion.Item
+										value={facilityId}
+										key={facilityId}
+									>
+										<Accordion.Control>
+											<Facility
+												key={facilityId}
+												facility={emissions}
+											/>
+										</Accordion.Control>
+										<Accordion.Panel>
+											<FacilityBody
+												facility={emissions}
+											/>
+										</Accordion.Panel>
+									</Accordion.Item>
+								),
+							)}
+					</Accordion>
+					<Space h="23vh" />
+				</Stack>
+			</div>
 		</Box>
 	);
 };
