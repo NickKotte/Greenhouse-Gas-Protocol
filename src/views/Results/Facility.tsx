@@ -3,7 +3,7 @@ import StatBar from './StatBar';
 import type { FacilityEmissions } from '@/types';
 import { IconBuildingFactory2 } from '@tabler/icons-react';
 import { useGetFacilities } from '@/api/workbook/facilities.api';
-import { formatTonnesColored } from '@/util';
+import { formatTonnesColored, formatEmissionsPerArea } from '@/util';
 
 const Facility = ({ facility }: { facility: FacilityEmissions }) => {
 	const { data: facilities } = useGetFacilities();
@@ -13,9 +13,10 @@ const Facility = ({ facility }: { facility: FacilityEmissions }) => {
 			(f) => f.id === facility.facility_id,
 		);
 		const squareFootage = foundFacility?.square_footage || 0;
+		if (squareFootage === 0) return 'N/A';
+
 		const emissions = facility.total_emissions;
-		console.log(emissions / squareFootage);
-		return (emissions / squareFootage).toFixed(2);
+		return formatEmissionsPerArea(emissions / squareFootage);
 	};
 
 	return (
@@ -36,7 +37,7 @@ const Facility = ({ facility }: { facility: FacilityEmissions }) => {
 				<Text c="dimmed">
 					Estimated emissions per square foot:{' '}
 					<Text span c="orange" fw="bold">
-						{computeSquareFootageEmissions()} MT/SqFt
+						{computeSquareFootageEmissions()}
 					</Text>
 				</Text>
 			</Stack>

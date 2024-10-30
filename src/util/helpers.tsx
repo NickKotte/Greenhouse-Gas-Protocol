@@ -9,19 +9,19 @@ export const formatTonnesColored = (
 	if (value > 1000000) {
 		return (
 			<Text span c={`orange.${colorStrength || 2}`} fw="bold" {...props}>
-				{(value / 1000000).toFixed(2)} MT
+				{(value / 1000000).toFixed(2)} Mt
 			</Text>
 		);
 	} else if (value > 1000) {
 		return (
 			<Text span c={`blue.${colorStrength || 2}`} fw="bold" {...props}>
-				{(value / 1000).toFixed(2)} kT
+				{(value / 1000).toFixed(2)} kt
 			</Text>
 		);
 	} else {
 		return (
 			<Text span c={`green.${colorStrength || 2}`} fw="bold" {...props}>
-				{value.toFixed(2)} T
+				{value.toFixed(2)} t
 			</Text>
 		);
 	}
@@ -39,4 +39,15 @@ export const stringToColor = (str: string) => {
 	const lightness = 45 + (hash % 10);
 
 	return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+};
+
+export const formatEmissionsPerArea = (value: number): string => {
+	if (value >= 1) {
+		// For larger values, show as Metric Tonnes (MT)
+		return `${value.toFixed(2)} Mt/ft²`;
+	} else {
+		// For smaller values, convert to regular Tonnes (T)
+		const tonnes = value * 1000;
+		return `${tonnes.toFixed(2)} t/ft²`;
+	}
 };
