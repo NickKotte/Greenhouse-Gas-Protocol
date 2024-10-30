@@ -4,7 +4,7 @@ import { ContextModalProps } from '@mantine/modals';
 import { useState } from 'react';
 import { YearPickerInput } from '@mantine/dates';
 import '@mantine/dates/styles.css';
-import { IconCalendar } from '@tabler/icons-react';
+import { IconCalendar, IconNotes } from '@tabler/icons-react';
 import EditWrapper from './EditWrapper';
 import {
 	useGetInventoryYears,
@@ -101,8 +101,8 @@ const EditInventoryYear = ({
 				required
 				size="sm"
 				radius="md"
+				leftSection={<IconCalendar size={16} />}
 				leftSectionPointerEvents="none"
-				leftSection={<IconCalendar />}
 				placeholder="Choose your inventory year"
 			/>
 			<Textarea
@@ -112,6 +112,10 @@ const EditInventoryYear = ({
 				value={descriptionField ?? ''}
 				onChange={(e) => setDescriptionField(e.target.value)}
 				my="md"
+				leftSection={<IconNotes size={16} style={{ marginTop: 8 }} />}
+				leftSectionProps={{
+					style: { alignItems: 'flex-start' },
+				}}
 			/>
 		</EditWrapper>
 	);
