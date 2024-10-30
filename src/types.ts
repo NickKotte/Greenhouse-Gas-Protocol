@@ -24,6 +24,7 @@ export type Route = {
 
 export type Workbook = Database['public']['Tables']['workbook']['Row'];
 export type Facility = Database['public']['Tables']['facilities']['Row'];
+export type Egrid = Database['public']['Tables']['egrid']['Row'];
 
 export interface EmissionResults {
 	co2: number;
