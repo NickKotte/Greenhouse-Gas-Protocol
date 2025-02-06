@@ -32,9 +32,11 @@ import { useStore } from '@nanostores/react';
 import { $currUser } from '@/stores/user';
 import NaicsSelector from '@/components/NaicsSelector';
 import { useUpdateWorkbookName } from '@/api/workbook';
+import ResetPasswordModal from '@/components/modals/ResetPassword';
 
 export default function Authentication() {
 	const [activeSegment, setActiveSegment] = useState('login');
+	const [resetPasswordOpened, setResetPasswordOpened] = useState(false);
 	const user = useStore($currUser);
 	const { colorScheme } = useMantineColorScheme();
 	const navigate = useNavigate();
@@ -271,6 +273,25 @@ export default function Authentication() {
 												'password',
 											))}
 								/>
+								{isLogin && (
+									<Text
+										size="sm"
+										mt="xs"
+										style={{ textAlign: 'right' }}
+									>
+										<Text
+											span
+											variant="gradient"
+											fw={700}
+											style={{ cursor: 'pointer' }}
+											onClick={() =>
+												setResetPasswordOpened(true)
+											}
+										>
+											Forgot Password?
+										</Text>
+									</Text>
+								)}
 								<Transition
 									mounted={activeSegment === 'register'}
 									transition="fade"
@@ -365,6 +386,10 @@ export default function Authentication() {
 					</motion.div>
 				</Container>
 			</Center>
+			<ResetPasswordModal
+				opened={resetPasswordOpened}
+				onClose={() => setResetPasswordOpened(false)}
+			/>
 		</Box>
 	);
 }
