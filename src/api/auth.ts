@@ -60,3 +60,27 @@ export const useRegisterUser = ({
 		onError,
 	});
 };
+
+const resetPassword = async ({ email }: { email: string }) => {
+	const { error } = await supabase.auth.resetPasswordForEmail(email, {
+		redirectTo: `${window.location.origin}/reset-password`,
+	});
+	if (error) {
+		throw new Error(error.message);
+	}
+	return true;
+};
+
+export const useResetPassword = ({
+	onSuccess,
+	onError,
+}: {
+	onSuccess?: () => void;
+	onError?: (error: Error) => void;
+}) => {
+	return useMutation({
+		mutationFn: resetPassword,
+		onSuccess,
+		onError,
+	});
+};

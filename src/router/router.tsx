@@ -11,6 +11,7 @@ const App = lazy(() => import('../views/App'));
 const Authentication = lazy(() => import('../views/Auth'));
 const NotFound = lazy(() => import('../views/NotFound'));
 const Layout = lazy(() => import('../views/AppLayout'));
+const ResetPassword = lazy(() => import('../views/ResetPassword'));
 
 const ErrorBoundaryLayout = () => (
 	<ErrorBoundary FallbackComponent={GlobalError}>
@@ -66,6 +67,10 @@ export const router = createBrowserRouter([
 			{
 				path: 'login',
 				element: LazyWrapper(Authentication),
+			},
+			{
+				path: 'reset-password',
+				element: LazyWrapper(ResetPassword),
 			},
 			{
 				path: '*',
