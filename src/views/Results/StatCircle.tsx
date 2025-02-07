@@ -15,7 +15,10 @@ const StatRing = ({
 	}
 
 	const formatValue = (value: number) => {
-		const calc = (value / emissions.total) * 100;
+		// Calculate percentage against sum of actual gases (excluding co2e)
+		const actualGasesTotal =
+			emissions.co2 + emissions.ch4 + emissions.n2o + emissions.bio;
+		const calc = (value / actualGasesTotal) * 100;
 		return calc < 1 ? '<1%' : `${calc.toFixed(1)}%`;
 	};
 
@@ -28,10 +31,17 @@ const StatRing = ({
 		</Text>
 	);
 
+	// Only include actual gases, exclude co2e, total, and ef
 	const sections = Object.entries(emissions)
-		.filter(([key]) => key !== 'total' && key !== 'ef')
+		.filter(([key]) => ['co2', 'ch4', 'n2o', 'bio'].includes(key))
 		.map(([key, value]) => {
-			const percentage = (value / emissions.total) * 100;
+			const percentage =
+				(value /
+					(emissions.co2 +
+						emissions.ch4 +
+						emissions.n2o +
+						emissions.bio)) *
+				100;
 			return {
 				value: percentage < 1 ? 1 : percentage, // Ensure minimum 1% for visibility
 				color: emissionsColors[key],
@@ -58,11 +68,11 @@ const StatRing = ({
 					sections={normalizedSections}
 					label={
 						<Text ta="center" fz="md" fw="bold">
-							{formatTonnesColored(emissions.total, 8, {
+							{formatTonnesColored(emissions.co2e, 8, {
 								fz: 'xl',
 							})}
 							<br />
-							Total
+							CO₂e Total
 						</Text>
 					}
 				/>

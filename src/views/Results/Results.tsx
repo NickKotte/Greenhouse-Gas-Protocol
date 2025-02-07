@@ -9,6 +9,8 @@ import {
 	Divider,
 	Flex,
 	Button,
+	Image,
+	Text,
 } from '@mantine/core';
 import YearOverview from './YearOverview';
 import { useGetAllCombustionData } from '@/api/workbook/results.api';
@@ -133,16 +135,23 @@ const Results = () => {
 			total: 0,
 		});
 
-		const calculateTotal = (results: EmissionResults) =>
-			results.co2 +
-			results.co2e +
-			results.ch4 +
-			results.bio +
-			results.n2o;
+		const calculateTotal = (results: {
+			co2: number;
+			ch4: number;
+			n2o: number;
+			bio: number;
+		}) => results.co2 + results.ch4 + results.bio + results.n2o;
 
 		const addEmissions = (
 			target: EmissionResults,
-			source: EmissionResults,
+			source: {
+				co2: number;
+				co2e: number;
+				ch4: number;
+				bio: number;
+				n2o: number;
+				ef: number;
+			},
 		) => {
 			target.co2 += source.co2 || 0;
 			target.co2e += source.co2e || 0;
@@ -167,8 +176,15 @@ const Results = () => {
 			}
 
 			const facilityEmissions = emissions[item.facility_id];
-
-			addEmissions(facilityEmissions.results, item.results);
+			const results = {
+				...item.results,
+				total:
+					item.results.co2 +
+					item.results.ch4 +
+					item.results.bio +
+					item.results.n2o,
+			};
+			addEmissions(facilityEmissions.results, results);
 
 			let yearlyEmission = facilityEmissions.yearly_emissions.find(
 				(ye) => ye.year === item.year,
@@ -190,23 +206,14 @@ const Results = () => {
 				facilityEmissions.yearly_emissions.push(yearlyEmission);
 			}
 
-			addEmissions(yearlyEmission.emissions, item.results);
+			addEmissions(yearlyEmission.emissions, results);
 
 			if (stationary.data.includes(item as StationaryCombustion)) {
-				addEmissions(
-					yearlyEmission.scope1.stationaryResults,
-					item.results,
-				);
+				addEmissions(yearlyEmission.scope1.stationaryResults, results);
 			} else if (mobile.data.includes(item as MobileCombustion)) {
-				addEmissions(
-					yearlyEmission.scope1.combustionResults,
-					item.results,
-				);
+				addEmissions(yearlyEmission.scope1.combustionResults, results);
 			} else if (purchased.data.includes(item as PurchasedElectricity)) {
-				addEmissions(
-					yearlyEmission.scope2.electricityResults,
-					item.results,
-				);
+				addEmissions(yearlyEmission.scope2.electricityResults, results);
 			}
 		});
 
@@ -329,7 +336,7 @@ const Results = () => {
 				// Add temporary styles to prevent text wrapping
 				const style = document.createElement('style');
 				style.innerHTML = `
-					* {
+					.report-container *:not(.what-next-section *) {
 						white-space: nowrap !important;
 						text-overflow: initial !important;
 					}
@@ -375,25 +382,48 @@ const Results = () => {
 						pdf.setLineWidth(0.5);
 						pdf.line(14, 55, 196, 55);
 
+						// Company name and title
 						pdf.setFontSize(24);
 						pdf.setTextColor(85, 100, 85);
 						pdf.setFont('helvetica', 'bold');
-						pdf.text('Emissions Report', 105, 50, {
-							align: 'center',
-						});
+						const companyName = 'CleanENERGY Manufacturing';
+						const reportTitle = 'Emissions Report';
 
+						// Center text properly
+						const companyNameWidth =
+							(pdf.getStringUnitWidth(companyName) * 24) /
+							pdf.internal.scaleFactor;
+						const reportTitleWidth =
+							(pdf.getStringUnitWidth(reportTitle) * 24) /
+							pdf.internal.scaleFactor;
+						const pageCenter = pageWidth / 2;
+
+						pdf.text(
+							companyName,
+							pageCenter - companyNameWidth / 2,
+							40,
+						);
+						pdf.text(
+							reportTitle,
+							pageCenter - reportTitleWidth / 2,
+							50,
+						);
+
+						// Date
 						pdf.setFontSize(10);
 						pdf.setTextColor(100, 100, 100);
 						const today = new Date().toLocaleDateString();
-						pdf.text(`${today}`, 196, 20, { align: 'right' });
+						pdf.text(`Generated on ${today}`, 196, 20, {
+							align: 'right',
+						});
 
-						return 70; // Return starting Y position for content
+						return 100; // Return starting Y position for content
 					} else {
 						// Subsequent pages header
 						pdf.setDrawColor(85, 100, 85);
 						pdf.setLineWidth(0.5);
 						pdf.line(14, 20, 196, 20);
-						return 40; // Increased from 30 to provide more space after header
+						return 40;
 					}
 				};
 
@@ -409,6 +439,11 @@ const Results = () => {
 						pageHeight - 10,
 						{ align: 'center' },
 					);
+					pdf.text(
+						'© 2024 CleanENERGY Manufacturing',
+						14,
+						pageHeight - 10,
+					);
 				};
 
 				let currentY = addHeader(1);
@@ -417,25 +452,42 @@ const Results = () => {
 				pdf.setFontSize(18);
 				pdf.setTextColor(85, 100, 85);
 				drawChartIcon(pdf, 14, currentY - 4);
-				pdf.text('Yearly Overview', 30, currentY);
+				pdf.text('Annual Overview', 30, currentY);
 				currentY += 10;
+
+				// Add yearly overview explanation
+				pdf.setFontSize(9);
+				pdf.setFont('helvetica', 'normal');
+				pdf.setTextColor(100, 100, 100);
+				const yearlyExplanation = [
+					'Below is a breakdown of your emissions by year. Each row shows the actual emissions of different greenhouse',
+					'gases and their total CO\u2082 equivalent value.',
+				].join(' ');
+				pdf.text(yearlyExplanation, 14, currentY);
+				currentY += 15;
 
 				// Add yearly overview table
 				autoTable(pdf, {
 					head: [
-						['Year', 'CO2', 'CO2e', 'CH4', 'Bio', 'N2O', 'Total'],
+						[
+							'Year',
+							'CO₂',
+							'CH₄',
+							'N₂O',
+							'Biogenic CO₂',
+							'Total CO₂e',
+						],
 					],
 					body: totalEmissionsByYear.map((year) => [
 						year.year.toString(),
 						formatEmissionsForPdf(year.emissions.co2),
-						formatEmissionsForPdf(year.emissions.co2e),
 						formatEmissionsForPdf(year.emissions.ch4),
-						formatEmissionsForPdf(year.emissions.bio),
 						formatEmissionsForPdf(year.emissions.n2o),
-						formatEmissionsForPdf(year.emissions.total),
+						formatEmissionsForPdf(year.emissions.bio),
+						formatEmissionsForPdf(year.emissions.co2e),
 					]),
 					startY: currentY,
-					margin: { bottom: 40 }, // Add margin for footer
+					margin: { bottom: 40 },
 					styles: {
 						cellPadding: 5,
 						fontSize: 10,
@@ -455,7 +507,6 @@ const Results = () => {
 						0: { fontStyle: 'bold' },
 					},
 					didDrawPage: (data) => {
-						// Add header and footer on each new page
 						if (data.pageNumber > 1) {
 							currentY = addHeader(data.pageNumber);
 						}
@@ -464,19 +515,28 @@ const Results = () => {
 				});
 
 				// Facility breakdown section
-				currentY = pdf.lastAutoTable.finalY + 15;
+				currentY = pdf.lastAutoTable.finalY + 20;
 				pdf.setFontSize(18);
 				pdf.setTextColor(85, 100, 85);
 				drawBuildingIcon(pdf, 14, currentY + 8);
-				// pdf.text('Facility Breakdown', 30, currentY);
+				pdf.text('Facility Breakdown', 30, currentY);
+				currentY += 15;
+
+				// Add facility breakdown explanation
+				pdf.setFontSize(9);
+				pdf.setTextColor(100, 100, 100);
+				const facilityExplanation =
+					'Detailed emissions data for each facility, showing both direct emissions (Scope 1) from stationary and mobile sources, and indirect emissions (Scope 2) from purchased electricity.';
+				const facilityExplanationLines = pdf.splitTextToSize(
+					facilityExplanation,
+					180,
+				);
+				pdf.text(facilityExplanationLines, 14, currentY);
 
 				// Create facility tables
 				Object.values(emissions).forEach((facility) => {
-					currentY = pdf.lastAutoTable.finalY + 15;
-
 					// Check if we need a new page
-					if (currentY > pageHeight - 80) {
-						// Increased from 60 to 80 to start new page earlier
+					if (currentY > pageHeight - 100) {
 						pdf.addPage();
 						currentY = addHeader(
 							pdf.getCurrentPageInfo().pageNumber,
@@ -484,22 +544,27 @@ const Results = () => {
 						addFooter();
 					}
 
+					currentY += 20; // Add extra space before each facility
+
 					// Facility header with detail icon
 					drawDetailIcon(pdf, 14, currentY + 8);
 					pdf.setFontSize(14);
+					pdf.setFont('helvetica', 'bold');
+					pdf.setTextColor(85, 100, 85);
 					pdf.text(facility.facility_name, 30, currentY);
 
 					// Add subtext about total emissions
 					pdf.setFontSize(10);
+					pdf.setFont('helvetica', 'normal');
 					pdf.setTextColor(100, 100, 100);
 					const totalEmissionsText = `Produced ${formatEmissionsForPdf(facility.total_emissions)} of emissions`;
-					pdf.text(totalEmissionsText, 30, currentY + 5);
+					pdf.text(totalEmissionsText, 30, currentY + 7);
 
 					// Add emissions per area
 					const emissionsPerArea =
 						computeSquareFootageEmissions(facility);
 					const perAreaText = `Estimated emissions per square foot: ${emissionsPerArea}`;
-					pdf.text(perAreaText, 30, currentY + 10);
+					pdf.text(perAreaText, 30, currentY + 14);
 
 					// Facility yearly data table
 					autoTable(pdf, {
@@ -510,11 +575,12 @@ const Results = () => {
 							formatEmissionsForPdf(year.scope2.total),
 							formatEmissionsForPdf(year.emissions.total),
 						]),
-						startY: currentY + 15,
-						margin: { left: 20, bottom: 40, top: 15 }, // Add top margin
+						startY: currentY + 25, // Increased spacing
+						margin: { left: 20, bottom: 40 },
 						styles: {
-							cellPadding: 0,
+							cellPadding: 5,
 							fontSize: 10,
+							font: 'helvetica',
 						},
 						headStyles: {
 							fillColor: [85, 100, 85],
@@ -533,13 +599,12 @@ const Results = () => {
 						},
 					});
 
+					currentY = pdf.lastAutoTable.finalY + 30; // Increased spacing after table
+
 					// Add detailed scope breakdown for each year
 					facility.yearly_emissions.forEach((year) => {
-						currentY = pdf.lastAutoTable.finalY + 5;
-
 						// Check if we need a new page
-						if (currentY > pageHeight - 80) {
-							// Increased from 60 to 80 to start new page earlier
+						if (currentY > pageHeight - 100) {
 							pdf.addPage();
 							currentY = addHeader(
 								pdf.getCurrentPageInfo().pageNumber,
@@ -574,10 +639,11 @@ const Results = () => {
 							],
 							body: scopeData,
 							startY: currentY,
-							margin: { left: 30, bottom: 40, top: 15 }, // Add top margin
+							margin: { left: 30, bottom: 40 },
 							styles: {
 								fontSize: 10,
-								cellPadding: 0,
+								cellPadding: 5,
+								font: 'helvetica',
 							},
 							headStyles: {
 								fillColor: [120, 120, 120],
@@ -595,6 +661,8 @@ const Results = () => {
 								addFooter();
 							},
 						});
+
+						currentY = pdf.lastAutoTable.finalY + 20; // Increased spacing after detailed breakdown
 					});
 				});
 
@@ -724,10 +792,38 @@ const Results = () => {
 						bg="dark.7"
 					>
 						<Box ta="center" pt="lg">
-							<Title order={2}>Report</Title>
-							<Title order={4} c="dimmed">
-								Your yearly emissions
+							<Image
+								src="/icon.png"
+								alt="logo"
+								width={100}
+								height={100}
+								fit="contain"
+							/>
+							<Title order={1} mt="md">
+								CleanENERGY Manufacturing
 							</Title>
+							<Title order={2} mt="lg">
+								Emissions Report
+							</Title>
+							<Title order={4} c="dimmed">
+								Greenhouse Gas Protocol Assessment
+							</Title>
+						</Box>
+						<Divider my="xl" w="80%" />
+						<Box ta="center">
+							<Title order={3}>Annual Overview</Title>
+							{/* <Text
+								c="dimmed"
+								size="sm"
+								maw={600}
+								mx="auto"
+								mt="xs"
+							>
+								Below is a breakdown of your yearly emissions.
+								Each gas is shown in its original form, with the
+								total CO₂ equivalent (CO₂e) calculated using AR5
+								global warming potentials.
+							</Text> */}
 						</Box>
 						<ColorLegend />
 						<Flex gap="xl" wrap="wrap" w="100%" justify="center">
@@ -742,10 +838,18 @@ const Results = () => {
 						</Flex>
 						<Divider my="xl" w="80%" />
 						<Box ta="center">
-							<Title order={2}>Emission Breakdown</Title>
-							<Title order={4} c="dimmed">
-								Your emissions by facility
-							</Title>
+							<Title order={3}>Facility Breakdown</Title>
+							<Text
+								c="dimmed"
+								size="sm"
+								maw={600}
+								mx="auto"
+								mt="xs"
+							>
+								Detailed emissions data for each facility,
+								including both actual gas emissions and their
+								CO₂ equivalent values.
+							</Text>
 						</Box>
 						<ColorLegend />
 						<Accordion
@@ -777,6 +881,44 @@ const Results = () => {
 									),
 								)}
 						</Accordion>
+						<Box
+							ta="center"
+							maw={800}
+							mx="auto"
+							pb="xl"
+							pt="xl"
+							className="what-next-section"
+						>
+							<Title order={3}>What's Next?</Title>
+							<Text c="dimmed" size="md" mt="md">
+								Congratulations on establishing your baseline
+								emissions for your operations! The project team
+								is available to help you determine your next
+								steps, from establishing internal reduction
+								goals to implementing cost savings energy
+								efficiency upgrades.
+							</Text>
+							<Text c="dimmed" size="md" mt="md">
+								Please visit our website{' '}
+								<Text
+									component="a"
+									href="http://www.wemakeithere.org/cleanenergy"
+									target="_blank"
+									c="blue"
+								>
+									www.wemakeithere.org/cleanenergy
+								</Text>{' '}
+								or email{' '}
+								<Text
+									component="a"
+									href="mailto:tom@wemakeithere.org"
+									c="blue"
+								>
+									tom@wemakeithere.org
+								</Text>{' '}
+								for a free consultation.
+							</Text>
+						</Box>
 						<Space h="23vh" />
 					</Stack>
 				</div>
