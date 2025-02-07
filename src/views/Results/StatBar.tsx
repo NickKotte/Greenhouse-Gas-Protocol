@@ -1,5 +1,5 @@
 import type { EmissionResults } from '@/types';
-import { Group, Progress, Text, Tooltip } from '@mantine/core';
+import { Group, Progress, Text, Tooltip, Stack } from '@mantine/core';
 import classes from '@/css/Results.module.css';
 import { emissionsColors } from '@/constants';
 import { formatTonnesColored } from '@/util';
@@ -14,15 +14,16 @@ const StatBar = ({
 	if (!emissions) {
 		return null;
 	}
-	const formatValue = (value: number) => {
-		const calc = (value / emissions.total) * 100;
+
+	const formatValue = (value: number, total: number) => {
+		const calc = (value / total) * 100;
 		if (calc < 1) {
 			return '<1%';
 		}
 		return `${calc.toFixed(1)}%`;
 	};
 
-	const formatLabel = (key: string, value: number) => {
+	const formatLabel = (key: string, value: number, total: number) => {
 		return (
 			<Text>
 				{formatTonnesColored(value, 8)} -
@@ -31,13 +32,14 @@ const StatBar = ({
 				</Text>
 				-{' '}
 				<Text span fs="xs">
-					({formatValue(value)})
+					({formatValue(value, total)})
 				</Text>
 			</Text>
 		);
 	};
-	const adjustValue = (value: number) => {
-		const calc = (value / emissions.total) * 100;
+
+	const adjustValue = (value: number, total: number) => {
+		const calc = (value / total) * 100;
 		if (calc === 0) {
 			return 0;
 		}
@@ -46,34 +48,47 @@ const StatBar = ({
 		}
 		return calc;
 	};
-	const segments = Object.entries(emissions).map(([key, value]) => {
-		if (key === 'total' || key === 'ef') {
-			return null;
-		}
+
+	// Calculate total of actual gases for percentage calculations
+	const actualGasesTotal =
+		emissions.co2 + emissions.ch4 + emissions.n2o + emissions.bio;
+
+	// Create segments for actual gases
+	const actualGasSegments = ['co2', 'ch4', 'n2o', 'bio'].map((key) => {
+		const value = emissions[key as keyof EmissionResults];
 		return (
-			<Tooltip key={key} label={formatLabel(key, value)}>
+			<Tooltip
+				key={key}
+				label={formatLabel(key, value, actualGasesTotal)}
+			>
 				<Progress.Section
-					value={adjustValue(value)}
+					value={adjustValue(value, actualGasesTotal)}
 					color={emissionsColors[key]}
 				>
-					<Progress.Label>{formatValue(value)}</Progress.Label>
+					<Progress.Label>
+						{formatValue(value, actualGasesTotal)}
+					</Progress.Label>
 				</Progress.Section>
 			</Tooltip>
 		);
 	});
 
 	return (
-		<Group align="center" gap="sm" flex="1">
-			<Progress.Root
-				size={size || 30}
-				w={400}
-				// radius="md"
-				classNames={{ label: classes.progressLabel }}
-				style={{ flex: 1 }}
-			>
-				{segments}
-			</Progress.Root>
-		</Group>
+		<Stack gap="xs" flex="1">
+			<Group align="center" gap="sm" flex="1">
+				<Progress.Root
+					size={size || 30}
+					w={400}
+					classNames={{ label: classes.progressLabel }}
+					style={{ flex: 1 }}
+				>
+					{actualGasSegments}
+				</Progress.Root>
+			</Group>
+			<Text size="sm" ta="right">
+				CO₂e Total: {formatTonnesColored(emissions.co2e, 8)}
+			</Text>
+		</Stack>
 	);
 };
 
