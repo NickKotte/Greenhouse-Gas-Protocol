@@ -12,6 +12,8 @@ import { IconLock, IconAlertCircle } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import supabase from '@/supabase/supabaseClient';
+import { DEMO_MODE, DEMO_WORKBOOK_ID } from '@/demo/data';
+import { startDemoSession } from '@/stores/user';
 
 export default function ResetPassword() {
 	const navigate = useNavigate();
@@ -40,6 +42,12 @@ export default function ResetPassword() {
 		try {
 			setIsLoading(true);
 			setError(null);
+			if (DEMO_MODE) {
+				startDemoSession();
+				navigate(`/${DEMO_WORKBOOK_ID}`);
+				return;
+			}
+
 			const { error: updateError } = await supabase.auth.updateUser({
 				password: values.password,
 			});
@@ -61,6 +69,8 @@ export default function ResetPassword() {
 
 	// Check if user is authenticated
 	useEffect(() => {
+		if (DEMO_MODE) return;
+
 		const checkSession = async () => {
 			const {
 				data: { session },

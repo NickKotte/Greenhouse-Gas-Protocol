@@ -5,10 +5,22 @@ import { $appState, workbook } from '@/stores/app';
 
 import { useStore } from '@nanostores/react';
 import { updateResults } from './results.api';
+import {
+	DEMO_MODE,
+	DEMO_WORKBOOK_ID,
+	getDemoMobileCombustion,
+	updateDemoMobileCombustion,
+} from '@/demo/data';
 
 export const getMobileCombustion = async (
 	workbookId: string,
 ): Promise<MobileCombustion[]> => {
+	if (DEMO_MODE) {
+		const data = getDemoMobileCombustion();
+		workbook.setItems(data);
+		return data;
+	}
+
 	if (!workbookId) throw new Error('Workbook ID is required');
 	const { data, error } = await supabase
 		.from('mobile_combustion')
@@ -21,7 +33,9 @@ export const getMobileCombustion = async (
 
 export const useGetMobileCombustion = () => {
 	const { workbook: workbookData } = useStore($appState);
-	const workbookId = workbookData?.workbook_id;
+	const workbookId = DEMO_MODE
+		? workbookData?.workbook_id || DEMO_WORKBOOK_ID
+		: workbookData?.workbook_id;
 	return useQuery<MobileCombustion[], Error>({
 		queryKey: ['mobileCombustion', workbookId],
 		queryFn: () => getMobileCombustion(workbookId),
@@ -43,6 +57,15 @@ const updateMobileCombustion = async ({
 	results: Partial<Results>;
 	appId: string | undefined;
 }): Promise<MobileCombustion | null> => {
+	if (DEMO_MODE) {
+		return updateDemoMobileCombustion({
+			operation,
+			mobileCombustion,
+			results,
+			appId,
+		});
+	}
+
 	let req,
 		resultsRow: Partial<Results> | null = null;
 	switch (operation) {

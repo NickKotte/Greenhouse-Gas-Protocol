@@ -32,9 +32,9 @@ const ShareWorkbook = ({
 	const user = useStore($currUser);
 	const usersOwnedWorkbook = user?.app_metadata?.owned_workbook_id;
 	const isAdmin = user?.app_metadata?.roles?.includes('admin');
-	const canShareWorkbook = isAdmin || usersOwnedWorkbook === id;
 
 	const { workbookId } = innerProps;
+	const canShareWorkbook = isAdmin || usersOwnedWorkbook === workbookId;
 	const queryClient = useQueryClient();
 	const { data: workbookUsers, isFetching: isFetchingWorkbookUsers } =
 		useGetWorkbookUsers(workbookId);
@@ -177,11 +177,11 @@ const ShareWorkbook = ({
 											},
 											confirmProps: { color: 'red' },
 											onConfirm: () => {
-												removeUserFromWorkbook({
-													userId: user.user_id,
-													email: user.email,
-													workbookId,
-												});
+													removeUserFromWorkbook({
+														userId: user.user_id,
+														email: user.email || '',
+														workbookId,
+													});
 											},
 										});
 									}}

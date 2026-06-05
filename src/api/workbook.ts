@@ -2,8 +2,20 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import supabase from '@/supabase/supabaseClient';
 import { Workbook } from '@/types';
 import { $appState } from '@/stores/app';
+import {
+	DEMO_MODE,
+	DEMO_WORKBOOK_ID,
+	getDemoWorkbook,
+	updateDemoWorkbook,
+} from '@/demo/data';
 
 const fetchWorkbookData = async (appId: string): Promise<Workbook> => {
+	if (DEMO_MODE) {
+		const data = getDemoWorkbook();
+		$appState.setKey('workbook', data);
+		return data;
+	}
+
 	if (!appId) throw new Error('No appId found');
 	const { data, error } = await supabase
 		.from('workbook')
@@ -17,9 +29,11 @@ const fetchWorkbookData = async (appId: string): Promise<Workbook> => {
 };
 
 export const useWorkbookData = (appId: string) => {
+	const workbookId = DEMO_MODE ? appId || DEMO_WORKBOOK_ID : appId;
+
 	return useQuery<Workbook, Error>({
-		queryKey: ['workbook', appId],
-		queryFn: () => fetchWorkbookData(appId),
+		queryKey: ['workbook', workbookId],
+		queryFn: () => fetchWorkbookData(workbookId),
 		staleTime: 5 * 60 * 1000,
 	});
 };
@@ -29,6 +43,10 @@ const updateWorkbookName = async (
 	workbookId: string,
 	naics_code?: string,
 ): Promise<Workbook> => {
+	if (DEMO_MODE) {
+		return updateDemoWorkbook({ name, naicsCode: naics_code });
+	}
+
 	const updateData: Partial<Workbook> = { name };
 	if (naics_code) updateData.naics_code = naics_code;
 	const { data, error } = await supabase
@@ -65,6 +83,10 @@ const updateWorkbookNaicsCode = async (
 	naicsCode: string,
 	workbookId: string,
 ): Promise<Workbook> => {
+	if (DEMO_MODE) {
+		return updateDemoWorkbook({ naicsCode });
+	}
+
 	const { data, error } = await supabase
 		.from('workbook')
 		.update({ naics_code: naicsCode })

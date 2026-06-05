@@ -15,13 +15,14 @@ import {
 	IconBrandAsana,
 } from '@tabler/icons-react';
 import supabase from '@/supabase/supabaseClient';
-import { $currUser } from '@/stores/user';
+import { $currUser, endDemoSession } from '@/stores/user';
 import { $appState } from '@/stores/app';
 import { useStore } from '@nanostores/react';
 import { useGetWorkbooks } from '@/api/workbook/sharedWorkbooks.api';
 import { useEffect, useState } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 import { modals } from '@mantine/modals';
+import { DEMO_MODE } from '@/demo/data';
 
 export default function UtilityBar() {
 	const queryClient = useQueryClient();
@@ -119,6 +120,12 @@ export default function UtilityBar() {
 							leftSection={<IconLogout />}
 							aria-label="Logout"
 							onClick={async () => {
+								if (DEMO_MODE) {
+									endDemoSession();
+									window.location.href = '/login';
+									return;
+								}
+
 								const { error } = await supabase.auth.signOut();
 								if (error) {
 									console.error(

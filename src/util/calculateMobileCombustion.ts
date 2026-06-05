@@ -1,6 +1,6 @@
 import { gasData, vehicles } from '@/constants';
 import { conversions } from './tables/conversions';
-import { Mobile_S1_EF } from '../../public/tables.json';
+import { Mobile_S1_EF } from './tables/tables.json';
 import type { ActivityType, MobileCombustionTableProps } from '@/types';
 import type { ComboboxItemGroup } from '@mantine/core';
 

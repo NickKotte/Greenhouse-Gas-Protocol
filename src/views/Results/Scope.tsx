@@ -3,7 +3,6 @@ import { formatTonnesColored } from '@/util';
 import {
 	Stack,
 	Title,
-	Text,
 	Flex,
 	type FlexProps,
 	Divider,

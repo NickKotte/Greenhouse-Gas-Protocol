@@ -1,10 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
 import supabase from '@/supabase/supabaseClient';
 import { $currUser } from '@/stores/user';
+import { DEMO_MODE, getDemoWorkbooks } from '@/demo/data';
 
 import { useStore } from '@nanostores/react';
 
 const getWorkbooks = async (userId?: string) => {
+	if (DEMO_MODE) return getDemoWorkbooks();
+
 	if (!userId) throw new Error('User ID is required');
 	const { data, error } = await supabase
 		.from('user_workbook')

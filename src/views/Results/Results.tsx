@@ -32,7 +32,7 @@ import 'jspdf-autotable';
 import autoTable, { applyPlugin } from 'jspdf-autotable';
 import { formatEmissionsPerArea } from '@/util/helpers';
 import { useGetFacilities } from '@/api/workbook/facilities.api';
-import logo from '../../../public/logo.png';
+import logo from '/logo.png?url';
 applyPlugin(jsPDF);
 
 interface EmissionResults {
@@ -105,7 +105,6 @@ const drawDetailIcon = (pdf: jsPDF, x: number, y: number) => {
 	pdf.rect(x + 2, y - 1, 8, 1, 'F');
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
 const Results = () => {
 	const { data: facilities } = useGetFacilities();
 	const [stationary, mobile, purchased] = useGetAllCombustionData();
@@ -677,11 +676,9 @@ const Results = () => {
 		}
 	};
 
-	const containerStyles = {
-		'@media (max-width: 1200px)': {
-			overflowX: 'auto',
-			maxWidth: '100vw',
-		},
+	const containerStyles: React.CSSProperties = {
+		overflowX: 'auto',
+		maxWidth: '100vw',
 	};
 
 	useEffect(() => {

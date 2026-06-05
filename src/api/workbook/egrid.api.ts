@@ -1,9 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import supabase from '@/supabase/supabaseClient';
 import type { Egrid } from '@/types';
+import { DEMO_MODE, getDemoEgridSubregion } from '@/demo/data';
 
 const getEGridSubregion = async (zipCode: string): Promise<Egrid | null> => {
 	if (!zipCode || zipCode.length < 5) return null;
+	if (DEMO_MODE) return getDemoEgridSubregion(zipCode);
 
 	const { data, error } = await supabase
 		.from('egrid')

@@ -2,12 +2,20 @@ import type { InventoryYear, MutationOperation } from '@/types';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import supabase from '@/supabase/supabaseClient';
 import { $appState } from '@/stores/app';
+import {
+	DEMO_MODE,
+	DEMO_WORKBOOK_ID,
+	getDemoInventoryYears,
+	updateDemoInventoryYear,
+} from '@/demo/data';
 
 import { useStore } from '@nanostores/react';
 
 const getInventoryYears = async (
 	workbookId: string,
 ): Promise<InventoryYear[]> => {
+	if (DEMO_MODE) return getDemoInventoryYears();
+
 	if (!workbookId) throw new Error('Workbook ID is required');
 	const { data, error } = await supabase
 		.from('inventory_years')
@@ -20,7 +28,9 @@ const getInventoryYears = async (
 
 export const useGetInventoryYears = () => {
 	const { workbook } = useStore($appState);
-	const workbookId = workbook?.workbook_id;
+	const workbookId = DEMO_MODE
+		? workbook?.workbook_id || DEMO_WORKBOOK_ID
+		: workbook?.workbook_id;
 	return useQuery<InventoryYear[], Error>({
 		queryKey: ['inventoryYears', workbookId],
 		queryFn: () => getInventoryYears(workbookId),
@@ -40,6 +50,10 @@ const updateInventoryYear = async ({
 	inventoryYear: Partial<InventoryYear>;
 	appId: string | undefined;
 }): Promise<InventoryYear | null> => {
+	if (DEMO_MODE) {
+		return updateDemoInventoryYear({ operation, inventoryYear, appId });
+	}
+
 	let req;
 	switch (operation) {
 		case 'add':

@@ -4,24 +4,26 @@ import { useNavigate } from 'react-router-dom';
 import { $currUser } from '@/stores/user';
 import { useStore } from '@nanostores/react';
 import { useEffect } from 'react';
+import { DEMO_MODE, DEMO_WORKBOOK_ID } from '@/demo/data';
 
 export default function HeroImageRight() {
 	const navigate = useNavigate();
 	const user = useStore($currUser);
-	const ownedWorkbookId = user?.app_metadata?.owned_workbook_id;
+	const ownedWorkbookId = DEMO_MODE
+		? DEMO_WORKBOOK_ID
+		: user?.app_metadata?.owned_workbook_id;
 	const handleNavigate = () => {
-		console.log(ownedWorkbookId);
-		if (ownedWorkbookId) {
+		if (user && ownedWorkbookId) {
 			navigate(`/${ownedWorkbookId}`);
 		} else {
 			navigate('/login');
 		}
 	};
 	useEffect(() => {
-		if (user?.app_metadata?.owned_workbook_id) {
-			navigate(`/${user.app_metadata.owned_workbook_id}`);
+		if (user && ownedWorkbookId) {
+			navigate(`/${ownedWorkbookId}`);
 		}
-	}, [user, navigate]);
+	}, [ownedWorkbookId, user, navigate]);
 	return (
 		<div className={classes.root}>
 			<Container size="lg">

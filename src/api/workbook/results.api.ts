@@ -10,11 +10,19 @@ import { $appState } from '@/stores/app';
 import { getMobileCombustion } from './mobileCombustion.api';
 import { getPurchasedElectricity } from './purchasedElectricity.api';
 import { getStationaryCombustion } from './stationaryCombution.api';
+import {
+	DEMO_MODE,
+	DEMO_WORKBOOK_ID,
+	getDemoResults,
+	updateDemoResults,
+} from '@/demo/data';
 
 import { useStore } from '@nanostores/react';
 import { useMemo } from 'react';
 
 const getResults = async (workbookId: string): Promise<Results[]> => {
+	if (DEMO_MODE) return getDemoResults();
+
 	if (!workbookId) throw new Error('Workbook ID is required');
 	const { data, error } = await supabase
 		.from('results')
@@ -26,7 +34,9 @@ const getResults = async (workbookId: string): Promise<Results[]> => {
 
 export const useGetResults = () => {
 	const { workbook } = useStore($appState);
-	const workbookId = workbook?.workbook_id;
+	const workbookId = DEMO_MODE
+		? workbook?.workbook_id || DEMO_WORKBOOK_ID
+		: workbook?.workbook_id;
 	return useQuery<Results[], Error>({
 		queryKey: ['results', workbookId],
 		queryFn: () => getResults(workbookId),
@@ -46,9 +56,13 @@ export const updateResults = async ({
 	results: Partial<Results>;
 	appId: string | undefined;
 }): Promise<Partial<Results> | null> => {
+	if (DEMO_MODE) {
+		return updateDemoResults({ operation, results, appId });
+	}
+
 	let req;
 	switch (operation) {
-		case 'add':
+		case 'add': {
 			if (!appId) throw new Error('App ID is required');
 			const requiredFields = ['bio', 'ch4', 'co2', 'co2e', 'ef', 'n2o'];
 			if (
@@ -71,6 +85,7 @@ export const updateResults = async ({
 				.select('id')
 				.single();
 			break;
+		}
 		case 'update':
 			if (!results.id) throw new Error('ID is required');
 			req = supabase
@@ -130,7 +145,9 @@ export const useUpdateResults = ({
 
 export const useGetAllCombustionData = () => {
 	const { workbook: workbookData } = useStore($appState);
-	const workbookId = workbookData?.workbook_id;
+	const workbookId = DEMO_MODE
+		? workbookData?.workbook_id || DEMO_WORKBOOK_ID
+		: workbookData?.workbook_id;
 
 	return useQueries({
 		queries: [

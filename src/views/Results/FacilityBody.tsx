@@ -1,12 +1,10 @@
 import type { FacilityEmissions } from '@/types';
-import { Flex, Paper, Space, Stack, Text, Title } from '@mantine/core';
+import { Flex, Paper, Space, Title } from '@mantine/core';
 import StatBar from './StatBar';
 import Scope from './Scope';
-import { useGetInventoryYears } from '@/api/workbook/inventoryYear.api';
 
 const FacilityBody = ({ facility }: { facility: FacilityEmissions }) => {
 	const years = facility.yearly_emissions;
-	const { data: yearsData } = useGetInventoryYears;
 
 	return years.map((year) => (
 		<Paper p="lg" flex="1" miw={400} key={year.year}>

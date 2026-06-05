@@ -33,6 +33,7 @@ import { $currUser } from '@/stores/user';
 import NaicsSelector from '@/components/NaicsSelector';
 import { useUpdateWorkbookName } from '@/api/workbook';
 import ResetPasswordModal from '@/components/modals/ResetPassword';
+import { DEMO_MODE, DEMO_WORKBOOK_ID } from '@/demo/data';
 
 export default function Authentication() {
 	const [activeSegment, setActiveSegment] = useState('login');
@@ -66,13 +67,17 @@ export default function Authentication() {
 		},
 		validate: {
 			email: (value) =>
-				/^\S+@\S+$/.test(value) ? null : 'Invalid email',
+				DEMO_MODE || /^\S+@\S+$/.test(value)
+					? null
+					: 'Invalid email',
 			password: (value) =>
-				value.length < 6
-					? 'Password must be at least 6 characters long'
-					: null,
+				DEMO_MODE || value.length >= 6
+					? null
+					: 'Password must be at least 6 characters long',
 			confirmPassword: (value, values) =>
-				activeSegment === 'register' && value !== values.password
+				!DEMO_MODE &&
+				activeSegment === 'register' &&
+				value !== values.password
 					? 'Passwords do not match'
 					: null,
 		},
@@ -97,7 +102,7 @@ export default function Authentication() {
 		reset: resetLogin,
 	} = useLoginUser({
 		onSuccess: () => {
-			navigate('/');
+			navigate(DEMO_MODE ? `/${DEMO_WORKBOOK_ID}` : '/');
 		},
 	});
 	const {
@@ -107,6 +112,10 @@ export default function Authentication() {
 		reset: resetRegister,
 	} = useRegisterUser({
 		onSuccess: (data) => {
+			if (DEMO_MODE) {
+				navigate(`/${DEMO_WORKBOOK_ID}`);
+				return;
+			}
 			const workbookId = data?.user?.app_metadata?.owned_workbook_id;
 			const form = registerForm.values;
 			updateWorkbook({
@@ -133,7 +142,7 @@ export default function Authentication() {
 
 	useEffect(() => {
 		if (user) {
-			navigate('/');
+			navigate(DEMO_MODE ? `/${DEMO_WORKBOOK_ID}` : '/');
 		}
 		resetLogin();
 		resetRegister();
@@ -213,8 +222,9 @@ export default function Authentication() {
 							style={{ transition: 'height 0.3s' }}
 						>
 							<Text pb="lg">
-								To get started, please create an account or
-								login.
+								{DEMO_MODE
+									? 'Portfolio demo mode is enabled. No credentials are required.'
+									: 'To get started, please create an account or login.'}
 							</Text>
 							<SegmentedControl
 								fullWidth
@@ -243,6 +253,7 @@ export default function Authentication() {
 								]}
 							/>
 							<form
+								noValidate={DEMO_MODE}
 								onSubmit={
 									isLogin
 										? loginForm.onSubmit(onSubmit)
@@ -254,7 +265,7 @@ export default function Authentication() {
 									placeholder="Email"
 									type="email"
 									radius="lg"
-									required
+									required={!DEMO_MODE}
 									leftSection={<IconMail />}
 									{...(isLogin
 										? loginForm.getInputProps('email')
@@ -262,7 +273,7 @@ export default function Authentication() {
 								/>
 								<PasswordInput
 									placeholder="Password"
-									required
+									required={!DEMO_MODE}
 									type="password"
 									radius="lg"
 									mt="md"
@@ -303,7 +314,7 @@ export default function Authentication() {
 											<PasswordInput
 												placeholder="Confirm Password"
 												type="password"
-												required
+												required={!DEMO_MODE}
 												mt="md"
 												radius="lg"
 												leftSection={<IconLock />}
@@ -313,7 +324,7 @@ export default function Authentication() {
 											/>
 											<TextInput
 												placeholder="Company Name"
-												required
+												required={!DEMO_MODE}
 												mt="md"
 												radius="lg"
 												{...registerForm.getInputProps(
@@ -361,9 +372,11 @@ export default function Authentication() {
 									variant="gradient"
 									loaderProps={{ type: 'dots' }}
 								>
-									{activeSegment === 'login'
-										? 'Login'
-										: 'Register'}
+									{DEMO_MODE
+										? 'Enter Demo'
+										: activeSegment === 'login'
+											? 'Login'
+											: 'Register'}
 								</Button>
 							</form>
 							{error && (

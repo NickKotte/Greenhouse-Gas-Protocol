@@ -2,10 +2,18 @@ import type { Facility, MutationOperation } from '@/types';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import supabase from '@/supabase/supabaseClient';
 import { $appState } from '@/stores/app';
+import {
+	DEMO_MODE,
+	DEMO_WORKBOOK_ID,
+	getDemoFacilities,
+	updateDemoFacility,
+} from '@/demo/data';
 
 import { useStore } from '@nanostores/react';
 
 const getFacilities = async (workbookId: string): Promise<Facility[]> => {
+	if (DEMO_MODE) return getDemoFacilities();
+
 	if (!workbookId) throw new Error('Workbook ID is required');
 	const { data, error } = await supabase
 		.from('facilities')
@@ -18,7 +26,9 @@ const getFacilities = async (workbookId: string): Promise<Facility[]> => {
 
 export const useGetFacilities = () => {
 	const { workbook } = useStore($appState);
-	const workbookId = workbook?.workbook_id;
+	const workbookId = DEMO_MODE
+		? workbook?.workbook_id || DEMO_WORKBOOK_ID
+		: workbook?.workbook_id;
 	return useQuery<Facility[], Error>({
 		queryKey: ['facilities', workbookId],
 		queryFn: () => getFacilities(workbookId),
@@ -37,6 +47,10 @@ const updateFacility = async ({
 	facility: Partial<Facility>;
 	appId: string | undefined;
 }): Promise<Facility | null> => {
+	if (DEMO_MODE) {
+		return updateDemoFacility({ operation, facility, appId });
+	}
+
 	let req;
 	switch (operation) {
 		case 'add':

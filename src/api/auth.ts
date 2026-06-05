@@ -1,6 +1,8 @@
 import { useMutation } from '@tanstack/react-query';
 import supabase from '@/supabase/supabaseClient';
 import type { AuthResponse } from '@supabase/supabase-js';
+import { DEMO_MODE, demoUser } from '@/demo/data';
+import { startDemoSession } from '@/stores/user';
 
 const loginUser = async ({
 	email,
@@ -9,6 +11,14 @@ const loginUser = async ({
 	email: string;
 	password: string;
 }) => {
+	if (DEMO_MODE) {
+		startDemoSession();
+		return {
+			user: demoUser,
+			session: null,
+		};
+	}
+
 	const { data, error } = await supabase.auth.signInWithPassword({
 		email,
 		password,
@@ -40,6 +50,14 @@ const registerUser = async ({
 	email: string;
 	password: string;
 }) => {
+	if (DEMO_MODE) {
+		startDemoSession();
+		return {
+			user: demoUser,
+			session: null,
+		};
+	}
+
 	const { data, error } = await supabase.auth.signUp({ email, password });
 	if (error) {
 		throw new Error(error.message);
@@ -62,6 +80,8 @@ export const useRegisterUser = ({
 };
 
 const resetPassword = async ({ email }: { email: string }) => {
+	if (DEMO_MODE) return true;
+
 	const { error } = await supabase.auth.resetPasswordForEmail(email, {
 		redirectTo: `${window.location.origin}/reset-password`,
 	});

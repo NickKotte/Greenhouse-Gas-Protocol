@@ -1,4 +1,4 @@
-import { EF_Stationary_Combustion } from '../../public/tables.json';
+import { EF_Stationary_Combustion } from './tables/tables.json';
 import { conversions } from './tables/conversions';
 import { StationaryCombustionTableProps } from '@/types';
 import { gasData, fuelTypes_SC } from '@/constants';
